@@ -18,5 +18,6 @@ public class CollectionManager {
             System.out.println("You typed: " + inputString);
 
         } while (inputString.equals("Q")); // exits if input is Q
+
     }
 }
