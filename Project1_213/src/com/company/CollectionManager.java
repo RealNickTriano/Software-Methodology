@@ -13,6 +13,6 @@ public class CollectionManager {
             inputString = input.nextLine();
             System.out.println("You typed: " + inputString);
 
-        } while (inputString.equals("Q"));
+        } while (inputString.equals("Q")); // exits if input is Q
     }
 }
