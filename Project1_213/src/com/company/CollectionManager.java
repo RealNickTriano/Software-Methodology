@@ -1,3 +1,7 @@
+/**
+ * @author Nicholas Triano
+ * @author Antonio Ignarra
+ */
 package com.company;
 import  java.util.Scanner;
 
