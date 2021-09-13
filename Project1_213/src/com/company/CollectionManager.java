@@ -8,7 +8,8 @@ import java.util.StringTokenizer;
 
 public class CollectionManager {
 
-    private String command, albumName, artistName, genre, date;
+    public String command, albumName, artistName, genreString, date;
+    public Genre genre;
 
     public void run() {
         String inputString;
@@ -19,10 +20,22 @@ public class CollectionManager {
 
             inputString = input.nextLine();
             tokenize(inputString);
+            makeDate(date);
+            makeGenre(genreString);
             handleCommand(command);
 
         } while (inputString.equals("Q")); // exits if input is Q
 
+    }
+
+    private void makeGenre(String genreString) 
+    {
+        genre = Genre.valueOf(genreString);
+    }
+
+    private void makeDate(String date)
+    {
+        Date newDate = new Date(date);
     }
 
     // seperate input string into different strings
@@ -33,7 +46,7 @@ public class CollectionManager {
         command = st1.nextToken();
         albumName = st1.nextToken();
         artistName = st1.nextToken();
-        genre = st1.nextToken();
+        genreString = st1.nextToken();
         date = st1.nextToken();
         // System.out.println(command + " " + albumName + " " + artistName + " " + genre + " " + date);
 
