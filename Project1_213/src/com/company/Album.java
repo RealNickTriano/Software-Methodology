@@ -70,11 +70,15 @@ public class Album {
         String formattedString;
         if (isAvailable)
         {
-            formattedString = title + "::" + artist + "::" + genre + "::" + releaseDate + "::is available";
+            formattedString = title + "::" + artist + "::" + genre + "::" +
+                    releaseDate.getMonth() + "/"+ releaseDate.getDay() + "/" +
+                    releaseDate.getYear() + "::is available";
         }
         else
         {
-            formattedString = title + "::" + artist + "::" + genre + "::" + releaseDate + "::is not available";
+            formattedString = title + "::" + artist + "::" + genre + "::"
+                    + releaseDate.getMonth() + "/"+ releaseDate.getDay() + "/"
+                    + releaseDate.getYear() + "::is not available";
         }
 
         return formattedString;

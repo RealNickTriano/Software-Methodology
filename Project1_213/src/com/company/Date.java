@@ -29,6 +29,18 @@ public class Date implements Comparable<Date> {
         this.year = calendar.get(Calendar.YEAR);
     }
 
+    public int getDay() {
+        return day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
     public boolean isValid()
     {
         return true;
