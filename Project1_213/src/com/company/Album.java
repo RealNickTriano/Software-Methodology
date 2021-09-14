@@ -20,6 +20,16 @@ public class Album {
         this.isAvailable = true;
     }
 
+    // getter methods for private fields
+    public String getTitle()
+    {
+        return title;
+    }
+
+    public String getArtist()
+    {
+        return artist;
+    }
 
 
     // Compares two Albums and returns true if they are equal, false if not

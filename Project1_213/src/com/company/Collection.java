@@ -11,8 +11,15 @@ public class Collection {
 
     private int find(Album album) //find the album index, or return NOT_FOUND
     {
-        return 0;
+        int i;
+        for(i=0; i<numAlbums; i++){
+            if (albums[i].getTitle() == album.getTitle() && albums[i].getArtist() == album.getArtist()){
+                return i;
+            }
+        }
+        return Constants.NOT_FOUND;
     }
+
     private void grow() //increase the capacity of the array list by 4
     {
 
