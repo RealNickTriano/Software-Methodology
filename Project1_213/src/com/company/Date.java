@@ -45,6 +45,7 @@ public class Date implements Comparable<Date> {
     {
         Calendar calendar = Calendar.getInstance();
 
+
         if (year < 1980 || year > calendar.get(Calendar.YEAR))
         {
             return false;
@@ -58,15 +59,33 @@ public class Date implements Comparable<Date> {
         {
             return false;
         }
-        switch (month)
+
+        // April, June, September, and November have 30 days
+        if (month == 4 || month == 6 || month == 9 || month == 11)
         {
-            case 1:
-            case 2:
-            case 3:
-            case 5:
+            if (day != 30)
+                return false;
+
+            return true;
         }
+        // Feburary
+        else if(month == 2)
+        {
+            // Feburary leap year Algorithm
+            isLeapYear();
+
+        }
+        // All other months have 31 days
+        else if(day != 31)
+            return false;
+
 
         return true;
+    }
+
+    private void isLeapYear()
+    {
+
     }
 
     @Override
