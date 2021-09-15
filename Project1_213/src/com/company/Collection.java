@@ -22,7 +22,12 @@ public class Collection {
 
     private void grow() //increase the capacity of the array list by 4
     {
-
+        Album[] newAlbumArr = new Album[numAlbums + 4];
+        //copy over albums in the current collection to the collection w/ updated size
+        for(int i=0; i<numAlbums; i++ ){
+            newAlbumArr[i] = albums[i];
+        }
+        albums = newAlbumArr;
     }
     public boolean add(Album album)
     {
