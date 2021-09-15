@@ -46,7 +46,7 @@ public class Date implements Comparable<Date> {
         Calendar calendar = Calendar.getInstance();
 
 
-        if (year < 1980 || year > calendar.get(Calendar.YEAR))
+        if (year < Constants.THE_EIGHTYS || year > calendar.get(Calendar.YEAR))
         {
             return false;
         }
@@ -72,7 +72,15 @@ public class Date implements Comparable<Date> {
         else if(month == 2)
         {
             // Feburary leap year Algorithm
-            isLeapYear();
+            if(isLeapYear())
+            {
+                if(day != 29)
+                    return false;
+            }
+            else if(day !=28)
+                return false;
+
+            return true;
 
         }
         // All other months have 31 days
@@ -83,9 +91,21 @@ public class Date implements Comparable<Date> {
         return true;
     }
 
-    private void isLeapYear()
+    private boolean isLeapYear()
     {
-
+        if(year % Constants.QUADRENNIAL == 0)
+        {
+            if(year % Constants.CENTENNIAL == 0)
+            {
+                if(year % Constants.QUATERCENTENNIAL == 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return true;
+        }
+        return false;
     }
 
     @Override
