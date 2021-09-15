@@ -41,6 +41,11 @@ public class Date implements Comparable<Date> {
         return year;
     }
 
+    @Override
+    public String toString() {
+        return month + "/" + day + "/" + year;
+    }
+
     public boolean isValid()
     {
         Calendar calendar = Calendar.getInstance();
