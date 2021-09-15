@@ -61,34 +61,24 @@ public class Date implements Comparable<Date> {
         }
 
         // April, June, September, and November have 30 days
-        if (month == 4 || month == 6 || month == 9 || month == 11)
+        if (month == Constants.APRIL || month == Constants.JUNE
+                || month == Constants.SEPTEMBER || month == Constants.NOVEMBER)
         {
-            if (day != 30)
-                return false;
-
-            return true;
+            return Constants.THIRTY_DAYS == day;
         }
         // Feburary
-        else if(month == 2)
+        else if(month == Constants.FEBURARY)
         {
             // Feburary leap year Algorithm
             if(isLeapYear())
             {
-                if(day != 29)
-                    return false;
+                return day == Constants.TWENTY_NINE_DAYS;
             }
-            else if(day !=28)
-                return false;
-
-            return true;
+            else return day == Constants.TWENTY_EIGHT_DAYS;
 
         }
         // All other months have 31 days
-        else if(day != 31)
-            return false;
-
-
-        return true;
+        else return day == Constants.THIRTY_ONE_DAYS;
     }
 
     private boolean isLeapYear()
@@ -97,11 +87,7 @@ public class Date implements Comparable<Date> {
         {
             if(year % Constants.CENTENNIAL == 0)
             {
-                if(year % Constants.QUATERCENTENNIAL == 0)
-                {
-                    return true;
-                }
-                return false;
+                return year % Constants.QUATERCENTENNIAL == 0;
             }
             return true;
         }

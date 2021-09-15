@@ -74,6 +74,8 @@ public class CollectionManager {
                 // display list of albums in collection sort by release dates
             case "PG":
                 // display list of albums in collection sort by the genre
+            default:
+                System.out.println("Invalid Command!");
 
         }
 
