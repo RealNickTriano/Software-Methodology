@@ -12,6 +12,7 @@ public class CollectionManager {
     private Genre genre;
     private Date newDate;
     private Album newAlbum;
+    public Collection collection = new Collection();
 
     public void run() {
         String inputString;
@@ -64,19 +65,25 @@ public class CollectionManager {
         {
             case "A":
                 // add an album to collection
-                //Collection.add()
+                collection.add(newAlbum);
             case "D":
                 // remove an album from collection
+                collection.remove(newAlbum);
             case "L":
                 // lend out an album
+                collection.lendingOut(newAlbum);
             case "R":
                 // return an album
+                collection.returnAlbum(newAlbum);
             case "P":
                 // display list of albums in collection no order
+                collection.print();
             case "PD":
                 // display list of albums in collection sort by release dates
+                collection.printByReleaseDate();
             case "PG":
                 // display list of albums in collection sort by the genre
+                collection.printByGenre();
             default:
                 System.out.println("Invalid Command!");
 
