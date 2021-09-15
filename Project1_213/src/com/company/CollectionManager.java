@@ -52,7 +52,6 @@ public class CollectionManager {
         artistName = st1.nextToken();
         genreString = st1.nextToken();
         date = st1.nextToken();
-        // System.out.println(command + " " + albumName + " " + artistName + " " + genre + " " + date);
 
     }
 

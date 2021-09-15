@@ -43,6 +43,29 @@ public class Date implements Comparable<Date> {
 
     public boolean isValid()
     {
+        Calendar calendar = Calendar.getInstance();
+
+        if (year < 1980 || year > calendar.get(Calendar.YEAR))
+        {
+            return false;
+        }
+
+        if( year == calendar.get(Calendar.YEAR) && month > calendar.get(Calendar.MONTH) )
+        {
+            return false;
+        }
+        else if( year == calendar.get(Calendar.YEAR) && month == calendar.get(Calendar.MONTH) && day > calendar.get(Calendar.DATE) )
+        {
+            return false;
+        }
+        switch (month)
+        {
+            case 1:
+            case 2:
+            case 3:
+            case 5:
+        }
+
         return true;
     }
 
