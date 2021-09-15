@@ -45,7 +45,7 @@ public class Date implements Comparable<Date> {
     {
         Calendar calendar = Calendar.getInstance();
 
-
+        // TODO: Change this method to use compareTo method
         if (year < Constants.THE_EIGHTYS || year > calendar.get(Calendar.YEAR))
         {
             return false;
@@ -96,6 +96,28 @@ public class Date implements Comparable<Date> {
 
     @Override
     public int compareTo(Date date) {
-        return 0;
+
+        // if current object is greater return 1
+        if (this.year > date.getYear())
+            return 1;
+        // if current object is less return -1
+        else if ( this.year < date.getYear())
+            return -1;
+        // if year is same but month is ahead, object is greater
+        else if (this.year == date.getYear() && this.month > date.getMonth())
+            return 1;
+        // if year is same but month is before, object is less
+        else if (this.year == date.getYear() && this.month < date.getMonth())
+            return -1;
+        // if month is equal but day is ahead, object is greater
+        else if (this.month == date.getMonth() && this.day > date.getDay())
+            return 1;
+        // if month is equal but day is before, object is less
+        else if (this.month == date.getMonth() && this.day > date.getDay())
+            return -1;
+        // if they are equal return 0
+        else
+            return 0;
+
     }
 }
