@@ -11,6 +11,7 @@ public class CollectionManager {
     private String command, albumName, artistName, genreString, date;
     private Genre genre;
     private Date newDate;
+    private Album newAlbum;
 
     public void run() {
         String inputString;
@@ -23,7 +24,8 @@ public class CollectionManager {
             tokenize(inputString);
             makeDate(date);
             makeGenre(genreString);
-            makeAlbum(albumName, artistName, genre, newDate);
+            newAlbum = new Album(albumName, artistName, genre, newDate, true);
+            //System.out.println(newAlbum);
             handleCommand(command);
 
         } while (inputString.equals("Q")); // exits if input is Q
@@ -62,6 +64,7 @@ public class CollectionManager {
         {
             case "A":
                 // add an album to collection
+                //Collection.add()
             case "D":
                 // remove an album from collection
             case "L":
@@ -80,13 +83,4 @@ public class CollectionManager {
         }
 
     }
-
-    public Album makeAlbum(String albumName, String artistName, Genre genre, Date date)
-    {
-        Album newAlbum = new Album(albumName, artistName, genre, date, true);
-        System.out.println(newAlbum);
-
-        return newAlbum;
-    }
-
 }
