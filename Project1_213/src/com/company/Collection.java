@@ -5,6 +5,10 @@
 package com.company;
 
 public class Collection {
+    public Collection(Album[] albums, int numAlbums) {
+        this.albums = albums;
+        this.numAlbums = numAlbums;
+    }
 
     private Album[] albums;
     private int numAlbums; //number of albums currently in the collection
@@ -32,6 +36,10 @@ public class Collection {
 
     public boolean add(Album album)
     {
+        if(numAlbums == 0)
+        {
+            this.grow();
+        }
         if (numAlbums >= albums.length){
             this.grow();
         }

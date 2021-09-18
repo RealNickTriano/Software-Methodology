@@ -12,7 +12,8 @@ public class CollectionManager {
     private Genre genre;
     private Date newDate;
     private Album newAlbum;
-    private Collection collection = new Collection();
+    private Album[] albums;
+    private Collection collection = new Collection(albums, 0);
 
     public void run() {
         String inputString;
@@ -26,10 +27,9 @@ public class CollectionManager {
             makeDate(date);
             makeGenre(genreString);
             newAlbum = new Album(albumName, artistName, genre, newDate, true);
-            //System.out.println(newAlbum);
-            handleCommand(command);
+            handleCommand(command); // TODO: problem when command is a print and nothing to tokenize
 
-        } while (inputString.equals("Q")); // exits if input is Q
+        } while (!(inputString.equals("Q"))); // exits if input is Q
 
     }
 
@@ -51,6 +51,7 @@ public class CollectionManager {
         StringTokenizer st1 = new StringTokenizer(inputString, ",");
 
         command = st1.nextToken();
+        System.out.println(command);
         albumName = st1.nextToken();
         artistName = st1.nextToken();
         genreString = st1.nextToken();
@@ -63,29 +64,35 @@ public class CollectionManager {
     {
         switch (command)
         {
+            default:
+                System.out.println("Invalid Command!");
             case "A":
                 // add an album to collection
                 collection.add(newAlbum);
+                break;
             case "D":
                 // remove an album from collection
                 collection.remove(newAlbum);
+                break;
             case "L":
                 // lend out an album
                 collection.lendingOut(newAlbum);
+                break;
             case "R":
                 // return an album
                 collection.returnAlbum(newAlbum);
+                break;
             case "P":
                 // display list of albums in collection no order
                 collection.print();
+                break;
             case "PD":
                 // display list of albums in collection sort by release dates
                 collection.printByReleaseDate();
+                break;
             case "PG":
                 // display list of albums in collection sort by the genre
-                collection.printByGenre();
-            default:
-                System.out.println("Invalid Command!");
+                collection.printByGenre();break;
 
         }
 
