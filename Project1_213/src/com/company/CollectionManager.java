@@ -12,7 +12,7 @@ public class CollectionManager {
     private Genre genre;
     private Date newDate;
     private Album newAlbum;
-    public Collection collection = new Collection();
+    private Collection collection = new Collection();
 
     public void run() {
         String inputString;

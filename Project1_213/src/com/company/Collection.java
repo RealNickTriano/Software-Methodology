@@ -39,10 +39,22 @@ public class Collection {
     }
     public boolean lendingOut(Album album) //set to not available
     {
+        // if already not available return false for error
+        if(!(album.getIsAvailable()))
+        {
+            return false;
+        }
+        album.setIsAvailable(false);
         return true;
     }
     public boolean returnAlbum(Album album) //set to available
     {
+        // if already available return false for error
+        if(album.getIsAvailable())
+        {
+            return false;
+        }
+        album.setIsAvailable(true);
         return true;
     }
     public void print() //display the list without specifying the order

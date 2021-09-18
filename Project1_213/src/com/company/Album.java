@@ -20,6 +20,11 @@ public class Album {
         this.isAvailable = true;
     }
 
+    // setter methods for private fields
+    public void setIsAvailable(boolean isAvailable)
+    {
+        this.isAvailable = isAvailable;
+    }
     // getter methods for private fields
     public String getTitle()
     {
@@ -29,6 +34,11 @@ public class Album {
     public String getArtist()
     {
         return artist;
+    }
+
+    public boolean getIsAvailable()
+    {
+        return isAvailable;
     }
 
 
