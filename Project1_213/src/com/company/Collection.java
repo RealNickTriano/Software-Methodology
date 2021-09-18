@@ -59,14 +59,48 @@ public class Collection {
     }
     public void print() //display the list without specifying the order
     {
-
+        for(int i = 0; i < numAlbums; i++)
+        {
+            System.out.println(albums[i]);
+        }
     }
     public void printByReleaseDate()
     {
+        Album[] newAlbums = new Album[numAlbums];
+        Date date = new Date("12/25/2030");
+        Album lessAlbum = new Album("none", "none", Genre.unknown, date, true);
 
+        for(int j = 0; j < numAlbums; j++) {
+            for (int i = 0; i < numAlbums; i++) {
+                if (albums[i].getDate().compareTo(lessAlbum.getDate()) == -1) {
+                    lessAlbum = albums[i];
+                }
+            }
+            newAlbums[j] = lessAlbum;
+        }
+        for(int i = 0; i < numAlbums; i++)
+        {
+            System.out.println(newAlbums[i]);
+        }
     }
     public void printByGenre()
     {
+       /** Album[] newAlbums = new Album[numAlbums];
+        Date date = new Date("12/25/2030");
+        Album lessAlbum = new Album("none", "none", Genre.unknown, date, true);
 
+        for(int j = 0; j < numAlbums; j++) {
+            for (int i = 0; i < numAlbums; i++) {
+                if (Genre.valueOf(albums[i].getGenre().name()) < 1) {
+                    lessAlbum = albums[i];
+                }
+            }
+            newAlbums[j] = lessAlbum;
+        }
+        */
+        for(int i = 0; i < numAlbums; i++)
+        {
+            System.out.println(albums[i]);
+        }
     }
 }

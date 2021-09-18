@@ -41,6 +41,15 @@ public class Album {
         return isAvailable;
     }
 
+    public Date getDate()
+    {
+        return releaseDate;
+    }
+    public Genre getGenre()
+    {
+        return genre;
+    }
+
 
     // Compares two Albums and returns true if they are equal, false if not
     @Override
