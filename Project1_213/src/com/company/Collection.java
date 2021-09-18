@@ -29,8 +29,14 @@ public class Collection {
         }
         albums = newAlbumArr;
     }
+
     public boolean add(Album album)
     {
+        if (numAlbums >= albums.length){
+            this.grow();
+        }
+        albums[numAlbums] = album;
+        numAlbums++;
         return true;
     }
     public boolean remove(Album album)
