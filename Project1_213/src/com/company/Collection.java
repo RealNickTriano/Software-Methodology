@@ -13,6 +13,10 @@ public class Collection {
     private Album[] albums;
     private int numAlbums; //number of albums currently in the collection
 
+    public int getNumAlbums()
+    {
+        return numAlbums;
+    }
     private int find(Album album) //find the album index, or return NOT_FOUND
     {
         int i;

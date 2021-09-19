@@ -17,10 +17,10 @@ public class CollectionManager {
 
     public void run() {
         String inputString;
+        System.out.println("Collection Manager starts running.");
         do
         {
             Scanner input = new Scanner(System.in);
-            System.out.println("Enter Info");
 
             inputString = input.nextLine();
             tokenize(inputString);
@@ -35,27 +35,44 @@ public class CollectionManager {
 
     private void makeGenre(String genreString) 
     {
+        if(genreString == null)
+            return;
         genre = Genre.valueOf(genreString);
-        System.out.println("Made genre");
+        //System.out.println("Made genre");
     }
 
     private void makeDate(String date)
     {
+        if(date == null)
+            return;
         newDate = new Date(date);
-        System.out.println("Made Date");
+        //System.out.println("Made Date");
     }
 
     // seperate input string into different strings
     public void tokenize(String inputString)
     {
         StringTokenizer st1 = new StringTokenizer(inputString, ",");
+        int count = st1.countTokens();
 
-        command = st1.nextToken();
-        System.out.println(command);
-        albumName = st1.nextToken();
-        artistName = st1.nextToken();
-        genreString = st1.nextToken();
-        date = st1.nextToken();
+        if(count == 1)
+        {
+            command = st1.nextToken();
+        }
+        else if(count == 3)
+        {
+            command = st1.nextToken();
+            albumName = st1.nextToken();
+            artistName = st1.nextToken();
+        }
+        else
+        {
+            command = st1.nextToken();
+            albumName = st1.nextToken();
+            artistName = st1.nextToken();
+            genreString = st1.nextToken();
+            date = st1.nextToken();
+        }
 
     }
 
@@ -69,6 +86,7 @@ public class CollectionManager {
             case "A":
                 // add an album to collection
                 collection.add(newAlbum);
+                System.out.println(newAlbum + " >> added");
                 break;
             case "D":
                 // remove an album from collection
@@ -84,14 +102,23 @@ public class CollectionManager {
                 break;
             case "P":
                 // display list of albums in collection no order
+                if(collection.getNumAlbums() == 0){
+                    System.out.println("The collection is empty!");
+                    break; }
                 collection.print();
                 break;
             case "PD":
                 // display list of albums in collection sort by release dates
+                if(collection.getNumAlbums() == 0){
+                    System.out.println("The collection is empty!");
+                    break; }
                 collection.printByReleaseDate();
                 break;
             case "PG":
                 // display list of albums in collection sort by the genre
+                if(collection.getNumAlbums() == 0){
+                    System.out.println("The collection is empty!");
+                    break; }
                 collection.printByGenre();break;
 
         }
