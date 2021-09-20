@@ -11,6 +11,7 @@ public class CollectionManager {
     private String command, albumName, artistName, genreString, date;
     private Genre genre;
     private Date newDate;
+    private boolean validDate = true;
     private Album newAlbum;
     private Album[] albums;
     private Collection collection = new Collection(albums, 0);
@@ -25,10 +26,14 @@ public class CollectionManager {
             inputString = input.nextLine();
             tokenize(inputString);
             makeDate(date);
-            makeGenre(genreString);
-            newAlbum = new Album(albumName, artistName, genre, newDate, true);
-            handleCommand(command);
-
+            if(validDate)
+            {
+                makeGenre(genreString);
+                newAlbum = new Album(albumName, artistName, genre, newDate, true);
+                handleCommand(command);
+            }
+            else
+                validDate = true;
         } while (!(inputString.equals("Q"))); // exits if input is Q
 
     }
@@ -46,7 +51,11 @@ public class CollectionManager {
         if(date == null)
             return;
         newDate = new Date(date);
-        //System.out.println("Made Date");
+        if (!newDate.isValid())
+        {
+            System.out.println("Invalid Date!");
+            validDate = false;
+        }
     }
 
     // seperate input string into different strings

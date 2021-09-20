@@ -51,6 +51,8 @@ public class Date implements Comparable<Date> {
         Calendar calendar = Calendar.getInstance();
 
         // TODO: Change this method to use compareTo method
+        if(month > Constants.MONTHS_IN_YEAR)
+            return false;
         if (year < Constants.THE_EIGHTYS || year > calendar.get(Calendar.YEAR))
         {
             return false;
@@ -69,7 +71,7 @@ public class Date implements Comparable<Date> {
         if (month == Constants.APRIL || month == Constants.JUNE
                 || month == Constants.SEPTEMBER || month == Constants.NOVEMBER)
         {
-            return Constants.THIRTY_DAYS == day;
+            return day <= Constants.THIRTY_DAYS;
         }
         // Feburary
         else if(month == Constants.FEBURARY)
@@ -77,13 +79,13 @@ public class Date implements Comparable<Date> {
             // Feburary leap year Algorithm
             if(isLeapYear())
             {
-                return day == Constants.TWENTY_NINE_DAYS;
+                return day <= Constants.TWENTY_NINE_DAYS;
             }
-            else return day == Constants.TWENTY_EIGHT_DAYS;
+            else return day <= Constants.TWENTY_EIGHT_DAYS;
 
         }
         // All other months have 31 days
-        else return day == Constants.THIRTY_ONE_DAYS;
+        else return day <= Constants.THIRTY_ONE_DAYS;
     }
 
     private boolean isLeapYear()
