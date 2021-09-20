@@ -92,6 +92,7 @@ public class CollectionManager {
         {
             default:
                 System.out.println("Invalid Command!");
+                break;
             case "A":
                 // add an album to collection
                 collection.add(newAlbum);
