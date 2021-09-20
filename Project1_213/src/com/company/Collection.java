@@ -113,20 +113,20 @@ public class Collection {
     {
         Album[] newAlbums = new Album[numAlbums];
         Date date = new Date("12/25/2030");
-        Album lessAlbum = new Album("none", "none", Genre.unknown, date, true);
+        Collection col = new Collection(newAlbums, 0);
 
         for(int j = 0; j < numAlbums; j++) {
+            Album lessAlbum = new Album("none", "none", Genre.unknown, date, true);
             for (int i = 0; i < numAlbums; i++) {
                 if (albums[i].getDate().compareTo(lessAlbum.getDate()) == -1) {
-                    lessAlbum = albums[i];
+                    if(col.find(albums[i]) == Constants.NOT_FOUND)
+                        lessAlbum = albums[i];
                 }
             }
-            newAlbums[j] = lessAlbum;
+            col.add(lessAlbum);
         }
-        for(int i = 0; i < numAlbums; i++)
-        {
-            System.out.println(newAlbums[i]);
-        }
+
+        col.print();
     }
 
     public void printByGenre()

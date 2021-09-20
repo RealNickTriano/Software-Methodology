@@ -118,7 +118,7 @@ public class Date implements Comparable<Date> {
         else if (this.month == date.getMonth() && this.day > date.getDay())
             return 1;
         // if month is equal but day is before, object is less
-        else if (this.month == date.getMonth() && this.day > date.getDay())
+        else if (this.month == date.getMonth() && this.day < date.getDay())
             return -1;
         // if they are equal return 0
         else
