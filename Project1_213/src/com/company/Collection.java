@@ -131,47 +131,43 @@ public class Collection {
 
     public void printByGenre()
     {
-       /** Album[] newAlbums = new Album[numAlbums];
-        Date date = new Date("12/25/2030");
-        Album lessAlbum = new Album("none", "none", Genre.unknown, date, true);
-
-        for(int j = 0; j < numAlbums; j++) {
-            for (int i = 0; i < numAlbums; i++) {
-                if (Genre.valueOf(albums[i].getGenre().name()) < 1) {
-                    lessAlbum = albums[i];
-                }
-            }
-            newAlbums[j] = lessAlbum;
-        }
-
-        for(int i = 0; i < numAlbums; i++)
-        {
-            System.out.println(albums[i]);
-        }*/
-       for(int i=0; i<numAlbums; i++){
+        Album[] newAlbums = new Album[numAlbums];
+        int j=0;
+        // copy over albums into new albums by genre
+        for(int i=0; i<numAlbums; i++){
            if(albums[i].getGenre() == Genre.classical){
-                System.out.println(albums[i]);
+                newAlbums[j] = albums[i];
+                j++;
            }
        }
         for(int i=0; i<numAlbums; i++){
             if(albums[i].getGenre() == Genre.country){
-                System.out.println(albums[i]);
+                newAlbums[j] = albums[i];
+                j++;
             }
         }
         for(int i=0; i<numAlbums; i++){
             if(albums[i].getGenre() == Genre.jazz){
-                System.out.println(albums[i]);
+                newAlbums[j] = albums[i];
+                j++;
             }
         }
         for(int i=0; i<numAlbums; i++){
             if(albums[i].getGenre() == Genre.pop){
-                System.out.println(albums[i]);
+                newAlbums[j] = albums[i];
+                j++;
             }
         }
         for(int i=0; i<numAlbums; i++){
             if(albums[i].getGenre() == Genre.unknown){
-                System.out.println(albums[i]);
+                newAlbums[j] = albums[i];
+                j++;
             }
+        }
+        // copy over reordered list and print
+        albums = newAlbums;
+        for(int i=0; i<numAlbums; i++){
+            System.out.println(albums[i]);
         }
     }
 }
