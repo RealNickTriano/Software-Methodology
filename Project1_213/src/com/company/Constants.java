@@ -21,5 +21,6 @@ public class Constants {
     public static final int THIRTY_ONE_DAYS = 31;
     public static final int TWENTY_NINE_DAYS = 29;
     public static final int TWENTY_EIGHT_DAYS = 28;
+    public static final int MONTHS_IN_YEAR = 12;
 
 }
