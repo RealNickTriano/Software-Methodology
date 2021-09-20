@@ -143,10 +143,35 @@ public class Collection {
             }
             newAlbums[j] = lessAlbum;
         }
-        */
+
         for(int i = 0; i < numAlbums; i++)
         {
             System.out.println(albums[i]);
+        }*/
+       for(int i=0; i<numAlbums; i++){
+           if(albums[i].getGenre() == Genre.classical){
+                System.out.println(albums[i]);
+           }
+       }
+        for(int i=0; i<numAlbums; i++){
+            if(albums[i].getGenre() == Genre.country){
+                System.out.println(albums[i]);
+            }
+        }
+        for(int i=0; i<numAlbums; i++){
+            if(albums[i].getGenre() == Genre.jazz){
+                System.out.println(albums[i]);
+            }
+        }
+        for(int i=0; i<numAlbums; i++){
+            if(albums[i].getGenre() == Genre.pop){
+                System.out.println(albums[i]);
+            }
+        }
+        for(int i=0; i<numAlbums; i++){
+            if(albums[i].getGenre() == Genre.unknown){
+                System.out.println(albums[i]);
+            }
         }
     }
 }
