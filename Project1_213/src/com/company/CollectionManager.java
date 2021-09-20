@@ -27,7 +27,7 @@ public class CollectionManager {
             makeDate(date);
             makeGenre(genreString);
             newAlbum = new Album(albumName, artistName, genre, newDate, true);
-            handleCommand(command); // TODO: problem when command is a print and nothing to tokenize
+            handleCommand(command);
 
         } while (!(inputString.equals("Q"))); // exits if input is Q
 
