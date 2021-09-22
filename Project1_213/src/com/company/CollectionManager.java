@@ -88,6 +88,7 @@ public class CollectionManager {
     //  determine what action to take with the given command
     public void handleCommand(String command)
     {
+        boolean error;
         switch (command)
         {
             default:
@@ -95,41 +96,72 @@ public class CollectionManager {
                 break;
             case "A":
                 // add an album to collection
-                collection.add(newAlbum);
-                System.out.println(newAlbum + " >> added");
+                error = collection.add(newAlbum);
+                if(!error)
+                    System.out.println(newAlbum + " >> is already in the collection.");
+                else
+                    System.out.println(newAlbum + " >> added.");
                 break;
             case "D":
                 // remove an album from collection
-                collection.remove(newAlbum);
+                error = collection.remove(newAlbum);
+                if(!error)
+                    System.out.println(newAlbum.getTitle() + newAlbum.getArtist()
+                            + ">> is not in the collection");
+                else
+                    System.out.println(newAlbum.getTitle() + newAlbum.getArtist()
+                            + ">> deleted.");
                 break;
             case "L":
                 // lend out an album
-                collection.lendingOut(newAlbum);
+                error = collection.lendingOut(newAlbum);
+                if(!error)
+                    System.out.println(newAlbum.getTitle() + newAlbum.getArtist()
+                            + ">> is not available");
+                else
+                    System.out.println(newAlbum.getTitle() + newAlbum.getArtist()
+                                    + ">> lending out and set to not available");
                 break;
             case "R":
                 // return an album
-                collection.returnAlbum(newAlbum);
+                error = collection.returnAlbum(newAlbum);
+                if(!error)
+                    System.out.println(newAlbum.getTitle() + newAlbum.getArtist()
+                            + ">> return cannot be completed.");
+                else
+                    System.out.println(newAlbum.getTitle() + newAlbum.getArtist()
+                        + ">> returning and set to available.");
                 break;
             case "P":
                 // display list of albums in collection no order
                 if(collection.getNumAlbums() == 0){
                     System.out.println("The collection is empty!");
                     break; }
+                else
+                    System.out.println("*List of albums in the collection.");
                 collection.print();
+                System.out.println("*End of list");
                 break;
             case "PD":
                 // display list of albums in collection sort by release dates
                 if(collection.getNumAlbums() == 0){
                     System.out.println("The collection is empty!");
                     break; }
+                else
+                    System.out.println("*Album collection by the release dates.");
                 collection.printByReleaseDate();
+                System.out.println("*End of list");
                 break;
             case "PG":
                 // display list of albums in collection sort by the genre
                 if(collection.getNumAlbums() == 0){
                     System.out.println("The collection is empty!");
                     break; }
-                collection.printByGenre();break;
+                else
+                    System.out.println("*Album collection by genre.");
+                collection.printByGenre();
+                System.out.println("*End of list");
+                break;
 
         }
 

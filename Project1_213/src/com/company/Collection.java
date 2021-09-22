@@ -44,6 +44,8 @@ public class Collection {
 
     public boolean add(Album album)
     {
+        if(find(album) != Constants.NOT_FOUND)
+            return false;
         if (numAlbums == 0) {
             this.grow();
         }
