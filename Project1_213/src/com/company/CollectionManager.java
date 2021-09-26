@@ -57,7 +57,7 @@ public class CollectionManager {
     }
 
     // seperate input string into different strings
-    public void tokenize(String inputString) {
+    private void tokenize(String inputString) {
         StringTokenizer st1 = new StringTokenizer(inputString, ",");
         int count = st1.countTokens();
 
@@ -78,7 +78,7 @@ public class CollectionManager {
     }
 
     //  determine what action to take with the given command
-    public void handleCommand(String command) {
+    private void handleCommand(String command) {
         boolean error;
         switch (command) {
             default:
@@ -127,7 +127,7 @@ public class CollectionManager {
 
     }
 
-    public void printCommand(String command) {
+    private void printCommand(String command) {
         switch (command) {
             default:
                 System.out.println("Invalid Command!");
