@@ -68,7 +68,7 @@ public class Collection {
         // remove album
         else{
             for(; i<numAlbums; i++){
-                // if collection is at full capacity
+                // if at last space in current capacity
                 if (i == albums.length - 1){
                     Date date = new Date("12/25/2030");
                     albums[i] = new Album("none", "none", Genre.unknown, date, true);
@@ -133,43 +133,53 @@ public class Collection {
 
     public void printByGenre()
     {
-        Album[] newAlbums = new Album[numAlbums];
-        int j=0;
-        // copy over albums into new albums by genre
-        for(int i=0; i<numAlbums; i++){
-           if(albums[i].getGenre() == Genre.classical){
-                newAlbums[j] = albums[i];
-                j++;
-           }
-       }
-        for(int i=0; i<numAlbums; i++){
-            if(albums[i].getGenre() == Genre.country){
-                newAlbums[j] = albums[i];
-                j++;
-            }
-        }
-        for(int i=0; i<numAlbums; i++){
-            if(albums[i].getGenre() == Genre.jazz){
-                newAlbums[j] = albums[i];
-                j++;
-            }
-        }
-        for(int i=0; i<numAlbums; i++){
-            if(albums[i].getGenre() == Genre.pop){
-                newAlbums[j] = albums[i];
-                j++;
-            }
-        }
-        for(int i=0; i<numAlbums; i++){
-            if(albums[i].getGenre() == Genre.unknown){
-                newAlbums[j] = albums[i];
-                j++;
-            }
-        }
-        // copy over reordered list and print
-        albums = newAlbums;
-        for(int i=0; i<numAlbums; i++){
+        mergesort(albums, numAlbums);
+        for(int i=0; i < numAlbums; i++){
             System.out.println(albums[i]);
         }
     }
+
+    private void mergesort(Album[] arr, int len)
+    {
+        if (len < 2){return;}
+
+        int m = len / 2;
+        Album[] left = new Album[m];
+        Album[] right = new Album[len - m];
+
+        int k = 0;
+        for(int i = 0; i < len; i++){
+           if(i < m){
+               left[i] = arr[i];
+           }
+           else{
+               right[k] = arr[i];
+               k++;
+           }
+        }
+        mergesort(left, m);
+        mergesort(right, len-m);
+        merge(left, right, arr, m, len-m);
+    }
+
+    private void merge(Album[] left, Album[] right, Album[] arr, int leftSize, int rightSize)
+    {
+        int i=0, l=0, r=0;
+        while(l < leftSize && r < rightSize){
+            if(left[l].getGenre().compareTo(right[r].getGenre()) == -1){
+                arr[i++] = left[l++];
+            }
+            else{
+                arr[i++] = right[r++];
+            }
+        }
+        while(l < leftSize){
+            arr[i++] = left[l++];
+        }
+        while(r < rightSize){
+            arr[i++] = right[r++];
+        }
+        albums = arr;
+    }
+
 }
