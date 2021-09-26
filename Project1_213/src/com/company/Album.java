@@ -1,6 +1,8 @@
 /**
- * @author Nicholas Triano
- * @author Antonio Ignarra
+ * Used to create Albums with specific names to be put into the Collection class.
+ * Create Album with title, artist, genre, releaseDate, availability (True by default)
+ * Equals and toString methods are overwritten and getters and setters in place
+ * @author Nicholas Triano, Antonio Ignarra
  */
 package com.company;
 

@@ -1,6 +1,8 @@
 /**
- * @author Nicholas Triano
- * @author Antonio Ignarra
+ * Makes a Date object from a string or today's date if given no arguments.
+ * Various getters for retrieving data, toString and compareTo method is overwritten.
+ * Includes isValid() method for date validation and isLeapYEar() helper method to assist with that.
+ * @author Nicholas Triano, Antonio Ignarra
  */
 package com.company;
 

@@ -1,6 +1,8 @@
 /**
- * @author Nicholas Triano
- * @author Antonio Ignarra
+ * The collection where Album objects are added into, methods here operate on the collection.
+ * Can find, add, remove, lendOut, and return Albums in the collection.
+ * Can grow and print the collection to the user based on their sorted preference.
+ * @author Nicholas Triano, Antonio Ignarra
  */
 package com.company;
 

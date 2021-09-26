@@ -1,6 +1,10 @@
 /**
- * @author Nicholas Triano
- * @author Antonio Ignarra
+ * Handles user input/output to provide fluid interaction between user and program.
+ * Provides feedback on user input and interacts with other classes to perform user requested actions.
+ * Tokenizes user input to process the information, then makes a decision based on the tokens.
+ * Various helper methods included.
+ *
+ * @author Nicholas Triano, Antonio Ignarra
  */
 package com.company;
 import  java.util.Scanner;

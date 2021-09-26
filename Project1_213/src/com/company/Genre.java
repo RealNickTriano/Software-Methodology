@@ -1,6 +1,6 @@
 /**
- * @author Nicholas Triano
- * @author Antonio Ignarra
+ * enum class to hold genres for ease of use and comparability
+ * @author Nicholas Triano, Antonio Ignarra
  */
 package com.company;
 
