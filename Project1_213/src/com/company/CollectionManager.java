@@ -21,6 +21,12 @@ public class CollectionManager {
     private Album[] albums;
     private Collection collection = new Collection(albums, 0);
 
+    /**
+     * The main method in this class, calls helper methods to handle user input/output.
+     * Uses Scanner imported class to take user input adn then calls helper method to tokenize
+     * Will check for valid date before checking command or making an album
+     * Exits when key input "Q" is entered.
+     */
     public void run() {
         String inputString;
         System.out.println("Collection Manager starts running.");
@@ -40,13 +46,20 @@ public class CollectionManager {
 
     }
 
+    /**
+     * Creates a genre enum from the string
+     * @param genreString String input by user
+     */
     private void makeGenre(String genreString) {
         if (genreString == null)
             return;
         genre = Genre.valueOf(genreString);
-        //System.out.println("Made genre");
     }
 
+    /**
+     * Creates date object from string
+     * @param date String input by user
+     */
     private void makeDate(String date) {
         if (date == null)
             return;
@@ -57,7 +70,10 @@ public class CollectionManager {
         }
     }
 
-    // seperate input string into different strings
+    /**
+     * Separate input string into different strings
+     * @param inputString The whole line of input from user
+     */
     private void tokenize(String inputString) {
         StringTokenizer st1 = new StringTokenizer(inputString, ",");
         int count = st1.countTokens();
@@ -78,12 +94,20 @@ public class CollectionManager {
 
     }
 
-    //  determine what action to take with the given command
+    /**
+     * Determine what action to take with the given command, Checks printCommand method if nothing matches
+     * "A" adds an album to the Collection
+     * "D" deletes an album to the Collection
+     * "L" lend an album out to a friend
+     * "R" returns an album to a friend
+     * @param command String entered by user
+     */
     private void handleCommand(String command) {
         boolean error;
         switch (command) {
             default:
                 printCommand(command);
+                break;
             case "A":
                 // add an album to collection
                 error = collection.add(newAlbum);
@@ -100,7 +124,7 @@ public class CollectionManager {
                             + ">> is not in the collection");
                 else
                     System.out.println(newAlbum.getTitle() + newAlbum.getArtist()
-                            + ">> deleted.");
+                            + " >> deleted.");
                 break;
             case "L":
                 // lend out an album
@@ -122,12 +146,16 @@ public class CollectionManager {
                     System.out.println(newAlbum.getTitle() + newAlbum.getArtist()
                             + ">> returning and set to available.");
                 break;
-
-
         }
-
     }
 
+    /**
+     * Determines the order to print Collection from the given command, "Invalid command" is output if nothing matches
+     * "P" prints album in current order
+     * "PD" prints album in order based on date
+     * "PG" prints album in order based on genre
+     * @param command String entered by user
+     */
     private void printCommand(String command) {
         switch (command) {
             default:
