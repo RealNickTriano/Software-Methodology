@@ -7,7 +7,8 @@
  * @author Nicholas Triano, Antonio Ignarra
  */
 package com.company;
-import  java.util.Scanner;
+
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class CollectionManager {

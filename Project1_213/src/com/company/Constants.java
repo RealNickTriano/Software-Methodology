@@ -1,7 +1,7 @@
 /**
  * Holds all Constants used in the project
- * @author Nicholas Triano, Antonio Ignarra
  *
+ * @author Nicholas Triano, Antonio Ignarra
  */
 package com.company;
 

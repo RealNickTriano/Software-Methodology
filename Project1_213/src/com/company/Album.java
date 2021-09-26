@@ -2,6 +2,7 @@
  * Used to create Albums with specific names to be put into the Collection class.
  * Create Album with title, artist, genre, releaseDate, availability (True by default)
  * Equals and toString methods are overwritten and getters and setters in place
+ *
  * @author Nicholas Triano, Antonio Ignarra
  */
 package com.company;
@@ -34,8 +35,7 @@ public class Album {
      * Allows other classes to set the availability
      * @param isAvailable If the albums is available or not
      */
-    public void setIsAvailable(boolean isAvailable)
-    {
+    public void setIsAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
 
@@ -43,8 +43,7 @@ public class Album {
      * Allows other classes to retrieve the Title
      * @return title of the Album
      */
-    public String getTitle()
-    {
+    public String getTitle() {
         return title;
     }
 
@@ -52,8 +51,7 @@ public class Album {
      * Allows other classes to retrieve the Artist
      * @return artist of the album
      */
-    public String getArtist()
-    {
+    public String getArtist() {
         return artist;
     }
 
@@ -61,8 +59,7 @@ public class Album {
      * Allows other classes to retrieve the availability
      * @return true if album is available false if not
      */
-    public boolean getIsAvailable()
-    {
+    public boolean getIsAvailable() {
         return isAvailable;
     }
 
@@ -70,8 +67,7 @@ public class Album {
      * Allows other classes to retrieve the release date
      * @return release date of the album
      */
-    public Date getDate()
-    {
+    public Date getDate() {
         return releaseDate;
     }
 
@@ -79,8 +75,7 @@ public class Album {
      * Allows other classes to retrieve the genre
      * @return genre of the album
      */
-    public Genre getGenre()
-    {
+    public Genre getGenre() {
         return genre;
     }
 
@@ -90,17 +85,14 @@ public class Album {
      * @return true if equal, false if NOT equal
      */
     @Override
-    public boolean equals(Object obj)
-    {
+    public boolean equals(Object obj) {
         // If object is being compared to itself return true
-        if (obj == this)
-        {
+        if (obj == this) {
             return true;
         }
 
         //If object is not an instance of Album return false
-        if(!(obj instanceof Album))
-        {
+        if (!(obj instanceof Album)) {
             return false;
         }
 
@@ -108,12 +100,9 @@ public class Album {
         Album newAlbum = (Album) obj;
 
         // Compare title and artist, return true if both are equal, false of not
-        if (title.equalsIgnoreCase(newAlbum.title) && artist.equalsIgnoreCase(newAlbum.artist) )
-        {
+        if (title.equalsIgnoreCase(newAlbum.title) && artist.equalsIgnoreCase(newAlbum.artist)) {
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
 
@@ -124,16 +113,12 @@ public class Album {
      * @return formattedString the Album class in String format
      */
     @Override
-    public String toString()
-    {
+    public String toString() {
         String formattedString;
-        if (isAvailable)
-        {
+        if (isAvailable) {
             formattedString = title + "::" + artist + "::" + genre + "::"
-                                + releaseDate + "::is available";
-        }
-        else
-        {
+                    + releaseDate + "::is available";
+        } else {
             formattedString = title + "::" + artist + "::" + genre + "::"
                     + releaseDate + "::is not available";
         }

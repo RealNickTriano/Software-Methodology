@@ -1,7 +1,7 @@
 /**
  * Calls Collection Manager to run
+ *
  * @author Nicholas Triano, Antonio Ignarra
- * @author
  */
 package com.company;
 
