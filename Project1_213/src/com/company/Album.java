@@ -14,6 +14,14 @@ public class Album {
     private Date releaseDate;
     private boolean isAvailable;
 
+    /**
+     * Constructor for Album class creates a new Album object with given parameters
+     * @param title The title of the Album
+     * @param artist The artist of the Album
+     * @param genre The gente of the Album
+     * @param releaseDate When the Album released
+     * @param isAvailable If the albums is available or not
+     */
     public Album(String title, String artist, Genre genre, Date releaseDate, boolean isAvailable) {
         this.title = title;
         this.artist = artist;
@@ -22,38 +30,65 @@ public class Album {
         this.isAvailable = true;
     }
 
-    // setter methods for private fields
+    /**
+     * Allows other classes to set the availability
+     * @param isAvailable If the albums is available or not
+     */
     public void setIsAvailable(boolean isAvailable)
     {
         this.isAvailable = isAvailable;
     }
-    // getter methods for private fields
+
+    /**
+     * Allows other classes to retrieve the Title
+     * @return title of the Album
+     */
     public String getTitle()
     {
         return title;
     }
 
+    /**
+     * Allows other classes to retrieve the Artist
+     * @return artist of the album
+     */
     public String getArtist()
     {
         return artist;
     }
 
+    /**
+     * Allows other classes to retrieve the availability
+     * @return true if album is available false if not
+     */
     public boolean getIsAvailable()
     {
         return isAvailable;
     }
 
+    /**
+     * Allows other classes to retrieve the release date
+     * @return release date of the album
+     */
     public Date getDate()
     {
         return releaseDate;
     }
+
+    /**
+     * Allows other classes to retrieve the genre
+     * @return genre of the album
+     */
     public Genre getGenre()
     {
         return genre;
     }
 
-
-    // Compares two Albums and returns true if they are equal, false if not
+    /**
+     * Compares two Albums and returns true if they are equal, false if not
+     * @param obj the Album object being compared
+     * @return true if equal, false if NOT equal
+     */
     @Override
     public boolean equals(Object obj)
     {
@@ -84,7 +119,10 @@ public class Album {
 
     }
 
-    // returns formatted string of Album class
+    /**
+     * Formats Album object into a string for use in output
+     * @return formattedString the Album class in String format
+     */
     @Override
     public String toString()
     {
