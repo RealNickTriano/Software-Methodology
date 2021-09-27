@@ -53,7 +53,7 @@ public class CollectionManager {
     private void makeGenre(String genreString) {
         if (genreString == null)
             return;
-        genre = Genre.valueOf(genreString);
+        genre = Genre.valueOf(genreString.toLowerCase());
     }
 
     /**
