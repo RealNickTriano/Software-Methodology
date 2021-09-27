@@ -19,7 +19,7 @@ public class Collection {
      * @param albums An array of the albums currently in the collection
      * @param numAlbums The number of albums in the collection
      */
-    public Collection(Album[] albums, int numAlbums) {
+    public Collection( Album[] albums, int numAlbums ) {
         this.albums = albums;
         this.numAlbums = numAlbums;
     }
@@ -35,11 +35,11 @@ public class Collection {
      * @param album The requested album
      * @return The index of the album requested
      */
-    private int find(Album album)
+    private int find( Album album )
     {
         int i;
-        for (i = 0; i < numAlbums; i++) {
-            if (albums[i].equals(album)) {
+        for ( i = 0; i < numAlbums; i++ ) {
+            if ( albums[i].equals(album) ) {
                 return i;
             }
         }
@@ -53,7 +53,7 @@ public class Collection {
     {
         Album[] newAlbumArr = new Album[numAlbums + 4];
         // copy over albums in the current collection to the collection w/ updated size
-        for (int i = 0; i < numAlbums; i++) {
+        for ( int i = 0; i < numAlbums; i++ ) {
             newAlbumArr[i] = albums[i];
         }
         albums = newAlbumArr;
@@ -64,14 +64,14 @@ public class Collection {
      * @param album The album to be added to the collection
      * @return false if the collection already contains the given album, true if the album was successfully added
      */
-    public boolean add(Album album) {
-        if (find(album) != Constants.NOT_FOUND){
+    public boolean add( Album album ) {
+        if ( find(album) != Constants.NOT_FOUND ){
             return false;
         }
-        if (numAlbums == 0) {
+        if ( numAlbums == 0 ) {
             this.grow();
         }
-        else if (numAlbums >= albums.length) {
+        else if ( numAlbums >= albums.length ) {
             this.grow();
         }
         albums[numAlbums] = album;
@@ -84,20 +84,20 @@ public class Collection {
      * @param album the album to be removed from the collection
      * @return false if the album is not in the collection, true if the album is successfully removed
      */
-    public boolean remove(Album album) {
+    public boolean remove( Album album ) {
         // find the index of the album to be removed
-        int i = find(album);
+        int i = find( album );
         // check if requested album is in the collection
-        if (i == Constants.NOT_FOUND) {
+        if ( i == Constants.NOT_FOUND ) {
             return false;
         }
         // remove album
         else {
-            for (; i < numAlbums; i++) {
+            for ( ; i < numAlbums; i++ ) {
                 // if at last space in current capacity
-                if (i == albums.length - 1) {
-                    Date date = new Date("12/25/2030");
-                    albums[i] = new Album("none", "none", Genre.unknown, date, true);
+                if ( i == albums.length - 1 ) {
+                    Date date = new Date( "12/25/2030" );
+                    albums[i] = new Album( "none", "none", Genre.unknown, date, true );
                 } else {
                     albums[i] = albums[i + 1];
                 }
@@ -112,13 +112,13 @@ public class Collection {
      * @param album the album to lend out
      * @return true if album is successfully lent out, false otherwise
      */
-    public boolean lendingOut(Album album)
+    public boolean lendingOut( Album album )
     {
         // if already not available return false for error
-        if (!(album.getIsAvailable())) {
+        if ( !(album.getIsAvailable()) ) {
             return false;
         }
-        album.setIsAvailable(false);
+        album.setIsAvailable( false );
         return true;
     }
 
@@ -127,13 +127,13 @@ public class Collection {
      * @param album the album being returned
      * @return true if album is successfully returned, false otherwise
      */
-    public boolean returnAlbum(Album album) //set to available
+    public boolean returnAlbum( Album album ) //set to available
     {
         // if already available return false for error
-        if (album.getIsAvailable()) {
+        if ( album.getIsAvailable() ) {
             return false;
         }
-        album.setIsAvailable(true);
+        album.setIsAvailable( true );
         return true;
     }
 
@@ -142,8 +142,8 @@ public class Collection {
      */
     public void print()
     {
-        for (int i = 0; i < numAlbums; i++) {
-            System.out.println(albums[i]);
+        for ( int i = 0; i < numAlbums; i++ ) {
+            System.out.println( albums[i] );
         }
     }
 
@@ -155,15 +155,15 @@ public class Collection {
         Date date = new Date("12/25/2030");
         Collection col = new Collection(newAlbums, 0);
 
-        for (int j = 0; j < numAlbums; j++) {
-            Album lessAlbum = new Album("none", "none", Genre.unknown, date, true);
-            for (int i = 0; i < numAlbums; i++) {
-                if (albums[i].getDate().compareTo(lessAlbum.getDate()) == -1) {
-                    if (col.find(albums[i]) == Constants.NOT_FOUND)
+        for ( int j = 0; j < numAlbums; j++ ) {
+            Album lessAlbum = new Album( "none", "none", Genre.unknown, date, true );
+            for ( int i = 0; i < numAlbums; i++ ) {
+                if ( albums[i].getDate().compareTo(lessAlbum.getDate()) == -1 ) {
+                    if ( col.find(albums[i]) == Constants.NOT_FOUND )
                         lessAlbum = albums[i];
                 }
             }
-            col.add(lessAlbum);
+            col.add( lessAlbum );
         }
 
         this.albums = col.albums;
@@ -177,40 +177,40 @@ public class Collection {
         Album[] sortedAlbums = new Album[numAlbums];
         int j = 0;
         // copy over albums into sorted[] by genre
-        for (int i = 0; i < numAlbums; i++){
-            if (albums[i].getGenre() == Genre.classical){
+        for ( int i = 0; i < numAlbums; i++ ){
+            if ( albums[i].getGenre() == Genre.classical ){
                 sortedAlbums[j] = albums[i];
                 j++;
             }
         }
-        for (int i = 0; i < numAlbums; i++){
-            if (albums[i].getGenre() == Genre.country){
+        for ( int i = 0; i < numAlbums; i++ ){
+            if ( albums[i].getGenre() == Genre.country ){
                 sortedAlbums[j] = albums[i];
                 j++;
             }
         }
-        for (int i = 0; i < numAlbums; i++){
-            if (albums[i].getGenre() == Genre.jazz){
+        for ( int i = 0; i < numAlbums; i++ ){
+            if ( albums[i].getGenre() == Genre.jazz ){
                 sortedAlbums[j] = albums[i];
                 j++;
             }
         }
-        for (int i = 0; i < numAlbums; i++){
-            if (albums[i].getGenre() == Genre.pop){
+        for ( int i = 0; i < numAlbums; i++ ){
+            if ( albums[i].getGenre() == Genre.pop ){
                 sortedAlbums[j] = albums[i];
                 j++;
             }
         }
-        for (int i = 0; i < numAlbums; i++){
-            if (albums[i].getGenre() == Genre.unknown){
+        for ( int i = 0; i < numAlbums; i++ ){
+            if ( albums[i].getGenre() == Genre.unknown ){
                 sortedAlbums[j] = albums[i];
                 j++;
             }
         }
         // copy over sorted and print
         albums = sortedAlbums;
-        for (int i = 0; i < numAlbums; i++){
-            System.out.println(albums[i]);
+        for ( int i = 0; i < numAlbums; i++ ){
+            System.out.println( albums[i] );
         }
     }
 
