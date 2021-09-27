@@ -65,11 +65,13 @@ public class Collection {
      * @return false if the collection already contains the given album, true if the album was successfully added
      */
     public boolean add(Album album) {
-        if (find(album) != Constants.NOT_FOUND)
+        if (find(album) != Constants.NOT_FOUND){
             return false;
+        }
         if (numAlbums == 0) {
             this.grow();
-        } else if (numAlbums >= albums.length) {
+        }
+        else if (numAlbums >= albums.length) {
             this.grow();
         }
         albums[numAlbums] = album;
