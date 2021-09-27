@@ -146,7 +146,7 @@ public class Date implements Comparable<Date> {
      * @return 0 if equal, -1 if less than, 1 if greater than
      */
     @Override
-    public int compareTo(Date date) {
+    public int compareTo( Date date ) {
 
         if ( this.year > date.getYear() )
             return 1;
