@@ -146,7 +146,7 @@ public class Collection {
     }
 
     /**
-     * Display the list in order of release dates
+     * Sorts and displays the array of albums in order of release dates
      */
     public void printByReleaseDate() {
         Album[] newAlbums = new Album[numAlbums];
@@ -169,7 +169,7 @@ public class Collection {
     }
 
     /**
-     * Display the list sorted by genres
+     * Sorts and displays the array of albums sorted by genres
      */
     public void printByGenre() {
         Album[] sortedAlbums = new Album[numAlbums];
