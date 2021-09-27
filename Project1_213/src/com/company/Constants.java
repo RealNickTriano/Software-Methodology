@@ -1,10 +1,10 @@
+
+package com.company;
 /**
  * Holds all Constants used in the project
  *
  * @author Nicholas Triano, Antonio Ignarra
  */
-package com.company;
-
 public class Constants {
 
     public static final int QUADRENNIAL = 4;

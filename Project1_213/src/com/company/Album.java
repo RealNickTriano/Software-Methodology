@@ -1,3 +1,5 @@
+
+package com.company;
 /**
  * Used to create Albums with specific names to be put into the Collection class.
  * Create Album with title, artist, genre, releaseDate, availability (True by default)
@@ -5,8 +7,6 @@
  *
  * @author Nicholas Triano, Antonio Ignarra
  */
-package com.company;
-
 public class Album {
 
     private String title;

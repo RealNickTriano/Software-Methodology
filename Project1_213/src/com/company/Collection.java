@@ -1,3 +1,5 @@
+
+package com.company;
 /**
  * The collection where Album objects are added into, methods here operate on the collection.
  * Can find, add, remove, lendOut, and return Albums in the collection.
@@ -5,8 +7,6 @@
  *
  * @author Nicholas Triano, Antonio Ignarra
  */
-package com.company;
-
 public class Collection {
 
     // instance variables

@@ -1,3 +1,9 @@
+
+package com.company;
+
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
 /**
  * Handles user input/output to provide fluid interaction between user and program.
  * Provides feedback on user input and interacts with other classes to perform user requested actions.
@@ -6,11 +12,6 @@
  *
  * @author Nicholas Triano, Antonio Ignarra
  */
-package com.company;
-
-import java.util.Scanner;
-import java.util.StringTokenizer;
-
 public class CollectionManager {
 
     private String command, albumName, artistName, genreString, date;
