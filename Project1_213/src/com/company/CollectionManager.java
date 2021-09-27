@@ -42,7 +42,8 @@ public class CollectionManager {
                 handleCommand(command);
             } else
                 validDate = true;
-        } while (!(inputString.equals("Q"))); // exits if input is Q
+        }
+        while (!(inputString.equals("Q"))); // exits if input is Q
 
     }
 
@@ -55,7 +56,8 @@ public class CollectionManager {
             return;
         try {
             genre = Genre.valueOf(genreString.toLowerCase());
-        } catch (IllegalArgumentException e) {
+        }
+        catch (IllegalArgumentException e) {
             genre = Genre.unknown;
         }
     }
@@ -65,8 +67,9 @@ public class CollectionManager {
      * @param date String input by user
      */
     private void makeDate(String date) {
-        if (date == null)
+        if (date == null){
             return;
+        }
         newDate = new Date(date);
         if (!newDate.isValid()) {
             System.out.println("Invalid Date!");
@@ -84,11 +87,13 @@ public class CollectionManager {
 
         if (count == 1) {
             command = st1.nextToken();
-        } else if (count == 3) {
+        }
+        else if (count == 3) {
             command = st1.nextToken();
             albumName = st1.nextToken();
             artistName = st1.nextToken();
-        } else {
+        }
+        else {
             command = st1.nextToken();
             albumName = st1.nextToken();
             artistName = st1.nextToken();
