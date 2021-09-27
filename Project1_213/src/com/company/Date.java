@@ -92,7 +92,8 @@ public class Date implements Comparable<Date> {
     public boolean isValid() {
         Calendar calendar = Calendar.getInstance();
 
-        // TODO: Change this method to use compareTo method
+        if(month < Constants.LEAST_MONTH_POSSIBLE)
+            return false;
         if (month > Constants.MONTHS_IN_YEAR)
             return false;
         if (year < Constants.THE_EIGHTYS || year > calendar.get(Calendar.YEAR)) {
