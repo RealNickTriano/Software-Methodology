@@ -1,3 +1,8 @@
+
+package com.company;
+
+import java.util.StringTokenizer;
+import java.util.Calendar;
 /**
  * Makes a Date object from a string or today's date if given no arguments.
  * Various getters for retrieving data, toString and compareTo method is overwritten.
@@ -5,11 +10,6 @@
  *
  * @author Nicholas Triano, Antonio Ignarra
  */
-package com.company;
-
-import java.util.StringTokenizer;
-import java.util.Calendar;
-
 public class Date implements Comparable<Date> {
     private int year;
     private int month;
