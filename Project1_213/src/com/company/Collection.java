@@ -13,17 +13,28 @@ public class Collection {
     private Album[] albums;
     private int numAlbums; //number of albums currently in the collection
 
-    // constructor
+    /**
+     * Constructor for Collection class creates a new Collection object with given parameters
+     * @param albums An array of the albums currently in the collection
+     * @param numAlbums The number of albums in the collection
+     */
     public Collection(Album[] albums, int numAlbums) {
         this.albums = albums;
         this.numAlbums = numAlbums;
     }
 
-    public int getNumAlbums() {
-        return numAlbums;
-    }
+    /**
+     * Allows other classes to retrieve the number of albums
+     * @return the number of albums currently in the collection
+     */
+    public int getNumAlbums() {return numAlbums;}
 
-    private int find(Album album) //find the album index, or return NOT_FOUND
+    /**
+     * Finds the given album's index, or returns NOT_FOUND
+     * @param album The requested album
+     * @return The index of the album requested
+     */
+    private int find(Album album)
     {
         int i;
         for (i = 0; i < numAlbums; i++) {
@@ -34,7 +45,10 @@ public class Collection {
         return Constants.NOT_FOUND;
     }
 
-    private void grow() // increase the capacity of the array list by 4
+    /**
+     * Increase the capacity of the array list by 4
+     */
+    private void grow()
     {
         Album[] newAlbumArr = new Album[numAlbums + 4];
         // copy over albums in the current collection to the collection w/ updated size
@@ -44,6 +58,11 @@ public class Collection {
         albums = newAlbumArr;
     }
 
+    /**
+     * Adds an album to the collection
+     * @param album The album to be added to the collection
+     * @return false if the collection already contains the given album, true if the album was successfully added
+     */
     public boolean add(Album album) {
         if (find(album) != Constants.NOT_FOUND)
             return false;
@@ -57,6 +76,11 @@ public class Collection {
         return true;
     }
 
+    /**
+     * Removes an album from the collection
+     * @param album the album to be removed from the collection
+     * @return false if the album is not in the collection, true if the album is successfully removed
+     */
     public boolean remove(Album album) {
         // find the index of the album to be removed
         int i = find(album);
@@ -80,7 +104,12 @@ public class Collection {
         return true;
     }
 
-    public boolean lendingOut(Album album) //set to not available
+    /**
+     * Lends out an album and sets the album's availability to unavailable if eligible
+     * @param album the album to lend out
+     * @return true if album is successfully lent out, false otherwise
+     */
+    public boolean lendingOut(Album album)
     {
         // if already not available return false for error
         if (!(album.getIsAvailable())) {
@@ -90,6 +119,11 @@ public class Collection {
         return true;
     }
 
+    /**
+     * Returns an album and sets the album's availability to available if eligible
+     * @param album the album being returned
+     * @return true if album is successfully returned, false otherwise
+     */
     public boolean returnAlbum(Album album) //set to available
     {
         // if already available return false for error
@@ -100,13 +134,19 @@ public class Collection {
         return true;
     }
 
-    public void print() //display the list without specifying the order
+    /**
+     * Display the list without specifying the order
+     */
+    public void print()
     {
         for (int i = 0; i < numAlbums; i++) {
             System.out.println(albums[i]);
         }
     }
 
+    /**
+     * Display the list in order of release dates
+     */
     public void printByReleaseDate() {
         Album[] newAlbums = new Album[numAlbums];
         Date date = new Date("12/25/2030");
@@ -126,6 +166,9 @@ public class Collection {
         col.print();
     }
 
+    /**
+     * Display the list sorted by genres
+     */
     public void printByGenre() {
         Album[] sortedAlbums = new Album[numAlbums];
         int j = 0;
