@@ -13,6 +13,7 @@ public class Collection {
     private Album[] albums;
     private int numAlbums; //number of albums currently in the collection
 
+
     /**
      * Constructor for Collection class creates a new Collection object with given parameters
      * @param albums An array of the albums currently in the collection
@@ -163,7 +164,8 @@ public class Collection {
             col.add(lessAlbum);
         }
 
-        col.print();
+        this.albums = col.albums;
+        this.print();
     }
 
     /**
