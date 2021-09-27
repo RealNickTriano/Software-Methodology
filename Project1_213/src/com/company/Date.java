@@ -172,7 +172,7 @@ public class Date implements Comparable<Date> {
         //test case #2, a date beyond today's date should be invalid.
         date = new Date("11/1/2022");
         result = date.isValid();
-        System.out.print("Test case #1: ");
+        System.out.print("Test case #2: ");
         if (result == expectedResult){
             System.out.println("Pass.");
         }
@@ -183,7 +183,7 @@ public class Date implements Comparable<Date> {
         //test case #3, a date with an invalid month.
         date = new Date("13/1/2020");
         result = date.isValid();
-        System.out.print("Test case #1: ");
+        System.out.print("Test case #3: ");
         if (result == expectedResult){
             System.out.println("Pass.");
         }
@@ -194,7 +194,7 @@ public class Date implements Comparable<Date> {
         //test case #4, an invalid leap year day.
         date = new Date("2/29/2021");
         result = date.isValid();
-        System.out.print("Test case #1: ");
+        System.out.print("Test case #4: ");
         if (result == expectedResult){
             System.out.println("Pass.");
         }
@@ -205,7 +205,7 @@ public class Date implements Comparable<Date> {
         //test case #5, another invalid leap year day.
         date = new Date("2/29/2018");
         result = date.isValid();
-        System.out.print("Test case #1: ");
+        System.out.print("Test case #5: ");
         if (result == expectedResult){
             System.out.println("Pass.");
         }
@@ -216,7 +216,19 @@ public class Date implements Comparable<Date> {
         //test case #6, an invalid day (April has 30 days).
         date = new Date("4/31/2021");
         result = date.isValid();
-        System.out.print("Test case #1: ");
+        System.out.print("Test case #6: ");
+        if (result == expectedResult){
+            System.out.println("Pass.");
+        }
+        else{
+            System.out.println("Fail.");
+        }
+
+        //test case #7, ensure 2000 is considered a leap year.
+        date = new Date("2/29/2000");
+        expectedResult = true;
+        result = date.isValid();
+        System.out.print("Test case #7: ");
         if (result == expectedResult){
             System.out.println("Pass.");
         }
