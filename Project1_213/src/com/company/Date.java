@@ -40,6 +40,14 @@ public class Date implements Comparable<Date> {
     }
 
     /**
+     * Allows other classes to set the day
+     * @param day number of days in month
+     */
+    public void setDay(int day)
+    {
+        this.day = day;
+    }
+    /**
      * Allows other classes to retrieve the day
      *
      * @return day as Int
@@ -170,7 +178,8 @@ public class Date implements Comparable<Date> {
         }
 
         //test case #2, a date beyond today's date should be invalid.
-        date = new Date("11/1/2022");
+        date = new Date();
+        date.setDay(date.getDay() + 1);
         result = date.isValid();
         System.out.print("Test case #2: ");
         if (result == expectedResult){
