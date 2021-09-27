@@ -176,26 +176,31 @@ public class Collection {
         for (int i = 0; i < numAlbums; i++){
             if (albums[i].getGenre() == Genre.classical){
                 sortedAlbums[j] = albums[i];
+                j++;
             }
         }
         for (int i = 0; i < numAlbums; i++){
             if (albums[i].getGenre() == Genre.country){
                 sortedAlbums[j] = albums[i];
+                j++;
             }
         }
         for (int i = 0; i < numAlbums; i++){
             if (albums[i].getGenre() == Genre.jazz){
                 sortedAlbums[j] = albums[i];
+                j++;
             }
         }
         for (int i = 0; i < numAlbums; i++){
             if (albums[i].getGenre() == Genre.pop){
                 sortedAlbums[j] = albums[i];
+                j++;
             }
         }
         for (int i = 0; i < numAlbums; i++){
             if (albums[i].getGenre() == Genre.unknown){
                 sortedAlbums[j] = albums[i];
+                j++;
             }
         }
         // copy over sorted and print

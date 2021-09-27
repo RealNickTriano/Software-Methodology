@@ -123,7 +123,7 @@ public class CollectionManager {
                     System.out.println(newAlbum.getTitle() + newAlbum.getArtist()
                             + ">> is not in the collection");
                 else
-                    System.out.println(newAlbum.getTitle() + newAlbum.getArtist()
+                    System.out.println(newAlbum.getTitle() + "::" + newAlbum.getArtist()
                             + " >> deleted.");
                 break;
             case "L":
