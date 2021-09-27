@@ -246,6 +246,17 @@ public class Date implements Comparable<Date> {
             System.out.println("Fail.");
         }
 
+        //test case #8, an invalid day (January has 31 days).
+        date = new Date("1/32/2021");
+        expectedResult = false;
+        result = date.isValid();
+        System.out.print("Test case #8: ");
+        if (result == expectedResult){
+            System.out.println("Pass.");
+        }
+        else{
+            System.out.println("Fail.");
+        }
     }
 
 }
