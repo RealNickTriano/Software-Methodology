@@ -20,8 +20,8 @@ public class Date implements Comparable<Date> {
      *
      * @param date String in format of “mm/dd/yyyy” to represent a date
      */
-    public Date(String date) {
-        StringTokenizer st1 = new StringTokenizer(date, "/");
+    public Date( String date ) {
+        StringTokenizer st1 = new StringTokenizer( date, "/" );
         this.month = Integer.parseInt(st1.nextToken());
         this.day = Integer.parseInt(st1.nextToken());
         this.year = Integer.parseInt(st1.nextToken());
@@ -43,7 +43,7 @@ public class Date implements Comparable<Date> {
      * Allows other classes to set the day
      * @param day number of days in month
      */
-    public void setDay(int day)
+    public void setDay( int day )
     {
         this.day = day;
     }
@@ -92,29 +92,30 @@ public class Date implements Comparable<Date> {
     public boolean isValid() {
         Calendar calendar = Calendar.getInstance();
 
-        if(month < Constants.LEAST_MONTH_POSSIBLE)
+        if ( month < Constants.LEAST_MONTH_POSSIBLE )
             return false;
-        if (month > Constants.MONTHS_IN_YEAR)
+        if ( month > Constants.MONTHS_IN_YEAR )
             return false;
-        if (year < Constants.THE_EIGHTYS || year > calendar.get(Calendar.YEAR)) {
+        if ( year < Constants.THE_EIGHTYS || year > calendar.get( Calendar.YEAR ) ) {
             return false;
         }
 
-        if (year == calendar.get(Calendar.YEAR) && month > calendar.get(Calendar.MONTH)) {
+        if ( year == calendar.get( Calendar.YEAR ) && month > calendar.get( Calendar.MONTH ) ) {
             return false;
-        } else if (year == calendar.get(Calendar.YEAR) && month == calendar.get(Calendar.MONTH) && day > calendar.get(Calendar.DATE)) {
+        } else if ( year == calendar.get( Calendar.YEAR ) && month == calendar.get( Calendar.MONTH ) &&
+                    day > calendar.get( Calendar.DATE ) ) {
             return false;
         }
 
         // April, June, September, and November have 30 days
-        if (month == Constants.APRIL || month == Constants.JUNE
-                || month == Constants.SEPTEMBER || month == Constants.NOVEMBER) {
+        if ( month == Constants.APRIL || month == Constants.JUNE
+                || month == Constants.SEPTEMBER || month == Constants.NOVEMBER ) {
             return day <= Constants.THIRTY_DAYS;
         }
-        // Feburary
-        else if (month == Constants.FEBURARY) {
+        // February
+        else if ( month == Constants.FEBURARY ) {
             // Feburary leap year Algorithm
-            if (isLeapYear()) {
+            if ( isLeapYear() ) {
                 return day <= Constants.TWENTY_NINE_DAYS;
             } else return day <= Constants.TWENTY_EIGHT_DAYS;
 
@@ -129,8 +130,8 @@ public class Date implements Comparable<Date> {
      * @return true if date is a leap year, false if not
      */
     private boolean isLeapYear() {
-        if (year % Constants.QUADRENNIAL == 0) {
-            if (year % Constants.CENTENNIAL == 0) {
+        if ( year % Constants.QUADRENNIAL == 0 ) {
+            if ( year % Constants.CENTENNIAL == 0 ) {
                 return year % Constants.QUATERCENTENNIAL == 0;
             }
             return true;
@@ -145,19 +146,19 @@ public class Date implements Comparable<Date> {
      * @return 0 if equal, -1 if less than, 1 if greater than
      */
     @Override
-    public int compareTo(Date date) {
+    public int compareTo( Date date ) {
 
-        if (this.year > date.getYear())
+        if ( this.year > date.getYear() )
             return 1;
-        else if (this.year < date.getYear())
+        else if ( this.year < date.getYear() )
             return -1;
-        else if (this.year == date.getYear() && this.month > date.getMonth())
+        else if ( this.year == date.getYear() && this.month > date.getMonth() )
             return 1;
-        else if (this.year == date.getYear() && this.month < date.getMonth())
+        else if ( this.year == date.getYear() && this.month < date.getMonth() )
             return -1;
-        else if (this.month == date.getMonth() && this.day > date.getDay())
+        else if ( this.month == date.getMonth() && this.day > date.getDay() )
             return 1;
-        else if (this.month == date.getMonth() && this.day < date.getDay())
+        else if ( this.month == date.getMonth() && this.day < date.getDay() )
             return -1;
         else
             return 0;
@@ -165,97 +166,97 @@ public class Date implements Comparable<Date> {
     }
 
     /** Testbed main for the Date class */
-    public static void main(String[] args){
+    public static void main( String[] args ){
         //test case #1, a date with a year less than 1980 should be invalid.
-        Date date = new Date("11/1/1979");
+        Date date = new Date( "11/1/1979" );
         boolean expectedResult = false;
         boolean result = date.isValid();
-        System.out.print("Test case #1: ");
-        if (result == expectedResult){
-            System.out.println("Pass.");
+        System.out.print( "Test case #1: " );
+        if ( result == expectedResult ){
+            System.out.println( "Pass." );
         }
         else{
-            System.out.println("Fail.");
+            System.out.println( "Fail." );
         }
 
         //test case #2, a date beyond today's date should be invalid.
         date = new Date();
-        date.setDay(date.getDay() + 1);
+        date.setDay( date.getDay() + 1 );
         result = date.isValid();
-        System.out.print("Test case #2: ");
-        if (result == expectedResult){
-            System.out.println("Pass.");
+        System.out.print( "Test case #2: " );
+        if ( result == expectedResult ){
+            System.out.println( "Pass." );
         }
         else{
-            System.out.println("Fail.");
+            System.out.println( "Fail." );
         }
 
         //test case #3, a date with an invalid month.
-        date = new Date("13/1/2020");
+        date = new Date( "13/1/2020" );
         result = date.isValid();
-        System.out.print("Test case #3: ");
-        if (result == expectedResult){
-            System.out.println("Pass.");
+        System.out.print( "Test case #3: " );
+        if ( result == expectedResult ){
+            System.out.println( "Pass." );
         }
         else{
-            System.out.println("Fail.");
+            System.out.println( "Fail." );
         }
 
-        //test case #4, an invalid leap year day.
-        date = new Date("2/29/2021");
+        //test case #4, an invalid month.
+        date = new Date( "0/22/2020" );
         result = date.isValid();
-        System.out.print("Test case #4: ");
-        if (result == expectedResult){
-            System.out.println("Pass.");
+        System.out.print( "Test case #4: " );
+        if ( result == expectedResult ){
+            System.out.println( "Pass." );
         }
         else{
-            System.out.println("Fail.");
+            System.out.println( "Fail." );
         }
 
         //test case #5, another invalid leap year day.
-        date = new Date("2/29/2018");
+        date = new Date( "2/29/2018" );
         result = date.isValid();
-        System.out.print("Test case #5: ");
-        if (result == expectedResult){
-            System.out.println("Pass.");
+        System.out.print( "Test case #5: " );
+        if ( result == expectedResult ){
+            System.out.println( "Pass." );
         }
         else{
-            System.out.println("Fail.");
+            System.out.println( "Fail." );
         }
 
         //test case #6, an invalid day (April has 30 days).
-        date = new Date("4/31/2021");
+        date = new Date( "4/31/2021" );
         result = date.isValid();
-        System.out.print("Test case #6: ");
-        if (result == expectedResult){
-            System.out.println("Pass.");
+        System.out.print( "Test case #6: " );
+        if ( result == expectedResult ){
+            System.out.println( "Pass." );
         }
         else{
-            System.out.println("Fail.");
+            System.out.println( "Fail." );
         }
 
         //test case #7, ensure 2000 is considered a leap year.
-        date = new Date("2/29/2000");
+        date = new Date( "2/29/2000" );
         expectedResult = true;
         result = date.isValid();
-        System.out.print("Test case #7: ");
-        if (result == expectedResult){
-            System.out.println("Pass.");
+        System.out.print( "Test case #7: " );
+        if ( result == expectedResult ){
+            System.out.println( "Pass." );
         }
         else{
-            System.out.println("Fail.");
+            System.out.println( "Fail." );
         }
 
         //test case #8, an invalid day (January has 31 days).
-        date = new Date("1/32/2021");
+        date = new Date( "1/32/2021" );
         expectedResult = false;
         result = date.isValid();
-        System.out.print("Test case #8: ");
-        if (result == expectedResult){
-            System.out.println("Pass.");
+        System.out.print( "Test case #8: " );
+        if ( result == expectedResult ){
+            System.out.println( "Pass." );
         }
         else{
-            System.out.println("Fail.");
+            System.out.println( "Fail." );
         }
     }
 

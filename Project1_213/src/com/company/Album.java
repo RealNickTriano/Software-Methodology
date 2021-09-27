@@ -23,7 +23,7 @@ public class Album {
      * @param releaseDate When the Album released
      * @param isAvailable If the albums is available or not
      */
-    public Album(String title, String artist, Genre genre, Date releaseDate, boolean isAvailable) {
+    public Album( String title, String artist, Genre genre, Date releaseDate, boolean isAvailable ) {
         this.title = title;
         this.artist = artist;
         this.genre = genre;
@@ -35,7 +35,7 @@ public class Album {
      * Allows other classes to set the availability
      * @param isAvailable If the albums is available or not
      */
-    public void setIsAvailable(boolean isAvailable) {
+    public void setIsAvailable( boolean isAvailable ) {
         this.isAvailable = isAvailable;
     }
 
@@ -85,22 +85,22 @@ public class Album {
      * @return true if equal, false if NOT equal
      */
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals( Object obj ) {
         // If object is being compared to itself return true
-        if (obj == this) {
+        if ( obj == this ) {
             return true;
         }
 
         //If object is not an instance of Album return false
-        if (!(obj instanceof Album)) {
+        if ( !( obj instanceof Album ) ) {
             return false;
         }
 
         // typecast object to Album
-        Album newAlbum = (Album) obj;
+        Album newAlbum = ( Album ) obj;
 
         // Compare title and artist, return true if both are equal, false of not
-        if (title.equalsIgnoreCase(newAlbum.title) && artist.equalsIgnoreCase(newAlbum.artist)) {
+        if ( title.equalsIgnoreCase( newAlbum.title ) && artist.equalsIgnoreCase( newAlbum.artist ) ) {
             return true;
         } else {
             return false;
@@ -115,7 +115,7 @@ public class Album {
     @Override
     public String toString() {
         String formattedString;
-        if (isAvailable) {
+        if ( isAvailable ) {
             formattedString = title + "::" + artist + "::" + genre + "::"
                     + releaseDate + "::is available";
         } else {
