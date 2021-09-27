@@ -28,7 +28,7 @@ public class Collection {
      * Allows other classes to retrieve the number of albums
      * @return the number of albums currently in the collection
      */
-    public int getNumAlbums() {return numAlbums;}
+    public int getNumAlbums() { return numAlbums; }
 
     /**
      * Finds the given album's index, or returns NOT_FOUND
