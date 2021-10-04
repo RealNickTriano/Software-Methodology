@@ -3,5 +3,10 @@ package Project2;
 /**
  * @author Nicholas Triano, Antonio Ignarra
  */
-public class Major {
+public enum Major {
+    CS,
+    IT,
+    BA,
+    EE,
+    ME
 }
