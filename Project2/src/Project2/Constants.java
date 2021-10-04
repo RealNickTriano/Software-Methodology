@@ -6,4 +6,5 @@ package Project2;
 public class Constants {
 
     public static int NOT_FOUND = -1;
+    public static String INITIALIZED = "init";
 }
