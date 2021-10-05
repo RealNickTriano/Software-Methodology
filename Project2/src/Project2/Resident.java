@@ -12,11 +12,11 @@ public class Resident extends Student {
     @Override
     public void tuitionDue() {
 
-        int tuition = Constants.INIT_INT;
+        double tuition = Constants.INIT_INT;
 
         if ( credits < Constants.MINIMUM_FULL_TIME_CREDITS )
         {
-            tuition = Constants.RESIDENT_COST_PER_CREDIT * credits;
+            tuition = (Constants.NONRESIDENT_COST_PER_CREDIT * credits) + Constants.PART_TIME_UNIVERSITY_FEE;
         }
         else if ( credits > Constants.CREDITS_FOR_ADDITIONAL_TUITION)
         {
