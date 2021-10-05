@@ -12,18 +12,19 @@ public class NonResident extends Student {
     @Override
     public void tuitionDue() {
 
-        int tuition = 0;
+        int tuition = Constants.INIT_INT;
 
-        if ( credits < 12 )
+        if ( credits < Constants.MINIMUM_FULL_TIME_CREDITS )
         {
-            tuition = 966 * credits;
+            tuition = Constants.NONRESIDENT_COST_PER_CREDIT * credits;
         }
-        else if ( credits > 16)
+        else if ( credits > Constants.CREDITS_FOR_ADDITIONAL_TUITION)
         {
-            tuition = (29737 + 3268) + (966 * (credits - 16));
+            tuition = (Constants.NONRESIDENT_TUITION + Constants.UNIVERSITY_FEE) +
+                    (Constants.NONRESIDENT_COST_PER_CREDIT * (credits - Constants.CREDITS_FOR_ADDITIONAL_TUITION));
         }
         else
-            tuition = 29737 + 3268;
+            tuition = Constants.NONRESIDENT_TUITION + Constants.UNIVERSITY_FEE;
 
     }
 }
