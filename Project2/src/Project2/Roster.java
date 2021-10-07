@@ -85,13 +85,12 @@ public class Roster {
         if ( i == Constants.NOT_FOUND ) {
             return false;
         }
-        // remove album
+        // remove student
         else {
             for ( ; i < size; i++ ) {
                 // if at last space in current capacity
                 if ( i == roster.length - 1 ) {
-                    Date date = new Date( "12/25/2030" );
-                    roster[i] = new Student();
+
                 } else {
                     roster[i] = roster[i + 1];
                 }

@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  *
  * @author Nicholas Triano, Antonio Ignarra
  */
-public class CollectionManager {
+public class TuitionManager {
 
     private String command, studentName, majorString, creditHoursString, date;
     private Genre genre;
