@@ -92,7 +92,7 @@ public class Profile {
     {
         String formattedString;
 
-        formattedString = name + major.name();
+        formattedString = name + ":" + major.name();
 
         return formattedString;
     }

@@ -15,10 +15,12 @@ import java.util.StringTokenizer;
 public class TuitionManager {
 
     private String command, studentName, majorString, creditHoursString, date;
-    private Genre genre;
     private Date newDate;
+    private Major newMajor;
     private boolean validDate = true;
-    private Album newAlbum;
+    private int credits, tuitionRemissions = 0;
+    private Profile newProfile;
+    private Student newStudent;
     private Student[] studentArray;
     private Roster roster = new Roster(studentArray, 0);
     String inputString = Constants.INITIALIZED;
@@ -41,7 +43,8 @@ public class TuitionManager {
             StringTokenizer st1 = new StringTokenizer(inputString, ",");
             int count = st1.countTokens();
             command = st1.nextToken();
-            tokenizeAdd(st1);
+            handleCommand(command, st1);
+
         }
     }
 
@@ -53,14 +56,17 @@ public class TuitionManager {
 
         studentName = st1.nextToken();
         majorString = st1.nextToken();
+        newMajor = Major.valueOf(majorString);
         creditHoursString = st1.nextToken();
+        credits = Integer.parseInt(creditHoursString);
     }
 
     /**
      * Determine what action to take with the given command, Checks printCommand method if nothing matches
      * @param command String entered by user
+     * @param st1
      */
-    private void handleCommand(String command) {
+    private void handleCommand(String command, StringTokenizer st1) {
         boolean error;
         switch (command) {
             default:
@@ -68,7 +74,11 @@ public class TuitionManager {
                 break;
             case "AR":
                 // add a resident student
-
+                tokenizeAdd(st1);
+                newProfile  = new Profile(studentName, newMajor);
+                System.out.println(newProfile);
+                newStudent = new Student(newProfile, credits, tuitionRemissions);
+                roster.add(newStudent);
                 break;
             case "AN":
                 // add a nonresident student

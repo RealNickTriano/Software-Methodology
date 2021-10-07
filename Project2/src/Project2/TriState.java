@@ -5,8 +5,11 @@ package Project2;
  */
 public class TriState extends NonResident {
 
-    public TriState(Profile profile, int credits, int tuitionRemissions) {
+    private String state;
+
+    public TriState(Profile profile, int credits, int tuitionRemissions, String state) {
         super(profile, credits, tuitionRemissions);
+        this.state = state;
     }
 
     @Override
