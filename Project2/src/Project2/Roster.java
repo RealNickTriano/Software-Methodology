@@ -51,9 +51,9 @@ public class Roster {
     }
 
     /**
-     * Adds a Student to the collection
-     * @param student The student to be added to the collection
-     * @return false if the collection already contains the student, true if the student was successfully added
+     * Adds a Student to the roster
+     * @param student The student to be added to the roster
+     * @return false if the roster already contains the student, true if the student was successfully added
      */
     public boolean add(Student student){
 
@@ -74,7 +74,7 @@ public class Roster {
 
     /**
      * Removes a student from the collection
-     * @param student the album to be removed from the collection
+     * @param student the student to be removed from the collection
      * @return false if the student is not in the collection, true if the student is successfully removed
      */
     public boolean remove(Student student){
@@ -90,8 +90,10 @@ public class Roster {
             for ( ; i < size; i++ ) {
                 // if at last space in current capacity
                 if ( i == roster.length - 1 ) {
-
-                } else {
+                    Profile profile = new profile("NA", "NA");
+                    roster[i] = new student(profile. 0, 0);
+                } 
+                else {
                     roster[i] = roster[i + 1];
                 }
             }
