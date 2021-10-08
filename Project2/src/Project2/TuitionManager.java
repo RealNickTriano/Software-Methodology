@@ -68,29 +68,63 @@ public class TuitionManager {
      */
     private void handleCommand(String command, StringTokenizer st1) {
         boolean error;
+        tokenizeAdd(st1);
+        newProfile  = new Profile(studentName, newMajor);
+        System.out.println(newProfile);
+        newStudent = new Student(newProfile, credits, tuitionRemissions);
         switch (command) {
             default:
                 printCommand(command);
                 break;
             case "AR":
                 // add a resident student
-                tokenizeAdd(st1);
-                newProfile  = new Profile(studentName, newMajor);
-                System.out.println(newProfile);
-                newStudent = new Student(newProfile, credits, tuitionRemissions);
-                roster.add(newStudent);
+                error = roster.add(newStudent);
+                if (!error){
+                    System.out.println(newStudent + " >> is already on the roster.")
+                }
+                else{
+                    System.out.println(newStudent + " >> added successfully.")
+                }
                 break;
             case "AN":
                 // add a nonresident student
+                error = roster.add(newStudent);
+                if (!error){
+                    System.out.println(newStudent + " >> is already on the roster.")
+                }
+                else{
+                    System.out.println(newStudent + " >> added successfully.")
+                }
                 break;
             case "AT":
                 // add a tristate student
+                error = roster.add(newStudent);
+                if (!error){
+                    System.out.println(newStudent + " >> is already on the roster.")
+                }
+                else{
+                    System.out.println(newStudent + " >> added successfully.")
+                }
                 break;
             case "AI":
                 // add a international student
+                error = roster.add(newStudent);
+                if (!error){
+                    System.out.println(newStudent + " >> is already on the roster.")
+                }
+                else{
+                    System.out.println(newStudent + " >> added successfully.")
+                }
                 break;
             case "R":
                 //Remove a student
+                error = roster.remove(newStudent);
+                if (!error){
+                    System.out.println(newStudent + " >> is not on the roster.")
+                }
+                else{
+                    System.out.println(newStudent + " >> removed successfully.")
+                }
                 break;
             case "C":
                 // Calculate tuition dues
