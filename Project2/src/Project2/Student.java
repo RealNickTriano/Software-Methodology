@@ -18,4 +18,12 @@ public class Student {
     public void tuitionDue(){
 
     }
+
+    @Override
+    public String toString() {
+        string formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
+                "credit hours:tuition due:" + this.tuitionDue();
+        return formattedString;
+    }
+
 }

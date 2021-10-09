@@ -18,4 +18,14 @@ public class TriState extends NonResident {
 
 
     }
+
+
+    @Override
+    public String toString() {
+        string formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
+                "credit hours:tuition due:" + this.tuitionDue() + "non-resident(tri-state):" + state;
+        return formattedString;
+    }
+
+
 }

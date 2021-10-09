@@ -30,4 +30,13 @@ public class International  extends NonResident {
                         Constants.INTERNATIONAL_ADDITIONAL_FEE;
 
     }
+
+    @Override
+    public String toString() {
+        string formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
+                "credit hours:tuition due:" + this.tuitionDue() + "study abroad:" + studyAbroad;
+        return formattedString;
+    }
+
+
 }

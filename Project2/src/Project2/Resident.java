@@ -27,4 +27,12 @@ public class Resident extends Student {
             tuition = Constants.RESIDENT_TUITION + Constants.UNIVERSITY_FEE;
 
     }
+
+    @Override
+    public String toString() {
+        string formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
+                "credit hours:tuition due:" + this.tuitionDue();
+        return formattedString;
+    }
+
 }

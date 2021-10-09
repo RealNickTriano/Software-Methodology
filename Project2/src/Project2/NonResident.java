@@ -29,4 +29,12 @@ public class NonResident extends Student {
             tuition = Constants.NONRESIDENT_TUITION + Constants.UNIVERSITY_FEE;
 
     }
+
+    @Override
+    public String toString() {
+        string formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
+                "credit hours:tuition due:" + this.tuitionDue() + "non-resident";
+        return formattedString;
+    }
+
 }
