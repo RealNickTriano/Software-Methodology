@@ -7,12 +7,14 @@ public class Student {
 
     protected Profile profile;
     protected int credits;
-    protected int tuitionRemissions;
+    protected int totalPayment;
+    protected Date lastPaymentDate;
 
-    public Student(Profile profile, int credits, int tuitionRemissions) {
+    public Student(Profile profile, int credits, int totalPament, Date lastPaymentDateate) {
         this.profile = profile;
         this.credits = credits;
-        this.tuitionRemissions = tuitionRemissions;
+        this.totalPayment = totalPament;
+        this.lastPaymentDate = lastPaymentDateate;
     }
 
     public void tuitionDue(){
