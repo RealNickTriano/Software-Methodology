@@ -5,8 +5,11 @@ package Project2;
  */
 public class Resident extends Student {
 
+    protected double financialAid;
+
     public Resident(Profile profile, int credits, double totalPayment, Date lastPaymentDate) {
         super(profile, credits, totalPayment, lastPaymentDate);
+        this.financialAid = financialAid;
     }
 
     @Override
@@ -22,14 +25,14 @@ public class Resident extends Student {
                     (Constants.RESIDENT_COST_PER_CREDIT * (credits - Constants.CREDITS_FOR_ADDITIONAL_TUITION));
         }
         else
-            totalPayment = Constants.RESIDENT_TUITION + Constants.UNIVERSITY_FEE;
+            totalPayment = Constants.RESIDENT_TUITION + Constants.UNIVERSITY_FEE - financialAid;
 
     }
 
     @Override
     public String toString() {
         String formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
-                "credit hours:tuition due:" + totalPayment;
+                "credit hours:tuition due:" + totalPayment + "financial aid:" + financialAid;
         return formattedString;
     }
 
