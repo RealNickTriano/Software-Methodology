@@ -24,7 +24,7 @@ public class Roster {
      * @param student The requested student
      * @return The index of the student requested
      */
-    private int find(Student student){
+    public int find(Student student){
 
         int i;
         for ( i = 0; i < size; i++ ) {
@@ -39,7 +39,7 @@ public class Roster {
     /**
      * Increase the capacity of the array list by 4
      */
-    private void grow(){
+    public void grow(){
 
         Student[] newRosterArr = new Student[size + 4];
         // copy over students in the current roster to the roster w/ updated size
@@ -90,8 +90,8 @@ public class Roster {
             for ( ; i < size; i++ ) {
                 // if at last space in current capacity
                 if ( i == roster.length - 1 ) {
-                    Profile profile = new profile("NA", "NA");
-                    roster[i] = new student(profile, 0, 0);
+                    Profile profile = new Profile("NA", Major.CS);
+                    roster[i] = new Student(profile, 0, 0, new Date());
                 }
                 else {
                     roster[i] = roster[i + 1];
@@ -101,5 +101,38 @@ public class Roster {
         size--;
         return true;
 
+    }
+
+    /**
+     * Display the list without specifying the order
+     */
+    public void print()
+    {
+        for ( int i = 0; i < size; i++ ) {
+            System.out.println( roster[i] );
+        }
+    }
+
+    /**
+     * Display the list sorted by student names
+     */
+    public void printByNames()
+    {
+        // TODO
+    }
+
+    /**
+     * Display the list of only the students who have made payments, ordered by the payment date
+     */
+    public void printByPaymentDate()
+    {
+        // TODO
+    }
+
+    public void CalculateDues()
+    {
+        for ( int i = 0; i < size; i++ ) {
+            roster[i].tuitionDue();
+        }
     }
 }

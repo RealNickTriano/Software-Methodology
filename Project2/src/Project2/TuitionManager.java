@@ -50,7 +50,7 @@ public class TuitionManager {
 
     /**
      * Separate input string into different strings
-     * @param inputString The whole line of input from user
+     * @param st1 The whole line of input from user
      */
     private void tokenizeAdd(StringTokenizer st1) {
 
@@ -68,53 +68,63 @@ public class TuitionManager {
      */
     private void handleCommand(String command, StringTokenizer st1) {
         boolean error;
-        tokenizeAdd(st1);
         newProfile  = new Profile(studentName, newMajor);
-        System.out.println(newProfile);
         switch (command) {
             default:
                 printCommand(command);
                 break;
             case "AR":
                 // add a resident student
-                Resident newResident = new Resident(newProfile, credits, 0, new Date());
-                error = roster.add(newStudent);
-                handleErrorAdd(error);
+                tokenizeAdd(st1);
+                Resident newResident = new Resident(newProfile, credits, 0, 0, new Date());
+                error = roster.add(newResident);
+                handleErrorAdd(error, newResident);
                 break;
             case "AN":
                 // add a nonresident student
-                NonResident newNonResident = new NonResident(newProfile, credits, 0, new Date());
-                error = roster.add(newStudent);
-                handleErrorAdd(error);
+                tokenizeAdd(st1);
+                NonResident newNonResident = new NonResident(newProfile, credits, 0, 0, new Date());
+                error = roster.add(newNonResident);
+                handleErrorAdd(error, newNonResident);
                 break;
             case "AT":
                 // add a tristate student
-                TriState newTriState = new TriState(newProfile, credits, state, 0, new Date());
-                error = roster.add(newStudent);
-                handleErrorAdd(error);
+                tokenizeAdd(st1);
+                TriState newTriState = new TriState(newProfile, credits, state, 0, 0, new Date());
+                error = roster.add(newTriState);
+                handleErrorAdd(error, newTriState);
                 break;
             case "AI":
                 // add a international student
-                International newInternational = new International(newProfile, credits, studyAbroad, 0, new Date());
-                error = roster.add(newStudent);
-                handleErrorAdd(error);
+                tokenizeAdd(st1);
+                International newInternational = new International(newProfile, credits, studyAbroad, 0, 0, new Date());
+                error = roster.add(newInternational);
+                handleErrorAdd(error, newInternational);
                 break;
             case "R":
                 //Remove a student
+                // TODO: need to make this student first
                 error = roster.remove(newStudent);
-                handleErrorRemove(error);
+                handleErrorRemove(error, newStudent);
                 break;
             case "C":
                 // Calculate tuition dues
+                roster.CalculateDues();
                 break;
             case "T":
                 // Pay tuition
+                // TODO: may need another variable in student classes
                 break;
             case "S":
                 // Set study abroad status to true for an international student
+                int position = roster.find(newStudent);
+                if (position == Constants.NOT_FOUND)
+                    System.out.println("Student does not exist.");
+                // TODO: Do we remove this student and add it again with updated information?
                 break;
             case "F":
                 // Set the financial aid amount for a resident student
+                // TODO: Do we remove this student and add it again with updated information?
 
         }
     }
@@ -133,17 +143,20 @@ public class TuitionManager {
                 break;
             case "P":
                 //print the roster as is.
+                roster.print();
                 break;
             case "PN":
                 //print the roster sorted by student names.
+                roster.printByNames();
                 break;
             case "PT":
                 //print only the students who have made payments, ordered by the payment date.
+                roster.printByPaymentDate();
                 break;
         }
     }
 
-    private void handleErrorAdd(boolean error)
+    private void handleErrorAdd(boolean error, Student newStudent)
     {
         if (!error)
             System.out.println(newStudent + " >> is already on the roster.");
@@ -151,7 +164,7 @@ public class TuitionManager {
             System.out.println(newStudent + " >> added successfully.");
     }
 
-    private void handleErrorRemove(boolean error)
+    private void handleErrorRemove(boolean error, Student newStudent)
     {
         if (!error)
             System.out.println(newStudent + " >> is not on the roster.");

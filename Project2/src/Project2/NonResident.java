@@ -6,9 +6,11 @@ import com.sun.corba.se.impl.orbutil.closure.Constant;
  * @author Nicholas Triano, Antonio Ignarra
  */
 public class NonResident extends Student {
+    protected double financialAid;
 
-    public NonResident(Profile profile, int credits, double totalPayment, Date lastPaymentDate) {
+    public NonResident(Profile profile, int credits, double totalPayment, double financialAid, Date lastPaymentDate) {
         super(profile, credits, totalPayment, lastPaymentDate);
+        this.financialAid = financialAid;
     }
 
     @Override

@@ -7,8 +7,8 @@ public class TriState extends NonResident {
 
     private String state;
 
-    public TriState(Profile profile, int credits, String state, double totalPayment, Date lastPaymentDate ) {
-        super(profile, credits, totalPayment, lastPaymentDate);
+    public TriState(Profile profile, int credits, String state, double totalPayment, double financialAid, Date lastPaymentDate ) {
+        super(profile, credits, totalPayment, financialAid, lastPaymentDate);
         this.state = state;
     }
 
