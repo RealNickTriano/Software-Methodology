@@ -7,14 +7,14 @@ public class Student {
 
     protected Profile profile;
     protected int credits;
-    protected int totalPayment;
+    protected double totalPayment;
     protected Date lastPaymentDate;
 
-    public Student(Profile profile, int credits, int totalPament, Date lastPaymentDateate) {
+    public Student(Profile profile, int credits, double totalPayment, Date lastPaymentDate) {
         this.profile = profile;
         this.credits = credits;
-        this.totalPayment = totalPament;
-        this.lastPaymentDate = lastPaymentDateate;
+        this.totalPayment = totalPayment;
+        this.lastPaymentDate = lastPaymentDate;
     }
 
     public void tuitionDue(){
@@ -23,8 +23,8 @@ public class Student {
 
     @Override
     public String toString() {
-        string formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
-                "credit hours:tuition due:" + this.tuitionDue();
+        String formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
+                "credit hours:tuition due:" + totalPayment;
         return formattedString;
     }
 

@@ -7,15 +7,13 @@ public class International  extends NonResident {
 
     private boolean studyAbroad;
 
-    public International(Profile profile, int credits, int tuitionRemissions, boolean studyAbroad) {
-        super(profile, credits, tuitionRemissions);
+    public International(Profile profile, int credits, boolean studyAbroad, double totalPayment, Date lastPaymentDate) {
+        super(profile, credits, totalPayment, lastPaymentDate);
         this.studyAbroad = studyAbroad;
     }
 
     @Override
     public void tuitionDue() {
-
-        int tuition = Constants.INIT_INT;
 
         if ( credits < Constants.MINIMUM_FULL_TIME_CREDITS )
         {
@@ -26,15 +24,15 @@ public class International  extends NonResident {
             // Error international students cannot have more than 12 credits
         }
         else
-            tuition = Constants.INTERNATIONAL_TUITION + Constants.UNIVERSITY_FEE +
+            totalPayment = Constants.INTERNATIONAL_TUITION + Constants.UNIVERSITY_FEE +
                         Constants.INTERNATIONAL_ADDITIONAL_FEE;
 
     }
 
     @Override
     public String toString() {
-        string formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
-                "credit hours:tuition due:" + this.tuitionDue() + "study abroad:" + studyAbroad;
+        String formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
+                "credit hours:tuition due:" + totalPayment + "study abroad:" + studyAbroad;
         return formattedString;
     }
 

@@ -7,8 +7,8 @@ public class TriState extends NonResident {
 
     private String state;
 
-    public TriState(Profile profile, int credits, int tuitionRemissions, String state) {
-        super(profile, credits, tuitionRemissions);
+    public TriState(Profile profile, int credits, String state, double totalPayment, Date lastPaymentDate ) {
+        super(profile, credits, totalPayment, lastPaymentDate);
         this.state = state;
     }
 
@@ -22,8 +22,8 @@ public class TriState extends NonResident {
 
     @Override
     public String toString() {
-        string formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
-                "credit hours:tuition due:" + this.tuitionDue() + "non-resident(tri-state):" + state;
+        String formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
+                "credit hours:tuition due:" + totalPayment + "non-resident(tri-state):" + state;
         return formattedString;
     }
 
