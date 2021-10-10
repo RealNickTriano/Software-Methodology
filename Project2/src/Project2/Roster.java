@@ -162,7 +162,7 @@ public class Roster {
                 continue;
             }
         }
-        // identical names, no need to swap
+        // don't swap if we reach here
         return 1;
     }
 
@@ -174,6 +174,22 @@ public class Roster {
         if ( size == 0 ){
             System.out.println( "Student roster is empty!" );
         }
+        else {
+            boolean swapped;
+            do {
+                swapped = false;
+                for ( int i = 1; i < size; i++ ) {
+                    // if this pair is out of order, swap
+                    if (roster[i].lastPaymentDate.compareTo(roster[i - 1].lastPaymentDate) == -1){
+                        Student temp = roster[i - 1];
+                        roster[i - 1] = roster[i];
+                        roster[i] = temp;
+                        swapped = true;
+                    }
+                }
+            } while ( swapped == true );
+        }
+        this.print();
     }
 
     public void CalculateDues()
