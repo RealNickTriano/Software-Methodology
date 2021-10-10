@@ -118,7 +118,52 @@ public class Roster {
      */
     public void printByNames()
     {
-        // TODO
+        if ( size == 0 ) {
+            System.out.println( "Student roster is empty!" );
+        }
+        else {
+            boolean swapped;
+            do {
+                swapped = false;
+                for ( int i = 1; i < size; i++ ) {
+                    // if this pair is out of order, swap
+                    if (compareNames(roster[i].profile.getName(), roster[i - 1].profile.getName()) == 0){
+                        Student temp = roster[i - 1];
+                        roster[i - 1] = roster[i];
+                        roster[i] = temp;
+                        swapped = true;
+                    }
+                }
+            } while ( swapped == true );
+        }
+        this.print();
+    }
+
+    /**
+     *
+     * @param a the first string to compare
+     * @param b the second string to compare
+     * @return 0 if first passed string is less than the second string, 1 if second passed string is less
+     * than the first string
+     */
+    private int compareNames(String a, String b){
+        int lenA = a.length();
+        int lenB = b.length();
+        for(int i = 0; i < lenA && i < lenB; i++){
+            int aCharI = a.charAt(i);
+            int bCharI = b.charAt(i);
+            if ( aCharI < bCharI ){
+                return 0;
+            }
+            else if ( bCharI < aCharI ){
+                return 1;
+            }
+            else{
+                continue;
+            }
+        }
+        // identical names, no need to swap
+        return 1;
     }
 
     /**
@@ -126,7 +171,9 @@ public class Roster {
      */
     public void printByPaymentDate()
     {
-        // TODO
+        if ( size == 0 ){
+            System.out.println( "Student roster is empty!" );
+        }
     }
 
     public void CalculateDues()
