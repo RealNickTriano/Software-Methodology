@@ -65,7 +65,15 @@ public class TuitionManager {
         }
             studentName = st1.nextToken();
             majorString = st1.nextToken();
-            newMajor = Major.valueOf(majorString.toUpperCase());
+            try {
+                newMajor = Major.valueOf(majorString.toUpperCase());
+            }
+            catch ( IllegalArgumentException e)
+            {
+                System.out.println( "'" + majorString + "'" + " is not a valid major.");
+                return -1;
+            }
+
             creditHoursString = st1.nextToken();
             try {
                 credits = Integer.parseInt(creditHoursString);
