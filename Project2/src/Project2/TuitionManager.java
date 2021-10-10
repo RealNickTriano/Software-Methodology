@@ -65,8 +65,7 @@ public class TuitionManager {
         }
             studentName = st1.nextToken();
             majorString = st1.nextToken();
-            majorString.toUpperCase();
-            newMajor = Major.valueOf(majorString);
+            newMajor = Major.valueOf(majorString.toUpperCase());
             creditHoursString = st1.nextToken();
             try {
                 credits = Integer.parseInt(creditHoursString);
