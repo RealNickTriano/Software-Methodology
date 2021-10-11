@@ -1,6 +1,8 @@
 package Project2;
 
 /**
+ * Calls Tuition Manager to run
+ *
  * @author Nicholas Triano, Antonio Ignarra
  */
 public class RunProject2 {

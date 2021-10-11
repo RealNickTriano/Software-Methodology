@@ -1,6 +1,10 @@
 package Project2;
 
 /**
+ * The Collection where Student objects are added into, methods here operate on the collection.
+ * Can find, add, remove, and print the Students in the collection.
+ * Can grow and print the collection to the user based on their sorted preference.
+ *
  * @author Nicholas Triano, Antonio Ignarra
  */
 public class Roster {
