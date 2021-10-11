@@ -29,7 +29,6 @@ public class TuitionManager {
     /**
      * The main method in this class, calls helper methods to handle user input/output.
      * Uses Scanner imported class to take user input adn then calls helper method to tokenize
-     * Will check for valid date before checking command or making an album
      * Exits when key input "Q" is entered.
      */
     public void run()
@@ -124,6 +123,10 @@ public class TuitionManager {
         return 1;
     }
 
+    /**
+     * Separate input string into different strings
+     * @param st1 The whole line of input from user
+     */
     private void tokenizeRemove(StringTokenizer st1) {
 
         studentName = st1.nextToken();
@@ -134,7 +137,7 @@ public class TuitionManager {
     /**
      * Determine what action to take with the given command, Checks printCommand method if nothing matches
      * @param command String entered by user
-     * @param st1
+     * @param st1 The whole line of input from user
      */
     private void handleCommand(String command, StringTokenizer st1) {
         boolean error;
@@ -283,6 +286,11 @@ public class TuitionManager {
         }
     }
 
+    /**
+     * Creates a profile from user inputted String
+     * @param st1 The whole line of input from user
+     * @return profile the Profile object that was created
+     */
     public Profile makeProfile(StringTokenizer st1)
     {
         studentName = st1.nextToken();
@@ -292,6 +300,11 @@ public class TuitionManager {
         return profile;
     }
 
+    /**
+     * Makes a payment for the given student
+     * @param st1 The whole line of input from user
+     * @return an error number to be checked in the caller method
+     */
     private int payTuition( StringTokenizer st1 ) {
         Profile profile = makeProfile(st1);
         Student student = new Student(profile, 0, 0, "--/--/--", 0);
@@ -345,6 +358,10 @@ public class TuitionManager {
         }
     }
 
+    /**
+     * Displays message to user on what happened after the add method
+     * @param error boolean value saying if there was an error or not
+     */
     private void handleErrorAdd(boolean error)
     {
         if (!error)
@@ -353,6 +370,10 @@ public class TuitionManager {
             System.out.println( "Student added." );
     }
 
+    /**
+     * Displays message to user on what happened after the remove method
+     * @param error boolean value saying if there was an error or not
+     */
     private void handleErrorRemove(boolean error)
     {
         if (!error)
