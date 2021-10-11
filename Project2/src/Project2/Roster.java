@@ -249,6 +249,11 @@ public class Roster {
         return 1;
     }
 
+    /**
+     * Helper method for tuition manager to determine if queried sttudent is a resident student
+     * @param student the desired student
+     * @return true if student is a resident, false otherwise
+     */
     public boolean isResident(Student student){
         int i = find(student);
         if (roster[i] instanceof Resident) {
@@ -257,6 +262,11 @@ public class Roster {
         return false;
     }
 
+    /**
+     * Helper method to determine if a student is full time
+     * @param student the desired student
+     * @return true if the queried student is full time, false otherwise
+     */
     public boolean isFullTime(Student student){
         int i = find(student);
         if (roster[i].credits >= 3){
@@ -265,6 +275,12 @@ public class Roster {
         return false;
     }
 
+    /**
+     * Method to set financial aid amount.
+     * Only called by tuition manager when we are guaranteed to have a valid resident student and amount of financial aid
+     * @param amount amount to set financial aid to
+     * @param position location of student in roster array
+     */
     public void setFinancialAid(double amount, int position) {
         roster[position].financialAid = amount;
     }

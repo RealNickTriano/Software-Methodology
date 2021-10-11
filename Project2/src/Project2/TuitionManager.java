@@ -235,18 +235,18 @@ public class TuitionManager {
             case "F":
                 // Set the financial aid amount for a resident student
                 Profile profile = makeProfile(st1);
-                Student newStudent = new Student(profile, 0, 0, 0, new Date(), 0);
+                Student newStudent = new Student(profile, 0, 0, new Date(), 0);
                 int position = roster.find(newStudent);
                 if (position == Constants.NOT_FOUND) {
-                    System.out.println("Student is not in the roster.")
+                    System.out.println( "Student is not in the roster." )
                 }
                 else {
                     // Given name is in the roster, need to validate student qualifies and entered amount is valid
                     if ( roster.isResident(newStudent) ) {
                         if ( roster.isFullTime(newStudent) ) {
                             financialAid = Double.parseDouble(st1.nextToken());
-                            if (financialAid <= 0 || financialAid >= Constants.RESIDENT_MAX_AID) {
-                                System.out.println( "Invalid amount. ");
+                            if (financialAid <= 0 || financialAid > Constants.RESIDENT_MAX_AID) {
+                                System.out.println( "Invalid amount." );
                             }
                             else {
                                 roster.setFinancialAid(financialAid, position);
