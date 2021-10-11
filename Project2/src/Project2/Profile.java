@@ -76,7 +76,7 @@ public class Profile {
         Profile newProfile = ( Profile ) obj;
 
         // Compare name and major, return true if both are equal, false of not
-        if ( name.equalsIgnoreCase( newProfile.name ) && major == newProfile.major ) {
+        if ( name.equals( newProfile.name ) && major == newProfile.major ) {
             return true;
         } else {
             return false;

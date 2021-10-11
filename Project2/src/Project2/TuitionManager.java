@@ -102,14 +102,18 @@ public class TuitionManager {
                 System.out.println( "Credit hours cannot be negative." );
                 throw new ArithmeticException( "Credit hours cannot be negative." );
             }
-            if (command.equalsIgnoreCase("AT") || command.equalsIgnoreCase("AI")) {
+            if (command.equals("AT") || command.equalsIgnoreCase("AI")) {
                 if (count != 5) {
                     System.out.println("Missing data in command line.");
+                    throw new ArithmeticException( "Missing data in command line." );
                 }
-            }
-            if (command.equalsIgnoreCase("AT")) // if tri state
                 state = st1.nextToken();
-            else if (command.equalsIgnoreCase("AI")) { // if international
+                if(!(state.equalsIgnoreCase("NY")) || !(state.equalsIgnoreCase("CT")) )
+                    System.out.println("Not part of the Tristate area.");
+                    throw new ArithmeticException( "Not part of the Tristate area." );
+
+            }
+            else if (command.equals("AI")) { // if international
                 if (credits < 12) {
                     System.out.println("International students must enroll at least 12 credits.");
                     throw new ArithmeticException("International students must enroll at least 12 credits.");
