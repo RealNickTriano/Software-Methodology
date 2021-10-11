@@ -150,7 +150,7 @@ public class TuitionManager {
                         break;
                     newProfile  = new Profile(studentName, newMajor);
                     Resident newResident = new Resident(newProfile, credits,
-                            0, 0, new Date(), 0);
+                            0, 0, "--/--/--", 0);
                     error = roster.add(newResident);
                     handleErrorAdd(error);
                 }
@@ -167,7 +167,7 @@ public class TuitionManager {
                         break;
                     newProfile = new Profile(studentName, newMajor);
                     NonResident newNonResident = new NonResident(newProfile, credits,
-                            0, new Date(), 0);
+                            0, "--/--/--", 0);
                     error = roster.add(newNonResident);
                     handleErrorAdd(error);
                 }
@@ -183,7 +183,7 @@ public class TuitionManager {
                         break;
                     newProfile = new Profile(studentName, newMajor);
                     TriState newTriState = new TriState(newProfile, credits, state,
-                            0, new Date(), 0);
+                            0, "--/--/--", 0);
                     error = roster.add(newTriState);
                     handleErrorAdd(error);
                 }
@@ -199,7 +199,7 @@ public class TuitionManager {
                         break;
                     newProfile = new Profile(studentName, newMajor);
                     International newInternational = new International(newProfile, credits, studyAbroad,
-                            0, new Date(), 0);
+                            0, "--/--/--", 0);
                     error = roster.add(newInternational);
                     handleErrorAdd(error);
                 }
@@ -212,7 +212,7 @@ public class TuitionManager {
                 tokenizeRemove(st1);
                 newProfile  = new Profile(studentName, newMajor);
                 // make student to compare profiles
-                Student student = new Student(newProfile, 0, 0, new Date(), 0 );
+                Student student = new Student(newProfile, 0, 0, "--/--/--", 0 );
                 error = roster.remove(student);
                 handleErrorRemove(error);
                 break;
@@ -226,12 +226,12 @@ public class TuitionManager {
                 err= payTuition(st1);
                 if(err == 1)
                     System.out.println("Payment applied.");
-                else
+                else {}
                 break;
             case "S":
                 // Set study abroad status to true for an international student
                 Profile profile = makeProfile(st1);
-                Student newStudent = new Student(profile, 0, 0, new Date(), 0);
+                Student newStudent = new Student(profile, 0, 0, "--/--/--", 0);
                 int position = roster.find(newStudent);
                 if (position == Constants.NOT_FOUND)
                     System.out.println("Couldn't find the international student.");
@@ -248,7 +248,7 @@ public class TuitionManager {
                     break;
                 }
                 newProfile = makeProfile(st1);
-                Student s = new Student(newProfile, 0, 0, new Date(), 0);
+                Student s = new Student(newProfile, 0, 0, "--/--/--", 0);
                 int pos = roster.find(s);
                 if (pos == Constants.NOT_FOUND) {
                     System.out.println( "Student is not in the roster." );
@@ -293,7 +293,7 @@ public class TuitionManager {
 
     private int payTuition( StringTokenizer st1 ) {
         Profile profile = makeProfile(st1);
-        Student student = new Student(profile, 0, 0, new Date(), 0);
+        Student student = new Student(profile, 0, 0, "--/--/--", 0);
         totalPayment = Double.parseDouble(st1.nextToken());
         if(totalPayment == 0 || totalPayment < 0)
         {
@@ -301,10 +301,17 @@ public class TuitionManager {
             return -1;
         }
         newDate = new Date(st1.nextToken());
-        int position = roster.find(student);
-        int error = roster.pay(totalPayment, newDate, position);
-        if(error == -1) {
-            System.out.println( "Amount is greater than amount due." );
+        // check valid date
+        if (newDate.isValid()) {
+            int position = roster.find(student);
+            int error = roster.pay(totalPayment, newDate.toString(), position);
+            if (error == -1) {
+                System.out.println("Amount is greater than amount due.");
+                return -1;
+            }
+        }
+        else {
+            System.out.println("Invalid Date.");
             return -1;
         }
         return 1;

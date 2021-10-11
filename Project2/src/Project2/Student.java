@@ -8,10 +8,10 @@ public class Student {
     protected Profile profile;
     protected int credits;
     protected double tuitionDue;
-    protected Date lastPaymentDate;
+    protected String lastPaymentDate;
     protected  double totalPayment;
 
-    public Student(Profile profile, int credits, double tuitionDue, Date lastPaymentDate, double totalPayment) {
+    public Student(Profile profile, int credits, double tuitionDue, String lastPaymentDate, double totalPayment) {
         this.profile = profile;
         this.credits = credits;
         this.tuitionDue = tuitionDue;
@@ -24,7 +24,7 @@ public class Student {
         this.totalPayment += totalPayment;
     }
 
-    public void setLastPaymentDate(Date date)
+    public void setLastPaymentDate(String date)
     {
         this.lastPaymentDate = date;
     }

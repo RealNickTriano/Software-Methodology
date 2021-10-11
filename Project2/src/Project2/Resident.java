@@ -7,7 +7,7 @@ public class Resident extends Student {
 
     protected double financialAid;
 
-    public Resident(Profile profile, int credits, double tuitionDue, double financialAid, Date lastPaymentDate, double totalPayment) {
+    public Resident(Profile profile, int credits, double tuitionDue, double financialAid, String lastPaymentDate, double totalPayment) {
         super(profile, credits, tuitionDue, lastPaymentDate, totalPayment);
         this.financialAid = financialAid;
     }

@@ -5,7 +5,7 @@ package Project2;
  */
 public class NonResident extends Student {
 
-    public NonResident(Profile profile, int credits, double tuitionDue, Date lastPaymentDate, double totalPayment) {
+    public NonResident(Profile profile, int credits, double tuitionDue, String lastPaymentDate, double totalPayment) {
         super(profile, credits, tuitionDue, lastPaymentDate, tuitionDue);
     }
 

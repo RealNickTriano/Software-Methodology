@@ -91,7 +91,7 @@ public class Roster {
                 // if at last space in current capacity
                 if ( i == roster.length - 1 ) {
                     Profile profile = new Profile("NA", Major.CS);
-                    roster[i] = new Student(profile, 0, 0, new Date(), 0);
+                    roster[i] = new Student(profile, 0, 0, "--/--/--", 0);
                 }
                 else {
                     roster[i] = roster[i + 1];
@@ -239,7 +239,7 @@ public class Roster {
      * @param position position of student in the roster array
      * @return
      */
-    public int pay(double totalPayment, Date newDate, int position)
+    public int pay(double totalPayment, String newDate, int position)
     {
         roster[position].setLastPaymentDate(newDate);
         if((roster[position].totalPayment + totalPayment) > roster[position].tuitionDue)
