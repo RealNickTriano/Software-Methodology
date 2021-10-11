@@ -82,7 +82,12 @@ public class TuitionManager {
                 System.out.println( "Invalid credit hours." );
                 return -1;
             }
-            if ( credits < 3 ) {
+            if ( credits < 0 )
+            {
+                System.out.println( "Credit hours cannot be negative." );
+                throw new ArithmeticException( "Credit hours cannot be negative." );
+            }
+            else if ( credits < 3 ) {
                 System.out.println( "Minimum credit hours is 3." );
                 throw new ArithmeticException( "Minimum credit hours is 3." );
             }
@@ -98,6 +103,10 @@ public class TuitionManager {
             if (command.equalsIgnoreCase("AT")) // if tri state
                 state = st1.nextToken();
             else if (command.equalsIgnoreCase("AI")) // if international
+                if(credits < 12) {
+                    System.out.println("International students must enroll at least 12 credits.");
+                    throw new ArithmeticException("International students must enroll at least 12 credits.");
+                }
                 studyAbroad = Boolean.parseBoolean(st1.nextToken());
 
         return 1;
