@@ -8,8 +8,8 @@ import com.sun.corba.se.impl.orbutil.closure.Constant;
 public class NonResident extends Student {
     protected double financialAid;
 
-    public NonResident(Profile profile, int credits, double totalPayment, double financialAid, Date lastPaymentDate) {
-        super(profile, credits, totalPayment, lastPaymentDate);
+    public NonResident(Profile profile, int credits, double totalPayment, double financialAid, Date lastPaymentDate, double lastPayment) {
+        super(profile, credits, totalPayment, lastPaymentDate, lastPayment);
         this.financialAid = financialAid;
     }
 
@@ -32,8 +32,9 @@ public class NonResident extends Student {
 
     @Override
     public String toString() {
-        String formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
-                "credit hours:tuition due:" + totalPayment + "non-resident";
+        String formattedString = profile + ":" + credits +
+                " credit hours:tuition due:" + totalPayment + ":last payment:" + lastPayment +
+                "payment date:" + lastPaymentDate + ":non-resident";
         return formattedString;
     }
 

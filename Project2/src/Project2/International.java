@@ -7,8 +7,8 @@ public class International  extends NonResident {
 
     private boolean studyAbroad;
 
-    public International(Profile profile, int credits, boolean studyAbroad, double totalPayment, double financialAid, Date lastPaymentDate) {
-        super(profile, credits, totalPayment, financialAid, lastPaymentDate);
+    public International(Profile profile, int credits, boolean studyAbroad, double totalPayment, double financialAid, Date lastPaymentDate, double lastPayment) {
+        super(profile, credits, totalPayment, financialAid, lastPaymentDate, lastPayment);
         this.studyAbroad = studyAbroad;
     }
 
@@ -31,9 +31,20 @@ public class International  extends NonResident {
 
     @Override
     public String toString() {
-        String formattedString = profile.getName() + ":" + profile.getMajor() + ":" + credits +
-                "credit hours:tuition due:" + totalPayment + "study abroad:" + studyAbroad;
+
+        String formattedString;
+        if(studyAbroad) {
+            formattedString = profile + ":" + credits +
+                    " credit hours:tuition due:" + totalPayment + ":last payment:" + lastPayment +
+                    "payment date:" + lastPaymentDate + ":non-resident:international:study abroad";
+        }
+        else {
+            formattedString = profile + ":" + credits +
+                    " credit hours:tuition due:" + totalPayment + ":last payment:" + lastPayment +
+                    "payment date:" + lastPaymentDate + ":non-resident:international";
+        }
         return formattedString;
+
     }
 
 

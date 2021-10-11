@@ -128,7 +128,8 @@ public class TuitionManager {
                     if ( err == -1 )
                         break;
                     newProfile  = new Profile(studentName, newMajor);
-                    Resident newResident = new Resident(newProfile, credits, 0, 0, new Date());
+                    Resident newResident = new Resident(newProfile, credits,
+                            0, 0, new Date(), 0);
                     error = roster.add(newResident);
                     handleErrorAdd(error);
                 }
@@ -144,7 +145,8 @@ public class TuitionManager {
                     if (err == -1)
                         break;
                     newProfile = new Profile(studentName, newMajor);
-                    NonResident newNonResident = new NonResident(newProfile, credits, 0, 0, new Date());
+                    NonResident newNonResident = new NonResident(newProfile, credits,
+                            0, 0, new Date(), 0);
                     error = roster.add(newNonResident);
                     handleErrorAdd(error);
                 }
@@ -159,7 +161,8 @@ public class TuitionManager {
                     if (err == -1)
                         break;
                     newProfile = new Profile(studentName, newMajor);
-                    TriState newTriState = new TriState(newProfile, credits, state, 0, 0, new Date());
+                    TriState newTriState = new TriState(newProfile, credits, state,
+                            0, 0, new Date(), 0);
                     error = roster.add(newTriState);
                     handleErrorAdd(error);
                 }
@@ -174,7 +177,8 @@ public class TuitionManager {
                     if (err == -1)
                         break;
                     newProfile = new Profile(studentName, newMajor);
-                    International newInternational = new International(newProfile, credits, studyAbroad, 0, 0, new Date());
+                    International newInternational = new International(newProfile, credits, studyAbroad,
+                            0, 0, new Date(), 0);
                     error = roster.add(newInternational);
                     handleErrorAdd(error);
                 }
@@ -187,7 +191,7 @@ public class TuitionManager {
                 tokenizeRemove(st1);
                 newProfile  = new Profile(studentName, newMajor);
                 // make student to compare profiles
-                Student student = new Student(newProfile, 0, 0, new Date() );
+                Student student = new Student(newProfile, 0, 0, new Date(), 0 );
                 error = roster.remove(student);
                 handleErrorRemove(error);
                 break;

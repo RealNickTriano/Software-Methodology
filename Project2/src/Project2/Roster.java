@@ -91,7 +91,7 @@ public class Roster {
                 // if at last space in current capacity
                 if ( i == roster.length - 1 ) {
                     Profile profile = new Profile("NA", Major.CS);
-                    roster[i] = new Student(profile, 0, 0, new Date());
+                    roster[i] = new Student(profile, 0, 0, new Date(), 0);
                 }
                 else {
                     roster[i] = roster[i + 1];
