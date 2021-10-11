@@ -15,13 +15,13 @@ public class International  extends NonResident {
     @Override
     public void tuitionDue() {
 
-        if ( credits < Constants.MINIMUM_FULL_TIME_CREDITS )
+        if ( credits < Constants.MINIMUM_FULL_TIME_CREDITS)
         {
             // Error international students cannot be part time
         }
-        else if ( credits > Constants.CREDITS_FOR_ADDITIONAL_TUITION)
+        else if ( credits > Constants.CREDITS_FOR_ADDITIONAL_TUITION && studyAbroad)
         {
-            // Error international students cannot have more than 12 credits
+            // Error international students in study abroad cannot have more than 12 credits
         }
         else
             totalPayment = Constants.INTERNATIONAL_TUITION + Constants.UNIVERSITY_FEE +
