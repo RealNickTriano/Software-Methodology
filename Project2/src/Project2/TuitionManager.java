@@ -102,7 +102,6 @@ public class TuitionManager {
                 System.out.println( "Credit hours cannot be negative." );
                 throw new ArithmeticException( "Credit hours cannot be negative." );
             }
-            // TODO, AI/AT not adding to roster
             if (command.equalsIgnoreCase("AT")) // if tri state
                 state = st1.nextToken();
             else if (command.equalsIgnoreCase("AI")) { // if international
@@ -234,24 +233,27 @@ public class TuitionManager {
                 break;
             case "F":
                 // Set the financial aid amount for a resident student
-                Profile profile = makeProfile(st1);
-                Student newStudent = new Student(profile, 0, 0, new Date(), 0);
-                int position = roster.find(newStudent);
-                if (position == Constants.NOT_FOUND) {
-                    System.out.println( "Student is not in the roster." )
+                newProfile = makeProfile(st1);
+                Student s = new Student(newProfile, 0, 0, new Date(), 0);
+                int pos = roster.find(s);
+                if (pos == Constants.NOT_FOUND) {
+                    System.out.println( "Student is not in the roster." );
                 }
                 else {
                     // Given name is in the roster, need to validate student qualifies and entered amount is valid
-                    if ( roster.isResident(newStudent) ) {
-                        if ( roster.isFullTime(newStudent) ) {
+                    if ( roster.isResident(s) ) {
+                        if ( roster.isFullTime(s) ) {
                             financialAid = Double.parseDouble(st1.nextToken());
                             if (financialAid <= 0 || financialAid > Constants.RESIDENT_MAX_AID) {
                                 System.out.println( "Invalid amount." );
                             }
                             else {
-                                error = roster.setFinancialAid(financialAid, position);
+                                error = roster.setFinancialAid(financialAid, pos);
                                 if ( !error ){
                                     System.out.println( "Awarded financial aid already." );
+                                }
+                                else {
+                                    System.out.println( "Tuition updated." );
                                 }
                             }
                         }

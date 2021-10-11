@@ -282,10 +282,12 @@ public class Roster {
      * @return true if financial aid amount set successfully, false if financial aid was already rewarded
      */
     public boolean setFinancialAid(double amount, int position) {
-        if ( roster[position].financialAid != 0 ){
+        Resident student = (Resident) roster[position];
+        if ( student.financialAid != 0 ){
             return false;
         }
-        roster[position].financialAid = amount;
+        student.financialAid = amount;
+        this.CalculateDues();
         return true;
     }
 
