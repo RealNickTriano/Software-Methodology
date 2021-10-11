@@ -155,7 +155,7 @@ public class TuitionManager {
                         break;
                     newProfile = new Profile(studentName, newMajor);
                     NonResident newNonResident = new NonResident(newProfile, credits,
-                            0, 0, new Date(), 0);
+                             0, new Date(), 0);
                     error = roster.add(newNonResident);
                     handleErrorAdd(error);
                 }
@@ -171,7 +171,7 @@ public class TuitionManager {
                         break;
                     newProfile = new Profile(studentName, newMajor);
                     TriState newTriState = new TriState(newProfile, credits, state,
-                            0, 0, new Date(), 0);
+                             0, new Date(), 0);
                     error = roster.add(newTriState);
                     handleErrorAdd(error);
                 }
@@ -187,7 +187,7 @@ public class TuitionManager {
                         break;
                     newProfile = new Profile(studentName, newMajor);
                     International newInternational = new International(newProfile, credits, studyAbroad,
-                            0, 0, new Date(), 0);
+                             0, new Date(), 0);
                     error = roster.add(newInternational);
                     handleErrorAdd(error);
                 }
@@ -221,7 +221,7 @@ public class TuitionManager {
                     System.out.println( "Student does not exist." );
                 else
 
-                // TODO: Do we remove this student and add it again with updated information?
+                    //TODO: Do we remove this student and add it again with updated information?
                 break;
             case "F":
                 // Set the financial aid amount for a resident student

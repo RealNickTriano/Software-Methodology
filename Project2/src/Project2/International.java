@@ -7,8 +7,8 @@ public class International  extends NonResident {
 
     private boolean studyAbroad;
 
-    public International(Profile profile, int credits, boolean studyAbroad, double tuitionDue, double financialAid, Date lastPaymentDate, double totalPayment) {
-        super(profile, credits, tuitionDue, financialAid, lastPaymentDate, totalPayment);
+    public International(Profile profile, int credits, boolean studyAbroad, double tuitionDue, Date lastPaymentDate, double totalPayment) {
+        super(profile, credits, tuitionDue, lastPaymentDate, totalPayment);
         this.studyAbroad = studyAbroad;
     }
 
