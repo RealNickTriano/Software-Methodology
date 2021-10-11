@@ -102,6 +102,11 @@ public class TuitionManager {
                 System.out.println( "Credit hours cannot be negative." );
                 throw new ArithmeticException( "Credit hours cannot be negative." );
             }
+            if (command.equalsIgnoreCase("AT") || command.equalsIgnoreCase("AI")) {
+                if (count != 5) {
+                    System.out.println("Missing data in command line.");
+                }
+            }
             if (command.equalsIgnoreCase("AT")) // if tri state
                 state = st1.nextToken();
             else if (command.equalsIgnoreCase("AI")) { // if international
@@ -233,6 +238,11 @@ public class TuitionManager {
                 break;
             case "F":
                 // Set the financial aid amount for a resident student
+                int count = st1.countTokens();
+                if (count == 3) {
+                    System.out.println("Missing the amount.");
+                    break;
+                }
                 newProfile = makeProfile(st1);
                 Student s = new Student(newProfile, 0, 0, new Date(), 0);
                 int pos = roster.find(s);
