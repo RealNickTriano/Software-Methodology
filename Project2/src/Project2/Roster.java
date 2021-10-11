@@ -265,4 +265,8 @@ public class Roster {
         return false;
     }
 
+    public void setFinancialAid(double amount, int position) {
+        roster[position].financialAid = amount;
+    }
+
 }

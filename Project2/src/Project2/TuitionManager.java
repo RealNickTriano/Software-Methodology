@@ -248,6 +248,9 @@ public class TuitionManager {
                             if (financialAid <= 0 || financialAid >= Constants.RESIDENT_MAX_AID) {
                                 System.out.println( "Invalid amount. ");
                             }
+                            else {
+                                roster.setFinancialAid(financialAid, position);
+                            }
                         }
                         else {
                             System.out.println( "Parttime student doesn't qualify for the award." );
