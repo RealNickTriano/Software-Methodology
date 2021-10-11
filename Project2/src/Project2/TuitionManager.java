@@ -40,6 +40,9 @@ public class TuitionManager {
             Scanner input = new Scanner(System.in);
 
             inputString = input.nextLine();
+            if ( inputString.length() == 0 ){
+                System.out.println("\n");
+            }
             StringTokenizer st1 = new StringTokenizer(inputString, ",");
             int count = st1.countTokens();
             command = st1.nextToken();
