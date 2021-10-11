@@ -28,7 +28,7 @@ public class Roster {
 
         int i;
         for ( i = 0; i < size; i++ ) {
-            if ( roster[i].equals(student) ) {
+            if ( roster[i].profile.equals(student.profile) ) {
                 return i;
             }
         }
@@ -56,7 +56,7 @@ public class Roster {
      * @return false if the roster already contains the student, true if the student was successfully added
      */
     public boolean add(Student student){
-
+        // student already on roster
         if ( find(student) != Constants.NOT_FOUND ){
             return false;
         }
@@ -104,10 +104,24 @@ public class Roster {
     }
 
     /**
+     * helper method for checking if roster is empty
+     * @return true if roster size is 0, false otherwise
+     */
+    private boolean isEmpty(){
+        if ( size == 0 ){
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Display the list without specifying the order
      */
     public void print()
     {
+        if ( this.isEmpty() ){
+            System.out.println( "Student roster is empty!" );
+        }
         for ( int i = 0; i < size; i++ ) {
             System.out.println( roster[i] );
         }
@@ -118,7 +132,7 @@ public class Roster {
      */
     public void printByNames()
     {
-        if ( size == 0 ) {
+        if ( this.isEmpty() ) {
             System.out.println( "Student roster is empty!" );
         }
         else {
@@ -171,7 +185,7 @@ public class Roster {
      */
     public void printByPaymentDate()
     {
-        if ( size == 0 ){
+        if ( this.isEmpty() ){
             System.out.println( "Student roster is empty!" );
         }
         else {

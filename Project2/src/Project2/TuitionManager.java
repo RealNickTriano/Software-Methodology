@@ -38,11 +38,7 @@ public class TuitionManager {
         while(!(inputString.equals("Q")))
         {
             Scanner input = new Scanner(System.in);
-
             inputString = input.nextLine();
-            if ( inputString.length() == 0 ){
-                System.out.println("\n");
-            }
             StringTokenizer st1 = new StringTokenizer(inputString, ",");
             int count = st1.countTokens();
             command = st1.nextToken();
@@ -98,7 +94,7 @@ public class TuitionManager {
                 System.out.println( "Credit hours cannot be negative." );
                 throw new ArithmeticException( "Credit hours cannot be negative." );
             }
-
+            // TODO, AI/AT not adding to roster
             if (command.equalsIgnoreCase("AT")) // if tri state
                 state = st1.nextToken();
             else if (command.equalsIgnoreCase("AI")) // if international
@@ -140,35 +136,54 @@ public class TuitionManager {
                 {
 
                 }
-
                 break;
             case "AN":
                 // add a nonresident student
-                tokenizeAdd(st1);
-                newProfile  = new Profile(studentName, newMajor);
-                NonResident newNonResident = new NonResident(newProfile, credits, 0, 0, new Date());
-                error = roster.add(newNonResident);
-                handleErrorAdd(error);
+                try {
+                    int err = tokenizeAdd(st1);
+                    if (err == -1)
+                        break;
+                    newProfile = new Profile(studentName, newMajor);
+                    NonResident newNonResident = new NonResident(newProfile, credits, 0, 0, new Date());
+                    error = roster.add(newNonResident);
+                    handleErrorAdd(error);
+                }
+                catch ( Exception e ){
+
+                }
                 break;
             case "AT":
                 // add a tristate student
-                tokenizeAdd(st1);
-                newProfile  = new Profile(studentName, newMajor);
-                TriState newTriState = new TriState(newProfile, credits, state, 0, 0, new Date());
-                error = roster.add(newTriState);
-                handleErrorAdd(error);
+                try {
+                    int err = tokenizeAdd(st1);
+                    if (err == -1)
+                        break;
+                    newProfile = new Profile(studentName, newMajor);
+                    TriState newTriState = new TriState(newProfile, credits, state, 0, 0, new Date());
+                    error = roster.add(newTriState);
+                    handleErrorAdd(error);
+                }
+                catch ( Exception e ){
+
+                }
                 break;
             case "AI":
                 // add a international student
-                tokenizeAdd(st1);
-                newProfile  = new Profile(studentName, newMajor);
-                International newInternational = new International(newProfile, credits, studyAbroad, 0, 0, new Date());
-                error = roster.add(newInternational);
-                handleErrorAdd(error);
+                try {
+                    int err = tokenizeAdd(st1);
+                    if (err == -1)
+                        break;
+                    newProfile = new Profile(studentName, newMajor);
+                    International newInternational = new International(newProfile, credits, studyAbroad, 0, 0, new Date());
+                    error = roster.add(newInternational);
+                    handleErrorAdd(error);
+                }
+                catch ( Exception e ){
+
+                }
                 break;
             case "R":
                 //Remove a student
-                // TODO: need to make this student first
                 tokenizeRemove(st1);
                 newProfile  = new Profile(studentName, newMajor);
                 // make student to compare profiles
@@ -179,6 +194,7 @@ public class TuitionManager {
             case "C":
                 // Calculate tuition dues
                 roster.CalculateDues();
+                System.out.println( "Calculation completed." );
                 break;
             case "T":
                 // Pay tuition
@@ -187,8 +203,10 @@ public class TuitionManager {
             case "S":
                 // Set study abroad status to true for an international student
                 int position = roster.find(newStudent);
-                if (position == Constants.NOT_FOUND)
-                    System.out.println("Student does not exist.");
+                if ( position == Constants.NOT_FOUND )
+                    System.out.println( "Student does not exist." );
+                else
+
                 // TODO: Do we remove this student and add it again with updated information?
                 break;
             case "F":
