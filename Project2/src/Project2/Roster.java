@@ -249,8 +249,20 @@ public class Roster {
         return 1;
     }
 
-    public boolean qualifiesForFinancialAid(Student student){
+    public boolean isResident(Student student){
+        int i = find(student);
+        if (roster[i] instanceof Resident) {
+            return true;
+        }
+        return false;
+    }
 
+    public boolean isFullTime(Student student){
+        int i = find(student);
+        if (roster[i].credits >= 3){
+            return true;
+        }
+        return false;
     }
 
 }

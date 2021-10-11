@@ -17,9 +17,9 @@ public class TuitionManager {
     private String command, studentName, majorString, creditHoursString, date, state;
     private Date newDate;
     private Major newMajor;
-    private double totalPayment;
+    private double totalPayment, financialAid;
     private boolean validDate = true, studyAbroad;
-    private int credits, tuitionRemissions = 0;
+    private int credits;
     private Profile newProfile;
     private Student newStudent;
     private Student[] studentArray;
@@ -241,7 +241,21 @@ public class TuitionManager {
                     System.out.println("Student is not in the roster.")
                 }
                 else {
-                    //Given name is in the roster, need
+                    // Given name is in the roster, need to validate student qualifies and entered amount is valid
+                    if ( roster.isResident(newStudent) ) {
+                        if ( roster.isFullTime(newStudent) ) {
+                            financialAid = Double.parseDouble(st1.nextToken());
+                            if (financialAid <= 0 || financialAid >= Constants.RESIDENT_MAX_AID) {
+                                System.out.println( "Invalid amount. ");
+                            }
+                        }
+                        else {
+                            System.out.println( "Parttime student doesn't qualify for the award." );
+                        }
+                    }
+                    else {
+                        System.out.println( "Not a resident student." );
+                    }
                 }
         }
     }
