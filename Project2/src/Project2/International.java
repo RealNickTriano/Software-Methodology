@@ -16,6 +16,11 @@ public class International  extends NonResident {
     {
         this.studyAbroad = studyAbroad;
     }
+
+    public double getTuitionDue()
+    {
+        return tuitionDue;
+    }
     @Override
     public void tuitionDue() {
 
@@ -23,9 +28,19 @@ public class International  extends NonResident {
         {
             // Error international students cannot be part time
         }
-        else if ( credits > Constants.CREDITS_FOR_ADDITIONAL_TUITION && studyAbroad)
+        else if ( credits > Constants.MINIMUM_FULL_TIME_CREDITS && studyAbroad)
         {
             // Error international students in study abroad cannot have more than 12 credits
+        }
+        else if(studyAbroad)
+        {
+            tuitionDue = Constants.UNIVERSITY_FEE + Constants.INTERNATIONAL_ADDITIONAL_FEE;
+        }
+        else if( credits > Constants.CREDITS_FOR_ADDITIONAL_TUITION)
+        {
+            tuitionDue = Constants.INTERNATIONAL_TUITION + Constants.UNIVERSITY_FEE +
+                    Constants.INTERNATIONAL_ADDITIONAL_FEE + (Constants.NONRESIDENT_COST_PER_CREDIT *
+                    (credits - Constants.CREDITS_FOR_ADDITIONAL_TUITION));
         }
         else
             tuitionDue = Constants.INTERNATIONAL_TUITION + Constants.UNIVERSITY_FEE +
