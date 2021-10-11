@@ -59,7 +59,7 @@ public class TuitionManager {
         // check token count
         int count = st1.countTokens();
         if( count < 2) {
-            System.out.println("Missing data in command line.");
+            System.out.println( "Missing data in command line." );
         }
         else if ( count < 3 )
         {
@@ -71,7 +71,7 @@ public class TuitionManager {
             try {
                 newMajor = Major.valueOf(majorString.toUpperCase());
             }
-            catch ( IllegalArgumentException e)
+            catch ( IllegalArgumentException e )
             {
                 System.out.println( "'" + majorString + "'" + " is not a valid major.");
                 return -1;
@@ -244,8 +244,8 @@ public class TuitionManager {
             case "F":
                 // Set the financial aid amount for a resident student
                 int count = st1.countTokens();
-                if (count == 3) {
-                    System.out.println("Missing the amount.");
+                if (count != 4) {
+                    System.out.println("Invalid number of arguments for financial aid.");
                     break;
                 }
                 newProfile = makeProfile(st1);
