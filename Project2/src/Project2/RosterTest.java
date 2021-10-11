@@ -10,11 +10,13 @@ class RosterTest {
 
     @Test
     public void testAdd() {
-        Student[] studentArray;
+        Student[] studentArray = { };
         Roster myRoster = new Roster(studentArray, 0);
-        Student myStudent = new Student();
+        Profile newProfile = new Profile("name", Major.CS);
+        Resident myStudent = new Resident(newProfile, 12,
+                0, 0, "--/--/--", 0);
         myRoster.add(myStudent);
-        Assertions.assertfalse(myRoster.add(myStudent));
+        Assertions.assertFalse(myRoster.add(myStudent));
 
     }
 
