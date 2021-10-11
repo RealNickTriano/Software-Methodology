@@ -211,6 +211,9 @@ public class Roster {
         this.print();
     }
 
+    /**
+     * Calculate all tuition for every student in the roster array
+     */
     public void CalculateDues()
     {
         for ( int i = 0; i < size; i++ ) {
@@ -218,6 +221,10 @@ public class Roster {
         }
     }
 
+    /**
+     * sets study abroad status of international student in roster
+     * @param position position of student in the roster array
+     */
     public void setStudyAbroad(int position)
     {
         International student = (International) roster[position];
@@ -225,12 +232,20 @@ public class Roster {
         roster[position] = student;
     }
 
+    /**
+     * sets totalPayment and lastPaymentDate for student, subtracts totalPayment from tuition
+     * @param totalPayment the amount of money to pay towards current tuition
+     * @param newDate date that payment was made
+     * @param position position of student in the roster array
+     * @return
+     */
     public int pay(double totalPayment, Date newDate, int position)
     {
         roster[position].setLastPaymentDate(newDate);
         if((roster[position].totalPayment + totalPayment) > roster[position].tuitionDue)
             return -1;
         roster[position].setTotalPayment(totalPayment);
+        roster[position].setTuitionDue(totalPayment);
         return 1;
     }
 
