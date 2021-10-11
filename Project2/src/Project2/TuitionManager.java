@@ -249,7 +249,10 @@ public class TuitionManager {
                                 System.out.println( "Invalid amount." );
                             }
                             else {
-                                roster.setFinancialAid(financialAid, position);
+                                error = roster.setFinancialAid(financialAid, position);
+                                if ( !error ){
+                                    System.out.println( "Awarded financial aid already." );
+                                }
                             }
                         }
                         else {

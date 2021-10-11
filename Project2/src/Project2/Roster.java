@@ -276,13 +276,17 @@ public class Roster {
     }
 
     /**
-     * Method to set financial aid amount.
-     * Only called by tuition manager when we are guaranteed to have a valid resident student and amount of financial aid
-     * @param amount amount to set financial aid to
+     * Method to set financial aid
+     * @param amount how much financial aid to reward
      * @param position location of student in roster array
+     * @return true if financial aid amount set successfully, false if financial aid was already rewarded
      */
-    public void setFinancialAid(double amount, int position) {
+    public boolean setFinancialAid(double amount, int position) {
+        if ( roster[position].financialAid != 0 ){
+            return false;
+        }
         roster[position].financialAid = amount;
+        return true;
     }
 
 }
