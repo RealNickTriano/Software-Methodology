@@ -1,14 +1,28 @@
 package Project2;
 
 /**
+ * Used to create non-residents, a subclass of Student.
+ * Create non-resident with profile, credits, tuitionDue, lastPaymentDate, totalPayment
+ * tuitionDue() and toString() methods are overwritten
  * @author Nicholas Triano, Antonio Ignarra
  */
 public class NonResident extends Student {
 
+    /**
+     * Constructor for NonResident class, creates a new NonResident object with given parameters
+     * @param profile profile of the Student
+     * @param credits number of credit hours student has
+     * @param tuitionDue amount of tuition due
+     * @param lastPaymentDate the date of the latest payment submitted
+     * @param totalPayment total amount paid by the student
+     */
     public NonResident(Profile profile, int credits, double tuitionDue, String lastPaymentDate, double totalPayment) {
         super(profile, credits, tuitionDue, lastPaymentDate, tuitionDue);
     }
 
+    /**
+     * Calculates tuitionDue for the NonResident student
+     */
     @Override
     public void tuitionDue() {
 
@@ -26,6 +40,10 @@ public class NonResident extends Student {
 
     }
 
+    /**
+     * Formats NonResident object into a string for use in output
+     * @return formattedString the NonResident class in String format
+     */
     @Override
     public String toString() {
         String formattedString = profile + ":" + credits +
