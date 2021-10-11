@@ -226,7 +226,7 @@ public class TuitionManager {
     private void printCommand(String command) {
         switch (command) {
             default:
-                System.out.println("Invalid Command!");
+                System.out.format("Command '%s' not supported!\n", command);
                 break;
             case "P":
                 //print the roster as is.

@@ -121,9 +121,12 @@ public class Roster {
     {
         if ( this.isEmpty() ){
             System.out.println( "Student roster is empty!" );
+            return;
         }
-        for ( int i = 0; i < size; i++ ) {
-            System.out.println( roster[i] );
+        else {
+            for (int i = 0; i < size; i++) {
+                System.out.println(roster[i]);
+            }
         }
     }
 
@@ -134,6 +137,7 @@ public class Roster {
     {
         if ( this.isEmpty() ) {
             System.out.println( "Student roster is empty!" );
+            return;
         }
         else {
             boolean swapped;
@@ -187,6 +191,7 @@ public class Roster {
     {
         if ( this.isEmpty() ){
             System.out.println( "Student roster is empty!" );
+            return;
         }
         else {
             boolean swapped;
