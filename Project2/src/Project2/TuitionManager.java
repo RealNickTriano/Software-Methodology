@@ -64,6 +64,7 @@ public class TuitionManager {
         }
             studentName = st1.nextToken();
             majorString = st1.nextToken();
+
             try {
                 newMajor = Major.valueOf(majorString.toUpperCase());
             }
@@ -72,7 +73,6 @@ public class TuitionManager {
                 System.out.println( "'" + majorString + "'" + " is not a valid major.");
                 return -1;
             }
-
             creditHoursString = st1.nextToken();
             try {
                 credits = Integer.parseInt(creditHoursString);
@@ -102,13 +102,13 @@ public class TuitionManager {
             // TODO, AI/AT not adding to roster
             if (command.equalsIgnoreCase("AT")) // if tri state
                 state = st1.nextToken();
-            else if (command.equalsIgnoreCase("AI")) // if international
-                if(credits < 12) {
+            else if (command.equalsIgnoreCase("AI")) { // if international
+                if (credits < 12) {
                     System.out.println("International students must enroll at least 12 credits.");
                     throw new ArithmeticException("International students must enroll at least 12 credits.");
                 }
                 studyAbroad = Boolean.parseBoolean(st1.nextToken());
-
+            }
         return 1;
     }
 
@@ -116,7 +116,7 @@ public class TuitionManager {
 
         studentName = st1.nextToken();
         majorString = st1.nextToken();
-        newMajor = Major.valueOf(majorString);
+        newMajor = Major.valueOf(majorString.toUpperCase());
     }
 
     /**
@@ -144,7 +144,7 @@ public class TuitionManager {
                 }
                 catch ( Exception e )
                 {
-
+                    
                 }
                 break;
             case "AN":
@@ -212,6 +212,7 @@ public class TuitionManager {
             case "T":
                 // Pay tuition
                 // TODO: may need another variable in student classes
+                payTuition(st1);
                 break;
             case "S":
                 // Set study abroad status to true for an international student
@@ -227,6 +228,17 @@ public class TuitionManager {
                 // TODO: Do we remove this student and add it again with updated information?
 
         }
+    }
+
+    private void payTuition( StringTokenizer st1) {
+        int count = st1.countTokens();
+        studentName = st1.nextToken();
+        majorString = st1.nextToken();
+        newMajor = Major.valueOf(majorString.toUpperCase());
+        Profile profile = new Profile(studentName, newMajor);
+        Student student = new Student(profile, 0, 0, new Date(), 0);
+        roster.find(student);
+
     }
 
     /**
