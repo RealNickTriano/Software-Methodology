@@ -28,6 +28,11 @@ public class Student {
     {
         this.lastPaymentDate = date;
     }
+
+    public void setTuitionDue( double totalPayment )
+    {
+        this.tuitionDue -= totalPayment;
+    }
     public void tuitionDue(){
 
     }
