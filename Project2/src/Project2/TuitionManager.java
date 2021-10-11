@@ -144,7 +144,7 @@ public class TuitionManager {
                 }
                 catch ( Exception e )
                 {
-                    
+
                 }
                 break;
             case "AN":

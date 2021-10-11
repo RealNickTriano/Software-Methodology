@@ -7,8 +7,8 @@ public class Resident extends Student {
 
     protected double financialAid;
 
-    public Resident(Profile profile, int credits, double totalPayment, double financialAid, Date lastPaymentDate, double lastPayment) {
-        super(profile, credits, totalPayment, lastPaymentDate, lastPayment);
+    public Resident(Profile profile, int credits, double tuitionDue, double financialAid, Date lastPaymentDate, double totalPayment) {
+        super(profile, credits, tuitionDue, lastPaymentDate, totalPayment);
         this.financialAid = financialAid;
     }
 
@@ -17,22 +17,22 @@ public class Resident extends Student {
 
         if ( credits < Constants.MINIMUM_FULL_TIME_CREDITS )
         {
-            totalPayment = (Constants.NONRESIDENT_COST_PER_CREDIT * credits) + Constants.PART_TIME_UNIVERSITY_FEE;
+            tuitionDue = (Constants.NONRESIDENT_COST_PER_CREDIT * credits) + Constants.PART_TIME_UNIVERSITY_FEE;
         }
         else if ( credits > Constants.CREDITS_FOR_ADDITIONAL_TUITION)
         {
-            totalPayment = (Constants.RESIDENT_TUITION + Constants.UNIVERSITY_FEE) +
+            tuitionDue = (Constants.RESIDENT_TUITION + Constants.UNIVERSITY_FEE) +
                     (Constants.RESIDENT_COST_PER_CREDIT * (credits - Constants.CREDITS_FOR_ADDITIONAL_TUITION));
         }
         else
-            totalPayment = Constants.RESIDENT_TUITION + Constants.UNIVERSITY_FEE - financialAid;
+            tuitionDue = Constants.RESIDENT_TUITION + Constants.UNIVERSITY_FEE - financialAid;
 
     }
 
     @Override
     public String toString() {
         String formattedString = profile + ":" + credits +
-                " credit hours:tuition due:" + totalPayment + ":last payment:" + lastPayment +
+                " credit hours:tuition due:" + tuitionDue + ":total payment:" + totalPayment +
                 "payment date:" + lastPaymentDate + ":resident";
         return formattedString;
     }
