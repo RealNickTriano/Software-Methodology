@@ -96,7 +96,7 @@ public class Date implements Comparable<Date> {
             return false;
         if ( month > Constants.MONTHS_IN_YEAR )
             return false;
-        if ( year < Constants.THE_EIGHTYS || year > calendar.get( Calendar.YEAR ) ) {
+        if ( year != calendar.get( Calendar.YEAR ) ) {
             return false;
         }
 
