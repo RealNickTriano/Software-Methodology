@@ -4,11 +4,9 @@ package Project2;
  * @author Nicholas Triano, Antonio Ignarra
  */
 public class NonResident extends Student {
-    protected double financialAid;
 
-    public NonResident(Profile profile, int credits, double tuitionDue, double financialAid, Date lastPaymentDate, double totalPayment) {
+    public NonResident(Profile profile, int credits, double tuitionDue, Date lastPaymentDate, double totalPayment) {
         super(profile, credits, tuitionDue, lastPaymentDate, tuitionDue);
-        this.financialAid = financialAid;
     }
 
     @Override
