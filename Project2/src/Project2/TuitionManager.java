@@ -17,6 +17,7 @@ public class TuitionManager {
     private String command, studentName, majorString, creditHoursString, date, state;
     private Date newDate;
     private Major newMajor;
+    private double totalPayment;
     private boolean validDate = true, studyAbroad;
     private int credits, tuitionRemissions = 0;
     private Profile newProfile;
@@ -41,8 +42,10 @@ public class TuitionManager {
             inputString = input.nextLine();
             StringTokenizer st1 = new StringTokenizer(inputString, ",");
             int count = st1.countTokens();
-            command = st1.nextToken();
-            handleCommand(command, st1);
+            if (count != 0) {
+                command = st1.nextToken();
+                handleCommand(command, st1);
+            }
 
         }
     }
@@ -126,6 +129,7 @@ public class TuitionManager {
      */
     private void handleCommand(String command, StringTokenizer st1) {
         boolean error;
+        int err;
         switch (command) {
             default:
                 printCommand(command);
@@ -133,7 +137,7 @@ public class TuitionManager {
             case "AR":
                 // add a resident student
                 try {
-                    int err = tokenizeAdd(st1);
+                    err = tokenizeAdd(st1);
                     if ( err == -1 )
                         break;
                     newProfile  = new Profile(studentName, newMajor);
@@ -150,7 +154,7 @@ public class TuitionManager {
             case "AN":
                 // add a nonresident student
                 try {
-                    int err = tokenizeAdd(st1);
+                    err = tokenizeAdd(st1);
                     if (err == -1)
                         break;
                     newProfile = new Profile(studentName, newMajor);
@@ -166,7 +170,7 @@ public class TuitionManager {
             case "AT":
                 // add a tristate student
                 try {
-                    int err = tokenizeAdd(st1);
+                    err = tokenizeAdd(st1);
                     if (err == -1)
                         break;
                     newProfile = new Profile(studentName, newMajor);
@@ -182,7 +186,7 @@ public class TuitionManager {
             case "AI":
                 // add a international student
                 try {
-                    int err = tokenizeAdd(st1);
+                    err = tokenizeAdd(st1);
                     if (err == -1)
                         break;
                     newProfile = new Profile(studentName, newMajor);
@@ -211,17 +215,22 @@ public class TuitionManager {
                 break;
             case "T":
                 // Pay tuition
-                // TODO: may need another variable in student classes
-                payTuition(st1);
+                err= payTuition(st1);
+                if(err == 1)
+                    System.out.println("Payment applied.");
+                else
                 break;
             case "S":
                 // Set study abroad status to true for an international student
+                Profile profile = makeProfile(st1);
+                Student newStudent = new Student(profile, 0, 0, new Date(), 0);
                 int position = roster.find(newStudent);
-                if ( position == Constants.NOT_FOUND )
-                    System.out.println( "Student does not exist." );
-                else
-
-                // TODO: Do we remove this student and add it again with updated information?
+                if (position == Constants.NOT_FOUND)
+                    System.out.println("Couldn't find the international student.");
+                else {
+                    roster.setStudyAbroad(position);
+                    System.out.println("Tuition updated.");
+                }
                 break;
             case "F":
                 // Set the financial aid amount for a resident student
@@ -230,15 +239,31 @@ public class TuitionManager {
         }
     }
 
-    private void payTuition( StringTokenizer st1) {
-        int count = st1.countTokens();
+    public Profile makeProfile(StringTokenizer st1)
+    {
         studentName = st1.nextToken();
         majorString = st1.nextToken();
         newMajor = Major.valueOf(majorString.toUpperCase());
         Profile profile = new Profile(studentName, newMajor);
+        return profile;
+    }
+    private int payTuition( StringTokenizer st1) {
+        Profile profile = makeProfile(st1);
         Student student = new Student(profile, 0, 0, new Date(), 0);
-        roster.find(student);
-
+        totalPayment = Double.parseDouble(st1.nextToken());
+        if(totalPayment == 0 || totalPayment < 0)
+        {
+            System.out.println("Invalid amount.");
+            return -1;
+        }
+        newDate = new Date(st1.nextToken());
+        int position = roster.find(student);
+        int error = roster.pay(totalPayment, newDate, position);
+        if(error == -1) {
+            System.out.println("Amount is greater than amount due.");
+            return -1;
+        }
+        return 1;
     }
 
     /**

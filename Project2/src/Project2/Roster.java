@@ -217,4 +217,21 @@ public class Roster {
             roster[i].tuitionDue();
         }
     }
+
+    public void setStudyAbroad(int position)
+    {
+        International student = (International) roster[position];
+        student.setStudyAbroad(true);
+        roster[position] = student;
+    }
+
+    public int pay(double totalPayment, Date newDate, int position)
+    {
+        roster[position].setLastPaymentDate(newDate);
+        if((roster[position].totalPayment + totalPayment) > roster[position].tuitionDue)
+            return -1;
+        roster[position].setTotalPayment(totalPayment);
+        return 1;
+    }
+
 }

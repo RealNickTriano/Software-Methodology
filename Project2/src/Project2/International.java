@@ -5,13 +5,17 @@ package Project2;
  */
 public class International  extends NonResident {
 
-    private boolean studyAbroad;
+    protected boolean studyAbroad;
 
     public International(Profile profile, int credits, boolean studyAbroad, double tuitionDue, double financialAid, Date lastPaymentDate, double totalPayment) {
         super(profile, credits, tuitionDue, financialAid, lastPaymentDate, totalPayment);
         this.studyAbroad = studyAbroad;
     }
 
+    public void setStudyAbroad(boolean studyAbroad)
+    {
+        this.studyAbroad = studyAbroad;
+    }
     @Override
     public void tuitionDue() {
 

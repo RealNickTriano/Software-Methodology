@@ -19,6 +19,15 @@ public class Student {
         this.totalPayment = totalPayment;
     }
 
+    public void setTotalPayment(double totalPayment)
+    {
+        this.totalPayment += totalPayment;
+    }
+
+    public void setLastPaymentDate(Date date)
+    {
+        this.lastPaymentDate = date;
+    }
     public void tuitionDue(){
 
     }
