@@ -234,8 +234,15 @@ public class TuitionManager {
                 break;
             case "F":
                 // Set the financial aid amount for a resident student
-                // TODO: Do we remove this student and add it again with updated information?
-
+                Profile profile = makeProfile(st1);
+                Student newStudent = new Student(profile, 0, 0, 0, new Date(), 0);
+                int position = roster.find(newStudent);
+                if (position == Constants.NOT_FOUND) {
+                    System.out.println("Student is not in the roster.")
+                }
+                else {
+                    //Given name is in the roster, need
+                }
         }
     }
 
@@ -247,20 +254,21 @@ public class TuitionManager {
         Profile profile = new Profile(studentName, newMajor);
         return profile;
     }
-    private int payTuition( StringTokenizer st1) {
+
+    private int payTuition( StringTokenizer st1 ) {
         Profile profile = makeProfile(st1);
         Student student = new Student(profile, 0, 0, new Date(), 0);
         totalPayment = Double.parseDouble(st1.nextToken());
         if(totalPayment == 0 || totalPayment < 0)
         {
-            System.out.println("Invalid amount.");
+            System.out.println( "Invalid amount." );
             return -1;
         }
         newDate = new Date(st1.nextToken());
         int position = roster.find(student);
         int error = roster.pay(totalPayment, newDate, position);
         if(error == -1) {
-            System.out.println("Amount is greater than amount due.");
+            System.out.println( "Amount is greater than amount due." );
             return -1;
         }
         return 1;
@@ -276,7 +284,7 @@ public class TuitionManager {
     private void printCommand(String command) {
         switch (command) {
             default:
-                System.out.format("Command '%s' not supported!\n", command);
+                System.out.format( "Command '%s' not supported!\n", command );
                 break;
             case "P":
                 //print the roster as is.

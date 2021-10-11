@@ -234,4 +234,8 @@ public class Roster {
         return 1;
     }
 
+    public boolean qualifiesForFinancialAid(Student student){
+
+    }
+
 }
