@@ -29,7 +29,29 @@ public class TriState extends NonResident {
      */
     @Override
     public void tuitionDue(){
-
+        if ( credits < Constants.MINIMUM_FULL_TIME_CREDITS )
+        {
+            tuitionDue = (Constants.NONRESIDENT_COST_PER_CREDIT * credits) + Constants.PART_TIME_UNIVERSITY_FEE;
+        }
+        else if ( credits > Constants.CREDITS_FOR_ADDITIONAL_TUITION)
+        {
+            tuitionDue = (Constants.NONRESIDENT_TUITION + Constants.UNIVERSITY_FEE) +
+                    (Constants.NONRESIDENT_COST_PER_CREDIT * (credits - Constants.CREDITS_FOR_ADDITIONAL_TUITION));
+            if (state.equalsIgnoreCase("NY")) {
+                tuitionDue = tuitionDue - Constants.DISCOUNT_NEW_YORK;
+            }
+            else if (state.equalsIgnoreCase("CT")) {
+                tuitionDue = tuitionDue - Constants.DISCOUNT_CONNECTICUT;
+            }
+        }
+        else
+            tuitionDue = Constants.NONRESIDENT_TUITION + Constants.UNIVERSITY_FEE;
+            if (state.equalsIgnoreCase("NY")) {
+                tuitionDue = tuitionDue - Constants.DISCOUNT_NEW_YORK;
+            }
+            else if (state.equalsIgnoreCase("CT")) {
+                tuitionDue = tuitionDue - Constants.DISCOUNT_CONNECTICUT;
+            }
     }
 
 
