@@ -106,11 +106,12 @@ public class TuitionManager {
                     System.out.println("Missing data in command line.");
                     throw new ArithmeticException( "Missing data in command line." );
                 }
-                state = st1.nextToken();
-                if(!(state.equalsIgnoreCase("NY")) || !(state.equalsIgnoreCase("CT")) )
-                    System.out.println("Not part of the Tristate area.");
-                    throw new ArithmeticException( "Not part of the Tristate area." );
-
+                if (command.equals("AT")) {
+                    state = st1.nextToken();
+                    if (!(state.equalsIgnoreCase("NY")) || !(state.equalsIgnoreCase("CT")))
+                        System.out.println("Not part of the Tristate area.");
+                    throw new ArithmeticException("Not part of the Tristate area.");
+                }
             }
             else if (command.equals("AI")) { // if international
                 if (credits < 12) {
