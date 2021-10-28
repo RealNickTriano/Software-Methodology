@@ -120,8 +120,14 @@
                                        <CheckBox mnemonicParsing="false" text="Study Abroad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     </children>
                                  </GridPane>
+                                 <TextField fx:id="creditHours" promptText="Credit Hours" GridPane.rowIndex="3" />
+                                 <Button fx:id="addStudent" mnemonicParsing="false" text="Add Student" textAlignment="CENTER" translateX="50.0" GridPane.rowIndex="4" />
+                                 <Button fx:id="removeStudent" layoutX="10.0" layoutY="219.0" mnemonicParsing="false" text="Remove Student" textAlignment="CENTER" translateX="250.0" GridPane.rowIndex="4" />
+                                 <Button fx:id="tuitionDue" mnemonicParsing="false" text="Tuition Due" translateX="50.0" GridPane.rowIndex="5" />
+                                 <TextField fx:id="tuitionAmount" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="0.00" translateX="175.0" GridPane.rowIndex="5" />
                               </children>
                            </GridPane>
+                           <HBox layoutX="14.0" layoutY="158.0" prefHeight="100.0" prefWidth="200.0" />
                         </children></AnchorPane>
                </content>
              </Tab>

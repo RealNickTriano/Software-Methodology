@@ -19,7 +19,16 @@ public class HelloController {
     private RadioButton connecticut;
     @FXML
     private RadioButton international;
-
+    @FXML
+    private TextField creditHours;
+    @FXML
+    private Button addStudent;
+    @FXML
+    private Button removeStudent;
+    @FXML
+    private Button tuitionDue;
+    @FXML
+    private TextField tuitionAmount;
     @FXML
     protected void onHelloButtonClick() {
         systemText.setText("Welcome to JavaFX Application!");
