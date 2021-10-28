@@ -30,6 +30,21 @@ public class HelloController {
     @FXML
     private TextField tuitionAmount;
     @FXML
+    private ToggleGroup majorGroup;
+    @FXML
+    private ToggleGroup residentGroup;
+    @FXML
+    private ToggleGroup triStateGroup;
+
+    private String studentName;
+    private Major studentMajor;
+    private int studentCredits;
+    private double tuitionDueAmount;
+    private String lastPaymentDate;
+    private double totalPayment;
+    private RadioButton selectedButton;
+
+    @FXML
     protected void onHelloButtonClick() {
         systemText.setText("Welcome to JavaFX Application!");
     }
@@ -65,6 +80,20 @@ public class HelloController {
          * add student to roster
          * print msg to user
         */
+
+        studentName = name.getText();
+        selectedButton = (RadioButton) majorGroup.getSelectedToggle();
+        studentMajor = Major.valueOf(selectedButton.getText());
+        selectedButton = (RadioButton) residentGroup.getSelectedToggle();
+       /** try{
+            studentCredits = Integer.parseInt(creditHours.getText());
+        }
+        catch {
+            // int exception
+    }*/
+
+
+
     }
 
     @FXML
