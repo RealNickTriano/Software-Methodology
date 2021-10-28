@@ -163,8 +163,7 @@
                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                              </rowConstraints>
                               <children>
-                                 <TextField text="Student Name" />
-                                 <HBox prefHeight="100.0" prefWidth="326.0" translateX="40.0" translateY="10.0" GridPane.rowIndex="1">
+                                 <HBox prefHeight="100.0" prefWidth="418.0" translateX="40.0" translateY="10.0" GridPane.rowIndex="1">
                                     <children>
                                        <RadioButton mnemonicParsing="false" text="CS">
                                           <padding>
@@ -205,11 +204,17 @@
                                  <TextField fx:id="tuitionAmount11" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="0.00" translateX="130.0" GridPane.rowIndex="4" />
                                  <Button fx:id="removeStudent11" mnemonicParsing="false" text="Set" textAlignment="CENTER" translateX="300.0" GridPane.rowIndex="4" />
                                  <Label text="Major" GridPane.rowIndex="1" />
+                                 <TextField promptText="Name of student" />
                               </children>
                            </GridPane>
                         </children></AnchorPane>
                </content>
              </Tab>
+               <Tab text="Process  Tuition">
+                 <content>
+                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                 </content>
+               </Tab>
            </tabs>
          </TabPane>
       </top>
