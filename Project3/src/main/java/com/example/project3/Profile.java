@@ -62,23 +62,19 @@ public class Profile {
     @Override
     public boolean equals(Object obj)
     {
-        // If object is being compared to itself return true
-        if ( obj == this ) {
-            return true;
-        }
-
         //If object is not an instance of Album return false
         if ( !( obj instanceof Profile ) ) {
             return false;
         }
 
-        // typecast object to Album
+        // typecast object to Profile
         Profile newProfile = ( Profile ) obj;
 
         // Compare name and major, return true if both are equal, false of not
         if ( name.equals( newProfile.name ) && major == newProfile.major ) {
             return true;
-        } else {
+        }
+        else {
             return false;
         }
     }

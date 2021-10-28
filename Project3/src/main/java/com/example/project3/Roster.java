@@ -28,7 +28,7 @@ public class Roster {
      * @param student The requested student
      * @return The index of the student requested
      */
-    public int find(Student student){
+    private int find(Student student) {
 
         int i;
         for ( i = 0; i < size; i++ ) {
@@ -43,7 +43,7 @@ public class Roster {
     /**
      * Increase the capacity of the array list by 4
      */
-    public void grow(){
+    private void grow() {
 
         Student[] newRosterArr = new Student[size + 4];
         // copy over students in the current roster to the roster w/ updated size
@@ -59,7 +59,7 @@ public class Roster {
      * @param student The student to be added to the roster
      * @return false if the roster already contains the student, true if the student was successfully added
      */
-    public boolean add(Student student){
+    public boolean add(Student student) {
         // student already on roster
         if ( find(student) != Constants.NOT_FOUND ){
             return false;
@@ -94,8 +94,9 @@ public class Roster {
             for ( ; i < size; i++ ) {
                 // if at last space in current capacity
                 if ( i == roster.length - 1 ) {
-                    Profile profile = new Profile("NA", Major.CS);
-                    roster[i] = new Student(profile, 0, 0, "--/--/--", 0);
+                    // Profile profile = new Profile("NA", Major.CS);
+                    // roster[i] = new Student(profile, 0, 0, "--/--/--", 0);
+                    roster[i] = null;
                 }
                 else {
                     roster[i] = roster[i + 1];
@@ -227,13 +228,14 @@ public class Roster {
 
     /**
      * sets study abroad status of international student in roster
-     * @param position position of student in the roster array
+     * @param student the student to study abroad
      */
-    public void setStudyAbroad(int position)
+    public void setStudyAbroad(Student student)
     {
-        International student = (International) roster[position];
-        student.setStudyAbroad(true);
-        roster[position] = student;
+        int position = find(student);
+        International Istudent = (International) roster[position];
+        Istudent.setStudyAbroad(true);
+        roster[position] = Istudent;
     }
 
     /**
