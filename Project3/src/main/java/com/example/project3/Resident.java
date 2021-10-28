@@ -32,12 +32,12 @@ public class Resident extends Student {
 
         if ( credits < Constants.MINIMUM_FULL_TIME_CREDITS )
         {
-            tuitionDue = (Constants.NONRESIDENT_COST_PER_CREDIT * credits) + Constants.PART_TIME_UNIVERSITY_FEE;
+            tuitionDue = (Constants.RESIDENT_COST_PER_CREDIT * credits) + Constants.PART_TIME_UNIVERSITY_FEE;
         }
         else if ( credits > Constants.CREDITS_FOR_ADDITIONAL_TUITION)
         {
             tuitionDue = (Constants.RESIDENT_TUITION + Constants.UNIVERSITY_FEE) +
-                    (Constants.RESIDENT_COST_PER_CREDIT * (credits - Constants.CREDITS_FOR_ADDITIONAL_TUITION));
+                    (Constants.RESIDENT_COST_PER_CREDIT * (credits - Constants.CREDITS_FOR_ADDITIONAL_TUITION)) - financialAid;
         }
         else
             tuitionDue = Constants.RESIDENT_TUITION + Constants.UNIVERSITY_FEE - financialAid;

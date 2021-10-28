@@ -50,7 +50,7 @@ public class International  extends NonResident {
 
         if ( credits < Constants.MINIMUM_FULL_TIME_CREDITS)
         {
-            // Error international students cannot be part time
+            // Error international students cannot be part-time
         }
         else if ( credits > Constants.MINIMUM_FULL_TIME_CREDITS && studyAbroad)
         {
