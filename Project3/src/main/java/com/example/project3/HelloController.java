@@ -35,7 +35,7 @@ public class HelloController {
     }
 
     @FXML
-    protected  void onTristateButtonClick()
+    protected  void handleTristateSelected()
     {
             newYork.setOpacity(1.0);
             newYork.setDisable(false);
@@ -44,7 +44,7 @@ public class HelloController {
     }
 
     @FXML
-    protected  void onInternationalButtonClick()
+    protected  void handleInternationalSelected()
     {
             newYork.setOpacity(0.5);
             newYork.setDisable(true);
