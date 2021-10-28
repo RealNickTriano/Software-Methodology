@@ -55,5 +55,32 @@ public class HelloController {
 
     }
 
+    @FXML
+    protected void handleAddStudent()
+    {
+        /**TODO: get student name as a string from text field
+         * get major as enum from button group
+         * get status from button group
+         * get credit hours from text field catch non-integers
+         * add student to roster
+         * print msg to user
+        */
+    }
+
+    @FXML
+    protected void handleRemoveStudent()
+    {
+        /** TODO: same thing as add
+         * Remove student from roster
+         * print msg to user
+         */
+    }
+
+    @FXML
+    protected void handleTuitionDue()
+    {
+        // TODO: Calculate tuition due for student and print to text field
+        // print msg to user
+    }
 
 }
