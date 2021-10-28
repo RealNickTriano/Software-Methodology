@@ -39,18 +39,87 @@
                <content>
                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
-                           <GridPane layoutX="14.0" layoutY="14.0" prefHeight="355.0" prefWidth="650.0">
+                           <GridPane layoutX="315.0" layoutY="17.0" prefHeight="355.0" prefWidth="650.0">
                              <columnConstraints>
-                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="393.0" minWidth="10.0" prefWidth="310.0" />
                              </columnConstraints>
                              <rowConstraints>
-                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                               <RowConstraints maxHeight="50.0" minHeight="3.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                               <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                 <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                               <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                 <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                 <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                 <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                 <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
                              </rowConstraints>
                               <children>
-                                 <TextField promptText="Name of student" GridPane.columnIndex="1" />
+                                 <TextField promptText="Name of student" />
+                                 <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                    <children>
+                                       <RadioButton mnemonicParsing="false" text="CS">
+                                          <padding>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </padding>
+                                          <toggleGroup>
+                                             <ToggleGroup fx:id="majorGroup" />
+                                          </toggleGroup>
+                                       </RadioButton>
+                                       <RadioButton mnemonicParsing="false" text="EE" toggleGroup="$majorGroup">
+                                          <padding>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </padding>
+                                       </RadioButton>
+                                       <RadioButton layoutX="55.0" layoutY="10.0" mnemonicParsing="false" text="ME" toggleGroup="$majorGroup">
+                                          <padding>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </padding>
+                                       </RadioButton>
+                                       <RadioButton layoutX="99.0" layoutY="10.0" mnemonicParsing="false" text="IT" toggleGroup="$majorGroup">
+                                          <padding>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </padding>
+                                       </RadioButton>
+                                       <RadioButton layoutX="147.0" layoutY="10.0" mnemonicParsing="false" text="BA" toggleGroup="$majorGroup">
+                                          <padding>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </padding>
+                                       </RadioButton>
+                                    </children>
+                                 </HBox>
+                                 <GridPane GridPane.rowIndex="2">
+                                   <columnConstraints>
+                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                   </columnConstraints>
+                                   <rowConstraints>
+                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                   </rowConstraints>
+                                    <children>
+                                       <RadioButton mnemonicParsing="false" text="Resident">
+                                          <toggleGroup>
+                                             <ToggleGroup fx:id="residentGroup" />
+                                          </toggleGroup>
+                                       </RadioButton>
+                                       <RadioButton layoutX="10.0" layoutY="16.0" mnemonicParsing="false" text="Non-Resident" toggleGroup="$residentGroup" GridPane.columnIndex="1" />
+                                       <RadioButton fx:id="tristateButton" layoutX="141.0" layoutY="16.0" mnemonicParsing="false" onAction="#onTristateButtonClick" text="Tristate" GridPane.rowIndex="1">
+                                          <toggleGroup>
+                                             <ToggleGroup fx:id="triStateGroup" />
+                                          </toggleGroup>
+                                       </RadioButton>
+                                       <RadioButton fx:id="newYork" disable="true" layoutX="10.0" layoutY="45.0" mnemonicParsing="false" opacity="0.5" text="New York" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <toggleGroup>
+                                             <ToggleGroup fx:id="stateGroup" />
+                                          </toggleGroup>
+                                       </RadioButton>
+                                       <RadioButton fx:id="international" layoutX="141.0" layoutY="45.0" mnemonicParsing="false" onAction="#onInternationalButtonClick" text="International" toggleGroup="$triStateGroup" GridPane.rowIndex="2" />
+                                       <RadioButton fx:id="connecticut" disable="true" layoutX="141.0" layoutY="75.0" mnemonicParsing="false" opacity="0.5" text="Connecticut" toggleGroup="$stateGroup" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                       <CheckBox mnemonicParsing="false" text="Study Abroad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    </children>
+                                 </GridPane>
                               </children>
                            </GridPane>
                         </children></AnchorPane>
