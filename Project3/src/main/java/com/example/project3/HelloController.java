@@ -9,7 +9,7 @@ public class HelloController {
     @FXML
     private Label systemText;
     @FXML
-    private DialogPane systemDialog;
+    private TextArea systemDialog;
     @FXML
     private TextField name;
     @FXML
@@ -67,13 +67,12 @@ public class HelloController {
         try
         {
             studentCredits = Integer.parseInt(creditHours.getText());
-            tuitionDueAmount = Integer.parseInt(tuitionAmount.getText());
+            tuitionDueAmount = Double.parseDouble(tuitionAmount.getText());
         }
         catch(NumberFormatException e)
         {
             // int exception
-            systemDialog.setContentText("Credit Hours must be a number.");
-
+            systemDialog.appendText("Credit Hours must be a number.\n");
         }
 
     }
@@ -218,12 +217,13 @@ public class HelloController {
 
         if(studentRoster.add(student))
         {
-            System.out.println("Student added.");
+            systemDialog.appendText("Student added.\n");
             studentRoster.print();
         }
         else
         {
-            System.out.println("Student already in Roster.");
+            systemDialog.appendText("Student already in Roster.\n");
+
         }
 
     }
