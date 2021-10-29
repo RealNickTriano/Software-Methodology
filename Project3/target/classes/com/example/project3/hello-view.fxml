@@ -117,7 +117,8 @@
                                  <Button fx:id="addStudent" mnemonicParsing="false" onAction="#handleAddStudent" text="Add Student" textAlignment="CENTER" translateX="50.0" GridPane.rowIndex="4" />
                                  <Button fx:id="removeStudent" layoutX="10.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleRemoveStudent" text="Remove Student" textAlignment="CENTER" translateX="250.0" GridPane.rowIndex="4" />
                                  <Button fx:id="tuitionDue" mnemonicParsing="false" onAction="#handleTuitionDue" text="Tuition Due" translateX="50.0" GridPane.rowIndex="5" />
-                                 <TextField fx:id="tuitionAmount" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" text="0.00" translateX="175.0" GridPane.rowIndex="5" />
+                                 <TextField fx:id="tuitionAmount" disable="true" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" text="0.00" translateX="175.0" GridPane.rowIndex="5" />
+                                 <Label text="\$" translateX="160.0" GridPane.rowIndex="5" />
                               </children>
                            </GridPane>
                            <HBox layoutX="14.0" layoutY="158.0" prefHeight="100.0" prefWidth="200.0" />

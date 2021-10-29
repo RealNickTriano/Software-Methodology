@@ -159,11 +159,6 @@ public class HelloController {
         return student;
 
     }
-    @FXML
-    protected void onHelloButtonClick() {
-        systemText.setText("Welcome to JavaFX Application!");
-    }
-
 
     @FXML
     protected  void handleNonResidentSelected()
@@ -255,10 +250,19 @@ public class HelloController {
          * print msg to user
          */
 
-        setValues();
-        Student student = makeStudent();
-        studentRoster.remove(student);
-        studentRoster.print();
+        if(setValues() == 1) {
+            Student student = makeStudent();
+            if (studentRoster.remove(student)) {
+                systemDialog.appendText("Student removed.\n");
+                studentRoster.print();
+            } else {
+                systemDialog.appendText("Student is not on the roster.\n");
+            }
+
+        }
+        else{
+            return;
+        }
 
     }
 
