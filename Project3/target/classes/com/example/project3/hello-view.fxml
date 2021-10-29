@@ -184,7 +184,7 @@
                                    <TextField fx:id="tuitionAmount11" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="0.00" translateX="130.0" GridPane.rowIndex="4" />
                                    <Button fx:id="removeStudent11" mnemonicParsing="false" text="Set" textAlignment="CENTER" translateX="300.0" GridPane.rowIndex="4" />
                                    <Label text="Major" GridPane.rowIndex="1" />
-                                   <TextField promptText="Name of student" />
+                                   <TextField fx:id="paymentName" promptText="Name of student" />
                                </children>
                            </GridPane>
                        </children></AnchorPane>

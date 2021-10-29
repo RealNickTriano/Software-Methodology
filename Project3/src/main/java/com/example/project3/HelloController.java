@@ -13,6 +13,8 @@ public class HelloController {
     @FXML
     private TextField name;
     @FXML
+    private TextField paymentName;
+    @FXML
     private RadioButton tristateButton;
     @FXML
     private RadioButton newYork;
@@ -52,6 +54,7 @@ public class HelloController {
     private int studentCredits;
     private double tuitionDueAmount;
     private String lastPaymentDate;
+    private double currentPayment;
     private double totalPayment;
     private RadioButton selectedButton;
     private String statusString;
@@ -281,11 +284,18 @@ public class HelloController {
     @FXML
     protected void handlePayment()
     {
-        if(setValues() == 1){
+        try {
+            studentName = paymentName.getText();
+            if (studentName == "") {
+                systemDialog.appendText("Must enter a name.\n");
+                return;
+            }
+            selectedButton = (RadioButton) majorGroup.getSelectedToggle();
+            studentMajor = Major.valueOf(selectedButton.getText());
 
         }
-        else{
-            systemDialog.appendText("Invalid student.");
+        catch (Exception e){
+            systemDialog.appendText("Must enter all data fields.\n");
         }
     }
 
