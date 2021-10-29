@@ -78,9 +78,14 @@ public class HelloController {
 
     }
 
-    public Student makeStudent()
+    public void makeProfile()
     {
         studentProfile = new Profile(studentName, studentMajor);
+    }
+
+    public Student makeStudent()
+    {
+        makeProfile();
         Student student = new Student(studentProfile, 0, 0,
                 "--/--/--", 0);
         if (tristateButton.isSelected())
@@ -219,10 +224,6 @@ public class HelloController {
             System.out.println("Student already in Roster.");
         }
 
-
-
-
-
     }
 
     @FXML
@@ -232,6 +233,12 @@ public class HelloController {
          * Remove student from roster
          * print msg to user
          */
+
+        setValues();
+        Student student = makeStudent();
+        studentRoster.remove(student);
+        studentRoster.print();
+
     }
 
     @FXML
