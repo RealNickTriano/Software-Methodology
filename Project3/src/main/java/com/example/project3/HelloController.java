@@ -39,6 +39,8 @@ public class HelloController {
     @FXML
     private ToggleGroup majorGroup;
     @FXML
+    private ToggleGroup paymentMajorGroup;
+    @FXML
     private ToggleGroup residentGroup;
     @FXML
     private ToggleGroup triStateGroup;
@@ -290,7 +292,7 @@ public class HelloController {
                 systemDialog.appendText("Must enter a name.\n");
                 return;
             }
-            selectedButton = (RadioButton) majorGroup.getSelectedToggle();
+            selectedButton = (RadioButton) paymentMajorGroup.getSelectedToggle();
             studentMajor = Major.valueOf(selectedButton.getText());
 
         }

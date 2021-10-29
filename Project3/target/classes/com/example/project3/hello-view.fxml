@@ -149,14 +149,17 @@
                                                <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                </padding>
-                                               <toggleGroup>
-                                                   <ToggleGroup fx:id="majorGroup1" />
-                                               </toggleGroup>
+                                          <toggleGroup>
+                                             <ToggleGroup fx:id="paymentMajorGroup" />
+                                          </toggleGroup>
                                            </RadioButton>
-                                           <RadioButton mnemonicParsing="false" text="EE" toggleGroup="$majorGroup1">
+                                           <RadioButton mnemonicParsing="false" text="EE">
                                                <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                </padding>
+                                          <toggleGroup>
+                                             <ToggleGroup fx:id="majorGroup1" />
+                                          </toggleGroup>
                                            </RadioButton>
                                            <RadioButton layoutX="55.0" layoutY="10.0" mnemonicParsing="false" text="ME" toggleGroup="$majorGroup1">
                                                <padding>
