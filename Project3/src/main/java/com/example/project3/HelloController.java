@@ -57,7 +57,7 @@ public class HelloController {
     private Roster studentRoster = new Roster(studentArray, 0);
 
 
-    public void setValues()
+    public int setValues()
     {
         studentName = name.getText();
         selectedButton = (RadioButton) majorGroup.getSelectedToggle();
@@ -73,7 +73,9 @@ public class HelloController {
         {
             // int exception
             systemDialog.appendText("Credit Hours must be a number.\n");
+            return -1;
         }
+        return 1;
 
     }
 
@@ -212,18 +214,19 @@ public class HelloController {
          * print msg to user
         */
 
-        setValues();
-        Student student = makeStudent();
+        if(setValues() == 1) {
+            Student student = makeStudent();
 
-        if(studentRoster.add(student))
-        {
-            systemDialog.appendText("Student added.\n");
-            studentRoster.print();
+            if (studentRoster.add(student)) {
+                systemDialog.appendText("Student added.\n");
+                studentRoster.print();
+            } else {
+                systemDialog.appendText("Student already in Roster.\n");
+
+            }
         }
-        else
-        {
-            systemDialog.appendText("Student already in Roster.\n");
-
+        else {
+            return;
         }
 
     }
