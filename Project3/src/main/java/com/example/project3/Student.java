@@ -65,6 +65,16 @@ public class Student {
     }
 
     /**
+     * Allows other classes to retrieve tuition due amount
+     * @return tuitionDue total amount owed by the student
+     */
+
+    public double getTuitionDue()
+    {
+        return tuitionDue;
+    }
+
+    /**
      * Formats Student object into a string for use in output
      * @return formattedString the Student class in String format
      */

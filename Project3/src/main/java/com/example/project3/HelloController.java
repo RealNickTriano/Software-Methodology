@@ -57,6 +57,86 @@ public class HelloController {
     private Roster studentRoster = new Roster(studentArray, 0);
 
 
+    public void setValues()
+    {
+        studentName = name.getText();
+        selectedButton = (RadioButton) majorGroup.getSelectedToggle();
+        studentMajor = Major.valueOf(selectedButton.getText());
+        selectedButton = (RadioButton) residentGroup.getSelectedToggle();
+        statusString = selectedButton.getText();
+        try
+        {
+            studentCredits = Integer.parseInt(creditHours.getText());
+            tuitionDueAmount = Integer.parseInt(tuitionAmount.getText());
+        }
+        catch(NumberFormatException e)
+        {
+            // int exception
+            systemDialog.setContentText("Credit Hours must be a number.");
+
+        }
+
+    }
+
+    public Student makeStudent()
+    {
+        studentProfile = new Profile(studentName, studentMajor);
+        Student student = new Student(studentProfile, 0, 0,
+                "--/--/--", 0);
+        if (tristateButton.isSelected())
+
+        {
+            if (newYork.isSelected())
+                state = "NY";
+            else if(connecticut.isSelected())
+                state = "CT";
+
+            student = new TriState(studentProfile, studentCredits, state, tuitionDueAmount,
+                    "--/--/--", 0);
+
+            System.out.println("Created new Tristate object.");
+            return student;
+
+        }
+
+        else if (international.isSelected())
+
+        {
+            student = new International(studentProfile, studentCredits,
+                    studyAbroad.isSelected(), tuitionDueAmount,"--/--/--", 0);
+
+            System.out.println("Created new International object.");
+            return student;
+
+        }
+
+        else if (resident.isSelected())
+
+        {
+            student = new Resident(studentProfile, studentCredits,
+                    tuitionDueAmount, 0, "--/--/--", 0);
+
+            System.out.println("Created new Resident object.");
+            return student;
+
+        }
+
+        else if (nonResident.isSelected())
+
+        {
+            student = new NonResident(studentProfile, studentCredits,
+                    tuitionDueAmount, "--/--/--", 0);
+
+            System.out.println("Created new Non-Resident object.");
+            return student;
+
+        }
+
+        // Report error
+        System.out.println("Error");
+        return student;
+
+    }
     @FXML
     protected void onHelloButtonClick() {
         systemText.setText("Welcome to JavaFX Application!");
@@ -126,76 +206,11 @@ public class HelloController {
          * print msg to user
         */
 
-        studentName = name.getText();
-        selectedButton = (RadioButton) majorGroup.getSelectedToggle();
-        studentMajor = Major.valueOf(selectedButton.getText());
-        selectedButton = (RadioButton) residentGroup.getSelectedToggle();
-        statusString = selectedButton.getText();
-        try
-        {
-            studentCredits = Integer.parseInt(creditHours.getText());
-            tuitionDueAmount = Integer.parseInt(tuitionAmount.getText());
-        }
-        catch(NumberFormatException e)
-        {
-            // int exception
-            systemDialog.setContentText("Credit Hours must be a number.");
-
-        }
-
-        studentProfile = new Profile(studentName, studentMajor);
-
-        if (tristateButton.isSelected())
-
-        {
-            if (newYork.isSelected())
-                state = "NY";
-            else if(connecticut.isSelected())
-                state = "CT";
-
-            TriState student = new TriState(studentProfile, studentCredits, state, tuitionDueAmount,
-                    "--/--/--", 0);
-
-            System.out.println("Created new Tristate object.");
-
-            studentRoster.add(student);
-            studentRoster.print();
-        }
-
-        else if (international.isSelected())
-
-        {
-            International student = new International(studentProfile, studentCredits,
-                    studyAbroad.isSelected(), tuitionDueAmount,"--/--/--", 0);
-
-            System.out.println("Created new International object.");
-
-            studentRoster.add(student);
-            studentRoster.print();        }
-
-        else if (resident.isSelected())
-
-        {
-            Resident student = new Resident(studentProfile, studentCredits,
-                    tuitionDueAmount, 0, "--/--/--", 0);
-
-            System.out.println("Created new Resident object.");
-
-            studentRoster.add(student);
-            studentRoster.print();
-        }
-
-        else if (nonResident.isSelected())
-
-        {
-            NonResident student = new NonResident(studentProfile, studentCredits,
-                    tuitionDueAmount, "--/--/--", 0);
-
-            System.out.println("Created new Non-Resident object.");
-
-            studentRoster.add(student);
-            studentRoster.print();
-        }
+        setValues();
+        Student student = makeStudent();
+        
+        studentRoster.add(student);
+        studentRoster.print();
 
 
 
@@ -216,6 +231,11 @@ public class HelloController {
     {
         // TODO: Calculate tuition due for student and print to text field
         // print msg to user
+        setValues();
+        Student student = makeStudent();
+        student.tuitionDue();
+        tuitionAmount.setText(String.valueOf(student.getTuitionDue()));
+        tuitionDueAmount = Double.parseDouble(tuitionAmount.getText());
     }
 
 }
