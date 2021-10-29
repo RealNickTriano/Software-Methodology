@@ -208,9 +208,17 @@ public class HelloController {
 
         setValues();
         Student student = makeStudent();
-        
-        studentRoster.add(student);
-        studentRoster.print();
+
+        if(studentRoster.add(student))
+        {
+            System.out.println("Student added.");
+            studentRoster.print();
+        }
+        else
+        {
+            System.out.println("Student already in Roster.");
+        }
+
 
 
 
