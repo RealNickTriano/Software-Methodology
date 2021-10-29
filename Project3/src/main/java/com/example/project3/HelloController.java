@@ -42,6 +42,10 @@ public class HelloController {
     private ToggleGroup triStateGroup;
     @FXML
     private CheckBox studyAbroad;
+    @FXML
+    private Button pay;
+    @FXML
+    private Button setFinAid;
 
     private String studentName;
     private Major studentMajor;
@@ -59,11 +63,23 @@ public class HelloController {
 
     public int setValues()
     {
-        studentName = name.getText();
-        selectedButton = (RadioButton) majorGroup.getSelectedToggle();
-        studentMajor = Major.valueOf(selectedButton.getText());
-        selectedButton = (RadioButton) residentGroup.getSelectedToggle();
-        statusString = selectedButton.getText();
+
+        try{
+            studentName = name.getText();
+            if (studentName == "") {
+                systemDialog.appendText("Must enter a name.\n");
+                return -1;
+            }
+            selectedButton = (RadioButton) majorGroup.getSelectedToggle();
+            studentMajor = Major.valueOf(selectedButton.getText());
+            selectedButton = (RadioButton) residentGroup.getSelectedToggle();
+            statusString = selectedButton.getText();
+        }
+        catch(Exception e)
+        {
+            systemDialog.appendText("Must select major and residency status.\n");
+            return -1;
+        }
         try
         {
             studentCredits = Integer.parseInt(creditHours.getText());
@@ -256,6 +272,17 @@ public class HelloController {
         student.tuitionDue();
         tuitionAmount.setText(String.valueOf(student.getTuitionDue()));
         tuitionDueAmount = Double.parseDouble(tuitionAmount.getText());
+    }
+
+    @FXML
+    protected void handlePayment()
+    {
+        if(setValues() == 1){
+
+        }
+        else{
+            systemDialog.appendText("Invalid student.");
+        }
     }
 
 }
