@@ -99,12 +99,12 @@
                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                    </rowConstraints>
                                     <children>
-                                       <RadioButton fx:id="resident" mnemonicParsing="false" text="Resident">
+                                       <RadioButton fx:id="resident" mnemonicParsing="false" onAction="#handleResidentSelected" text="Resident">
                                           <toggleGroup>
                                              <ToggleGroup fx:id="residentGroup" />
                                           </toggleGroup>
                                        </RadioButton>
-                                       <RadioButton fx:id="nonResident" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" text="Non-Resident" toggleGroup="$residentGroup" GridPane.columnIndex="1" />
+                                       <RadioButton fx:id="nonResident" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleNonResidentSelected" text="Non-Resident" toggleGroup="$residentGroup" GridPane.columnIndex="1" />
                                        <RadioButton fx:id="tristateButton" layoutX="141.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleTristateSelected" text="Tristate" GridPane.rowIndex="1">
                                           <toggleGroup>
                                              <ToggleGroup fx:id="triStateGroup" />

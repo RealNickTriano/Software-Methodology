@@ -185,6 +185,8 @@ public class HelloController {
             connecticut.setOpacity(1.0);
             connecticut.setDisable(false);
             studyAbroad.setSelected(false);
+            studyAbroad.setOpacity(0.5);
+            studyAbroad.setDisable(true);
     }
 
     @FXML
