@@ -134,6 +134,7 @@ public class HelloController {
         try
         {
             studentCredits = Integer.parseInt(creditHours.getText());
+            tuitionDueAmount = Integer.parseInt(tuitionAmount.getText());
         }
         catch(NumberFormatException e)
         {
@@ -152,7 +153,7 @@ public class HelloController {
             else if(connecticut.isSelected())
                 state = "CT";
 
-            TriState student = new TriState(studentProfile, studentCredits, state, 0,
+            TriState student = new TriState(studentProfile, studentCredits, state, tuitionDueAmount,
                     "--/--/--", 0);
 
             System.out.println("Created new Tristate object.");
@@ -165,7 +166,7 @@ public class HelloController {
 
         {
             International student = new International(studentProfile, studentCredits,
-                    studyAbroad.isSelected(), 0,"--/--/--", 0);
+                    studyAbroad.isSelected(), tuitionDueAmount,"--/--/--", 0);
 
             System.out.println("Created new International object.");
 
