@@ -62,6 +62,36 @@ public class HelloController {
         systemText.setText("Welcome to JavaFX Application!");
     }
 
+
+    @FXML
+    protected  void handleNonResidentSelected()
+    {
+        tristateButton.setOpacity(1.0);
+        tristateButton.setDisable(false);
+        international.setOpacity(1.0);
+        international.setDisable(false);
+    }
+
+    @FXML
+    protected  void handleResidentSelected()
+    {
+        tristateButton.setOpacity(0.5);
+        tristateButton.setDisable(true);
+        tristateButton.setSelected(false);
+        international.setOpacity(0.5);
+        international.setDisable(true);
+        international.setSelected(false);
+        studyAbroad.setOpacity(0.5);
+        studyAbroad.setDisable(true);
+        studyAbroad.setSelected(false);
+        newYork.setSelected(false);
+        newYork.setOpacity(0.5);
+        newYork.setDisable(true);
+        connecticut.setSelected(false);
+        connecticut.setOpacity(0.5);
+        connecticut.setDisable(true);
+    }
+
     @FXML
     protected  void handleTristateSelected()
     {
@@ -69,6 +99,7 @@ public class HelloController {
             newYork.setDisable(false);
             connecticut.setOpacity(1.0);
             connecticut.setDisable(false);
+            studyAbroad.setSelected(false);
     }
 
     @FXML
@@ -80,7 +111,8 @@ public class HelloController {
             connecticut.setOpacity(0.5);
             connecticut.setDisable(true);
             connecticut.setSelected(false);
-
+            studyAbroad.setDisable(false);
+            studyAbroad.setOpacity(1);
     }
 
     @FXML
