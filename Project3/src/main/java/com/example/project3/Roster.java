@@ -297,4 +297,16 @@ public class Roster {
         return true;
     }
 
+    /**
+     * Method which determines if a student is on the roster
+     * @param student the desired student
+     * @return true if student is on the roster
+     */
+    public boolean exists(Student student) {
+        if (find(student) == Constants.NOT_FOUND) {
+            return false;
+        }
+        return true;
+    }
+
 }

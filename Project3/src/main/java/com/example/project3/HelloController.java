@@ -51,7 +51,7 @@ public class HelloController {
     @FXML
     private Button setFinAid;
     @FXML
-    private TextField tuitionAmount1;
+    private TextField paymentAmount;
     @FXML
     private TextField financialAid;
     @FXML
@@ -326,16 +326,41 @@ public class HelloController {
                 systemDialog.appendText("Must enter a name.\n");
                 return;
             }
-            selectedButton = (RadioButton) paymentMajorGroup.getSelectedToggle();
-            studentMajor = Major.valueOf(selectedButton.getText());
-            tuitionDueAmount = Double.parseDouble(tuitionAmount1.getText());
-            paymentDateString = paymentDatePicker.getValue().toString();
-            System.out.println(paymentDateString);
-            paymentDate = new Date(paymentDateString);
+            try {
+                selectedButton = (RadioButton) paymentMajorGroup.getSelectedToggle();
+                studentMajor = Major.valueOf(selectedButton.getText());
+            }
+            catch (Exception e){
+                systemDialog.appendText("Must select a major to make a payment.\n");
+            }
+            try {
+                currentPayment = Double.parseDouble(paymentAmount.getText());
+            }
+            catch (Exception e){
+                systemDialog.appendText("Must enter a valid payment.\n");
+            }
+            try {
+                paymentDateString = paymentDatePicker.getValue().toString();
+                paymentDate = new Date(paymentDateString);
+                System.out.println(paymentDate);
+            }
+            catch (Exception e){
+                systemDialog.appendText("Must enter a valid date.\n");
+            }
 
-            if (!(paymentDate.isValid()))
+            if (paymentDate.isValid() == false)
             {
                 systemDialog.appendText("Invalid Date.\n");
+            }
+            else {
+                makeProfile();
+                Student currStudent = new Student(studentProfile, 0, 0, "--/--/--", 0 );
+                if (studentRoster.exists(currStudent) == false){
+                    systemDialog.appendText("Student is not on the roster.\n");
+                }
+                else {
+                    // TODO: check if current payment + existing payments exceeds tuition due
+                }
             }
 
 
