@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project3.HelloController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project3.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -117,8 +102,7 @@
                                  <Button fx:id="addStudent" mnemonicParsing="false" onAction="#handleAddStudent" text="Add Student" textAlignment="CENTER" translateX="50.0" GridPane.rowIndex="4" />
                                  <Button fx:id="removeStudent" layoutX="10.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleRemoveStudent" text="Remove Student" textAlignment="CENTER" translateX="250.0" GridPane.rowIndex="4" />
                                  <Button fx:id="tuitionDue" mnemonicParsing="false" onAction="#handleTuitionDue" text="Tuition Due" translateX="50.0" GridPane.rowIndex="5" />
-                                 <TextField fx:id="tuitionAmount" disable="true" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" text="0.00" translateX="175.0" GridPane.rowIndex="5" />
-                                 <Label text="\$" translateX="160.0" GridPane.rowIndex="5" />
+                                 <TextField fx:id="tuitionAmount" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" text="0.00" translateX="175.0" GridPane.rowIndex="5" />
                               </children>
                            </GridPane>
                            <HBox layoutX="14.0" layoutY="158.0" prefHeight="100.0" prefWidth="200.0" />
@@ -153,25 +137,22 @@
                                              <ToggleGroup fx:id="paymentMajorGroup" />
                                           </toggleGroup>
                                            </RadioButton>
-                                           <RadioButton mnemonicParsing="false" text="EE">
-                                               <padding>
-                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                               </padding>
-                                          <toggleGroup>
-                                             <ToggleGroup fx:id="majorGroup1" />
-                                          </toggleGroup>
-                                           </RadioButton>
-                                           <RadioButton layoutX="55.0" layoutY="10.0" mnemonicParsing="false" text="ME" toggleGroup="$majorGroup1">
+                                           <RadioButton mnemonicParsing="false" text="EE" toggleGroup="$paymentMajorGroup">
                                                <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                </padding>
                                            </RadioButton>
-                                           <RadioButton layoutX="99.0" layoutY="10.0" mnemonicParsing="false" text="IT" toggleGroup="$majorGroup1">
+                                           <RadioButton layoutX="55.0" layoutY="10.0" mnemonicParsing="false" text="ME" toggleGroup="$paymentMajorGroup">
                                                <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                </padding>
                                            </RadioButton>
-                                           <RadioButton layoutX="147.0" layoutY="10.0" mnemonicParsing="false" text="BA" toggleGroup="$majorGroup1">
+                                           <RadioButton layoutX="99.0" layoutY="10.0" mnemonicParsing="false" text="IT" toggleGroup="$paymentMajorGroup">
+                                               <padding>
+                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                               </padding>
+                                           </RadioButton>
+                                           <RadioButton layoutX="147.0" layoutY="10.0" mnemonicParsing="false" text="BA" toggleGroup="$paymentMajorGroup">
                                                <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                </padding>
@@ -181,11 +162,11 @@
                                    <TextField fx:id="tuitionAmount1" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="0.00" translateX="110.0" GridPane.rowIndex="2" />
                                    <Label text="Payment Amount $" GridPane.rowIndex="2" />
                                    <Label text="Payment Date" GridPane.rowIndex="3" />
-                                   <DatePicker translateX="85.0" GridPane.rowIndex="3" />
+                                   <DatePicker fx:id="paymentDatePicker" translateX="85.0" GridPane.rowIndex="3" />
                                    <Button fx:id="pay" mnemonicParsing="false" onAction="#handlePayment" text="Pay" textAlignment="CENTER" translateX="280.0" GridPane.rowIndex="3" />
                                    <Label text="Financial Aid Amount $" GridPane.rowIndex="4" />
-                                   <TextField fx:id="tuitionAmount11" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="0.00" translateX="130.0" GridPane.rowIndex="4" />
-                                   <Button fx:id="removeStudent11" mnemonicParsing="false" text="Set" textAlignment="CENTER" translateX="300.0" GridPane.rowIndex="4" />
+                                   <TextField fx:id="financialAid" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="0.00" translateX="130.0" GridPane.rowIndex="4" />
+                                   <Button fx:id="setFinAid" mnemonicParsing="false" onAction="#handleSetFinancialAid" text="Set" textAlignment="CENTER" translateX="300.0" GridPane.rowIndex="4" />
                                    <Label text="Major" GridPane.rowIndex="1" />
                                    <TextField fx:id="paymentName" promptText="Name of student" />
                                </children>

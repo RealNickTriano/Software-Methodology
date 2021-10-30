@@ -133,26 +133,26 @@
                                                <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                </padding>
-                                               <toggleGroup>
-                                                   <ToggleGroup fx:id="majorGroup1" />
-                                               </toggleGroup>
+                                          <toggleGroup>
+                                             <ToggleGroup fx:id="paymentMajorGroup" />
+                                          </toggleGroup>
                                            </RadioButton>
-                                           <RadioButton mnemonicParsing="false" text="EE" toggleGroup="$majorGroup1">
+                                           <RadioButton mnemonicParsing="false" text="EE" toggleGroup="$paymentMajorGroup">
                                                <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                </padding>
                                            </RadioButton>
-                                           <RadioButton layoutX="55.0" layoutY="10.0" mnemonicParsing="false" text="ME" toggleGroup="$majorGroup1">
+                                           <RadioButton layoutX="55.0" layoutY="10.0" mnemonicParsing="false" text="ME" toggleGroup="$paymentMajorGroup">
                                                <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                </padding>
                                            </RadioButton>
-                                           <RadioButton layoutX="99.0" layoutY="10.0" mnemonicParsing="false" text="IT" toggleGroup="$majorGroup1">
+                                           <RadioButton layoutX="99.0" layoutY="10.0" mnemonicParsing="false" text="IT" toggleGroup="$paymentMajorGroup">
                                                <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                </padding>
                                            </RadioButton>
-                                           <RadioButton layoutX="147.0" layoutY="10.0" mnemonicParsing="false" text="BA" toggleGroup="$majorGroup1">
+                                           <RadioButton layoutX="147.0" layoutY="10.0" mnemonicParsing="false" text="BA" toggleGroup="$paymentMajorGroup">
                                                <padding>
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                </padding>
@@ -162,13 +162,13 @@
                                    <TextField fx:id="tuitionAmount1" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="0.00" translateX="110.0" GridPane.rowIndex="2" />
                                    <Label text="Payment Amount $" GridPane.rowIndex="2" />
                                    <Label text="Payment Date" GridPane.rowIndex="3" />
-                                   <DatePicker translateX="85.0" GridPane.rowIndex="3" />
-                                   <Button fx:id="removeStudent1" mnemonicParsing="false" text="Pay" textAlignment="CENTER" translateX="280.0" GridPane.rowIndex="3" />
+                                   <DatePicker fx:id="paymentDatePicker" translateX="85.0" GridPane.rowIndex="3" />
+                                   <Button fx:id="pay" mnemonicParsing="false" onAction="#handlePayment" text="Pay" textAlignment="CENTER" translateX="280.0" GridPane.rowIndex="3" />
                                    <Label text="Financial Aid Amount $" GridPane.rowIndex="4" />
-                                   <TextField fx:id="tuitionAmount11" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="0.00" translateX="130.0" GridPane.rowIndex="4" />
-                                   <Button fx:id="removeStudent11" mnemonicParsing="false" text="Set" textAlignment="CENTER" translateX="300.0" GridPane.rowIndex="4" />
+                                   <TextField fx:id="financialAid" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="0.00" translateX="130.0" GridPane.rowIndex="4" />
+                                   <Button fx:id="setFinAid" mnemonicParsing="false" onAction="#handleSetFinancialAid" text="Set" textAlignment="CENTER" translateX="300.0" GridPane.rowIndex="4" />
                                    <Label text="Major" GridPane.rowIndex="1" />
-                                   <TextField promptText="Name of student" />
+                                   <TextField fx:id="paymentName" promptText="Name of student" />
                                </children>
                            </GridPane>
                        </children></AnchorPane>

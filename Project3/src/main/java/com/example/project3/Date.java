@@ -21,10 +21,11 @@ public class Date implements Comparable<Date> {
      * @param date String in format of mm/dd/yyyy to represent a date
      */
     public Date( String date ) {
-        StringTokenizer st1 = new StringTokenizer( date, "/" );
+        StringTokenizer st1 = new StringTokenizer( date, "-" );
+        this.year = Integer.parseInt(st1.nextToken());
         this.month = Integer.parseInt(st1.nextToken());
         this.day = Integer.parseInt(st1.nextToken());
-        this.year = Integer.parseInt(st1.nextToken());
+
 
     }
 

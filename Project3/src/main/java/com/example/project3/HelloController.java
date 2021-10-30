@@ -50,6 +50,12 @@ public class HelloController {
     private Button pay;
     @FXML
     private Button setFinAid;
+    @FXML
+    private TextField tuitionAmount1;
+    @FXML
+    private TextField financialAid;
+    @FXML
+    private DatePicker paymentDatePicker;
 
     private String studentName;
     private Major studentMajor;
@@ -60,8 +66,11 @@ public class HelloController {
     private double totalPayment;
     private RadioButton selectedButton;
     private String statusString;
+    private Date paymentDate;
+    private String paymentDateString;
     private String state;
     private Profile studentProfile;
+    private Double financialAidAmount;
     private Student[] studentArray;
     private Roster studentRoster = new Roster(studentArray, 0);
 
@@ -286,7 +295,7 @@ public class HelloController {
     @FXML
     protected void handlePayment()
     {
-        try {
+        //try {
             studentName = paymentName.getText();
             if (studentName == "") {
                 systemDialog.appendText("Must enter a name.\n");
@@ -294,11 +303,29 @@ public class HelloController {
             }
             selectedButton = (RadioButton) paymentMajorGroup.getSelectedToggle();
             studentMajor = Major.valueOf(selectedButton.getText());
+            tuitionDueAmount = Double.parseDouble(tuitionAmount1.getText());
+            paymentDateString = paymentDatePicker.getValue().toString();
+            System.out.println(paymentDateString);
+            paymentDate = new Date(paymentDateString);
 
-        }
-        catch (Exception e){
-            systemDialog.appendText("Must enter all data fields.\n");
-        }
+            if (!(paymentDate.isValid()))
+            {
+                systemDialog.appendText("Invalid Date.\n");
+            }
+
+
+       // }
+        //catch (Exception e){
+            //systemDialog.appendText("Must enter all data fields.\n");
+       // }
+
+
+    }
+
+    @FXML
+    protected void handleSetFinancialAid()
+    {
+
     }
 
 }
