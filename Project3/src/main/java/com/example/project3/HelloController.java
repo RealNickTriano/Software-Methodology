@@ -330,6 +330,8 @@ public class HelloController {
     {
         //TODO: commented out try catch for now, it catches any exception so cannot determine
         // specific errors
+        Date date = new Date();
+        systemDialog.appendText(date.toString() + "\n");
         //try {
             studentName = paymentName.getText();
             if (studentName == "") {
@@ -358,8 +360,6 @@ public class HelloController {
             catch (Exception e){
                 systemDialog.appendText("Must enter a valid date.\n");
             }
-
-            //TODO: Date is always invalid
             if (!paymentDate.isValid())
             {
                 systemDialog.appendText("Invalid Date.\n");

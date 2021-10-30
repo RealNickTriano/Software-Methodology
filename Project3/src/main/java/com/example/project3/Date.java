@@ -35,7 +35,7 @@ public class Date implements Comparable<Date> {
     public Date() {
         Calendar calendar = Calendar.getInstance();
 
-        this.month = calendar.get(Calendar.MONTH);
+        this.month = calendar.get(Calendar.MONTH) + 1;
         this.day = calendar.get(Calendar.DATE);
         this.year = calendar.get(Calendar.YEAR);
     }
@@ -101,9 +101,9 @@ public class Date implements Comparable<Date> {
             return false;
         }
 
-        if ( year == calendar.get( Calendar.YEAR ) && month > calendar.get( Calendar.MONTH ) ) {
+        if ( year == calendar.get( Calendar.YEAR ) && month > calendar.get( Calendar.MONTH ) + 1 ) {
             return false;
-        } else if ( year == calendar.get( Calendar.YEAR ) && month == calendar.get( Calendar.MONTH ) &&
+        } else if ( year == calendar.get( Calendar.YEAR ) && month == calendar.get( Calendar.MONTH ) + 1 &&
                 day > calendar.get( Calendar.DATE ) ) {
             return false;
         }
