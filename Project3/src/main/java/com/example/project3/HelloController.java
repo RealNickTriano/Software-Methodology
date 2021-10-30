@@ -295,6 +295,8 @@ public class HelloController {
     @FXML
     protected void handlePayment()
     {
+        //TODO: commented out try catch for now, it catches any exception so cannot determine
+        // specific errors
         //try {
             studentName = paymentName.getText();
             if (studentName == "") {
@@ -325,7 +327,20 @@ public class HelloController {
     @FXML
     protected void handleSetFinancialAid()
     {
+        financialAidAmount = Double.parseDouble(financialAid.getText());
 
+        studentName = paymentName.getText();
+        if (studentName == "") {
+            systemDialog.appendText("Must enter a name.\n");
+            return;
+        }
+
+        selectedButton = (RadioButton) paymentMajorGroup.getSelectedToggle();
+        studentMajor = Major.valueOf(selectedButton.getText());
+
+        makeProfile();
+
+        //TODO: Set student's financial aid amount and subtract from tuition
     }
 
 }
