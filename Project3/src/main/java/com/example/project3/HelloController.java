@@ -73,31 +73,43 @@ public class HelloController {
     private Double financialAidAmount;
     private Student[] studentArray;
     private Roster studentRoster = new Roster(studentArray, 0);
+    private boolean tuition = false;
 
 
     public int setValues()
     {
 
-        try{
-            studentName = name.getText();
-            if (studentName == "") {
-                systemDialog.appendText("Must enter a name.\n");
-                return -1;
-            }
+
+        studentName = name.getText();
+        if (studentName == "")
+        {
+            systemDialog.appendText("Must enter a name.\n");
+            return -1;
+        }
+
+        try {
             selectedButton = (RadioButton) majorGroup.getSelectedToggle();
             studentMajor = Major.valueOf(selectedButton.getText());
+        }
+        catch (Exception e)
+        {
+            systemDialog.appendText("Must select a major.\n");
+        }
+
+        try
+        {
             selectedButton = (RadioButton) residentGroup.getSelectedToggle();
             statusString = selectedButton.getText();
         }
-        catch(Exception e)
+        catch (Exception e)
         {
-            systemDialog.appendText("Must select major and residency status.\n");
-            return -1;
+            systemDialog.appendText("Must select a residency status.\n");
         }
+
+
         try
         {
             studentCredits = Integer.parseInt(creditHours.getText());
-            tuitionDueAmount = Double.parseDouble(tuitionAmount.getText());
         }
         catch(NumberFormatException e)
         {
@@ -105,6 +117,9 @@ public class HelloController {
             systemDialog.appendText("Credit Hours must be a number.\n");
             return -1;
         }
+
+        tuitionDueAmount = Double.parseDouble(tuitionAmount.getText());
+
         return 1;
 
     }
@@ -239,7 +254,14 @@ public class HelloController {
          * print msg to user
         */
 
-        if(setValues() == 1) {
+        if(setValues() == 1)
+        {
+            if(!tuition)
+            {
+                systemDialog.appendText("Tuition must be calculated.\n");
+                return;
+            }
+            tuition = false;
             Student student = makeStudent();
 
             if (studentRoster.add(student)) {
@@ -285,6 +307,7 @@ public class HelloController {
     {
         // TODO: Calculate tuition due for student and print to text field
         // print msg to user
+        tuition = true;
         setValues();
         Student student = makeStudent();
         student.tuitionDue();

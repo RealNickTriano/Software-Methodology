@@ -83,17 +83,13 @@
                                           </toggleGroup>
                                        </RadioButton>
                                        <RadioButton fx:id="nonResident" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleNonResidentSelected" text="Non-Resident" toggleGroup="$residentGroup" GridPane.columnIndex="1" />
-                                       <RadioButton fx:id="tristateButton" layoutX="141.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleTristateSelected" text="Tristate" GridPane.rowIndex="1">
-                                          <toggleGroup>
-                                             <ToggleGroup fx:id="triStateGroup" />
-                                          </toggleGroup>
-                                       </RadioButton>
+                                       <RadioButton fx:id="tristateButton" layoutX="141.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleTristateSelected" text="Tristate" toggleGroup="$residentGroup" GridPane.rowIndex="1" />
                                        <RadioButton fx:id="newYork" disable="true" layoutX="10.0" layoutY="45.0" mnemonicParsing="false" opacity="0.5" text="New York" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                           <toggleGroup>
                                              <ToggleGroup fx:id="stateGroup" />
                                           </toggleGroup>
                                        </RadioButton>
-                                       <RadioButton fx:id="international" layoutX="141.0" layoutY="45.0" mnemonicParsing="false" onAction="#handleInternationalSelected" text="International" toggleGroup="$triStateGroup" GridPane.rowIndex="2" />
+                                       <RadioButton fx:id="international" layoutX="141.0" layoutY="45.0" mnemonicParsing="false" onAction="#handleInternationalSelected" text="International" toggleGroup="$residentGroup" GridPane.rowIndex="2" />
                                        <RadioButton fx:id="connecticut" disable="true" layoutX="141.0" layoutY="75.0" mnemonicParsing="false" opacity="0.5" text="Connecticut" toggleGroup="$stateGroup" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                        <CheckBox fx:id="studyAbroad" mnemonicParsing="false" text="Study Abroad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     </children>
