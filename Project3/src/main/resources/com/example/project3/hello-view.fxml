@@ -155,7 +155,7 @@
                                            </RadioButton>
                                        </children>
                                    </HBox>
-                                   <TextField fx:id="tuitionAmount1" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="0.00" translateX="110.0" GridPane.rowIndex="2" />
+                                   <TextField fx:id="paymentAmount" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" promptText="0.00" translateX="110.0" GridPane.rowIndex="2" />
                                    <Label text="Payment Amount $" GridPane.rowIndex="2" />
                                    <Label text="Payment Date" GridPane.rowIndex="3" />
                                    <DatePicker fx:id="paymentDatePicker" translateX="85.0" GridPane.rowIndex="3" />

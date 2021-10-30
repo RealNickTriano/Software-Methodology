@@ -347,6 +347,7 @@ public class HelloController {
             }
             try {
                 paymentDateString = paymentDatePicker.getValue().toString();
+                System.out.println(paymentDateString);
                 paymentDate = new Date(paymentDateString);
                 System.out.println(paymentDate);
             }
@@ -354,7 +355,8 @@ public class HelloController {
                 systemDialog.appendText("Must enter a valid date.\n");
             }
 
-            if (paymentDate.isValid() == false)
+            //TODO: Date is always invalid
+            if (!paymentDate.isValid())
             {
                 systemDialog.appendText("Invalid Date.\n");
             }
