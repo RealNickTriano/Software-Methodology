@@ -383,6 +383,8 @@ public class HelloController {
     @FXML
     protected void handleSetFinancialAid()
     {
+        //TODO: Check student type, verify amount and that student exists,
+        // aid + tuition payment cannot exceed amount due
         financialAidAmount = Double.parseDouble(financialAid.getText());
 
         studentName = paymentName.getText();
@@ -398,6 +400,7 @@ public class HelloController {
 
         //TODO: Set student's financial aid amount and subtract from tuition
     }
+        //TODO: Change Roster methods to return a String
 
 
 
