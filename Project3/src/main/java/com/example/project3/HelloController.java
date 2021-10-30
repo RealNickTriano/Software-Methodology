@@ -116,6 +116,10 @@ public class HelloController {
         try
         {
             studentCredits = Integer.parseInt(creditHours.getText());
+            if (studentCredits > 24 || studentCredits < 3){
+                systemDialog.appendText("Student must enroll in at least 3 credits and at most 24 credits.\n");
+                return -1;
+            }
         }
         catch(NumberFormatException e)
         {
