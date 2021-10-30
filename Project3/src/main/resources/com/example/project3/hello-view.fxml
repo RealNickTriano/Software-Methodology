@@ -185,5 +185,17 @@
             </effect>
          </TextArea>
       </bottom>
+      <center>
+       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      </center>
+      <left>
+         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" spacing="20.0" translateX="150.0" translateY="200.0" BorderPane.alignment="CENTER">
+            <children>
+               <Button fx:id="printStudents" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" text="Print Students" textAlignment="CENTER" />
+               <Button fx:id="printByName" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" text="Print Students By Name" textAlignment="CENTER" />
+               <Button fx:id="printByPayment" layoutX="10.0" layoutY="40.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" text="Print Students By Payment Date" textAlignment="CENTER" />
+            </children>
+         </VBox>
+      </left>
    </BorderPane>
 </VBox>

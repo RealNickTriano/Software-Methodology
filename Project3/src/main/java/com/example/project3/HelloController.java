@@ -56,6 +56,12 @@ public class HelloController {
     private TextField financialAid;
     @FXML
     private DatePicker paymentDatePicker;
+    @FXML
+    private Button printStudents;
+    @FXML
+    private Button printByName;
+    @FXML
+    private Button printByPayment;
 
     private String studentName;
     private Major studentMajor;
@@ -390,5 +396,7 @@ public class HelloController {
 
         //TODO: Set student's financial aid amount and subtract from tuition
     }
+
+
 
 }
