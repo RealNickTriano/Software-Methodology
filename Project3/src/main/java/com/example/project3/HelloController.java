@@ -369,7 +369,7 @@ public class HelloController {
                 }
                 else {
                     // check if current payment + existing payments exceeds tuition due
-                    if(!(studentRoster.checkPayment(currentPayment, currStudent)))
+                    if((studentRoster.pay(currentPayment, paymentDateString, studentRoster.find(currStudent))) == -1)
                     {
                         systemDialog.appendText("This payment is more than due.\n");
                     }
@@ -457,6 +457,24 @@ public class HelloController {
             systemDialog.appendText("Student Roster is empty.");
         else
             systemDialog.appendText(studentRoster.print());
+    }
+    @FXML
+    protected void handlePrintByName()
+    {
+        System.out.println("printing...");
+        if(studentRoster.print().equalsIgnoreCase(""))
+            systemDialog.appendText("Student Roster is empty.");
+        else
+            systemDialog.appendText(studentRoster.printByNames());
+    }
+    @FXML
+    protected void handlePrintByPaymentDate()
+    {
+        System.out.println("printing...");
+        if(studentRoster.print().equalsIgnoreCase(""))
+            systemDialog.appendText("Student Roster is empty.");
+        else
+            systemDialog.appendText(studentRoster.printByPaymentDate());
     }
 
 

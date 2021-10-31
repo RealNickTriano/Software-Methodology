@@ -179,7 +179,7 @@
          </TabPane>
       </top>
       <bottom>
-         <TextArea fx:id="systemDialog" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <TextArea fx:id="systemDialog" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="800.0" BorderPane.alignment="CENTER">
             <effect>
                <InnerShadow />
             </effect>
@@ -189,11 +189,11 @@
        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
       </center>
       <left>
-         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" spacing="20.0" translateX="150.0" translateY="200.0" BorderPane.alignment="CENTER">
+         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" spacing="20.0" translateX="25.0" translateY="200.0" BorderPane.alignment="CENTER">
             <children>
                <Button fx:id="printStudents" mnemonicParsing="false" onAction="#handlePrintStudents" prefHeight="20.0" prefWidth="200.0" text="Print Students" textAlignment="CENTER" />
-               <Button fx:id="printByName" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" text="Print Students By Name" textAlignment="CENTER" />
-               <Button fx:id="printByPayment" layoutX="10.0" layoutY="40.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" text="Print Students By Payment Date" textAlignment="CENTER" />
+               <Button fx:id="printByName" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handlePrintByName" prefHeight="20.0" prefWidth="200.0" text="Print Students By Name" textAlignment="CENTER" />
+               <Button fx:id="printByPayment" layoutX="10.0" layoutY="40.0" mnemonicParsing="false" onAction="#handlePrintByPaymentDate" prefHeight="20.0" prefWidth="200.0" text="Print Students By Payment Date" textAlignment="CENTER" />
             </children>
          </VBox>
       </left>

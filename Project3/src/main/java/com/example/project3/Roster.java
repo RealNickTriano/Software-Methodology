@@ -142,11 +142,12 @@ public class Roster {
     /**
      * Display the list sorted by student names
      */
-    public void printByNames()
+    public String printByNames()
     {
+        String formatString = "";
         if ( this.isEmpty() ) {
             System.out.println( "Student roster is empty!" );
-            return;
+            return formatString;
         }
         else {
             boolean swapped;
@@ -163,7 +164,7 @@ public class Roster {
                 }
             } while ( swapped == true );
         }
-        this.print();
+        return this.print();
     }
 
     /**
@@ -196,11 +197,12 @@ public class Roster {
     /**
      * Display the list of only the students who have made payments, ordered by the payment date
      */
-    public void printByPaymentDate()
+    public String printByPaymentDate()
     {
+        String formatString = "";
         if ( this.isEmpty() ){
             System.out.println( "Student roster is empty!" );
-            return;
+            return formatString;
         }
         else {
             boolean swapped;
@@ -217,7 +219,7 @@ public class Roster {
                 }
             } while ( swapped == true );
         }
-        this.print();
+        return this.print();
     }
 
     /**
@@ -351,21 +353,6 @@ public class Roster {
         student.financialAid = amount;
         student.tuitionDue -= student.financialAid;
         return 1;
-    }
-
-    /**
-     * Method to set check if payment is over the total amount owed
-     * @param paymentAmount how much user is paying
-     * @param student student which payment is for
-     * @return true if financial aid amount set successfully, false if financial aid was already rewarded
-     */
-    public boolean checkPayment(double paymentAmount, Student student) {
-        int i = find(student);
-        if (roster[i].tuitionDue < roster[i].totalPayment + paymentAmount)
-        {
-            return false;
-        }
-        return true;
     }
 
     /**
