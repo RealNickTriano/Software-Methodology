@@ -28,7 +28,7 @@ public class Roster {
      * @param student The requested student
      * @return The index of the student requested
      */
-    private int find(Student student) {
+    public int find(Student student) {
 
         int i;
         for ( i = 0; i < size; i++ ) {
@@ -269,6 +269,55 @@ public class Roster {
     }
 
     /**
+     * Helper method for Controller to determine if queried student is a Tristate NY student
+     * @param student the desired student
+     * @return true if student is a resident, false otherwise
+     */
+    public boolean isNY(Student student){
+        int i = find(student);
+        if (roster[i] instanceof TriState) {
+            TriState tristate = (TriState) roster[i];
+            String state = tristate.getState();
+            if(state.equalsIgnoreCase("NY"))
+                return true;
+            return false;
+        }
+        return false;
+    }
+
+    /**
+     * Helper method for Controller to determine if queried student is a International student
+     * @param student the desired student
+     * @return true if student is a International student, false otherwise
+     */
+    public boolean isInternational(Student student){
+        int i = find(student);
+        if (roster[i] instanceof International) {
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * Helper method for Controller to determine if queried student is a Tristate CT student
+     * @param student the desired student
+     * @return true if student is a Tristate CT, false otherwise
+     */
+    public boolean isCT(Student student){
+        int i = find(student);
+        if (roster[i] instanceof TriState) {
+            TriState tristate = (TriState) roster[i];
+            String state = tristate.getState();
+            if(state.equalsIgnoreCase("CT"))
+                return true;
+            return false;
+        }
+        return false;
+    }
+
+
+
+    /**
      * Helper method to determine if a student is full time
      * @param student the desired student
      * @return true if the queried student is full time, false otherwise
@@ -287,14 +336,17 @@ public class Roster {
      * @param position location of student in roster array
      * @return true if financial aid amount set successfully, false if financial aid was already rewarded
      */
-    public boolean setFinancialAid(double amount, int position) {
+    public int setFinancialAid(double amount, int position) {
+        //TODO: have to cast this to correct student
         Resident student = (Resident) roster[position];
         if ( student.financialAid != 0 ){
-            return false;
+            return -1;
         }
+        if (student.tuitionDue < amount + student.totalPayment)
+            return 0;
         student.financialAid = amount;
-        this.CalculateDues();
-        return true;
+        student.tuitionDue -= student.financialAid;
+        return 1;
     }
 
     /**

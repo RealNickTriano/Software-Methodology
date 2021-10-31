@@ -54,7 +54,10 @@ public class TriState extends NonResident {
             }
     }
 
-
+    public String getState()
+    {
+        return this.state;
+    }
     /**
      * Formats Tristate object into a string for use in output
      * @return formattedString the Tristate class in String format

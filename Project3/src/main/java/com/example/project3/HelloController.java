@@ -401,7 +401,54 @@ public class HelloController {
         studentMajor = Major.valueOf(selectedButton.getText());
 
         makeProfile();
+        Student student = new Student(studentProfile, 0, 0, "--/--/--", 0);
 
+        if(studentRoster.exists(student))
+        {
+            if(financialAidAmount <= 0)
+            {
+                systemDialog.appendText("Financial Aid must be more than 0.");
+                return;
+            }
+            else if(studentRoster.isResident(student) && financialAidAmount > 10000.00)
+            {
+                systemDialog.appendText("Financial Aid exceeds maximum.");
+                return;
+            }
+            else if(studentRoster.isNY(student) && financialAidAmount != 4000)
+            {
+                systemDialog.appendText("New York students receive $4000 in financial aid.");
+                return;
+            }
+            else if(studentRoster.isCT(student) && financialAidAmount != 5000)
+            {
+                systemDialog.appendText("Connecticut students receive $5000 in financial aid.");
+                return;
+            }
+            else if(studentRoster.isInternational(student))
+            {
+                systemDialog.appendText("International students cannot receive financial aid");
+                return;
+            }
+            int index = studentRoster.find(student);
+            int error = studentRoster.setFinancialAid(financialAidAmount, index);
+            if(error == -1)
+            {
+                systemDialog.appendText("Financial Aid already set for this student.\n");
+                return;
+            }
+            else if (error == -1)
+            {
+                systemDialog.appendText("Financial Aid is more than due.");
+                return;
+            }
+            studentRoster.print();
+        }
+        else
+        {
+            systemDialog.appendText("This student is not in the roster.");
+            return;
+        }
         //TODO: Set student's financial aid amount and subtract from tuition
     }
         //TODO: Change Roster methods to return a String
