@@ -328,11 +328,8 @@ public class HelloController {
     @FXML
     protected void handlePayment()
     {
-        //TODO: commented out try catch for now, it catches any exception so cannot determine
-        // specific errors
         Date date = new Date();
         systemDialog.appendText(date.toString() + "\n");
-        //try {
             studentName = paymentName.getText();
             if (studentName == "") {
                 systemDialog.appendText("Must enter a name.\n");
@@ -371,17 +368,18 @@ public class HelloController {
                     systemDialog.appendText("Student is not on the roster.\n");
                 }
                 else {
-                    // TODO: check if current payment + existing payments exceeds tuition due
+                    // check if current payment + existing payments exceeds tuition due
+                    if(!(studentRoster.checkPayment(currentPayment, currStudent)))
+                    {
+                        systemDialog.appendText("This payment is more than due.\n");
+                    }
+                    else
+                    {
+                        systemDialog.appendText("Payment Received.\n");
+                    }
+
                 }
             }
-
-
-       // }
-        //catch (Exception e){
-            //systemDialog.appendText("Must enter all data fields.\n");
-       // }
-
-
     }
 
     @FXML
@@ -405,27 +403,27 @@ public class HelloController {
         {
             if(financialAidAmount <= 0)
             {
-                systemDialog.appendText("Financial Aid must be more than 0.");
+                systemDialog.appendText("Financial Aid must be more than 0.\n");
                 return;
             }
             else if(studentRoster.isResident(student) && financialAidAmount > 10000.00)
             {
-                systemDialog.appendText("Financial Aid exceeds maximum.");
+                systemDialog.appendText("Financial Aid exceeds maximum.\n");
                 return;
             }
             else if(studentRoster.isNY(student))
             {
-                systemDialog.appendText("New York students automatically receive $4000 in financial aid.");
+                systemDialog.appendText("New York students automatically receive $4000 in financial aid.\n");
                 return;
             }
             else if(studentRoster.isCT(student))
             {
-                systemDialog.appendText("Connecticut students automatically receive $5000 in financial aid.");
+                systemDialog.appendText("Connecticut students automatically receive $5000 in financial aid.\n");
                 return;
             }
             else if(studentRoster.isInternational(student))
             {
-                systemDialog.appendText("International students cannot receive financial aid");
+                systemDialog.appendText("International students cannot receive financial aid.\n");
                 return;
             }
             int index = studentRoster.find(student);
@@ -437,7 +435,7 @@ public class HelloController {
             }
             else if (error == -1)
             {
-                systemDialog.appendText("Financial Aid is more than due.");
+                systemDialog.appendText("Financial Aid is more than due.\n");
                 return;
             }
             systemDialog.appendText("Financial Aid of $" + financialAidAmount + " awarded to " + studentName);
@@ -445,7 +443,7 @@ public class HelloController {
         }
         else
         {
-            systemDialog.appendText("This student is not in the roster.");
+            systemDialog.appendText("This student is not in the roster.\n");
             return;
         }
     }

@@ -350,6 +350,21 @@ public class Roster {
     }
 
     /**
+     * Method to set check if payment is over the total amount owed
+     * @param amount how much financial aid to reward
+     * @param position location of student in roster array
+     * @return true if financial aid amount set successfully, false if financial aid was already rewarded
+     */
+    public boolean checkPayment(double paymentAmount, Student student) {
+        int i = find(student);
+        if (roster[i].tuitionDue < roster[i].totalPayment + paymentAmount)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Method which determines if a student is on the roster
      * @param student the desired student
      * @return true if student is on the roster
