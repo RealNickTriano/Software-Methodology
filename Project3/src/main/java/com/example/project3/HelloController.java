@@ -387,8 +387,6 @@ public class HelloController {
     @FXML
     protected void handleSetFinancialAid()
     {
-        //TODO: Check student type, verify amount and that student exists,
-        // aid + tuition payment cannot exceed amount due
         financialAidAmount = Double.parseDouble(financialAid.getText());
 
         studentName = paymentName.getText();
@@ -415,14 +413,14 @@ public class HelloController {
                 systemDialog.appendText("Financial Aid exceeds maximum.");
                 return;
             }
-            else if(studentRoster.isNY(student) && financialAidAmount != 4000)
+            else if(studentRoster.isNY(student))
             {
-                systemDialog.appendText("New York students receive $4000 in financial aid.");
+                systemDialog.appendText("New York students automatically receive $4000 in financial aid.");
                 return;
             }
-            else if(studentRoster.isCT(student) && financialAidAmount != 5000)
+            else if(studentRoster.isCT(student))
             {
-                systemDialog.appendText("Connecticut students receive $5000 in financial aid.");
+                systemDialog.appendText("Connecticut students automatically receive $5000 in financial aid.");
                 return;
             }
             else if(studentRoster.isInternational(student))
@@ -442,6 +440,7 @@ public class HelloController {
                 systemDialog.appendText("Financial Aid is more than due.");
                 return;
             }
+            systemDialog.appendText("Financial Aid of $" + financialAidAmount + " awarded to " + studentName);
             studentRoster.print();
         }
         else
@@ -449,7 +448,6 @@ public class HelloController {
             systemDialog.appendText("This student is not in the roster.");
             return;
         }
-        //TODO: Set student's financial aid amount and subtract from tuition
     }
         //TODO: Change Roster methods to return a String
 
