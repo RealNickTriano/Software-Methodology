@@ -84,11 +84,8 @@ public class HelloController {
 
     public int setValues()
     {
-
-
         studentName = name.getText();
-        if (studentName == "")
-        {
+        if (studentName == "") {
             systemDialog.appendText("Must enter a name.\n");
             return -1;
         }
@@ -97,39 +94,32 @@ public class HelloController {
             selectedButton = (RadioButton) majorGroup.getSelectedToggle();
             studentMajor = Major.valueOf(selectedButton.getText());
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             systemDialog.appendText("Must select a major.\n");
         }
 
-        try
-        {
+        try {
             selectedButton = (RadioButton) residentGroup.getSelectedToggle();
             statusString = selectedButton.getText();
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             systemDialog.appendText("Must select a residency status.\n");
         }
 
-
-        try
-        {
+        try {
             studentCredits = Integer.parseInt(creditHours.getText());
-            if (studentCredits > 24 || studentCredits < 3){
+            if (studentCredits > 24 || studentCredits < 3) {
                 systemDialog.appendText("Student must enroll in at least 3 credits and at most 24 credits.\n");
                 return -1;
             }
         }
-        catch(NumberFormatException e)
-        {
+        catch(NumberFormatException e) {
             // int exception
             systemDialog.appendText("Credit Hours must be a number.\n");
             return -1;
         }
 
         tuitionDueAmount = Double.parseDouble(tuitionAmount.getText());
-
         return 1;
 
     }
@@ -144,9 +134,7 @@ public class HelloController {
         makeProfile();
         Student student = new Student(studentProfile, 0, 0,
                 "--/--/--", 0);
-        if (tristateButton.isSelected())
-
-        {
+        if (tristateButton.isSelected()) {
             if (newYork.isSelected())
                 state = "NY";
             else if(connecticut.isSelected())
@@ -154,49 +142,27 @@ public class HelloController {
 
             student = new TriState(studentProfile, studentCredits, state, tuitionDueAmount,
                     "--/--/--", 0);
-
-            System.out.println("Created new Tristate object.");
             return student;
-
         }
 
-        else if (international.isSelected())
-
-        {
+        else if (international.isSelected()) {
             student = new International(studentProfile, studentCredits,
                     studyAbroad.isSelected(), tuitionDueAmount,"--/--/--", 0);
-
-            System.out.println("Created new International object.");
             return student;
-
         }
 
-        else if (resident.isSelected())
-
-        {
+        else if (resident.isSelected()) {
             student = new Resident(studentProfile, studentCredits,
                     tuitionDueAmount, 0, "--/--/--", 0);
-
-            System.out.println("Created new Resident object.");
             return student;
-
         }
 
-        else if (nonResident.isSelected())
-
-        {
+        else if (nonResident.isSelected()) {
             student = new NonResident(studentProfile, studentCredits,
                     tuitionDueAmount, "--/--/--", 0);
-
-            System.out.println("Created new Non-Resident object.");
             return student;
-
         }
-
-        // Report error
-        System.out.println("Error");
         return student;
-
     }
 
     @FXML
@@ -264,10 +230,8 @@ public class HelloController {
          * print msg to user
         */
 
-        if(setValues() == 1)
-        {
-            if(!tuition)
-            {
+        if(setValues() == 1) {
+            if(!tuition) {
                 systemDialog.appendText("Tuition must be calculated.\n");
                 return;
             }
@@ -277,11 +241,12 @@ public class HelloController {
             if (studentRoster.add(student)) {
                 systemDialog.appendText("Student added.\n");
                 studentRoster.print();
-            } else {
+            }
+            else {
                 systemDialog.appendText("Student already in Roster.\n");
-
             }
         }
+
         else {
             return;
         }
@@ -316,7 +281,6 @@ public class HelloController {
     protected void handleTuitionDue()
     {
         // TODO: Calculate tuition due for student and print to text field
-        // print msg to user
         tuition = true;
         setValues();
         Student student = makeStudent();
@@ -328,8 +292,6 @@ public class HelloController {
     @FXML
     protected void handlePayment()
     {
-        Date date = new Date();
-        systemDialog.appendText(date.toString() + "\n");
             studentName = paymentName.getText();
             if (studentName == "") {
                 systemDialog.appendText("Must enter a name.\n");
@@ -341,25 +303,27 @@ public class HelloController {
             }
             catch (Exception e){
                 systemDialog.appendText("Must select a major to make a payment.\n");
+                return;
             }
             try {
                 currentPayment = Double.parseDouble(paymentAmount.getText());
             }
             catch (Exception e){
                 systemDialog.appendText("Must enter a valid payment.\n");
+                return;
             }
             try {
                 paymentDateString = paymentDatePicker.getValue().toString();
-                System.out.println(paymentDateString);
                 paymentDate = new Date(paymentDateString);
-                System.out.println(paymentDate);
             }
             catch (Exception e){
                 systemDialog.appendText("Must enter a valid date.\n");
+                return;
             }
             if (!paymentDate.isValid())
             {
                 systemDialog.appendText("Invalid Date.\n");
+                return;
             }
             else {
                 makeProfile();
@@ -399,84 +363,81 @@ public class HelloController {
         makeProfile();
         Student student = new Student(studentProfile, 0, 0, "--/--/--", 0);
 
-        if(studentRoster.exists(student))
-        {
-            if(financialAidAmount <= 0)
-            {
+        if(studentRoster.exists(student)) {
+            if(financialAidAmount <= 0) {
                 systemDialog.appendText("Financial Aid must be more than 0.\n");
                 return;
             }
-            else if(studentRoster.isResident(student) && financialAidAmount > 10000.00)
-            {
+            else if(studentRoster.isResident(student) && financialAidAmount > 10000.00) {
                 systemDialog.appendText("Financial Aid exceeds maximum.\n");
                 return;
             }
-            else if(studentRoster.isNY(student))
-            {
+            else if(studentRoster.isNY(student)) {
                 systemDialog.appendText("New York students automatically receive $4000 in financial aid.\n");
                 return;
             }
-            else if(studentRoster.isCT(student))
-            {
+            else if(studentRoster.isCT(student)) {
                 systemDialog.appendText("Connecticut students automatically receive $5000 in financial aid.\n");
                 return;
             }
-            else if(studentRoster.isInternational(student))
-            {
+            else if(studentRoster.isInternational(student)) {
                 systemDialog.appendText("International students cannot receive financial aid.\n");
                 return;
             }
             int index = studentRoster.find(student);
             int error = studentRoster.setFinancialAid(financialAidAmount, index);
-            if(error == -1)
-            {
+            if(error == -1) {
                 systemDialog.appendText("Financial Aid already set for this student.\n");
                 return;
             }
-            else if (error == -1)
-            {
+            else if (error == -1) {
                 systemDialog.appendText("Financial Aid is more than due.\n");
                 return;
             }
             systemDialog.appendText("Financial Aid of $" + financialAidAmount + " awarded to " + studentName);
             studentRoster.print();
         }
-        else
-        {
+        else {
             systemDialog.appendText("This student is not in the roster.\n");
             return;
         }
     }
-        //TODO: Change Roster methods to return a String
 
+    //TODO: Change Roster methods to return a String
     @FXML
     protected void handlePrintStudents()
     {
-        System.out.println("printing...");
-        if(studentRoster.print().equalsIgnoreCase(""))
-            systemDialog.appendText("Student Roster is empty.");
-        else
+        if(studentRoster.print().equalsIgnoreCase("")) {
+            systemDialog.appendText("Student Roster is empty.\n");
+        }
+        else {
+            systemDialog.appendText("Printing the roster by insertion order...\n");
             systemDialog.appendText(studentRoster.print());
+        }
     }
+
     @FXML
     protected void handlePrintByName()
     {
-        System.out.println("printing...");
-        if(studentRoster.print().equalsIgnoreCase(""))
-            systemDialog.appendText("Student Roster is empty.");
-        else
+        if(studentRoster.print().equalsIgnoreCase("")) {
+            systemDialog.appendText("Student Roster is empty.\n");
+        }
+        else {
+            systemDialog.appendText("Printing by name...\n");
             systemDialog.appendText(studentRoster.printByNames());
+        }
     }
+
     @FXML
     protected void handlePrintByPaymentDate()
     {
-        System.out.println("printing...");
-        if(studentRoster.print().equalsIgnoreCase(""))
-            systemDialog.appendText("Student Roster is empty.");
-        else
+        if(studentRoster.print().equalsIgnoreCase("")) {
+            systemDialog.appendText("Student Roster is empty.\n");
+        }
+        else {
+            systemDialog.appendText("Printing in order of most recent payment date...\n");
             systemDialog.appendText(studentRoster.printByPaymentDate());
+        }
     }
-
-
 
 }
