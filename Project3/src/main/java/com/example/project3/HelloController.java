@@ -449,6 +449,16 @@ public class HelloController {
     }
         //TODO: Change Roster methods to return a String
 
+    @FXML
+    protected void handlePrintStudents()
+    {
+        System.out.println("printing...");
+        if(studentRoster.print().equalsIgnoreCase(""))
+            systemDialog.appendText("Student Roster is empty.");
+        else
+            systemDialog.appendText(studentRoster.print());
+    }
+
 
 
 }

@@ -122,17 +122,21 @@ public class Roster {
     /**
      * Display the list without specifying the order
      */
-    public void print()
+    public String print()
     {
+        String formatString = "";
+
         if ( this.isEmpty() ){
             System.out.println( "Student roster is empty!" );
-            return;
+            return formatString;
         }
         else {
             for (int i = 0; i < size; i++) {
-                System.out.println(roster[i]);
+                formatString += roster[i].toString();
+                formatString += "\n";
             }
         }
+        return formatString;
     }
 
     /**
@@ -351,8 +355,8 @@ public class Roster {
 
     /**
      * Method to set check if payment is over the total amount owed
-     * @param amount how much financial aid to reward
-     * @param position location of student in roster array
+     * @param paymentAmount how much user is paying
+     * @param student student which payment is for
      * @return true if financial aid amount set successfully, false if financial aid was already rewarded
      */
     public boolean checkPayment(double paymentAmount, Student student) {
