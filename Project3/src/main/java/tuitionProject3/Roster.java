@@ -127,7 +127,7 @@ public class Roster {
         String formatString = "";
 
         if ( this.isEmpty() ){
-            System.out.println( "Student roster is empty!" );
+            //System.out.println( "Student roster is empty!" );
             return formatString;
         }
         else {
@@ -147,7 +147,7 @@ public class Roster {
     {
         String formatString = "";
         if ( this.isEmpty() ) {
-            System.out.println( "Student roster is empty!" );
+            //System.out.println( "Student roster is empty!" );
             return formatString;
         }
         else {
@@ -203,7 +203,7 @@ public class Roster {
     {
         String formatString = "";
         if ( this.isEmpty() ){
-            System.out.println( "Student roster is empty!" );
+            //System.out.println( "Student roster is empty!" );
             return formatString;
         }
         else {
@@ -240,17 +240,6 @@ public class Roster {
         return this.print();
     }
 
-    /**
-     * sets study abroad status of international student in roster
-     * @param student the student to study abroad
-     */
-    public void setStudyAbroad(Student student)
-    {
-        int position = find(student);
-        International Istudent = (International) roster[position];
-        Istudent.setStudyAbroad(true);
-        roster[position] = Istudent;
-    }
 
     /**
      * sets totalPayment and lastPaymentDate for student, subtracts totalPayment from tuition
@@ -281,68 +270,7 @@ public class Roster {
         }
         return false;
     }
-
-    /**
-     * Helper method for Controller to determine if queried student is a Tristate NY student
-     * @param student the desired student
-     * @return true if student is a resident, false otherwise
-     */
-    public boolean isNY(Student student){
-        int i = find(student);
-        if (roster[i] instanceof TriState) {
-            TriState tristate = (TriState) roster[i];
-            String state = tristate.getState();
-            if(state.equalsIgnoreCase("NY"))
-                return true;
-            return false;
-        }
-        return false;
-    }
-
-    /**
-     * Helper method for Controller to determine if queried student is a International student
-     * @param student the desired student
-     * @return true if student is a International student, false otherwise
-     */
-    public boolean isInternational(Student student){
-        int i = find(student);
-        if (roster[i] instanceof International) {
-                return true;
-        }
-        return false;
-    }
-
-    /**
-     * Helper method for Controller to determine if queried student is a Tristate CT student
-     * @param student the desired student
-     * @return true if student is a Tristate CT, false otherwise
-     */
-    public boolean isCT(Student student){
-        int i = find(student);
-        if (roster[i] instanceof TriState) {
-            TriState tristate = (TriState) roster[i];
-            String state = tristate.getState();
-            if(state.equalsIgnoreCase("CT"))
-                return true;
-            return false;
-        }
-        return false;
-    }
-
-
-
-    /**
-     * Helper method to determine if a student is full time
-     * @param student the desired student
-     * @return true if the queried student is full time, false otherwise
-     */
-    public boolean isFullTime(Student student){
-        int i = find(student);
-        if (roster[i].credits >= 3){
-            return true;
-        }
-        return false;
-    }
+    
 
     /**
      * Method to set financial aid

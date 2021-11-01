@@ -108,6 +108,10 @@ public class TuitionController {
         try {
             selectedButton = (RadioButton) residentGroup.getSelectedToggle();
             statusString = selectedButton.getText();
+            if(tristateButton.isSelected() && (!newYork.isSelected() && !connecticut.isSelected())) {
+                systemDialog.appendText("Must select New York or Connecticut\n");
+                return Constants.ERROR;
+            }
         }
         catch (Exception e) {
             systemDialog.appendText("Must select a residency status.\n");
