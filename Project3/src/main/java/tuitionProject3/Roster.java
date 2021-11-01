@@ -360,6 +360,7 @@ public class Roster {
             return 0;
         student.financialAid = amount;
         student.tuitionDue -= student.financialAid;
+        student.setTotalPayment(amount);
         return 1;
     }
 
