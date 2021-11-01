@@ -320,6 +320,10 @@ public class TuitionController {
         setValues();
         Student student = makeStudent();
         student.tuitionDue();
+        if (student.tuitionDue <= 0) {
+            systemDialog.appendText("Error creating student. One or more fields selected are invalid.\n");
+            return;
+        }
         tuitionAmount.setText(String.valueOf(student.getTuitionDue()));
         tuitionDueAmount = Double.parseDouble(tuitionAmount.getText());
     }
@@ -340,14 +344,14 @@ public class TuitionController {
                 selectedButton = (RadioButton) paymentMajorGroup.getSelectedToggle();
                 studentMajor = Major.valueOf(selectedButton.getText());
             }
-            catch (Exception e){
+            catch (Exception e) {
                 systemDialog.appendText("Must select a major to make a payment.\n");
                 return;
             }
             try {
                 currentPayment = Double.parseDouble(paymentAmount.getText());
             }
-            catch (Exception e){
+            catch (Exception e) {
                 systemDialog.appendText("Must enter a valid payment.\n");
                 return;
             }
@@ -355,7 +359,7 @@ public class TuitionController {
                 paymentDateString = paymentDatePicker.getValue().toString();
                 paymentDate = new Date(paymentDateString);
             }
-            catch (Exception e){
+            catch (Exception e) {
                 systemDialog.appendText("Must enter a valid date.\n");
                 return;
             }
@@ -394,22 +398,35 @@ public class TuitionController {
     @FXML
     protected void handleSetFinancialAid()
     {
-        financialAidAmount = Double.parseDouble(financialAid.getText());
-
         studentName = paymentName.getText();
         if (studentName == "") {
             systemDialog.appendText("Must enter a name.\n");
             return;
         }
-
-        selectedButton = (RadioButton) paymentMajorGroup.getSelectedToggle();
-        studentMajor = Major.valueOf(selectedButton.getText());
-
+        try {
+            selectedButton = (RadioButton) paymentMajorGroup.getSelectedToggle();
+            studentMajor = Major.valueOf(selectedButton.getText());
+        }
+        catch (Exception e) {
+            systemDialog.appendText("Must select a major to make a payment.\n");
+            return;
+        }
+        try{
+            financialAidAmount = Double.parseDouble(financialAid.getText());
+        }
+        catch (Exception e) {
+            systemDialog.appendText("Must enter an amount for financial aid.\n");
+            return;
+        }
         makeProfile();
         Student student = new Student(studentProfile, 0, 0, "--/--/--", 0);
 
         if(studentRoster.exists(student)) {
-            if(financialAidAmount <= 0) {
+            if (studentRoster.isResident(student) == false) {
+                systemDialog.appendText("Only NJ residents are eligible for financial aid.\n");
+                return;
+            }
+            else if(financialAidAmount <= 0) {
                 systemDialog.appendText("Financial Aid must be more than 0.\n");
                 return;
             }
@@ -417,26 +434,10 @@ public class TuitionController {
                 systemDialog.appendText("Financial Aid exceeds maximum.\n");
                 return;
             }
-            else if(studentRoster.isNY(student)) {
-                systemDialog.appendText("New York students automatically receive $4000 in financial aid.\n");
-                return;
-            }
-            else if(studentRoster.isCT(student)) {
-                systemDialog.appendText("Connecticut students automatically receive $5000 in financial aid.\n");
-                return;
-            }
-            else if(studentRoster.isInternational(student)) {
-                systemDialog.appendText("International students cannot receive financial aid.\n");
-                return;
-            }
             int index = studentRoster.find(student);
             int error = studentRoster.setFinancialAid(financialAidAmount, index);
-            if(error == -1) {
-                systemDialog.appendText("Financial Aid already set for this student.\n");
-                return;
-            }
-            else if (error == -1) {
-                systemDialog.appendText("Financial Aid is more than due.\n");
+            if(error == Constants.ERROR) {
+                systemDialog.appendText("Financial Aid already set for this student or total payments are more than due.\n");
                 return;
             }
             systemDialog.appendText("Financial Aid of $" + financialAidAmount + " awarded to " + studentName);
