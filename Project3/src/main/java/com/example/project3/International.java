@@ -81,13 +81,11 @@ public class International  extends NonResident {
 
         String formattedString;
         if(studyAbroad) {
-            formattedString = profile + ":" + credits +
-                    " credit hours:tuition due:" + tuitionDue + ":total payment:" + totalPayment +
+            formattedString = super.toString() + ":total payment:" + totalPayment +
                     "payment date:" + lastPaymentDate + ":non-resident:international:study abroad";
         }
         else {
-            formattedString = profile + ":" + credits +
-                    " credit hours:tuition due:" + tuitionDue + ":total payment:" + totalPayment +
+            formattedString = super.toString() + ":total payment:" + totalPayment +
                     "payment date:" + lastPaymentDate + ":non-resident:international";
         }
         return formattedString;

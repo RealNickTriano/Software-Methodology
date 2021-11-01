@@ -64,8 +64,7 @@ public class TriState extends NonResident {
      */
     @Override
     public String toString() {
-        String formattedString = profile + ":" + credits +
-                " credit hours:tuition due:" + tuitionDue + ":total payment:" + totalPayment +
+        String formattedString = super.toString() + ":total payment:" + totalPayment +
                 "payment date:" + lastPaymentDate + ":non-resident(tri-state):" + state;
         return formattedString;
     }
