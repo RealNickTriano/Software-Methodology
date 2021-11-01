@@ -161,6 +161,10 @@ public class TuitionController {
         }
 
         else if (international.isSelected()) {
+            if (studyAbroad.isSelected() && studentCredits != 12) {
+                systemDialog.appendText("International students in the study abroad program must take 12 credits.\n");
+                return student;
+            }
             student = new International(studentProfile, studentCredits,
                     studyAbroad.isSelected(), tuitionDueAmount,"--/--/--", 0);
             return student;
@@ -320,10 +324,10 @@ public class TuitionController {
         setValues();
         Student student = makeStudent();
         student.tuitionDue();
-        if (student.tuitionDue <= 0) {
+        /**if (student.tuitionDue <= 0) {
             systemDialog.appendText("Error creating student. One or more fields selected are invalid.\n");
             return;
-        }
+        }**/
         tuitionAmount.setText(String.valueOf(student.getTuitionDue()));
         tuitionDueAmount = Double.parseDouble(tuitionAmount.getText());
     }
