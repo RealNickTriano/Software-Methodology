@@ -32,11 +32,11 @@ public class Student {
 
     /**
      * Allows other classes to set the totalPayment
-     * @param totalPayment total amount paid by the student
+     * @param currentPayment total amount paid by the student
      */
-    public void setTotalPayment(double totalPayment)
+    public void setTotalPayment(double currentPayment)
     {
-        this.totalPayment += totalPayment;
+        this.totalPayment += currentPayment;
     }
 
     /**
@@ -49,13 +49,10 @@ public class Student {
     }
 
     /**
-     * Allows other classes to set the tuitionDue
-     * @param totalPayment total amount paid by the student
+     * Allows other classes to set the tuitionDue by making a payment
+     * @param currentPayment total amount paid by the student
      */
-    public void setTuitionDue( double totalPayment )
-    {
-        this.tuitionDue -= totalPayment;
-    }
+    public void setTuitionDue(double currentPayment) { this.tuitionDue -= currentPayment; }
 
     /**
      * Does nothing, to be overridden by subclasses

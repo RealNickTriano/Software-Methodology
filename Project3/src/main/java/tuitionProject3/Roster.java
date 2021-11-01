@@ -254,19 +254,19 @@ public class Roster {
 
     /**
      * sets totalPayment and lastPaymentDate for student, subtracts totalPayment from tuition
-     * @param totalPayment the amount of money to pay towards current tuition
+     * @param currentPayment the amount of money to pay towards current tuition
      * @param newDate date that payment was made
      * @param position position of student in the roster array
      * @return
      */
-    public int pay(double totalPayment, String newDate, int position)
+    public int pay(double currentPayment, String newDate, int position)
     {
         roster[position].setLastPaymentDate(newDate);
-        if((roster[position].totalPayment + totalPayment) > roster[position].tuitionDue)
-            return -1;
-        roster[position].setTotalPayment(totalPayment);
-        roster[position].setTuitionDue(totalPayment);
-        return 1;
+        if((roster[position].totalPayment + currentPayment) > roster[position].tuitionDue)
+            return Constants.ERROR;
+        roster[position].setTotalPayment(currentPayment);
+        roster[position].setTuitionDue(currentPayment);
+        return Constants.SUCCESS;
     }
 
     /**

@@ -369,12 +369,14 @@ public class TuitionController {
                 Student currStudent = new Student(studentProfile, 0, 0, "--/--/--", 0 );
                 if (studentRoster.exists(currStudent) == false){
                     systemDialog.appendText("Student is not on the roster.\n");
+                    return;
                 }
                 else {
                     // check if current payment + existing payments exceeds tuition due
                     if((studentRoster.pay(currentPayment, paymentDateString, studentRoster.find(currStudent))) == -1)
                     {
                         systemDialog.appendText("This payment is more than due.\n");
+                        return;
                     }
                     else
                     {
