@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
-public class HelloController {
+public class TuitionController {
     @FXML
     private Label systemText;
     @FXML

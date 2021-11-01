@@ -51,7 +51,6 @@ public class Roster {
             newRosterArr[i] = roster[i];
         }
         roster = newRosterArr;
-
     }
 
     /**
@@ -120,7 +119,8 @@ public class Roster {
     }
 
     /**
-     * Display the list without specifying the order
+     * Creates a string of the list without specifying the order
+     * @return formatString the list of students
      */
     public String print()
     {
@@ -140,7 +140,8 @@ public class Roster {
     }
 
     /**
-     * Display the list sorted by student names
+     * Creates a string of the list sorted by name
+     * @return formatString the list of students
      */
     public String printByNames()
     {
@@ -195,7 +196,8 @@ public class Roster {
     }
 
     /**
-     * Display the list of only the students who have made payments, ordered by the payment date
+     * Creates a string of the list sorted by payment date
+     * @return formatString the list of students
      */
     public String printByPaymentDate()
     {
@@ -236,16 +238,6 @@ public class Roster {
             } while ( swapped == true );
         }
         return this.print();
-    }
-
-    /**
-     * Calculate all tuition for every student in the roster array
-     */
-    public void CalculateDues()
-    {
-        for ( int i = 0; i < size; i++ ) {
-            roster[i].tuitionDue();
-        }
     }
 
     /**
@@ -374,7 +366,7 @@ public class Roster {
     /**
      * Method which determines if a student is on the roster
      * @param student the desired student
-     * @return true if student is on the roster
+     * @return true if student is on the roster false if not
      */
     public boolean exists(Student student) {
         if (find(student) == Constants.NOT_FOUND) {

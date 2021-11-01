@@ -54,6 +54,10 @@ public class TriState extends NonResident {
             }
     }
 
+    /**
+     * Allows other classes to get the state of the student
+     * @return state state that student is from
+     */
     public String getState()
     {
         return this.state;

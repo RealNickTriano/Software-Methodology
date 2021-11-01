@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project3.HelloController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project3.TuitionController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -32,7 +17,7 @@
                <content>
                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
-                           <GridPane layoutX="315.0" layoutY="17.0" prefHeight="355.0" prefWidth="650.0" translateY="100.0">
+                           <GridPane layoutX="315.0" layoutY="17.0" prefHeight="355.0" prefWidth="650.0">
                              <columnConstraints>
                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="393.0" minWidth="10.0" prefWidth="310.0" />
                              </columnConstraints>
@@ -106,7 +91,7 @@
                                        </RadioButton>
                                        <RadioButton fx:id="international" layoutX="141.0" layoutY="45.0" mnemonicParsing="false" onAction="#handleInternationalSelected" text="International" toggleGroup="$residentGroup" GridPane.rowIndex="2" />
                                        <RadioButton fx:id="connecticut" disable="true" layoutX="141.0" layoutY="75.0" mnemonicParsing="false" opacity="0.5" text="Connecticut" toggleGroup="$stateGroup" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                       <CheckBox fx:id="studyAbroad" disable="true" mnemonicParsing="false" opacity="0.5" text="Study Abroad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                       <CheckBox fx:id="studyAbroad" mnemonicParsing="false" text="Study Abroad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     </children>
                                  </GridPane>
                                  <TextField fx:id="creditHours" promptText="Credit Hours" GridPane.rowIndex="3" />
