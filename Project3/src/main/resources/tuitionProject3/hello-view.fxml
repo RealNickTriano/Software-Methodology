@@ -5,13 +5,13 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuitionProject3.TuitionController">
+<VBox alignment="CENTER" prefHeight="576.0" prefWidth="1320.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuitionProject3.TuitionController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <BorderPane prefHeight="720.0" prefWidth="1280.0">
       <top>
-         <TabPane prefHeight="418.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+         <TabPane prefHeight="327.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
            <tabs>
              <Tab text="Student Profiles">
                <content>
@@ -170,32 +170,28 @@
                        </children></AnchorPane>
                </content>
              </Tab>
-               <Tab text="Process  Tuition">
-                   <content>
-                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                   </content>
-               </Tab>
            </tabs>
          </TabPane>
       </top>
-      <bottom>
-         <TextArea fx:id="systemDialog" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="800.0" BorderPane.alignment="CENTER">
-            <effect>
-               <InnerShadow />
-            </effect>
-         </TextArea>
-      </bottom>
       <center>
-       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-      </center>
-      <left>
-         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" spacing="20.0" translateX="25.0" translateY="200.0" BorderPane.alignment="CENTER">
+         <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
             <children>
-               <Button fx:id="printStudents" mnemonicParsing="false" onAction="#handlePrintStudents" prefHeight="20.0" prefWidth="200.0" text="Print Students" textAlignment="CENTER" />
-               <Button fx:id="printByName" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handlePrintByName" prefHeight="20.0" prefWidth="200.0" text="Print Students By Name" textAlignment="CENTER" />
-               <Button fx:id="printByPayment" layoutX="10.0" layoutY="40.0" mnemonicParsing="false" onAction="#handlePrintByPaymentDate" prefHeight="20.0" prefWidth="200.0" text="Print Students By Payment Date" textAlignment="CENTER" />
-            </children>
-         </VBox>
-      </left>
+               <TextArea fx:id="systemDialog" editable="false" layoutY="44.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="800.0" translateX="200.0">
+                  <effect>
+                     <InnerShadow />
+                  </effect>
+               </TextArea>
+               <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" spacing="20.0" translateY="50.0">
+                  <children>
+                     <Button fx:id="printStudents" mnemonicParsing="false" onAction="#handlePrintStudents" prefHeight="20.0" prefWidth="200.0" text="Print Students" textAlignment="CENTER" />
+                     <Button fx:id="printByName" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handlePrintByName" prefHeight="20.0" prefWidth="200.0" text="Print Students By Name" textAlignment="CENTER" />
+                     <Button fx:id="printByPayment" layoutX="10.0" layoutY="40.0" mnemonicParsing="false" onAction="#handlePrintByPaymentDate" prefHeight="20.0" prefWidth="200.0" text="Print Students By Payment Date" textAlignment="CENTER" />
+                  </children>
+                  <padding>
+                     <Insets right="30.0" />
+                  </padding>
+               </VBox>
+            </children></Pane>
+      </center>
    </BorderPane>
 </VBox>
