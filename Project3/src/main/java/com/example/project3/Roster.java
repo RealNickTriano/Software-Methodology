@@ -209,12 +209,28 @@ public class Roster {
             do {
                 swapped = false;
                 for ( int i = 1; i < size; i++ ) {
-                    // if this pair is out of order, swap
-                    if (roster[i].lastPaymentDate.compareTo(roster[i - 1].lastPaymentDate) == -1){
+                    // need to handle unset dates
+                    if (roster[i].lastPaymentDate.equals("--/--/--") && roster[i-1].lastPaymentDate.equals("--/--/--")) {
+                        continue;
+                    }
+                    else if (roster[i].lastPaymentDate.equals("--/--/--")) {
+                        continue;
+                    }
+                    else if (roster[i-1].lastPaymentDate.equals("--/--/--")) {
                         Student temp = roster[i - 1];
                         roster[i - 1] = roster[i];
                         roster[i] = temp;
                         swapped = true;
+                    }
+                    else {
+                        Date secondStudentDate = new Date(roster[i].lastPaymentDate);
+                        Date firstStudentDate = new Date(roster[i - 1].lastPaymentDate);
+                        if (secondStudentDate.compareTo(firstStudentDate) == -1) {
+                            Student temp = roster[i - 1];
+                            roster[i - 1] = roster[i];
+                            roster[i] = temp;
+                            swapped = true;
+                        }
                     }
                 }
             } while ( swapped == true );
