@@ -81,12 +81,10 @@ public class International  extends NonResident {
 
         String formattedString;
         if(studyAbroad) {
-            formattedString = super.toString() + ":total payment:" + totalPayment +
-                    "payment date:" + lastPaymentDate + ":non-resident:international:study abroad";
+            formattedString = super.toString() + ":international:study abroad";
         }
         else {
-            formattedString = super.toString() + ":total payment:" + totalPayment +
-                    "payment date:" + lastPaymentDate + ":non-resident:international";
+            formattedString = super.toString() + ":international";
         }
         return formattedString;
 
