@@ -17,7 +17,7 @@ public class NonResident extends Student {
      * @param totalPayment total amount paid by the student
      */
     public NonResident(Profile profile, int credits, double tuitionDue, String lastPaymentDate, double totalPayment) {
-        super(profile, credits, tuitionDue, lastPaymentDate, tuitionDue);
+        super(profile, credits, tuitionDue, lastPaymentDate, totalPayment);
     }
 
     /**
