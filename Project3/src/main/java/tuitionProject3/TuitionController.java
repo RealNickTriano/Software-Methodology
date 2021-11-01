@@ -120,6 +120,10 @@ public class TuitionController {
                 systemDialog.appendText("Student must enroll in at least 3 credits and at most 24 credits.\n");
                 return Constants.ERROR;
             }
+            if (studyAbroad.isSelected() && studentCredits != 12) {
+                systemDialog.appendText("International students in the study abroad program must take 12 credits.\n");
+                return Constants.ERROR;
+            }
         }
         catch(NumberFormatException e) {
             // int exception
@@ -161,10 +165,6 @@ public class TuitionController {
         }
 
         else if (international.isSelected()) {
-            if (studyAbroad.isSelected() && studentCredits != 12) {
-                systemDialog.appendText("International students in the study abroad program must take 12 credits.\n");
-                return student;
-            }
             student = new International(studentProfile, studentCredits,
                     studyAbroad.isSelected(), tuitionDueAmount,"--/--/--", 0);
             return student;
