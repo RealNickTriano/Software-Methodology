@@ -258,6 +258,11 @@ public class Roster {
             return -1;
         roster[position].setTotalPayment(totalPayment);
         roster[position].setTuitionDue(totalPayment);
+        Date newDateDate = new Date(newDate);
+        Date currentMostRecentPayment=  new Date(roster[position].lastPaymentDate);
+        if (newDateDate.compareTo(currentMostRecentPayment) == 1){
+            roster[position].lastPaymentDate = newDate;
+        }
         return 1;
     }
 
