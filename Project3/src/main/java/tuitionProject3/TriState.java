@@ -36,22 +36,23 @@ public class TriState extends NonResident {
         else if ( credits > Constants.CREDITS_FOR_ADDITIONAL_TUITION)
         {
             tuitionDue = (Constants.NONRESIDENT_TUITION + Constants.UNIVERSITY_FEE) +
-                    (Constants.NONRESIDENT_COST_PER_CREDIT * (credits - Constants.CREDITS_FOR_ADDITIONAL_TUITION));
+                    ((Constants.NONRESIDENT_COST_PER_CREDIT) * (credits - Constants.CREDITS_FOR_ADDITIONAL_TUITION));
             if (state.equalsIgnoreCase("NY")) {
-                tuitionDue = tuitionDue - Constants.DISCOUNT_NEW_YORK;
+                tuitionDue -= Constants.DISCOUNT_NEW_YORK;
             }
             else if (state.equalsIgnoreCase("CT")) {
-                tuitionDue = tuitionDue - Constants.DISCOUNT_CONNECTICUT;
+                tuitionDue -= Constants.DISCOUNT_CONNECTICUT;
             }
         }
         else
+        {
             tuitionDue = Constants.NONRESIDENT_TUITION + Constants.UNIVERSITY_FEE;
             if (state.equalsIgnoreCase("NY")) {
                 tuitionDue = tuitionDue - Constants.DISCOUNT_NEW_YORK;
-            }
-            else if (state.equalsIgnoreCase("CT")) {
+            } else if (state.equalsIgnoreCase("CT")) {
                 tuitionDue = tuitionDue - Constants.DISCOUNT_CONNECTICUT;
             }
+        }
     }
 
     /**
