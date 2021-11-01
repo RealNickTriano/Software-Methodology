@@ -6,6 +6,8 @@ package com.example.project3;
 public class Constants {
 
     public static int NOT_FOUND = -1;
+    public static int ERROR = -1;
+    public static int SUCCESS = 1;
     public static int INIT_INT = 0;
     public static String INITIALIZED = "init";
     public static int RESIDENT_TUITION = 12536;

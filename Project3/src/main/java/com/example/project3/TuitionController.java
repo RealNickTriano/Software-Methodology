@@ -5,6 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
+/**
+ * The Controller for the GUI, handles all GUI events
+ *
+ * @author Nicholas Triano, Antonio Ignarra
+ */
 public class TuitionController {
     @FXML
     private Label systemText;
@@ -81,13 +86,16 @@ public class TuitionController {
     private Roster studentRoster = new Roster(studentArray, 0);
     private boolean tuition = false;
 
-
+    /**
+     * Helper method to set the variables in controller to what is input in GUI
+     * @return ERROR on failure setting at least one value and SUCCESS on setting all values
+     */
     public int setValues()
     {
         studentName = name.getText();
         if (studentName == "") {
             systemDialog.appendText("Must enter a name.\n");
-            return -1;
+            return Constants.ERROR;
         }
 
         try {
@@ -96,7 +104,7 @@ public class TuitionController {
         }
         catch (Exception e) {
             systemDialog.appendText("Must select a major.\n");
-            return -1;
+            return Constants.ERROR;
         }
 
         try {
@@ -105,32 +113,39 @@ public class TuitionController {
         }
         catch (Exception e) {
             systemDialog.appendText("Must select a residency status.\n");
-            return -1;
+            return Constants.ERROR;
         }
 
         try {
             studentCredits = Integer.parseInt(creditHours.getText());
             if (studentCredits > 24 || studentCredits < 3) {
                 systemDialog.appendText("Student must enroll in at least 3 credits and at most 24 credits.\n");
-                return -1;
+                return Constants.ERROR;
             }
         }
         catch(NumberFormatException e) {
             // int exception
             systemDialog.appendText("Credit Hours must be a number.\n");
-            return -1;
+            return Constants.ERROR;
         }
 
         tuitionDueAmount = Double.parseDouble(tuitionAmount.getText());
-        return 1;
+        return Constants.SUCCESS;
 
     }
 
+    /**
+     * Helper method to make student profiles
+     */
     public void makeProfile()
     {
         studentProfile = new Profile(studentName, studentMajor);
     }
 
+    /**
+     * Helper method to make a student object based on which radio button is selected
+     * @return student the student object made
+     */
     public Student makeStudent()
     {
         makeProfile();
@@ -167,8 +182,12 @@ public class TuitionController {
         return student;
     }
 
+    /**
+     * OnAction handler when the non-resident button is selected
+     *
+     */
     @FXML
-    protected  void handleNonResidentSelected()
+    protected void handleNonResidentSelected()
     {
         tristateButton.setOpacity(1.0);
         tristateButton.setDisable(false);
@@ -186,6 +205,10 @@ public class TuitionController {
 
     }
 
+    /**
+     * OnAction handler when the resident button is selected
+     *
+     */
     @FXML
     protected  void handleResidentSelected()
     {
@@ -202,6 +225,10 @@ public class TuitionController {
         connecticut.setDisable(true);
     }
 
+    /**
+     * OnAction handler when the tri-state button is selected
+     *
+     */
     @FXML
     protected  void handleTristateSelected()
     {
@@ -214,6 +241,10 @@ public class TuitionController {
             studyAbroad.setDisable(true);
     }
 
+    /**
+     * OnAction handler when the international button is selected
+     *
+     */
     @FXML
     protected  void handleInternationalSelected()
     {
@@ -227,16 +258,13 @@ public class TuitionController {
             studyAbroad.setOpacity(1);
     }
 
+    /**
+     * OnAction handler when the add student button is selected
+     * Checks for errors and adds student
+     */
     @FXML
-    protected void handleAddStudent(ActionEvent event)
+    protected void handleAddStudent()
     {
-        /**TODO: get student name as a string from text field
-         * get major as enum from button group
-         * get status from button group
-         * get credit hours from text field catch non-integers
-         * add student to roster
-         * print msg to user
-        */
 
         if(setValues() == 1) {
             if(!tuition) {
@@ -261,14 +289,13 @@ public class TuitionController {
 
     }
 
+    /**
+     * OnAction handler when the remove student button is selected
+     * Checks if student is in roster and removes them
+     */
     @FXML
     protected void handleRemoveStudent()
     {
-        /** TODO: same thing as add
-         * Remove student from roster
-         * print msg to user
-         */
-
         if(setValues() == 1) {
             Student student = makeStudent();
             if (studentRoster.remove(student)) {
@@ -282,13 +309,15 @@ public class TuitionController {
         else{
             return;
         }
-
     }
 
+    /**
+     * OnAction handler when the tuition due button is selected
+     * Calculates tuition due and displays to user
+     */
     @FXML
     protected void handleTuitionDue()
     {
-        // TODO: Calculate tuition due for student and print to text field
         tuition = true;
         setValues();
         Student student = makeStudent();
@@ -297,6 +326,10 @@ public class TuitionController {
         tuitionDueAmount = Double.parseDouble(tuitionAmount.getText());
     }
 
+    /**
+     * OnAction handler when the pay button is selected
+     * Checks for errors and pays tuition
+     */
     @FXML
     protected void handlePayment()
     {
@@ -354,6 +387,10 @@ public class TuitionController {
             }
     }
 
+    /**
+     * OnAction handler when the set financial aid button is selected
+     * Checks for errors and sets student's financial aid
+     */
     @FXML
     protected void handleSetFinancialAid()
     {
@@ -411,7 +448,10 @@ public class TuitionController {
         }
     }
 
-    //TODO: Change Roster methods to return a String
+    /**
+     * OnAction handler when the Print students button is selected
+     * If roster is empty it displays a message, If not print
+     */
     @FXML
     protected void handlePrintStudents()
     {
@@ -424,6 +464,10 @@ public class TuitionController {
         }
     }
 
+    /**
+     * OnAction handler when the Print students by name button is selected
+     * If roster is empty it displays a message, If not print
+     */
     @FXML
     protected void handlePrintByName()
     {
@@ -436,6 +480,10 @@ public class TuitionController {
         }
     }
 
+    /**
+     * OnAction handler when the Print students by payment date button is selected
+     * If roster is empty it displays a message, If not print
+     */
     @FXML
     protected void handlePrintByPaymentDate()
     {
