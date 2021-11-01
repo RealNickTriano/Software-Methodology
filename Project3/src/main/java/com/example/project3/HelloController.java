@@ -172,16 +172,22 @@ public class HelloController {
         tristateButton.setDisable(false);
         international.setOpacity(1.0);
         international.setDisable(false);
+        newYork.setDisable(true);
+        newYork.setOpacity(0.5);
+        newYork.setSelected(false);
+        connecticut.setDisable(true);
+        connecticut.setOpacity(0.5);
+        connecticut.setSelected(false);
+        studyAbroad.setDisable(true);
+        studyAbroad.setOpacity(0.5);
+        studyAbroad.setSelected(false);
+
     }
 
     @FXML
     protected  void handleResidentSelected()
     {
-        tristateButton.setOpacity(0.5);
-        tristateButton.setDisable(true);
         tristateButton.setSelected(false);
-        international.setOpacity(0.5);
-        international.setDisable(true);
         international.setSelected(false);
         studyAbroad.setOpacity(0.5);
         studyAbroad.setDisable(true);

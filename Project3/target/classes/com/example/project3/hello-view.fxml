@@ -106,7 +106,7 @@
                                        </RadioButton>
                                        <RadioButton fx:id="international" layoutX="141.0" layoutY="45.0" mnemonicParsing="false" onAction="#handleInternationalSelected" text="International" toggleGroup="$residentGroup" GridPane.rowIndex="2" />
                                        <RadioButton fx:id="connecticut" disable="true" layoutX="141.0" layoutY="75.0" mnemonicParsing="false" opacity="0.5" text="Connecticut" toggleGroup="$stateGroup" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                       <CheckBox fx:id="studyAbroad" mnemonicParsing="false" text="Study Abroad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                       <CheckBox fx:id="studyAbroad" disable="true" mnemonicParsing="false" opacity="0.5" text="Study Abroad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     </children>
                                  </GridPane>
                                  <TextField fx:id="creditHours" promptText="Credit Hours" GridPane.rowIndex="3" />
