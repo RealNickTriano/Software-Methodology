@@ -96,6 +96,7 @@ public class HelloController {
         }
         catch (Exception e) {
             systemDialog.appendText("Must select a major.\n");
+            return -1;
         }
 
         try {
@@ -104,6 +105,7 @@ public class HelloController {
         }
         catch (Exception e) {
             systemDialog.appendText("Must select a residency status.\n");
+            return -1;
         }
 
         try {
