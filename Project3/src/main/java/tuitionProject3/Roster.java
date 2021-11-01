@@ -262,7 +262,7 @@ public class Roster {
     public int pay(double currentPayment, String newDate, int position)
     {
         roster[position].setLastPaymentDate(newDate);
-        if((roster[position].totalPayment + currentPayment) > roster[position].tuitionDue)
+        if(currentPayment > roster[position].tuitionDue)
             return Constants.ERROR;
         roster[position].setTotalPayment(currentPayment);
         roster[position].setTuitionDue(currentPayment);
@@ -354,14 +354,14 @@ public class Roster {
         //TODO: have to cast this to correct student
         Resident student = (Resident) roster[position];
         if ( student.financialAid != 0 ){
-            return -1;
+            return Constants.ERROR;
         }
         if (student.tuitionDue < amount + student.totalPayment)
-            return 0;
+            return Constants.ERROR;
         student.financialAid = amount;
         student.tuitionDue -= student.financialAid;
         student.setTotalPayment(amount);
-        return 1;
+        return Constants.SUCCESS;
     }
 
     /**
