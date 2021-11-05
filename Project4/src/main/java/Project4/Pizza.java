@@ -37,6 +37,18 @@ public abstract class Pizza {
         }
         return toppings.add(topping);
     }
+
+    /**
+     * Removes a topping from the pizza
+     * @param topping the topping to remove
+     * @return true if topping is successfully removed, false if not
+     */
+    public boolean removeTopping(Toppings topping) {
+        if (toppings.size() == 0) {
+            return false;
+        }
+        return toppings.remove(topping);
+    }
 }
 
 
