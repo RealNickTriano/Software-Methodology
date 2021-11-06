@@ -10,6 +10,11 @@ public abstract class Pizza {
     protected Size size;
     public abstract double price();
 
+    public Pizza(ArrayList<Toppings> toppings, Size size) {
+        this.toppings = toppings;
+        this.size = size;
+    }
+
     /**
      * Sets the size of a pizza
      * @param size the new size of the pizza
@@ -24,6 +29,11 @@ public abstract class Pizza {
      */
     public Size getSize() {
         return this.size;
+    }
+
+    public ArrayList<Toppings> getToppings()
+    {
+        return toppings;
     }
 
     /**

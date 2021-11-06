@@ -1,9 +1,15 @@
 package Project4;
 
+import java.util.ArrayList;
+
 /**
  * @author Nicholas Triano, Antonio Ignarra
  */
 public class Hawaiian extends Pizza{
+    public Hawaiian(ArrayList<Toppings> toppings, Size size) {
+        super(toppings, size);
+    }
+
     @Override
     public double price() {
         if (this.size == Size.small) {
