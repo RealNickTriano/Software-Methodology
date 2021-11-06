@@ -11,17 +11,22 @@ public class PizzaMaker {
         if (flavor.equalsIgnoreCase("Hawaiian"))
         {
             // make hawaiian pizza
-            Hawaiian pizza = new Hawaiian()
+            Hawaiian pizza = new Hawaiian();
+            return pizza;
         }
         else if (flavor.equalsIgnoreCase("Deluxe"))
         {
             // make Deluxe pizza
+            Deluxe pizza = new Deluxe();
+            return pizza;
         }
         else if (flavor.equalsIgnoreCase("Pepperoni"))
         {
             // make Pepperoni pizza
+            Pepperoni pizza = new Pepperoni();
+            return pizza;
         }
 
-        return newPizza;
+
     }
 }

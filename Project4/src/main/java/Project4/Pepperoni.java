@@ -6,9 +6,6 @@ import java.util.ArrayList;
  * @author Nicholas Triano, Antonio Ignarra
  */
 public class Pepperoni extends Pizza{
-    public Pepperoni(ArrayList<Toppings> toppings, Size size) {
-        super(toppings, size);
-    }
 
     @Override
     public double price() {
