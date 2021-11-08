@@ -18,4 +18,29 @@ public class MainMenuController {
     private Button storeOrdersButton;
     @FXML
     private Button currentOrderButton;
+
+    public void handlePepperoniButton()
+    {
+
+    }
+
+    public void handleDeluxeButton()
+    {
+
+    }
+
+    public void handleHawaiianButton()
+    {
+
+    }
+
+    public void handleStoreOrdersButton()
+    {
+
+    }
+
+    public void handleCurrentOrderButton()
+    {
+
+    }
 }
