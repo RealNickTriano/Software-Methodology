@@ -26,7 +26,7 @@ public class Hawaiian extends Pizza{
             }
         }
         else {
-            if (this.toppings.size() > Constants.DELUXE_TOPPINGS) {
+            if (this.toppings.size() > Constants.HAWAIIAN_TOPPINGS) {
                 return Constants.SMALL_HAWAIIAN + (2 * Constants.SIZE_CHANGE) + (Constants.ADD_TOPPING * (toppings.size() - Constants.HAWAIIAN_TOPPINGS));
             }
             else {
