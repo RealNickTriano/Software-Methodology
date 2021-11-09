@@ -9,7 +9,7 @@ public enum Toppings {
     Pepperoni,
     GreenPepper,
     Mushroom,
-    Pinneapple,
+    Pineapple,
     Ham,
     Cheese,
     Sausage,

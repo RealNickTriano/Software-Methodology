@@ -29,7 +29,7 @@
             <Insets right="10.0" top="25.0" />
          </padding>
          <GridPane.margin>
-            <Insets right="10.0" />
+            <Insets />
          </GridPane.margin>
       </Label>
       <Button fx:id="storeOrdersButton" mnemonicParsing="false" onAction="#handleStoreOrdersButton" text="Store Orders" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />

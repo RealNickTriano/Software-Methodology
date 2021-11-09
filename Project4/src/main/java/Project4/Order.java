@@ -11,11 +11,11 @@ public class Order {
     //TODO: An instance of this class has a unique phone number and keeps the list of instances
     // of Pizza class
     private String phoneNumber;
-    private ArrayList<Pizza> orderList;
+    private ArrayList<Pizza> pizzaList;
 
-    public Order(String phoneNumber, ArrayList<Pizza> orderList) {
+    public Order(String phoneNumber, ArrayList<Pizza> pizzaList) {
         this.phoneNumber = phoneNumber;
-        this.orderList = orderList;
+        this.pizzaList = pizzaList;
     }
 
     /**
@@ -38,8 +38,8 @@ public class Order {
      * Allows other classes to access the customer's order list
      * @return the customer's order list
      */
-    public ArrayList<Pizza> getOrderList() {
-        return orderList;
+    public ArrayList<Pizza> getPizzaList() {
+        return pizzaList;
     }
 
     /**
@@ -48,10 +48,7 @@ public class Order {
      * @return true if pizza is successfully added, false if not
      */
     public boolean addToOrder(Pizza pizza) {
-        if (orderList.size() > 7) {
-            return false;
-        }
-        return orderList.add(pizza);
+        return pizzaList.add(pizza);
     }
 
     /**
@@ -60,9 +57,6 @@ public class Order {
      * @return true if pizza is successfully removed, false if not
      */
     public boolean removeFromOrder(Pizza pizza) {
-        if (orderList.size() == 0) {
-            return false;
-        }
-        return orderList.remove(pizza);
+        return pizzaList.remove(pizza);
     }
 }

@@ -25,10 +25,7 @@ public class StoreOrders {
      * @param order the order to add
      * @return true if the order is successfully added, false if not
      */
-    public boolean addToStoreOrder(Order order) {
-        if (storeOrdersList.size() > 7) {
-            return false;
-        }
+    public boolean addToStoreOrders(Order order) {
         return storeOrdersList.add(order);
     }
 
@@ -37,10 +34,7 @@ public class StoreOrders {
      * @param order the order to remove
      * @return true if the order is successfully removed, false if not
      */
-    public boolean removeFromStoreOrder(Order order) {
-        if (storeOrdersList.size() == 0) {
-            return false;
-        }
+    public boolean removeFromStoreOrders(Order order) {
         return storeOrdersList.remove(order);
     }
 }

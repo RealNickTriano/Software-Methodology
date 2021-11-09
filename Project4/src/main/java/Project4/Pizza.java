@@ -38,7 +38,7 @@ public abstract class Pizza {
      * @return true if topping is successfully added, false if not
      */
     public boolean addTopping(Toppings topping) {
-        if (toppings.size() > 7) {
+        if (toppings.size() > Constants.MAX_TOPPINGS) {
             return false;
         }
         return toppings.add(topping);
