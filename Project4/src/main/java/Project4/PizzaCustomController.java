@@ -8,6 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 
 public class PizzaCustomController {
     @FXML
@@ -18,8 +21,23 @@ public class PizzaCustomController {
     private Button addButton;
     @FXML
     private Button removeButton;
+    @FXML
+    private HBox pizzaImageBox;
+
+    private MainMenuController mainController;
 
     // sizeComboBox.getItems().addAll(Size.Small, Size.Medium, Size.Large);
+
+    public void setMainController(MainMenuController controller) {
+        mainController = controller; //now you can reference any private data items through mainController
+    }
+
+    public void setPepperoniImage() {
+        Image image = new Image("PepperoniPizza.jpg");
+        ImageView iv = new ImageView();
+        iv.setImage(image);
+        pizzaImageBox.getChildren().add(iv);
+    }
 
     @FXML
     protected void handleAddButton()

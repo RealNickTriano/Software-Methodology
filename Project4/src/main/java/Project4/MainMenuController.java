@@ -26,14 +26,20 @@ public class MainMenuController {
     @FXML
     private Button currentOrderButton;
 
+
     public void handlePepperoniButton()
     {
         Parent root;
         try {
-            root = FXMLLoader.load(RuPizzeriaApplication.class.getResource("PizzaCustomView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomView.fxml"));
+            root = loader.load();
+            PizzaCustomController pizzaView = loader.getController();
+            pizzaView.setMainController(this);
+            pizzaView.setPepperoniImage();
+
             Stage stage = new Stage();
             Scene scene = new Scene(root, 600, 700);
-            stage.setTitle("RU Pizza");
+            stage.setTitle("Pizza Customization");
             stage.setScene(scene);
             stage.show();
 
@@ -47,12 +53,38 @@ public class MainMenuController {
 
     public void handleDeluxeButton()
     {
+        Parent root;
+        try {
+            root = FXMLLoader.load(RuPizzeriaApplication.class.getResource("PizzaCustomView.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 600, 700);
+            stage.setTitle("Pizza Customization");
+            stage.setScene(scene);
+            stage.show();
 
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public void handleHawaiianButton()
     {
+        Parent root;
+        try {
+            root = FXMLLoader.load(RuPizzeriaApplication.class.getResource("PizzaCustomView.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 600, 700);
+            stage.setTitle("Pizza Customization");
+            stage.setScene(scene);
+            stage.show();
 
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public void handleStoreOrdersButton()
