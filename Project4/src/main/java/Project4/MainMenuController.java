@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainMenuController {
     @FXML
@@ -29,6 +30,8 @@ public class MainMenuController {
 
     public void handlePepperoniButton()
     {
+        ArrayList<Toppings> toppings = new ArrayList<Toppings>();
+        toppings.add(Toppings.Pepperoni);
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomView.fxml"));
@@ -42,6 +45,7 @@ public class MainMenuController {
 
             PizzaCustomController pizzaView = loader.getController();
             pizzaView.setMainController(this);
+            pizzaView.setSelectedToppingsList(toppings);
             pizzaView.setPepperoniImage();
 
         }

@@ -12,9 +12,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
+import java.util.ArrayList;
+
 public class PizzaCustomController {
     @FXML
-    private ListView totalToppingsView;
+    private ListView totalToppingsList;
+    @FXML
+    private ListView selectedToppingsList;
     @FXML
     private ComboBox sizeComboBox;
     @FXML
@@ -25,6 +29,9 @@ public class PizzaCustomController {
     private HBox pizzaImageBox;
 
     private MainMenuController mainController;
+
+    private ObservableList<Toppings> totalToppingsObservable;
+    private ObservableList<Toppings> selectedToppingsObservable;
 
     // sizeComboBox.getItems().addAll(Size.Small, Size.Medium, Size.Large);
 
@@ -37,6 +44,23 @@ public class PizzaCustomController {
         ImageView iv = new ImageView();
         iv.setImage(image);
         pizzaImageBox.getChildren().add(iv);
+    }
+
+    public void setTotalToppingsList()
+    {
+        selectedToppingsList.setItems(totalToppingsObservable);
+    }
+
+    public void setSelectedToppingsList(ArrayList<Toppings> toppings)
+    {
+        selectedToppingsObservable = FXCollections.observableArrayList();
+
+        for (int i = 0; i < toppings.size(); i++)
+        {
+            selectedToppingsObservable.add(toppings.get(i));
+        }
+
+        selectedToppingsList.setItems(selectedToppingsObservable);
     }
 
     @FXML
