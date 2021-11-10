@@ -80,13 +80,15 @@ public class PizzaCustomController implements Initializable {
     @FXML
     protected void handleAddButton()
     {
-
+        selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
+        totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     protected void handleRemoveButton()
     {
-
+        totalToppingsObservable.add((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
+        selectedToppingsObservable.remove(selectedToppingsList.getSelectionModel().getSelectedItem());
     }
 
 
