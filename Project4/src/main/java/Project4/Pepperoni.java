@@ -9,7 +9,7 @@ public class Pepperoni extends Pizza{
 
     @Override
     public double price() {
-        if (this.size == Size.small) {
+        if (this.size == Size.Small) {
             if (this.toppings.size() > Constants.PEPPERONI_TOPPINGS) {
                 return Constants.SMALL_PEPPERONI + (Constants.ADD_TOPPING * (toppings.size() - Constants.PEPPERONI_TOPPINGS));
             }
@@ -17,7 +17,7 @@ public class Pepperoni extends Pizza{
                 return Constants.SMALL_PEPPERONI;
             }
         }
-        else if (this.size == Size.medium) {
+        else if (this.size == Size.Medium) {
             if (this.toppings.size() > Constants.PEPPERONI_TOPPINGS) {
                 return Constants.SMALL_PEPPERONI + Constants.SIZE_CHANGE + (Constants.ADD_TOPPING * (toppings.size() - Constants.PEPPERONI_TOPPINGS));
             }

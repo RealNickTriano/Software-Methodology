@@ -9,7 +9,7 @@ public class Hawaiian extends Pizza{
 
     @Override
     public double price() {
-        if (this.size == Size.small) {
+        if (this.size == Size.Small) {
             if (this.toppings.size() > Constants.HAWAIIAN_TOPPINGS) {
                 return Constants.SMALL_HAWAIIAN + (Constants.ADD_TOPPING * (toppings.size() - Constants.HAWAIIAN_TOPPINGS));
             }
@@ -17,7 +17,7 @@ public class Hawaiian extends Pizza{
                 return Constants.SMALL_HAWAIIAN;
             }
         }
-        else if (this.size == Size.medium) {
+        else if (this.size == Size.Medium) {
             if (this.toppings.size() > Constants.HAWAIIAN_TOPPINGS) {
                 return Constants.SMALL_HAWAIIAN + Constants.SIZE_CHANGE + (Constants.ADD_TOPPING * (toppings.size() - Constants.HAWAIIAN_TOPPINGS));
             }
