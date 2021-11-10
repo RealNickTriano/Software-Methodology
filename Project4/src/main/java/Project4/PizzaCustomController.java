@@ -4,6 +4,7 @@ import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -12,9 +13,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class PizzaCustomController {
+public class PizzaCustomController implements Initializable {
     @FXML
     private ListView totalToppingsList;
     @FXML
@@ -35,6 +38,13 @@ public class PizzaCustomController {
 
     // sizeComboBox.getItems().addAll(Size.Small, Size.Medium, Size.Large);
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        selectedToppingsObservable = FXCollections.observableArrayList();
+        totalToppingsObservable = FXCollections.observableArrayList();
+    }
+
     public void setMainController(MainMenuController controller) {
         mainController = controller; //now you can reference any private data items through mainController
     }
@@ -53,7 +63,6 @@ public class PizzaCustomController {
 
     public void setSelectedToppingsList(ArrayList<Toppings> toppings)
     {
-        selectedToppingsObservable = FXCollections.observableArrayList();
 
         for (int i = 0; i < toppings.size(); i++)
         {
@@ -74,5 +83,6 @@ public class PizzaCustomController {
     {
 
     }
+
 
 }
