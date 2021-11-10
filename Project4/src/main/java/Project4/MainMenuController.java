@@ -33,15 +33,16 @@ public class MainMenuController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomView.fxml"));
             root = loader.load();
-            PizzaCustomController pizzaView = loader.getController();
-            pizzaView.setMainController(this);
-            pizzaView.setPepperoniImage();
 
             Stage stage = new Stage();
             Scene scene = new Scene(root, 600, 700);
             stage.setTitle("Pizza Customization");
             stage.setScene(scene);
             stage.show();
+
+            PizzaCustomController pizzaView = loader.getController();
+            pizzaView.setMainController(this);
+            pizzaView.setPepperoniImage();
 
         }
         catch (IOException e)
