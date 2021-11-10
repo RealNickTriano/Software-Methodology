@@ -50,15 +50,20 @@ public class PizzaCustomController implements Initializable {
     }
 
     public void setPepperoniImage() {
-        Image image = new Image("PepperoniPizza.jpg");
+       /** Image image = new Image("PepperoniPizza.jpg");
         ImageView iv = new ImageView();
         iv.setImage(image);
-        pizzaImageBox.getChildren().add(iv);
+        pizzaImageBox.getChildren().add(iv);**/
     }
 
-    public void setTotalToppingsList()
+    public void setTotalToppingsList(ArrayList<Toppings> toppings)
     {
-        selectedToppingsList.setItems(totalToppingsObservable);
+        for (int i = 0; i < toppings.size(); i++)
+        {
+            totalToppingsObservable.add(toppings.get(i));
+        }
+
+        totalToppingsList.setItems(totalToppingsObservable);
     }
 
     public void setSelectedToppingsList(ArrayList<Toppings> toppings)

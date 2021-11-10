@@ -32,7 +32,7 @@
                   <Insets top="20.0" />
                </GridPane.margin>
             </ComboBox>
-            <ListView fx:id="totalToppingsView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ListView fx:id="totalToppingsList" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ListView fx:id="selectedToppingsList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
             <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAddButton" text="Add --&gt;" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
                <GridPane.margin>

@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainMenuController {
     @FXML
@@ -27,6 +28,19 @@ public class MainMenuController {
     @FXML
     private Button currentOrderButton;
 
+    private  ArrayList<Toppings> allToppings = new ArrayList<>(
+    Arrays.asList(
+            Toppings.Chicken,
+            Toppings.Beef,
+            Toppings.Pepperoni,
+            Toppings.GreenPepper,
+            Toppings.Mushroom,
+            Toppings.Pineapple,
+            Toppings.Ham,
+            Toppings.Cheese,
+            Toppings.Sausage,
+            Toppings.Onion,
+            Toppings.BlackOlives));
 
     public void handlePepperoniButton()
     {
@@ -46,6 +60,7 @@ public class MainMenuController {
             PizzaCustomController pizzaView = loader.getController();
             pizzaView.setMainController(this);
             pizzaView.setSelectedToppingsList(toppings);
+            pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setPepperoniImage();
 
         }
