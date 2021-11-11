@@ -104,6 +104,7 @@ public class PizzaCustomController implements Initializable {
     {
         selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
         totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
+        pizza.addTopping((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
         priceText.setText(String.valueOf(pizza.price()));
     }
 
@@ -112,6 +113,7 @@ public class PizzaCustomController implements Initializable {
     {
         totalToppingsObservable.add((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
         selectedToppingsObservable.remove(selectedToppingsList.getSelectionModel().getSelectedItem());
+        pizza.removeTopping((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
         priceText.setText(String.valueOf(pizza.price()));
     }
 
@@ -119,6 +121,7 @@ public class PizzaCustomController implements Initializable {
     protected void handleComboBox()
     {
         sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
+        pizza.setSize((Size) sizeComboBox.getSelectionModel().getSelectedItem());
         priceText.setText(String.valueOf(pizza.price()));
     }
 
