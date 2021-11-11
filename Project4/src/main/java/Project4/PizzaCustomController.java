@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -27,9 +28,15 @@ public class PizzaCustomController implements Initializable {
     @FXML
     private Button removeButton;
     @FXML
-    private HBox pizzaImageBox;
+    private ImageView pizzaImage;
+    @FXML
+    private HBox priceBox;
+    @FXML
+    private HBox quantityBox;
     @FXML
     private TextField priceText;
+    @FXML
+    private TextField quantityText;
 
     private MainMenuController mainController;
 
@@ -50,10 +57,9 @@ public class PizzaCustomController implements Initializable {
     }
 
     public void setPepperoniImage() {
-       /** Image image = new Image("PepperoniPizza.jpg");
-        ImageView iv = new ImageView();
-        iv.setImage(image);
-        pizzaImageBox.getChildren().add(iv);**/
+        Image image = new Image("file:PepperoniPizza.png");
+        pizzaImage.setImage(image);
+        // pizzaImage = new ImageView(getClass().getResource("PepperoniPizza.png").toExternalForm());
     }
 
     public void setTotalToppingsList(ArrayList<Toppings> toppings)
