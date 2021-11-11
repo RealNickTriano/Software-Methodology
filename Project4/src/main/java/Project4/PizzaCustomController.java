@@ -42,6 +42,8 @@ public class PizzaCustomController implements Initializable {
 
     private ObservableList<Toppings> totalToppingsObservable;
     private ObservableList<Toppings> selectedToppingsObservable;
+    private String sizeSelected;
+    private Pizza pizza;
 
     // sizeComboBox.getItems().addAll(Size.Small, Size.Medium, Size.Large);
 
@@ -50,6 +52,19 @@ public class PizzaCustomController implements Initializable {
 
         selectedToppingsObservable = FXCollections.observableArrayList();
         totalToppingsObservable = FXCollections.observableArrayList();
+        ObservableList<Size> comboList = FXCollections.observableArrayList(
+                Size.Small, Size.Medium, Size.Large);
+        sizeComboBox.setItems(comboList);
+        sizeComboBox.getSelectionModel().selectFirst();
+        sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
+
+
+    }
+
+    public void setPizza(Pizza selectedPizza)
+    {
+        pizza = selectedPizza;
+        priceText.setText(String.valueOf(pizza.price()));
     }
 
     public void setMainController(MainMenuController controller) {
@@ -78,6 +93,7 @@ public class PizzaCustomController implements Initializable {
         for (int i = 0; i < toppings.size(); i++)
         {
             selectedToppingsObservable.add(toppings.get(i));
+            totalToppingsObservable.remove(toppings.get(i));
         }
 
         selectedToppingsList.setItems(selectedToppingsObservable);
@@ -88,6 +104,7 @@ public class PizzaCustomController implements Initializable {
     {
         selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
         totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
+        priceText.setText(String.valueOf(pizza.price()));
     }
 
     @FXML
@@ -95,6 +112,14 @@ public class PizzaCustomController implements Initializable {
     {
         totalToppingsObservable.add((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
         selectedToppingsObservable.remove(selectedToppingsList.getSelectionModel().getSelectedItem());
+        priceText.setText(String.valueOf(pizza.price()));
+    }
+
+    @FXML
+    protected void handleComboBox()
+    {
+        sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
+        priceText.setText(String.valueOf(pizza.price()));
     }
 
 
