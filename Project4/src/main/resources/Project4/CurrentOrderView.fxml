@@ -3,6 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project4.CurrentOrderController">
     <padding>
@@ -66,6 +67,21 @@
                </Label>
             </children>
          </GridPane>
+         <TextField editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+            <GridPane.margin>
+               <Insets bottom="20.0" />
+            </GridPane.margin>
+         </TextField>
+         <Label text="Customer Phone Number" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+            <GridPane.margin>
+               <Insets bottom="25.0" left="100.0" />
+            </GridPane.margin>
+         </Label>
+         <Label text="Pizza Order" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
       </children>
    </GridPane>
 </VBox>
