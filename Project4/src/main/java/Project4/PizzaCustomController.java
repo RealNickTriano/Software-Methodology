@@ -102,19 +102,29 @@ public class PizzaCustomController implements Initializable {
     @FXML
     protected void handleAddButton()
     {
-        selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
-        totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
-        pizza.addTopping((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
-        priceText.setText(String.valueOf(pizza.price()));
+        if(selectedToppingsList.getItems().size() != 7)
+        {
+            selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
+            totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
+            pizza.addTopping((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
+            priceText.setText(String.valueOf(pizza.price()));
+        }
+        else
+            System.out.println("Toppings cannot exceed 7.");
     }
 
     @FXML
     protected void handleRemoveButton()
     {
-        totalToppingsObservable.add((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
-        selectedToppingsObservable.remove(selectedToppingsList.getSelectionModel().getSelectedItem());
-        pizza.removeTopping((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
-        priceText.setText(String.valueOf(pizza.price()));
+        if(checkValidRemove())
+        {
+            totalToppingsObservable.add((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
+            selectedToppingsObservable.remove(selectedToppingsList.getSelectionModel().getSelectedItem());
+            pizza.removeTopping((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
+            priceText.setText(String.valueOf(pizza.price()));
+        }
+        else
+            System.out.println("Cannot remove topping.");
     }
 
     @FXML
@@ -123,6 +133,38 @@ public class PizzaCustomController implements Initializable {
         sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
         pizza.setSize((Size) sizeComboBox.getSelectionModel().getSelectedItem());
         priceText.setText(String.valueOf(pizza.price()));
+    }
+
+    private boolean checkValidRemove()
+    {
+        if(pizza instanceof Pepperoni)
+        {
+            if(selectedToppingsList.getSelectionModel().getSelectedItem()
+                    .toString().equalsIgnoreCase("Pepperoni") )
+            return false;
+        }
+        else if(pizza instanceof Deluxe)
+        {
+            if(selectedToppingsList.getSelectionModel().getSelectedItem()
+                    .toString().equalsIgnoreCase("Pepperoni") ||
+                    selectedToppingsList.getSelectionModel().getSelectedItem()
+                    .toString().equalsIgnoreCase("Sausage") ||
+                    selectedToppingsList.getSelectionModel().getSelectedItem()
+                    .toString().equalsIgnoreCase("GreenPepper") ||
+                    selectedToppingsList.getSelectionModel().getSelectedItem()
+                    .toString().equalsIgnoreCase("Onion") ||
+                    selectedToppingsList.getSelectionModel().getSelectedItem()
+                    .toString().equalsIgnoreCase("Mushroom"))
+            return false;
+        }
+        else if(pizza instanceof Hawaiian)
+        {
+            if(selectedToppingsList.getSelectionModel().getSelectedItem()
+                    .toString().equalsIgnoreCase("Ham") || selectedToppingsList.getSelectionModel().getSelectedItem()
+                    .toString().equalsIgnoreCase("Pineapple") )
+            return false;
+        }
+        return true;
     }
 
 
