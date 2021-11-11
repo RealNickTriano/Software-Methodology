@@ -37,6 +37,8 @@ public class PizzaCustomController implements Initializable {
     private TextField priceText;
     @FXML
     private TextField quantityText;
+    @FXML
+    private Button addToOrderButton;
 
     private MainMenuController mainController;
 
@@ -125,6 +127,13 @@ public class PizzaCustomController implements Initializable {
         }
         else
             System.out.println("Cannot remove topping.");
+    }
+
+    @FXML
+    protected void handleAddToOrder()
+    {
+        // TODO: Closes this window and launches current order view
+        // adds pizza(s) to order
     }
 
     @FXML
