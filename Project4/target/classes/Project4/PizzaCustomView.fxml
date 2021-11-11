@@ -93,7 +93,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="quantityText" translateX="-25.0" />
+                  <TextField fx:id="quantityText" text="1" translateX="-25.0" />
                </children></HBox>
             <ImageView fx:id="pizzaImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
          </children>
