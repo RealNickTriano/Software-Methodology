@@ -21,6 +21,18 @@ public class CurrentOrderController {
     private TextField salesTaxTextField;
     @FXML
     private TextField orderTotalTextField;
+    @FXML
+    private TextField customerPhone;
+
+    private MainMenuController mainController;
+
+    public void setMainController(MainMenuController controller) {
+        mainController = controller; //now you can reference any private data items through mainController
+    }
+
+    public void setPhone(String phone) {
+        customerPhone.setText(phone);
+    }
 
     @FXML
     protected void handleRemovePizzaButton()

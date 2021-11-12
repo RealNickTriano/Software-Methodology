@@ -154,15 +154,37 @@ public class MainMenuController {
 
     }
 
-    public void handleCurrentOrderButton()
-    {
+    public void handleCurrentOrderButton() {
+        if (!getPhone()) {
+            System.out.println("Must enter a phone number.");
+            return;
+        }
+        Parent root;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentOrderView.fxml"));
+            root = loader.load();
 
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 1000, 900);
+            stage.setTitle("Pizza Customization");
+            stage.setScene(scene);
+            stage.show();
+
+            CurrentOrderController currentOrderView = loader.getController();
+            currentOrderView.setMainController(this);
+            currentOrderView.setPhone(phone);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean getPhone()
     {
         phone = phoneNumberField.getText();
         if (phone.matches("^[0-9]+$")){
+            // cannot change phone once a valid number is entered and order is started until order is placed
+            phoneNumberField.setEditable(false);
             return true;
         }
         return false;
