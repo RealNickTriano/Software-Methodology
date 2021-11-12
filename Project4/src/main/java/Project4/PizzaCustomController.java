@@ -146,11 +146,14 @@ public class PizzaCustomController implements Initializable {
 
     private boolean checkValidRemove()
     {
+        if (selectedToppingsList.getSelectionModel().getSelectedItem() == null) {
+            return false;
+        }
         if(pizza instanceof Pepperoni)
         {
-            if(selectedToppingsList.getSelectionModel().getSelectedItem()
-                    .toString().equalsIgnoreCase("Pepperoni") )
-            return false;
+            if (selectedToppingsList.getSelectionModel().getSelectedItem().toString().equalsIgnoreCase("Pepperoni")) {
+                return false;
+            }
         }
         else if(pizza instanceof Deluxe)
         {
@@ -170,8 +173,9 @@ public class PizzaCustomController implements Initializable {
         {
             if(selectedToppingsList.getSelectionModel().getSelectedItem()
                     .toString().equalsIgnoreCase("Ham") || selectedToppingsList.getSelectionModel().getSelectedItem()
-                    .toString().equalsIgnoreCase("Pineapple") )
-            return false;
+                    .toString().equalsIgnoreCase("Pineapple")) {
+                return false;
+            }
         }
         return true;
     }

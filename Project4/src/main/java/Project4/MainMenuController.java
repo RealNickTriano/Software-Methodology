@@ -64,7 +64,7 @@ public class MainMenuController {
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
-            pizzaView.setPepperoniImage();
+            // pizzaView.setPepperoniImage();
 
         }
         catch (IOException e)
@@ -76,14 +76,30 @@ public class MainMenuController {
 
     public void handleDeluxeButton()
     {
+        Pizza pizza = new Deluxe();
+        pizza.setSize(Size.Small);
+        pizza.addTopping(Toppings.Sausage);
+        pizza.addTopping(Toppings.GreenPepper);
+        pizza.addTopping(Toppings.Mushroom);
+        pizza.addTopping(Toppings.Onion);
+        pizza.addTopping(Toppings.Pepperoni);
         Parent root;
+
         try {
-            root = FXMLLoader.load(RuPizzeriaApplication.class.getResource("PizzaCustomView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomView.fxml"));
+            root = loader.load();
+
             Stage stage = new Stage();
             Scene scene = new Scene(root, 600, 700);
             stage.setTitle("Pizza Customization");
             stage.setScene(scene);
             stage.show();
+
+            PizzaCustomController pizzaView = loader.getController();
+            pizzaView.setMainController(this);
+            pizzaView.setPizza(pizza);
+            pizzaView.setTotalToppingsList(allToppings);
+            pizzaView.setSelectedToppingsList(pizza.getToppings());
 
         }
         catch (IOException e)
@@ -94,14 +110,27 @@ public class MainMenuController {
 
     public void handleHawaiianButton()
     {
+        Pizza pizza = new Pepperoni();
+        pizza.setSize(Size.Small);
+        pizza.addTopping(Toppings.Ham);
+        pizza.addTopping(Toppings.Pineapple);
         Parent root;
         try {
-            root = FXMLLoader.load(RuPizzeriaApplication.class.getResource("PizzaCustomView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomView.fxml"));
+            root = loader.load();
+
             Stage stage = new Stage();
             Scene scene = new Scene(root, 600, 700);
             stage.setTitle("Pizza Customization");
             stage.setScene(scene);
             stage.show();
+
+            PizzaCustomController pizzaView = loader.getController();
+            pizzaView.setMainController(this);
+            pizzaView.setPizza(pizza);
+            pizzaView.setTotalToppingsList(allToppings);
+            pizzaView.setSelectedToppingsList(pizza.getToppings());
+
 
         }
         catch (IOException e)
