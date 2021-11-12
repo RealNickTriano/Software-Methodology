@@ -182,7 +182,7 @@ public class MainMenuController {
     public boolean getPhone()
     {
         phone = phoneNumberField.getText();
-        if (phone.matches("^[0-9]+$")){
+        if (phone.matches("^[0-9]+$") && phone.length() == 10){
             // cannot change phone once a valid number is entered and order is started until order is placed
             phoneNumberField.setEditable(false);
             return true;
