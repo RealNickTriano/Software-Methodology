@@ -118,7 +118,7 @@ public class MainMenuController {
 
     public void handleHawaiianButton()
     {
-        Pizza pizza = new Pepperoni();
+        Pizza pizza = new Hawaiian();
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Ham);
         pizza.addTopping(Toppings.Pineapple);
@@ -179,6 +179,10 @@ public class MainMenuController {
         }
     }
 
+    /**
+     * Gets the phone number for the current order for the main controller
+     * @return true if the phone number entered is valid, false otherwise
+     */
     public boolean getPhone()
     {
         phone = phoneNumberField.getText();

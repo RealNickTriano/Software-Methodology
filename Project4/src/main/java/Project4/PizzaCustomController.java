@@ -133,9 +133,10 @@ public class PizzaCustomController implements Initializable {
     @FXML
     protected void handleAddToOrder()
     {
-        // TODO: Closes this window and launches current order view
+        // TODO: Closes this window and returns to main menu
         // adds pizza(s) to order
         order.addToOrder(pizza);
+        System.out.println("Pizza added");
     }
 
     @FXML
