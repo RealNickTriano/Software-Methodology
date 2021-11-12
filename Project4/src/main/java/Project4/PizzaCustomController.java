@@ -105,6 +105,11 @@ public class PizzaCustomController implements Initializable {
     @FXML
     protected void handleAddButton()
     {
+        if (totalToppingsList.getSelectionModel().getSelectedItem() == null)
+        {
+            System.out.println("Must select topping to add.");
+            return;
+        }
         if(selectedToppingsList.getItems().size() != 7)
         {
             selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
@@ -149,7 +154,8 @@ public class PizzaCustomController implements Initializable {
 
     private boolean checkValidRemove()
     {
-        if (selectedToppingsList.getSelectionModel().getSelectedItem() == null) {
+        if (selectedToppingsList.getSelectionModel().getSelectedItem() == null)
+        {
             return false;
         }
         if(pizza instanceof Pepperoni)
