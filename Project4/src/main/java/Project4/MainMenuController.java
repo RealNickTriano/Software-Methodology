@@ -42,11 +42,17 @@ public class MainMenuController {
             Toppings.Onion,
             Toppings.BlackOlives));
 
+    private String phone;
+
     public void handlePepperoniButton()
     {
         Pizza pizza = new Pepperoni();
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Pepperoni);
+        if (!getPhone()) {
+            System.out.println("Must enter a phone number.");
+            return;
+        }
         Parent root;
 
         try {
@@ -65,7 +71,6 @@ public class MainMenuController {
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
             // pizzaView.setPepperoniImage();
-
         }
         catch (IOException e)
         {
@@ -83,6 +88,10 @@ public class MainMenuController {
         pizza.addTopping(Toppings.Mushroom);
         pizza.addTopping(Toppings.Onion);
         pizza.addTopping(Toppings.Pepperoni);
+        if (!getPhone()) {
+            System.out.println("Must enter a phone number.");
+            return;
+        }
         Parent root;
 
         try {
@@ -100,7 +109,6 @@ public class MainMenuController {
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
-
         }
         catch (IOException e)
         {
@@ -114,6 +122,10 @@ public class MainMenuController {
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Ham);
         pizza.addTopping(Toppings.Pineapple);
+        if (!getPhone()) {
+            System.out.println("Must enter a phone number.");
+            return;
+        }
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomView.fxml"));
@@ -130,8 +142,6 @@ public class MainMenuController {
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
-
-
         }
         catch (IOException e)
         {
@@ -148,4 +158,14 @@ public class MainMenuController {
     {
 
     }
+
+    public boolean getPhone()
+    {
+        phone = phoneNumberField.getText();
+        if (phone.matches("^[0-9]+$")){
+            return true;
+        }
+        return false;
+    }
+
 }

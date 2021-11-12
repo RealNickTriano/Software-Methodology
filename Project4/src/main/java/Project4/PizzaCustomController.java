@@ -46,6 +46,7 @@ public class PizzaCustomController implements Initializable {
     private ObservableList<Toppings> selectedToppingsObservable;
     private String sizeSelected;
     private Pizza pizza;
+    private Order order;
 
     // sizeComboBox.getItems().addAll(Size.Small, Size.Medium, Size.Large);
 
@@ -134,6 +135,7 @@ public class PizzaCustomController implements Initializable {
     {
         // TODO: Closes this window and launches current order view
         // adds pizza(s) to order
+        order.addToOrder(pizza);
     }
 
     @FXML
