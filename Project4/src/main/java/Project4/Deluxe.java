@@ -34,4 +34,21 @@ public class Deluxe extends Pizza{
             }
         }
     }
+
+    @Override
+    public String toString()
+    {
+        String formattedString;
+
+        formattedString = "Deluxe pizza, ";
+
+        for(int i = 0; i < toppings.size(); i++)
+        {
+            formattedString = formattedString.concat(toppings.get(i).toString() + ", ");
+        }
+
+        formattedString = formattedString.concat(String.format("%s, $" + "%.2f", size, price()));
+
+        return formattedString;
+    }
 }

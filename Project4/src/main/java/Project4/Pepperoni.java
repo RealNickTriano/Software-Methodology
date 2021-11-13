@@ -34,4 +34,21 @@ public class Pepperoni extends Pizza{
             }
         }
     }
+
+    @Override
+    public String toString()
+    {
+        String formattedString;
+
+        formattedString = "Pepperoni pizza, ";
+
+        for(int i = 0; i < toppings.size(); i++)
+        {
+            formattedString = formattedString.concat(toppings.get(i).toString() + ", ");
+        }
+
+        formattedString = formattedString.concat(String.format("%s, $" + "%.2f", size, price()));
+
+        return formattedString;
+    }
 }

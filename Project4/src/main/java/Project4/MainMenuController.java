@@ -43,6 +43,8 @@ public class MainMenuController {
             Toppings.BlackOlives));
 
     private String phone;
+    private Order order;
+    private boolean orderStarted;
 
     public void handlePepperoniButton()
     {
@@ -71,6 +73,8 @@ public class MainMenuController {
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
             // pizzaView.setPepperoniImage();
+            if(!orderStarted)
+                order = pizzaView.startOrder(phoneNumberField.getText());
         }
         catch (IOException e)
         {
@@ -109,6 +113,8 @@ public class MainMenuController {
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
+            if(!orderStarted)
+                order = pizzaView.startOrder(phoneNumberField.getText());
         }
         catch (IOException e)
         {
@@ -142,6 +148,8 @@ public class MainMenuController {
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
+            if(!orderStarted)
+                order = pizzaView.startOrder(phoneNumberField.getText());
         }
         catch (IOException e)
         {
@@ -173,6 +181,7 @@ public class MainMenuController {
             CurrentOrderController currentOrderView = loader.getController();
             currentOrderView.setMainController(this);
             currentOrderView.setPhone(phone);
+            currentOrderView.setOrder(order);
 
         } catch (IOException e) {
             e.printStackTrace();

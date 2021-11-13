@@ -34,4 +34,21 @@ public class Hawaiian extends Pizza{
             }
         }
     }
+
+    @Override
+    public String toString()
+    {
+        String formattedString;
+
+        formattedString = "Hawaiian pizza, ";
+
+        for(int i = 0; i < toppings.size(); i++)
+        {
+            formattedString = formattedString.concat(toppings.get(i).toString() + ", ");
+        }
+
+        formattedString = formattedString.concat(String.format("%s, $" + "%.2f", size, price()));
+
+        return formattedString;
+    }
 }

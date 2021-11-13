@@ -13,9 +13,9 @@ public class Order {
     private String phoneNumber;
     private ArrayList<Pizza> pizzaList;
 
-    public Order(String phoneNumber, ArrayList<Pizza> pizzaList) {
+    public Order(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-        this.pizzaList = pizzaList;
+        this.pizzaList = new ArrayList<>();
     }
 
     /**
@@ -59,4 +59,6 @@ public class Order {
     public boolean removeFromOrder(Pizza pizza) {
         return pizzaList.remove(pizza);
     }
+
+
 }

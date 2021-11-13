@@ -61,9 +61,13 @@ public class PizzaCustomController implements Initializable {
         sizeComboBox.getSelectionModel().selectFirst();
         sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
 
-
     }
 
+    public Order startOrder(String phoneNumber)
+    {
+        order = new Order(phoneNumber);
+        return order;
+    }
     public void setPizza(Pizza selectedPizza)
     {
         pizza = selectedPizza;
@@ -138,10 +142,9 @@ public class PizzaCustomController implements Initializable {
     @FXML
     protected void handleAddToOrder()
     {
-        // TODO: Closes this window and returns to main menu
-        // adds pizza(s) to order
+        // add pizza to order
         order.addToOrder(pizza);
-        System.out.println("Pizza added");
+        System.out.println("added to order.");
     }
 
     @FXML
