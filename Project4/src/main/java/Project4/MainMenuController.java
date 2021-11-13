@@ -222,6 +222,8 @@ public class MainMenuController implements Initializable{
 
             StoreOrdersController storeOrdersController = loader.getController();
             storeOrdersController.setMainController(this);
+            storeOrdersController.setPhoneCombo();
+
 
         } catch (IOException e) {
             e.printStackTrace();

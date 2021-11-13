@@ -37,4 +37,9 @@ public class StoreOrders {
     public boolean removeFromStoreOrders(Order order) {
         return storeOrdersList.remove(order);
     }
+
+    public ArrayList<Order> getStoreOrdersList()
+    {
+        return storeOrdersList;
+    }
 }
