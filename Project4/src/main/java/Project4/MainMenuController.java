@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class MainMenuController {
+public class MainMenuController implements Initializable{
     @FXML
     private Button pepperoniButton;
     @FXML
@@ -48,7 +48,15 @@ public class MainMenuController {
     private String phone;
     protected Order order;
     protected boolean orderStarted = false;
-    //public boolean orderStarted = false;
+    protected StoreOrders storeOrder;
+    protected ArrayList<Order> storeOrderList;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        storeOrderList = new ArrayList<>();
+        storeOrder = new StoreOrders(storeOrderList);
+    }
 
     public void handlePepperoniButton()
     {
@@ -177,6 +185,24 @@ public class MainMenuController {
     public void handleStoreOrdersButton()
     {
 
+        Parent root;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentOrderView.fxml"));
+            root = loader.load();
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 1000, 900);
+            stage.setTitle("Pizza Customization");
+            stage.setScene(scene);
+            stage.show();
+
+            CurrentOrderController currentOrderView = loader.getController();
+            currentOrderView.setMainController(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void handleCurrentOrderButton() {
@@ -199,6 +225,7 @@ public class MainMenuController {
             currentOrderView.setMainController(this);
             currentOrderView.setPhone(phone);
             currentOrderView.setOrder(order);
+            currentOrderView.setTotals();
 
         } catch (IOException e) {
             e.printStackTrace();
