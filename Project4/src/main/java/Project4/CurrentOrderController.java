@@ -81,5 +81,7 @@ public class CurrentOrderController implements Initializable {
     {
         mainController.storeOrder.addToStoreOrders(mainController.order);
         mainController.orderStarted = false;
+        mainController.phoneEditable = true;
+
     }
 }

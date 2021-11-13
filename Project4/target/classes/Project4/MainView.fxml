@@ -22,7 +22,7 @@
             <Insets bottom="30.0" />
          </GridPane.margin></Button>
       <Button fx:id="hawaiianButton" mnemonicParsing="false" onAction="#handleHawaiianButton" text="Hawaiian" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <TextField fx:id="phoneNumberField" maxHeight="-Infinity" maxWidth="-Infinity" promptText="Phone Number" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <TextField fx:id="phoneNumberField" maxHeight="-Infinity" maxWidth="-Infinity" onMousePressed="#onMousePressedPhone" promptText="Phone Number" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>

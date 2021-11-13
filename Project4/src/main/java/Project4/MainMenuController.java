@@ -1,5 +1,7 @@
 package Project4;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -50,6 +52,8 @@ public class MainMenuController implements Initializable{
     protected boolean orderStarted = false;
     protected StoreOrders storeOrder;
     protected ArrayList<Order> storeOrderList;
+    protected ObservableList<String> phoneList = FXCollections.observableArrayList();
+    protected boolean phoneEditable = true;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -58,6 +62,17 @@ public class MainMenuController implements Initializable{
         storeOrder = new StoreOrders(storeOrderList);
     }
 
+    @FXML
+    public void onMousePressedPhone()
+    {
+        if(phoneEditable)
+        {
+            phoneNumberField.setEditable(true);
+        }
+        else {
+            phoneNumberField.setEditable(false);
+        }
+    }
     public void handlePepperoniButton()
     {
         Pizza pizza = new Pepperoni();
@@ -85,6 +100,9 @@ public class MainMenuController implements Initializable{
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
             // pizzaView.setPepperoniImage();
+
+            if (phoneEditable)
+                phoneEditable = false;
             if(!orderStarted)
             {
                 orderStarted = true;
@@ -130,6 +148,9 @@ public class MainMenuController implements Initializable{
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
+
+            if (phoneEditable)
+                phoneEditable = false;
             if(!orderStarted)
             {
                 orderStarted = true;
@@ -169,6 +190,9 @@ public class MainMenuController implements Initializable{
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
+
+            if (phoneEditable)
+                phoneEditable = false;
             if(!orderStarted)
             {
                 orderStarted = true;
