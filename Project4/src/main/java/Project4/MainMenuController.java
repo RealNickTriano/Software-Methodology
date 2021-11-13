@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainMenuController {
+    public static boolean orderStarted = false;
     @FXML
     private Button pepperoniButton;
     @FXML
@@ -44,7 +45,7 @@ public class MainMenuController {
 
     private String phone;
     private Order order;
-    private boolean orderStarted;
+    //public boolean orderStarted = false;
 
     public void handlePepperoniButton()
     {
@@ -73,8 +74,10 @@ public class MainMenuController {
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
             // pizzaView.setPepperoniImage();
-            if(!orderStarted)
+            if(!orderStarted) {
+                orderStarted = true; // somehow change this to false from current order controller
                 order = pizzaView.startOrder(phoneNumberField.getText());
+            }
         }
         catch (IOException e)
         {
@@ -113,8 +116,10 @@ public class MainMenuController {
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
-            if(!orderStarted)
+            if(!orderStarted) {
+                orderStarted = true;
                 order = pizzaView.startOrder(phoneNumberField.getText());
+            }
         }
         catch (IOException e)
         {
@@ -148,8 +153,11 @@ public class MainMenuController {
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
-            if(!orderStarted)
+            if(!orderStarted){
+                orderStarted = true;
                 order = pizzaView.startOrder(phoneNumberField.getText());
+            }
+
         }
         catch (IOException e)
         {
