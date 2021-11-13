@@ -99,7 +99,7 @@ public class MainMenuController implements Initializable{
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
-            // pizzaView.setPepperoniImage();
+            pizzaView.setImage("Pepperoni.jpg");
 
             if (phoneEditable)
                 phoneEditable = false;
@@ -148,6 +148,7 @@ public class MainMenuController implements Initializable{
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
+            pizzaView.setImage("Deluxe.jpg");
 
             if (phoneEditable)
                 phoneEditable = false;
@@ -190,6 +191,7 @@ public class MainMenuController implements Initializable{
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
+            pizzaView.setImage("Hawaiian.jpg");
 
             if (phoneEditable)
                 phoneEditable = false;

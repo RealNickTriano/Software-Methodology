@@ -72,10 +72,10 @@ public class PizzaCustomController implements Initializable {
         mainController = controller; //now you can reference any private data items through mainController
     }
 
-    public void setPepperoniImage() {
-        Image image = new Image("file:PepperoniPizza.png");
+    public void setImage(String imageFile) {
+        Image image = new Image(imageFile);
         pizzaImage.setImage(image);
-        // pizzaImage = new ImageView(getClass().getResource("PepperoniPizza.png").toExternalForm());
+        pizzaImage.setCache(true);
     }
 
     public void setTotalToppingsList(ArrayList<Toppings> toppings)

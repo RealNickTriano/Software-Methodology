@@ -95,7 +95,7 @@
                   </Label>
                   <TextField fx:id="quantityText" text="1" translateX="-25.0" />
                </children></HBox>
-            <ImageView fx:id="pizzaImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+            <ImageView fx:id="pizzaImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="addToOrderButton" mnemonicParsing="false" onAction="#handleAddToOrder" text="Add to Order" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
