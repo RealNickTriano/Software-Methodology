@@ -17,6 +17,12 @@ public class StoreOrdersController {
     @FXML
     private TextField orderTotalTextField;
 
+    private MainMenuController mainController;
+
+    public void setMainController(MainMenuController controller) {
+        mainController = controller; //now you can reference any private data items through mainController
+    }
+
     @FXML
     protected void handleCancelOrder()
     {

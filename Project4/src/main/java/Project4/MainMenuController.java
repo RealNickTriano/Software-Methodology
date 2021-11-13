@@ -187,18 +187,17 @@ public class MainMenuController implements Initializable{
 
         Parent root;
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentOrderView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreOrdersView.fxml"));
             root = loader.load();
 
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1000, 900);
-            stage.setTitle("Pizza Customization");
+            stage.setTitle("Store Orders");
             stage.setScene(scene);
             stage.show();
 
-            CurrentOrderController currentOrderView = loader.getController();
-            currentOrderView.setMainController(this);
-
+            StoreOrdersController storeOrdersController = loader.getController();
+            storeOrdersController.setMainController(this);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -217,7 +216,7 @@ public class MainMenuController implements Initializable{
 
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1000, 900);
-            stage.setTitle("Pizza Customization");
+            stage.setTitle("Current Order");
             stage.setScene(scene);
             stage.show();
 
