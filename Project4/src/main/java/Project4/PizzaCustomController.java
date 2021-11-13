@@ -46,7 +46,6 @@ public class PizzaCustomController implements Initializable {
     private ObservableList<Toppings> selectedToppingsObservable;
     private String sizeSelected;
     private Pizza pizza;
-    private Order order;
 
     // sizeComboBox.getItems().addAll(Size.Small, Size.Medium, Size.Large);
 
@@ -63,12 +62,6 @@ public class PizzaCustomController implements Initializable {
 
     }
 
-    public Order startOrder(String phoneNumber)
-    {
-        order = new Order(phoneNumber);
-        System.out.println("Start order");
-        return order;
-    }
     public void setPizza(Pizza selectedPizza)
     {
         pizza = selectedPizza;
@@ -147,10 +140,8 @@ public class PizzaCustomController implements Initializable {
         // Order must only be tracked through main menu controller to be maintained thru
         // window closes and transfer info between windows
         System.out.println("adding to order");
-        if(!(order.addToOrder(pizza)))
-            System.out.println("Problem");
-        else
-            System.out.println("added to order.");
+        mainController.order.addToOrder(pizza);
+        System.out.println("added to order.");
     }
 
     @FXML

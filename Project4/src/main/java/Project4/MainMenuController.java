@@ -2,6 +2,7 @@ package Project4;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,11 +12,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ResourceBundle;
 
 public class MainMenuController {
-    public static boolean orderStarted = false;
     @FXML
     private Button pepperoniButton;
     @FXML
@@ -44,7 +46,8 @@ public class MainMenuController {
             Toppings.BlackOlives));
 
     private String phone;
-    private Order order;
+    protected Order order;
+    protected boolean orderStarted = false;
     //public boolean orderStarted = false;
 
     public void handlePepperoniButton()
@@ -74,10 +77,13 @@ public class MainMenuController {
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
             // pizzaView.setPepperoniImage();
-            if(!orderStarted) {
-                orderStarted = true; // somehow change this to false from current order controller
-                order = pizzaView.startOrder(phoneNumberField.getText());
+            if(!orderStarted)
+            {
+                orderStarted = true;
+                order = new Order(phoneNumberField.getText());
             }
+
+
         }
         catch (IOException e)
         {
@@ -116,10 +122,12 @@ public class MainMenuController {
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
-            if(!orderStarted) {
+            if(!orderStarted)
+            {
                 orderStarted = true;
-                order = pizzaView.startOrder(phoneNumberField.getText());
+                order = new Order(phoneNumberField.getText());
             }
+
         }
         catch (IOException e)
         {
@@ -153,9 +161,10 @@ public class MainMenuController {
             pizzaView.setPizza(pizza);
             pizzaView.setTotalToppingsList(allToppings);
             pizzaView.setSelectedToppingsList(pizza.getToppings());
-            if(!orderStarted){
+            if(!orderStarted)
+            {
                 orderStarted = true;
-                order = pizzaView.startOrder(phoneNumberField.getText());
+                order = new Order(phoneNumberField.getText());
             }
 
         }

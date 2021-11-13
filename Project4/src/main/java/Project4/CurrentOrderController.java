@@ -56,6 +56,6 @@ public class CurrentOrderController {
     @FXML
     protected void handlePlaceOrderButton()
     {
-        MainMenuController.orderStarted = false;
+        mainController.orderStarted = false;
     }
 }
