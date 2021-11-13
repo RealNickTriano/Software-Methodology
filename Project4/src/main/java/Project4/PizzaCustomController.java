@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
@@ -32,13 +33,12 @@ public class PizzaCustomController implements Initializable {
     @FXML
     private HBox priceBox;
     @FXML
-    private HBox quantityBox;
-    @FXML
     private TextField priceText;
     @FXML
-    private TextField quantityText;
+    private ComboBox quantityBox;
     @FXML
     private Button addToOrderButton;
+
 
     private MainMenuController mainController;
 
@@ -46,6 +46,7 @@ public class PizzaCustomController implements Initializable {
     private ObservableList<Toppings> selectedToppingsObservable;
     private String sizeSelected;
     private Pizza pizza;
+    private int quantity;
 
     // sizeComboBox.getItems().addAll(Size.Small, Size.Medium, Size.Large);
 
@@ -59,6 +60,8 @@ public class PizzaCustomController implements Initializable {
         sizeComboBox.setItems(comboList);
         sizeComboBox.getSelectionModel().selectFirst();
         sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
+        quantityBox.getItems().addAll("1","2", "3", "4", "5");
+        quantityBox.setValue("1");
 
     }
 
@@ -139,9 +142,14 @@ public class PizzaCustomController implements Initializable {
         // add pizza to order
         // Order must only be tracked through main menu controller to be maintained thru
         // window closes and transfer info between windows
-        System.out.println("adding to order");
-        mainController.order.addToOrder(pizza);
+        //System.out.println("adding to order");
+        while(quantity > 0) {
+            mainController.order.addToOrder(pizza);
+            quantity--;
+        }
         System.out.println("added to order.");
+        Stage stage = (Stage) addToOrderButton.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
@@ -150,6 +158,13 @@ public class PizzaCustomController implements Initializable {
         sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
         pizza.setSize((Size) sizeComboBox.getSelectionModel().getSelectedItem());
         priceText.setText(String.valueOf(pizza.price()));
+    }
+
+    @FXML
+    protected void handleChoiceBox()
+    {
+        quantity = Integer.parseInt(quantityBox.getSelectionModel().getSelectedItem().toString());
+        priceText.setText(String.valueOf(pizza.price() * quantity));
     }
 
     private boolean checkValidRemove()
