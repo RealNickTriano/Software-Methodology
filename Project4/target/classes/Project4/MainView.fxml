@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project4.MainMenuController">
@@ -16,6 +17,14 @@
     <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@RutgersLogo.png" />
+               </image></ImageView>
+         </children>
+      </Pane>
       <Button fx:id="pepperoniButton" mnemonicParsing="false" onAction="#handlePepperoniButton" text="Pepperoni" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
       <Button fx:id="deluxeButton" mnemonicParsing="false" onAction="#handleDeluxeButton" text="Deluxe" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
