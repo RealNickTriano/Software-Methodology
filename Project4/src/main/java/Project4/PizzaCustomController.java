@@ -158,6 +158,7 @@ public class PizzaCustomController implements Initializable {
         sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
         pizza.setSize((Size) sizeComboBox.getSelectionModel().getSelectedItem());
         priceText.setText(String.valueOf(pizza.price()));
+        handleChoiceBox();
     }
 
     @FXML
