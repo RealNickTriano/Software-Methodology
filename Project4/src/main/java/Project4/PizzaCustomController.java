@@ -71,6 +71,11 @@ public class PizzaCustomController implements Initializable {
         priceText.setText(String.valueOf(pizza.price()));
     }
 
+    public void setPrice()
+    {
+        priceText.setText("0.00");
+    }
+
     public void setMainController(MainMenuController controller) {
         mainController = controller; //now you can reference any private data items through mainController
     }
