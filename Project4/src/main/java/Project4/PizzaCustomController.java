@@ -113,9 +113,9 @@ public class PizzaCustomController implements Initializable {
         }
         if(selectedToppingsList.getItems().size() < 7)
         {
+            pizza.addTopping((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
             selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
             totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
-            pizza.addTopping((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
             priceText.setText(String.valueOf(pizza.price()));
         }
         else
@@ -128,8 +128,8 @@ public class PizzaCustomController implements Initializable {
         if(checkValidRemove())
         {
             totalToppingsObservable.add((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
-            selectedToppingsObservable.remove(selectedToppingsList.getSelectionModel().getSelectedItem());
             pizza.removeTopping((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
+            selectedToppingsObservable.remove(selectedToppingsList.getSelectionModel().getSelectedItem());
             priceText.setText(String.valueOf(pizza.price()));
         }
         else
