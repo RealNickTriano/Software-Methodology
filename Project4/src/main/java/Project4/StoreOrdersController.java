@@ -87,6 +87,7 @@ public class StoreOrdersController {
         comboList.remove(phoneSelected);
         phoneCombo.getSelectionModel().selectFirst();
         storeOrdersListView.setItems(emptyList);
+        handlePhoneCombo();
 
     }
 
