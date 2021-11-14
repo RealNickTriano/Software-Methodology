@@ -274,7 +274,7 @@ public class MainMenuController implements Initializable{
     public boolean getPhone()
     {
         phone = phoneNumberField.getText();
-        if (phone.matches("^[0-9]+$") && phone.length() == 10){
+        if (phone.matches("^[0-9]+$") && phone.length() == Constants.PHONE_LENGTH){
             // cannot change phone once a valid number is entered and order is started until order is placed
             phoneNumberField.setEditable(false);
             return true;

@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -60,7 +61,7 @@ public class CurrentOrderController implements Initializable {
                 subtotal += mainController.order.getPizzaList().get(i).price();
             }
 
-            salesTax = subtotal * 0.0625;
+            salesTax = subtotal * Constants.TAX_RATE;
             orderTotal = subtotal + salesTax;
         }
             subtotalTextField.setText(String.format("%.2f", subtotal));
@@ -92,6 +93,7 @@ public class CurrentOrderController implements Initializable {
         mainController.storeOrder.addToStoreOrders(mainController.order);
         mainController.orderStarted = false;
         mainController.phoneEditable = true;
-
+        Stage stage = (Stage) placeOrderButton.getScene().getWindow();
+        stage.close();
     }
 }

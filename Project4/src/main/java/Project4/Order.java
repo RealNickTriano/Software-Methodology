@@ -1,6 +1,7 @@
 package Project4;
 
 import java.util.ArrayList;
+import java.math.RoundingMode;
 
 /**
  *
@@ -58,6 +59,20 @@ public class Order {
      */
     public boolean removeFromOrder(Pizza pizza) {
         return pizzaList.remove(pizza);
+    }
+
+    /**
+     * Allows other classes to get the total of an order
+     * @return the total cost of the order
+     */
+    public double getTotal() {
+        double total = 0;
+        int i;
+        for(i = 0; i < pizzaList.size(); i++) {
+            total += pizzaList.get(i).price();
+        }
+        total += total * Constants.TAX_RATE;
+        return Math.round(total * 100.0) / 100.0;
     }
 
 

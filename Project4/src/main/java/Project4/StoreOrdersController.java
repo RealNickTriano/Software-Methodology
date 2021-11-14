@@ -55,7 +55,14 @@ public class StoreOrdersController {
         }
         pizzaObservableList.setAll(order.getPizzaList());
         storeOrdersListView.setItems(pizzaObservableList);
+        setOrderTotal();
+    }
 
+    @FXML
+    public void setOrderTotal()
+    {
+        String priceString = String.valueOf(order.getTotal());
+        orderTotalTextField.setText(priceString);
     }
 
     @FXML

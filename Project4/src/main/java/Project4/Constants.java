@@ -11,4 +11,5 @@ public class Constants {
     public static int HAWAIIAN_TOPPINGS = 2;
     public static int PEPPERONI_TOPPINGS = 1;
     public static double TAX_RATE = 0.06625;
+    public static int PHONE_LENGTH = 10;
 }

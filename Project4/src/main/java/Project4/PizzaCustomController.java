@@ -111,7 +111,7 @@ public class PizzaCustomController implements Initializable {
             System.out.println("Must select topping to add.");
             return;
         }
-        if(selectedToppingsList.getItems().size() != 7)
+        if(selectedToppingsList.getItems().size() < 7)
         {
             selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
             totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
