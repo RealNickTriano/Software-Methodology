@@ -117,6 +117,7 @@ public class PizzaCustomController implements Initializable {
             selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
             totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
             priceText.setText(String.valueOf(pizza.price()));
+            handleChoiceBox();
         }
         else
             System.out.println("Toppings cannot exceed 7.");
