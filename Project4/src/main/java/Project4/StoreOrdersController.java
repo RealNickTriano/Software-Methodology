@@ -24,6 +24,7 @@ public class StoreOrdersController {
     private ObservableList<Pizza> pizzaObservableList;
     private Order order;
     private ObservableList<String> comboList = FXCollections.observableArrayList();
+    private ObservableList<String> emptyList = FXCollections.observableArrayList();
 
     public void setMainController(MainMenuController controller) {
         mainController = controller; //now you can reference any private data items through mainController
@@ -85,10 +86,7 @@ public class StoreOrdersController {
         mainController.storeOrder.removeFromStoreOrders(order);
         comboList.remove(phoneSelected);
         phoneCombo.getSelectionModel().selectFirst();
-        for (int i = 0; i < pizzaObservableList.size(); i++)
-        {
-            pizzaObservableList.remove(i);
-        }
+        storeOrdersListView.setItems(emptyList);
 
     }
 
