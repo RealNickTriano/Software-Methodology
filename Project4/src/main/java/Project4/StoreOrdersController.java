@@ -23,6 +23,7 @@ public class StoreOrdersController {
     private String phoneSelected;
     private ObservableList<Pizza> pizzaObservableList;
     private Order order;
+    private ObservableList<String> comboList = FXCollections.observableArrayList();
 
     public void setMainController(MainMenuController controller) {
         mainController = controller; //now you can reference any private data items through mainController
@@ -30,7 +31,7 @@ public class StoreOrdersController {
 
     public void setPhoneCombo()
     {
-        ObservableList<String> comboList = FXCollections.observableArrayList();
+
         for (int i = 0; i < mainController.storeOrder.getStoreOrdersList().size(); i++)
         {
             comboList.add(mainController.storeOrder.getStoreOrdersList().get(i).getPhoneNumber());
@@ -43,19 +44,25 @@ public class StoreOrdersController {
     @FXML
     protected void handlePhoneCombo()
     {
-        phoneSelected = phoneCombo.getSelectionModel().getSelectedItem().toString();
-        pizzaObservableList = FXCollections.observableArrayList();
-
-        for (int i = 0; i < mainController.storeOrder.getStoreOrdersList().size(); i++)
-        {
-            if(mainController.storeOrder.getStoreOrdersList().get(i).getPhoneNumber().equalsIgnoreCase(phoneSelected))
-            {
-                order = mainController.storeOrder.getStoreOrdersList().get(i);
-            }
+        try {
+            phoneSelected = phoneCombo.getSelectionModel().getSelectedItem().toString();
         }
-        pizzaObservableList.setAll(order.getPizzaList());
-        storeOrdersListView.setItems(pizzaObservableList);
-        setOrderTotal();
+        catch (Exception e)
+        {
+            orderTotalTextField.setText("0.00");
+            return;
+        }
+            pizzaObservableList = FXCollections.observableArrayList();
+
+            for (int i = 0; i < mainController.storeOrder.getStoreOrdersList().size(); i++) {
+                if (mainController.storeOrder.getStoreOrdersList().get(i).getPhoneNumber().equalsIgnoreCase(phoneSelected)) {
+                    order = mainController.storeOrder.getStoreOrdersList().get(i);
+                }
+            }
+            pizzaObservableList.setAll(order.getPizzaList());
+            storeOrdersListView.setItems(pizzaObservableList);
+            setOrderTotal();
+
     }
 
     @FXML
@@ -68,12 +75,26 @@ public class StoreOrdersController {
     @FXML
     protected void handleCancelOrder()
     {
+        for (int i = 0; i < mainController.storeOrder.getStoreOrdersList().size(); i++)
+        {
+            if(mainController.storeOrder.getStoreOrdersList().get(i).getPhoneNumber().equalsIgnoreCase(phoneSelected))
+            {
+                order = mainController.storeOrder.getStoreOrdersList().get(i);
+            }
+        }
+        mainController.storeOrder.removeFromStoreOrders(order);
+        comboList.remove(phoneSelected);
+        phoneCombo.getSelectionModel().selectFirst();
+        for (int i = 0; i < pizzaObservableList.size(); i++)
+        {
+            pizzaObservableList.remove(i);
+        }
 
     }
 
     @FXML
     protected void handleExportOrders()
     {
-
+        mainController.storeOrder.export();
     }
 }
