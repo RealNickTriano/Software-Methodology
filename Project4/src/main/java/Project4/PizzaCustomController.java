@@ -60,8 +60,8 @@ public class PizzaCustomController implements Initializable {
         sizeComboBox.setItems(comboList);
         sizeComboBox.getSelectionModel().selectFirst();
         sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
-        quantityBox.getItems().addAll("1","2", "3", "4", "5");
-        quantityBox.setValue("1");
+        quantityBox.getItems().addAll("0", "1","2", "3", "4", "5");
+        quantityBox.getSelectionModel().selectFirst();
 
     }
 

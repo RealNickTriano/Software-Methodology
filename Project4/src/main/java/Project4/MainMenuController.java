@@ -208,27 +208,30 @@ public class MainMenuController implements Initializable{
         }
     }
 
-    public void handleStoreOrdersButton()
-    {
+    public void handleStoreOrdersButton() {
 
-        Parent root;
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreOrdersView.fxml"));
-            root = loader.load();
+        if (storeOrderList.isEmpty()) {
+            System.out.println("Please add an order first.");
+        } else {
+            Parent root;
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreOrdersView.fxml"));
+                root = loader.load();
 
-            Stage stage = new Stage();
-            Scene scene = new Scene(root, 1000, 900);
-            stage.setTitle("Store Orders");
-            stage.setScene(scene);
-            stage.show();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root, 1000, 900);
+                stage.setTitle("Store Orders");
+                stage.setScene(scene);
+                stage.show();
 
-            StoreOrdersController storeOrdersController = loader.getController();
-            storeOrdersController.setMainController(this);
-            storeOrdersController.setPhoneCombo();
+                StoreOrdersController storeOrdersController = loader.getController();
+                storeOrdersController.setMainController(this);
+                storeOrdersController.setPhoneCombo();
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
