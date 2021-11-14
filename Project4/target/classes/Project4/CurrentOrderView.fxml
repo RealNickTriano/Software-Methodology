@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -21,7 +23,7 @@
        <RowConstraints maxHeight="150.0" minHeight="0.0" prefHeight="150.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-         <ListView fx:id="orderListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <ListView fx:id="orderListView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: firebrick;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
            <columnConstraints>
              <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="0.0" prefWidth="500.0" />
@@ -54,16 +56,25 @@
                   <GridPane.margin>
                      <Insets left="40.0" />
                   </GridPane.margin>
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
                </Label>
                <Label layoutX="50.0" layoutY="27.0" text="Sales Tax $" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                   <GridPane.margin>
                      <Insets left="130.0" />
                   </GridPane.margin>
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
                </Label>
                <Label layoutX="50.0" layoutY="27.0" text="Order Total $" GridPane.rowIndex="1">
                   <GridPane.margin>
                      <Insets left="75.0" />
                   </GridPane.margin>
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
                </Label>
             </children>
          </GridPane>
@@ -76,12 +87,28 @@
             <GridPane.margin>
                <Insets bottom="25.0" left="100.0" />
             </GridPane.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
          </Label>
          <Label text="Pizza Order" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
             <font>
-               <Font size="20.0" />
+               <Font name="System Bold" size="20.0" />
             </font>
          </Label>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+            <image>
+               <Image url="@../RutgersLogo.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+            <image>
+               <Image url="@../PizzaKnight.png" />
+            </image>
+            <effect>
+               <DropShadow />
+            </effect>
+         </ImageView>
       </children>
    </GridPane>
 </VBox>

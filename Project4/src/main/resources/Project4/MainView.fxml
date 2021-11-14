@@ -23,7 +23,7 @@
          <children>
             <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@RutgersLogo.png" />
+                  <Image url="@../RutgersLogo.png" />
                </image></ImageView>
          </children>
       </Pane>
@@ -134,5 +134,10 @@
          <effect>
             <DropShadow />
          </effect></Button>
+      <ImageView fitHeight="207.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <image>
+            <Image url="@../PizzaKnight.png" />
+         </image>
+      </ImageView>
    </children>
 </GridPane>

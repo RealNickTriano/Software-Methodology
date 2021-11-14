@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -54,16 +56,38 @@
                   <GridPane.margin>
                      <Insets left="40.0" />
                   </GridPane.margin>
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
                </Label>
                <Label layoutX="50.0" layoutY="27.0" text="Sales Tax $" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                   <GridPane.margin>
                      <Insets left="130.0" />
                   </GridPane.margin>
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
                </Label>
                <Label layoutX="50.0" layoutY="27.0" text="Order Total $" GridPane.rowIndex="1">
                   <GridPane.margin>
                      <Insets left="75.0" />
                   </GridPane.margin>
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Label>
+               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <image>
+                     <Image url="@../Helmet.png" />
+                  </image>
+               </ImageView>
+               <Label text="Hot and Delicous!" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <GridPane.margin>
+                     <Insets bottom="20.0" left="250.0" />
+                  </GridPane.margin>
+                  <font>
+                     <Font name="Comic Sans MS" size="20.0" />
+                  </font>
                </Label>
             </children>
          </GridPane>
@@ -76,12 +100,28 @@
             <GridPane.margin>
                <Insets bottom="25.0" left="100.0" />
             </GridPane.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
          </Label>
          <Label text="Pizza Order" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
             <font>
-               <Font size="20.0" />
+               <Font name="System Bold" size="20.0" />
             </font>
          </Label>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+            <image>
+               <Image url="@../RutgersLogo.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+            <image>
+               <Image url="@../PizzaKnight.png" />
+            </image>
+            <effect>
+               <DropShadow />
+            </effect>
+         </ImageView>
       </children>
    </GridPane>
 </VBox>
