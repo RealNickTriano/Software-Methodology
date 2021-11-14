@@ -65,6 +65,7 @@ public class Order {
      * Allows other classes to get the total of an order
      * @return the total cost of the order
      */
+
     public double getTotal() {
         double total = 0;
         int i;
