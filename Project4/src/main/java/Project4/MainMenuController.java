@@ -253,6 +253,11 @@ public class MainMenuController implements Initializable{
 
             CurrentOrderController currentOrderView = loader.getController();
             currentOrderView.setMainController(this);
+            if(!orderStarted)
+            {
+                orderStarted = true;
+                order = new Order(phoneNumberField.getText());
+            }
             currentOrderView.setPhone(phone);
             currentOrderView.setOrder(order);
             currentOrderView.setTotals();
