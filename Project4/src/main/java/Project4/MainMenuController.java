@@ -92,6 +92,7 @@ public class MainMenuController implements Initializable{
             Scene scene = new Scene(root, 600, 700);
             stage.setTitle("Pizza Customization");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
 
             PizzaCustomController pizzaView = loader.getController();
@@ -141,6 +142,7 @@ public class MainMenuController implements Initializable{
             Scene scene = new Scene(root, 600, 700);
             stage.setTitle("Pizza Customization");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
 
             PizzaCustomController pizzaView = loader.getController();
@@ -184,6 +186,7 @@ public class MainMenuController implements Initializable{
             Scene scene = new Scene(root, 600, 700);
             stage.setTitle("Pizza Customization");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
 
             PizzaCustomController pizzaView = loader.getController();
@@ -222,6 +225,7 @@ public class MainMenuController implements Initializable{
                 Scene scene = new Scene(root, 1000, 900);
                 stage.setTitle("Store Orders");
                 stage.setScene(scene);
+                stage.setResizable(false);
                 stage.show();
 
                 StoreOrdersController storeOrdersController = loader.getController();
@@ -245,11 +249,14 @@ public class MainMenuController implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentOrderView.fxml"));
             root = loader.load();
 
+
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1000, 900);
             stage.setTitle("Current Order");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
+
 
             CurrentOrderController currentOrderView = loader.getController();
             currentOrderView.setMainController(this);

@@ -14,6 +14,7 @@ public class RuPizzeriaApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 600, 500);
         stage.setTitle("RU Pizza");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
