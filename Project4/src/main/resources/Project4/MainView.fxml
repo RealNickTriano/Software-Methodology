@@ -5,6 +5,7 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Project4.MainMenuController">
   <columnConstraints>
@@ -42,7 +43,10 @@
          </GridPane.margin>
          <effect>
             <DropShadow />
-         </effect></Button>
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Button>
       <Button fx:id="deluxeButton" alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleDeluxeButton" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: firebrick;" text="Deluxe" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets />
@@ -59,7 +63,10 @@
          </graphic>
          <effect>
             <DropShadow />
-         </effect></Button>
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Button>
       <Button fx:id="hawaiianButton" alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleHawaiianButton" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: firebrick;" text="Hawaiian" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
@@ -76,21 +83,56 @@
          </GridPane.margin>
          <effect>
             <DropShadow />
-         </effect></Button>
-      <TextField fx:id="phoneNumberField" maxHeight="-Infinity" maxWidth="-Infinity" onMousePressed="#onMousePressedPhone" promptText="Phone Number" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Button>
+      <TextField fx:id="phoneNumberField" maxHeight="-Infinity" maxWidth="-Infinity" onMousePressed="#onMousePressedPhone" promptText="Phone Number" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>
       </TextField>
-      <Label text="Phone" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+      <Label text="Phone" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
          <padding>
             <Insets right="10.0" />
          </padding>
          <GridPane.margin>
-            <Insets right="20.0" top="5.0" />
+            <Insets bottom="5.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="storeOrdersButton" mnemonicParsing="false" onAction="#handleStoreOrdersButton" text="Store Orders" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Button fx:id="currentOrderButton" mnemonicParsing="false" onAction="#handleCurrentOrderButton" text="Current Order" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Button fx:id="storeOrdersButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleStoreOrdersButton" style="-fx-background-color: firebrick;" text="Store Orders" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../StoreOrders.jpg" />
+               </image>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Button fx:id="currentOrderButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCurrentOrderButton" style="-fx-background-color: firebrick;" text="Current Order" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../StoreOrders.jpg" />
+               </image>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect></Button>
    </children>
 </GridPane>
