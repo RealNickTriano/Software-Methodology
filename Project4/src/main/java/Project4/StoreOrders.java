@@ -25,22 +25,25 @@ public class StoreOrders {
             pw = new PrintWriter(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            return false;
         }
         int i, j;
         // iterate over each order
         for (i = 0; i < storeOrdersList.size(); i++) {
-            pw.print("*******************************");
+            // pw.write("****************************");
+            pw.print("*******************************\n");
             Order currentOrder = storeOrdersList.get(i);
             String phone = currentOrder.getPhoneNumber();
-            pw.print(phone);
+            pw.print(phone + "\n");
             ArrayList<Pizza> pizzaList = currentOrder.getPizzaList();
             for (j = 0; j < pizzaList.size(); j++) {
-                pw.print(pizzaList.get(j));
+                pw.print(pizzaList.get(j).toString() + "\n");
             }
             double total = currentOrder.getTotal();
-            pw.print(total);
+            pw.print(total + "\n");
             pw.print("*******************************");
         }
+        pw.close();
         return true;
     }
 

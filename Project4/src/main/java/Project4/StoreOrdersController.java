@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class StoreOrdersController {
 
@@ -95,5 +96,8 @@ public class StoreOrdersController {
     protected void handleExportOrders()
     {
         mainController.storeOrder.export();
+        Stage stage = (Stage) exportOrdersButton.getScene().getWindow();
+        System.out.println("Export done.");
+        stage.close();
     }
 }
