@@ -91,7 +91,7 @@ public class MainMenuController implements Initializable {
      */
     @FXML
     public void handlePepperoniButton() {
-        Pizza pizza = new Pepperoni();
+        Pizza pizza = PizzaMaker.createPizza("Pepperoni");
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Pepperoni);
         if (!getPhone()) {
@@ -139,7 +139,7 @@ public class MainMenuController implements Initializable {
      */
     @FXML
     public void handleDeluxeButton() {
-        Pizza pizza = new Deluxe();
+        Pizza pizza = PizzaMaker.createPizza("Deluxe");
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Sausage);
         pizza.addTopping(Toppings.GreenPepper);
@@ -189,7 +189,7 @@ public class MainMenuController implements Initializable {
      */
     @FXML
     public void handleHawaiianButton() {
-        Pizza pizza = new Hawaiian();
+        Pizza pizza = PizzaMaker.createPizza("Hawaiian");
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Ham);
         pizza.addTopping(Toppings.Pineapple);
@@ -295,7 +295,7 @@ public class MainMenuController implements Initializable {
                 order = new Order(phoneNumberField.getText());
             }
             currentOrderView.setPhone(phone);
-            currentOrderView.setOrder(order);
+            currentOrderView.setOrder();
             currentOrderView.setTotals();
 
         } catch (IOException e) {

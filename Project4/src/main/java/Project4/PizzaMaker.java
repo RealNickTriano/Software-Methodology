@@ -1,27 +1,28 @@
 package Project4;
 
 /**
+ * Creates an instance of subclasses based on the chosen flavor
+ *
  * @author Nicholas Triano, Antonio Ignarra
  */
-// TODO: create an instance of subclasses based on the chosen flavor
 public class PizzaMaker {
-    public static Pizza createPizza(String flavor){
-        // TODO: write the code for creating different instances of subtypes of pizza
+    /**
+     * Static method used to create instances of Pizza subclasses
+     *
+     * @param flavor flavor of pizza
+     * @return A subclass of pizza based on flavor parameter
+     */
+    public static Pizza createPizza(String flavor) {
 
-        if (flavor.equalsIgnoreCase("Hawaiian"))
-        {
+        if (flavor.equalsIgnoreCase("Hawaiian")) {
             // make hawaiian pizza
             Hawaiian pizza = new Hawaiian();
             return pizza;
-        }
-        else if (flavor.equalsIgnoreCase("Deluxe"))
-        {
+        } else if (flavor.equalsIgnoreCase("Deluxe")) {
             // make Deluxe pizza
             Deluxe pizza = new Deluxe();
             return pizza;
-        }
-        else if (flavor.equalsIgnoreCase("Pepperoni"))
-        {
+        } else if (flavor.equalsIgnoreCase("Pepperoni")) {
             // make Pepperoni pizza
             Pepperoni pizza = new Pepperoni();
             return pizza;

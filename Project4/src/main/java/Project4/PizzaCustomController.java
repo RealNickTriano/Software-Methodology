@@ -75,6 +75,15 @@ public class PizzaCustomController implements Initializable {
     }
 
     /**
+     * Helper method to set the main controller to access data items in MainMenuController
+     *
+     * @param controller the controller for the main menu
+     */
+    public void setMainController(MainMenuController controller) {
+        mainController = controller; //now you can reference any private data items through mainController
+    }
+
+    /**
      * Helper method to set the pizza selected in main menu
      *
      * @param selectedPizza pizza selected in main menu
@@ -89,15 +98,6 @@ public class PizzaCustomController implements Initializable {
      */
     public void setPrice() {
         priceText.setText("0.00");
-    }
-
-    /**
-     * Helper method to set the main controller to access data items in MainMenuController
-     *
-     * @param controller the controller for the main menu
-     */
-    public void setMainController(MainMenuController controller) {
-        mainController = controller; //now you can reference any private data items through mainController
     }
 
     /**
