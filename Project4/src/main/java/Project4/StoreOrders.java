@@ -29,7 +29,7 @@ public class StoreOrders {
      * @return true on success, false on failure
      */
     public boolean export() {
-        File file = new File("Project4/store_orders.txt");
+        File file = new File("store_orders.txt");
         PrintWriter pw = null;
         try {
             pw = new PrintWriter(file);

@@ -1,5 +1,8 @@
+Customer phone: 7777777777
+Deluxe pizza, Sausage, GreenPepper, Mushroom, Onion, Pepperoni, Large, $16.99
+Order total: $18.12
 *******************************
-5555555555
-Pepperoni pizza, Pepperoni, Sausage, Large, $14.48
-15.44
+Customer phone: 7777777775
+Hawaiian pizza, Ham, Pineapple, Medium, $12.99
+Order total: $13.85
 *******************************
