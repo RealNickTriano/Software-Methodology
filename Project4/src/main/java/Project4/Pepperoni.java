@@ -1,7 +1,5 @@
 package Project4;
 
-import java.util.ArrayList;
-
 /**
  * Subclass of Pizza contains overridden price method and toString method
  * Instantiated when user orders a Pepperoni pizza

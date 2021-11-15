@@ -1,7 +1,5 @@
 package Project4;
 
-import java.math.RoundingMode;
-
 /**
  * Subclass of Pizza contains overridden price method and toString method
  * Instantiated when user orders a Hawaiian pizza
