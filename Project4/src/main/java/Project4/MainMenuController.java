@@ -99,18 +99,15 @@ public class MainMenuController implements Initializable {
             return;
         }
         Parent root;
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomView.fxml"));
             root = loader.load();
-
             Stage stage = new Stage();
             Scene scene = new Scene(root, 600, 700);
             stage.setTitle("Pizza Customization");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
-
             PizzaCustomController pizzaView = loader.getController();
             pizzaView.setMainController(this);
             pizzaView.setPizza(pizza);
@@ -118,19 +115,15 @@ public class MainMenuController implements Initializable {
             pizzaView.setSelectedToppingsList(pizza.getToppings());
             pizzaView.setPrice();
             pizzaView.setImage("Pepperoni.jpg");
-
             if (phoneEditable)
                 phoneEditable = false;
             if (!orderStarted) {
                 orderStarted = true;
                 order = new Order(phoneNumberField.getText());
             }
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
@@ -154,18 +147,15 @@ public class MainMenuController implements Initializable {
             return;
         }
         Parent root;
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomView.fxml"));
             root = loader.load();
-
             Stage stage = new Stage();
             Scene scene = new Scene(root, 600, 700);
             stage.setTitle("Pizza Customization");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
-
             PizzaCustomController pizzaView = loader.getController();
             pizzaView.setMainController(this);
             pizzaView.setPizza(pizza);
@@ -173,14 +163,12 @@ public class MainMenuController implements Initializable {
             pizzaView.setSelectedToppingsList(pizza.getToppings());
             pizzaView.setPrice();
             pizzaView.setImage("Deluxe.jpg");
-
             if (phoneEditable)
                 phoneEditable = false;
             if (!orderStarted) {
                 orderStarted = true;
                 order = new Order(phoneNumberField.getText());
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -207,14 +195,12 @@ public class MainMenuController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomView.fxml"));
             root = loader.load();
-
             Stage stage = new Stage();
             Scene scene = new Scene(root, 600, 700);
             stage.setTitle("Pizza Customization");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
-
             PizzaCustomController pizzaView = loader.getController();
             pizzaView.setMainController(this);
             pizzaView.setPizza(pizza);
@@ -222,14 +208,12 @@ public class MainMenuController implements Initializable {
             pizzaView.setSelectedToppingsList(pizza.getToppings());
             pizzaView.setPrice();
             pizzaView.setImage("Hawaiian.jpg");
-
             if (phoneEditable)
                 phoneEditable = false;
             if (!orderStarted) {
                 orderStarted = true;
                 order = new Order(phoneNumberField.getText());
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -242,7 +226,6 @@ public class MainMenuController implements Initializable {
      */
     @FXML
     public void handleStoreOrdersButton() {
-
         if (storeOrderList.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error!");
@@ -290,16 +273,12 @@ public class MainMenuController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentOrderView.fxml"));
             root = loader.load();
-
-
             Stage stage = new Stage();
             Scene scene = new Scene(root, 1000, 900);
             stage.setTitle("Current Order");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
-
-
             CurrentOrderController currentOrderView = loader.getController();
             currentOrderView.setMainController(this);
             if (!orderStarted) {
@@ -309,7 +288,6 @@ public class MainMenuController implements Initializable {
             currentOrderView.setPhone(phone);
             currentOrderView.setOrder();
             currentOrderView.setTotals();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
