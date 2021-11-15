@@ -6,18 +6,28 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
+ * Used to create a Store Order containing an arraylist of Orders
+ * An instance of this class keeps the list of orders placed by the user
+ *
  * @author Nicholas Triano, Antonio Ignarra
  */
 public class StoreOrders {
-    // TODO: An instance of this class keeps the list of orders placed by the user
     private ArrayList<Order> storeOrdersList;
 
+    /**
+     * Constructor for StoreOrders class, creates a new StoreOrder object with given parameters
+     *
+     * @param storeOrdersList the arraylist of Orders
+     */
     public StoreOrders(ArrayList<Order> storeOrdersList) {
         this.storeOrdersList = storeOrdersList;
     }
 
-    // TODO: export() method in this class to save the store orders
-    //    // to and external txt file
+    /**
+     * Saves the store orders to an external text file
+     *
+     * @return true on success, false on failure
+     */
     public boolean export() {
         File file = new File("Project4/store_orders.txt");
         PrintWriter pw = null;
@@ -49,6 +59,7 @@ public class StoreOrders {
 
     /**
      * Adds an order to the list of all orders in the store
+     *
      * @param order the order to add
      * @return true if the order is successfully added, false if not
      */
@@ -58,6 +69,7 @@ public class StoreOrders {
 
     /**
      * Removes an order to the list of all orders in the store
+     *
      * @param order the order to remove
      * @return true if the order is successfully removed, false if not
      */
@@ -65,8 +77,12 @@ public class StoreOrders {
         return storeOrdersList.remove(order);
     }
 
-    public ArrayList<Order> getStoreOrdersList()
-    {
+    /**
+     * Allows other classes to access the list of store orders
+     *
+     * @return the list of store orders
+     */
+    public ArrayList<Order> getStoreOrdersList() {
         return storeOrdersList;
     }
 }

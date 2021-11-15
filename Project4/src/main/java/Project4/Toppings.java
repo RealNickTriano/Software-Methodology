@@ -1,6 +1,7 @@
 package Project4;
 
 /**
+ * Enum to hold toppings of pizza
  * @author Nicholas Triano, Antonio Ignarra
  */
 public enum Toppings {

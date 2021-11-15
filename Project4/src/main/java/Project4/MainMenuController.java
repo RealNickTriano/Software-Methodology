@@ -19,7 +19,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class MainMenuController implements Initializable{
+/**
+ * The Controller for the GUI, handles all GUI events
+ *
+ * @author Nicholas Triano, Antonio Ignarra
+ */
+public class MainMenuController implements Initializable {
     @FXML
     private Button pepperoniButton;
     @FXML
@@ -33,19 +38,19 @@ public class MainMenuController implements Initializable{
     @FXML
     private Button currentOrderButton;
 
-    private  ArrayList<Toppings> allToppings = new ArrayList<>(
-    Arrays.asList(
-            Toppings.Chicken,
-            Toppings.Beef,
-            Toppings.Pepperoni,
-            Toppings.GreenPepper,
-            Toppings.Mushroom,
-            Toppings.Pineapple,
-            Toppings.Ham,
-            Toppings.Cheese,
-            Toppings.Sausage,
-            Toppings.Onion,
-            Toppings.BlackOlives));
+    private ArrayList<Toppings> allToppings = new ArrayList<>(
+            Arrays.asList(
+                    Toppings.Chicken,
+                    Toppings.Beef,
+                    Toppings.Pepperoni,
+                    Toppings.GreenPepper,
+                    Toppings.Mushroom,
+                    Toppings.Pineapple,
+                    Toppings.Ham,
+                    Toppings.Cheese,
+                    Toppings.Sausage,
+                    Toppings.Onion,
+                    Toppings.BlackOlives));
 
     private String phone;
     protected Order order;
@@ -55,26 +60,37 @@ public class MainMenuController implements Initializable{
     protected ObservableList<String> phoneList = FXCollections.observableArrayList();
     protected boolean phoneEditable = true;
 
+    /**
+     * Called on start up, initializes needed variables
+     *
+     * @param url
+     * @param resourceBundle
+     */
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         storeOrderList = new ArrayList<>();
         storeOrder = new StoreOrders(storeOrderList);
     }
 
+    /**
+     * Handles phone number text field on mouse click.
+     * If in the middle of an order the field is not editable.
+     */
     @FXML
-    public void onMousePressedPhone()
-    {
-        if(phoneEditable)
-        {
+    public void onMousePressedPhone() {
+        if (phoneEditable) {
             phoneNumberField.setEditable(true);
-        }
-        else {
+        } else {
             phoneNumberField.setEditable(false);
         }
     }
-    public void handlePepperoniButton()
-    {
+
+    /**
+     * Handles pepperoni button press, sets a new stage and shows new window.
+     * Calls methods in PizzaCustomController class to set up window UI elements.
+     */
+    @FXML
+    public void handlePepperoniButton() {
         Pizza pizza = new Pepperoni();
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Pepperoni);
@@ -105,23 +121,24 @@ public class MainMenuController implements Initializable{
 
             if (phoneEditable)
                 phoneEditable = false;
-            if(!orderStarted)
-            {
+            if (!orderStarted) {
                 orderStarted = true;
                 order = new Order(phoneNumberField.getText());
             }
 
 
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    public void handleDeluxeButton()
-    {
+    /**
+     * Handles deluxe button press, sets a new stage and shows new window.
+     * Calls methods in PizzaCustomController class to set up window UI elements.
+     */
+    @FXML
+    public void handleDeluxeButton() {
         Pizza pizza = new Deluxe();
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Sausage);
@@ -156,21 +173,22 @@ public class MainMenuController implements Initializable{
 
             if (phoneEditable)
                 phoneEditable = false;
-            if(!orderStarted)
-            {
+            if (!orderStarted) {
                 orderStarted = true;
                 order = new Order(phoneNumberField.getText());
             }
 
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void handleHawaiianButton()
-    {
+    /**
+     * Handles hawaiian button press, sets a new stage and shows new window.
+     * Calls methods in PizzaCustomController class to set up window UI elements.
+     */
+    @FXML
+    public void handleHawaiianButton() {
         Pizza pizza = new Hawaiian();
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Ham);
@@ -201,19 +219,22 @@ public class MainMenuController implements Initializable{
 
             if (phoneEditable)
                 phoneEditable = false;
-            if(!orderStarted)
-            {
+            if (!orderStarted) {
                 orderStarted = true;
                 order = new Order(phoneNumberField.getText());
             }
 
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Handles store orders button press, sets a new stage and shows new window.
+     * Calls methods in StoreOrdersController class to set up window UI elements.
+     * If no orders have been placed, return early and display message.
+     */
+    @FXML
     public void handleStoreOrdersButton() {
 
         if (storeOrderList.isEmpty()) {
@@ -242,6 +263,12 @@ public class MainMenuController implements Initializable{
         }
     }
 
+    /**
+     * Handles current orders button press, sets a new stage and shows new window.
+     * Calls methods in CurrentOrderController class to set up window UI elements.
+     * If an order has not been started, return early and display message.
+     */
+    @FXML
     public void handleCurrentOrderButton() {
         if (!getPhone()) {
             System.out.println("Must enter a phone number.");
@@ -263,8 +290,7 @@ public class MainMenuController implements Initializable{
 
             CurrentOrderController currentOrderView = loader.getController();
             currentOrderView.setMainController(this);
-            if(!orderStarted)
-            {
+            if (!orderStarted) {
                 orderStarted = true;
                 order = new Order(phoneNumberField.getText());
             }
@@ -279,12 +305,12 @@ public class MainMenuController implements Initializable{
 
     /**
      * Gets the phone number for the current order for the main controller
+     *
      * @return true if the phone number entered is valid, false otherwise
      */
-    public boolean getPhone()
-    {
+    public boolean getPhone() {
         phone = phoneNumberField.getText();
-        if (phone.matches("^[0-9]+$") && phone.length() == Constants.PHONE_LENGTH){
+        if (phone.matches("^[0-9]+$") && phone.length() == Constants.PHONE_LENGTH) {
             // cannot change phone once a valid number is entered and order is started until order is placed
             phoneNumberField.setEditable(false);
             return true;

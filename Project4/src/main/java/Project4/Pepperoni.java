@@ -3,10 +3,16 @@ package Project4;
 import java.util.ArrayList;
 
 /**
+ * Subclass of Pizza contains overridden price method and toString method
+ * Instantiated when user orders a Pepperoni pizza
  * @author Nicholas Triano, Antonio Ignarra
  */
 public class Pepperoni extends Pizza{
 
+    /**
+     * Method to calculate price of Pepperoni pizza based on size and toppings
+     * @return price the price of the pizza
+     */
     @Override
     public double price() {
         if (this.size == Size.Small) {
@@ -35,6 +41,10 @@ public class Pepperoni extends Pizza{
         }
     }
 
+    /**
+     * Creates string from Pepperoni object with toppings and size
+     * @return formattedString the Pepperoni object in string form
+     */
     @Override
     public String toString()
     {

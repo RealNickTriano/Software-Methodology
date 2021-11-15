@@ -7,6 +7,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The Application class for the GUI. Creates fxml, scene, sets title and stage.
+ *
+ * @author Nicholas Triano, Antonio Ignarra
+ */
 public class RuPizzeriaApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -18,6 +23,11 @@ public class RuPizzeriaApplication extends Application {
         stage.show();
     }
 
+    /**
+     * Main method for application calls launch
+     *
+     * @param args no arguments are input
+     */
     public static void main(String[] args) {
         launch();
     }

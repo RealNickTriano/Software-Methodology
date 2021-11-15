@@ -3,6 +3,7 @@ package Project4;
 import java.util.ArrayList;
 
 /**
+ * Abstract class Pizza with arrayList of toppings, size, and abstract method price() used in subclasses.
  * @author Nicholas Triano, Antonio Ignarra
  */
 public abstract class Pizza {

@@ -3,10 +3,16 @@ package Project4;
 import java.math.RoundingMode;
 
 /**
+ * Subclass of Pizza contains overridden price method and toString method
+ * Instantiated when user orders a Hawaiian pizza
  * @author Nicholas Triano, Antonio Ignarra
  */
 public class Hawaiian extends Pizza{
 
+    /**
+     * Method to calculate price of Hawaiian pizza based on size and toppings
+     * @return price the price of the pizza
+     */
     @Override
     public double price() {
         if (this.size == Size.Small) {
@@ -35,6 +41,10 @@ public class Hawaiian extends Pizza{
         }
     }
 
+    /**
+     * Creates string from Hawaiian object with toppings and size
+     * @return formattedString the Hawaiian object in string form
+     */
     @Override
     public String toString()
     {

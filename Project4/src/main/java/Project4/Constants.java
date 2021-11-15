@@ -1,5 +1,9 @@
 package Project4;
 
+/**
+ * Definition for all Constants which appear in the package
+ * @author Nicholas Triano, Antonio Ignarra
+ */
 public class Constants {
     public static double SMALL_DELUXE = 12.99;
     public static double SMALL_HAWAIIAN = 10.99;
