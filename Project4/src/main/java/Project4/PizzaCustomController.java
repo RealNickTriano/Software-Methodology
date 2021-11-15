@@ -90,7 +90,7 @@ public class PizzaCustomController implements Initializable {
      */
     public void setPizza(Pizza selectedPizza) {
         pizza = selectedPizza;
-        priceText.setText(String.valueOf(pizza.price()));
+        priceText.setText(String.format("%.2f", pizza.price()));
     }
 
     /**
@@ -156,7 +156,7 @@ public class PizzaCustomController implements Initializable {
             pizza.addTopping((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
             selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
             totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
-            priceText.setText(String.valueOf(pizza.price()));
+            priceText.setText(String.format("%.2f", pizza.price()));
             handleChoiceBox();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -176,7 +176,7 @@ public class PizzaCustomController implements Initializable {
             totalToppingsObservable.add((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
             pizza.removeTopping((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
             selectedToppingsObservable.remove(selectedToppingsList.getSelectionModel().getSelectedItem());
-            priceText.setText(String.valueOf(pizza.price()));
+            priceText.setText(String.format("%.2f", pizza.price()));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error!");
@@ -209,7 +209,7 @@ public class PizzaCustomController implements Initializable {
     protected void handleComboBox() {
         sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
         pizza.setSize((Size) sizeComboBox.getSelectionModel().getSelectedItem());
-        priceText.setText(String.valueOf(pizza.price()));
+        priceText.setText(String.format("%.2f", pizza.price()));
         handleChoiceBox();
     }
 
@@ -219,7 +219,7 @@ public class PizzaCustomController implements Initializable {
     @FXML
     protected void handleChoiceBox() {
         quantity = Integer.parseInt(quantityBox.getSelectionModel().getSelectedItem().toString());
-        priceText.setText(String.valueOf(pizza.price() * quantity));
+        priceText.setText(String.format("%.2f", (pizza.price() * quantity)));
     }
 
     /**
