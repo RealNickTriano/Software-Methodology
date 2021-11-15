@@ -19,7 +19,7 @@ public class StoreOrders {
     // TODO: export() method in this class to save the store orders
     //    // to and external txt file
     public boolean export() {
-        File file = new File("store_orders.txt");
+        File file = new File("Project4/store_orders.txt");
         PrintWriter pw = null;
         try {
             pw = new PrintWriter(file);
