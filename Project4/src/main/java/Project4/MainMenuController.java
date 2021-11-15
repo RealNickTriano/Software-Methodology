@@ -95,7 +95,7 @@ public class MainMenuController implements Initializable {
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Pepperoni);
         if (!getPhone()) {
-            System.out.println("Must enter a phone number.");
+            //System.out.println("Must enter a phone number.");
             return;
         }
         Parent root;
@@ -147,7 +147,7 @@ public class MainMenuController implements Initializable {
         pizza.addTopping(Toppings.Onion);
         pizza.addTopping(Toppings.Pepperoni);
         if (!getPhone()) {
-            System.out.println("Must enter a phone number.");
+            //System.out.println("Must enter a phone number.");
             return;
         }
         Parent root;
@@ -194,7 +194,7 @@ public class MainMenuController implements Initializable {
         pizza.addTopping(Toppings.Ham);
         pizza.addTopping(Toppings.Pineapple);
         if (!getPhone()) {
-            System.out.println("Must enter a phone number.");
+            //System.out.println("Must enter a phone number.");
             return;
         }
         Parent root;
@@ -238,7 +238,7 @@ public class MainMenuController implements Initializable {
     public void handleStoreOrdersButton() {
 
         if (storeOrderList.isEmpty()) {
-            System.out.println("Please add an order first.");
+            //System.out.println("Please add an order first.");
         } else {
             Parent root;
             try {
@@ -271,7 +271,7 @@ public class MainMenuController implements Initializable {
     @FXML
     public void handleCurrentOrderButton() {
         if (!getPhone()) {
-            System.out.println("Must enter a phone number.");
+            //System.out.println("Must enter a phone number.");
             return;
         }
         Parent root;

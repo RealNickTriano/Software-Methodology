@@ -112,7 +112,7 @@ public class StoreOrdersController {
     protected void handleExportOrders() {
         mainController.storeOrder.export();
         Stage stage = (Stage) exportOrdersButton.getScene().getWindow();
-        System.out.println("Export done.");
+        //System.out.println("Export done.");
         stage.close();
     }
 }
