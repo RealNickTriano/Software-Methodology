@@ -56,7 +56,16 @@ public class PepperoniTest {
         // test case #8, going from small to medium should increase price by 2$
         pizza.setSize(Size.Medium);
         Assertions.assertTrue(pizza.price() - 2 == oldPrice);
-        
+
+        // test case #9, removing all toppings (medium with no toppings) should set price to $10.99
+        pizza.removeTopping(Toppings.GreenPepper);
+        pizza.removeTopping(Toppings.Beef);
+        pizza.removeTopping(Toppings.BlackOlives);
+        pizza.removeTopping(Toppings.Sausage);
+        pizza.removeTopping(Toppings.Mushroom);
+        pizza.removeTopping(Toppings.Pineapple);
+        pizza.removeTopping(Toppings.Pepperoni);
+        Assertions.assertTrue(pizza.price() == 10.99);
 
     }
 }
