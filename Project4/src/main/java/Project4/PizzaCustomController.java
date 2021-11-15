@@ -17,6 +17,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * The Controller for the pizza customization GUI, handles pizza customization GUI events
+ *
+ * @author Nicholas Triano, Antonio Ignarra
+ */
 public class PizzaCustomController implements Initializable {
     @FXML
     private ListView totalToppingsList;
@@ -48,8 +53,12 @@ public class PizzaCustomController implements Initializable {
     private Pizza pizza;
     private int quantity;
 
-    // sizeComboBox.getItems().addAll(Size.Small, Size.Medium, Size.Large);
-
+    /**
+     * Called on start up, initializes needed variables
+     *
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -60,47 +69,69 @@ public class PizzaCustomController implements Initializable {
         sizeComboBox.setItems(comboList);
         sizeComboBox.getSelectionModel().selectFirst();
         sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
-        quantityBox.getItems().addAll("0", "1","2", "3", "4", "5");
+        quantityBox.getItems().addAll("0", "1", "2", "3", "4", "5");
         quantityBox.getSelectionModel().selectFirst();
 
     }
 
-    public void setPizza(Pizza selectedPizza)
-    {
+    /**
+     * Helper method to set the pizza selected in main menu
+     *
+     * @param selectedPizza pizza selected in main menu
+     */
+    public void setPizza(Pizza selectedPizza) {
         pizza = selectedPizza;
         priceText.setText(String.valueOf(pizza.price()));
     }
 
-    public void setPrice()
-    {
+    /**
+     * Helper method to set price textField initially
+     */
+    public void setPrice() {
         priceText.setText("0.00");
     }
 
+    /**
+     * Helper method to set the main controller to access data items in MainMenuController
+     *
+     * @param controller the controller for the main menu
+     */
     public void setMainController(MainMenuController controller) {
         mainController = controller; //now you can reference any private data items through mainController
     }
 
+    /**
+     * Helper method to set the correct image in PizzaCustomView based on button pressed in main menu.
+     *
+     * @param imageFile string of the image file needed to display
+     */
     public void setImage(String imageFile) {
         Image image = new Image(imageFile);
         pizzaImage.setImage(image);
         pizzaImage.setCache(true);
     }
 
-    public void setTotalToppingsList(ArrayList<Toppings> toppings)
-    {
-        for (int i = 0; i < toppings.size(); i++)
-        {
+    /**
+     * Helper method to set the total toppings list view in PizzaCustomView
+     *
+     * @param toppings arraylist of toppings to show in the list view
+     */
+    public void setTotalToppingsList(ArrayList<Toppings> toppings) {
+        for (int i = 0; i < toppings.size(); i++) {
             totalToppingsObservable.add(toppings.get(i));
         }
 
         totalToppingsList.setItems(totalToppingsObservable);
     }
 
-    public void setSelectedToppingsList(ArrayList<Toppings> toppings)
-    {
+    /**
+     * Helper method to set the selected toppings list view in PizzaCustomView
+     *
+     * @param toppings arraylist of toppings to show in the list view
+     */
+    public void setSelectedToppingsList(ArrayList<Toppings> toppings) {
 
-        for (int i = 0; i < toppings.size(); i++)
-        {
+        for (int i = 0; i < toppings.size(); i++) {
             selectedToppingsObservable.add(toppings.get(i));
             totalToppingsObservable.remove(toppings.get(i));
         }
@@ -108,48 +139,47 @@ public class PizzaCustomController implements Initializable {
         selectedToppingsList.setItems(selectedToppingsObservable);
     }
 
+    /**
+     * Handles add topping button press, adds topping to selected list view and removes from total toppings list view.
+     * Constraint is set to 7 toppings max selected.
+     */
     @FXML
-    protected void handleAddButton()
-    {
-        if (totalToppingsList.getSelectionModel().getSelectedItem() == null)
-        {
+    protected void handleAddButton() {
+        if (totalToppingsList.getSelectionModel().getSelectedItem() == null) {
             System.out.println("Must select topping to add.");
             return;
         }
-        if(selectedToppingsList.getItems().size() < 7)
-        {
+        if (selectedToppingsList.getItems().size() < 7) {
             pizza.addTopping((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
             selectedToppingsObservable.add((Toppings) totalToppingsList.getSelectionModel().getSelectedItem());
             totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
             priceText.setText(String.valueOf(pizza.price()));
             handleChoiceBox();
-        }
-        else
+        } else
             System.out.println("Toppings cannot exceed 7.");
     }
 
+    /**
+     * Handles remove topping button press, removes topping from selected list view and adds to total toppings list view.
+     * Calls checkValidRemove() method, removing default toppings is rejected.
+     */
     @FXML
-    protected void handleRemoveButton()
-    {
-        if(checkValidRemove())
-        {
+    protected void handleRemoveButton() {
+        if (checkValidRemove()) {
             totalToppingsObservable.add((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
             pizza.removeTopping((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
             selectedToppingsObservable.remove(selectedToppingsList.getSelectionModel().getSelectedItem());
             priceText.setText(String.valueOf(pizza.price()));
-        }
-        else
+        } else
             System.out.println("Cannot remove topping.");
     }
 
+    /**
+     * Handles add to order button press. Adds pizza to order and closes window
+     */
     @FXML
-    protected void handleAddToOrder()
-    {
-        // add pizza to order
-        // Order must only be tracked through main menu controller to be maintained thru
-        // window closes and transfer info between windows
-        //System.out.println("adding to order");
-        while(quantity > 0) {
+    protected void handleAddToOrder() {
+        while (quantity > 0) {
             mainController.order.addToOrder(pizza);
             quantity--;
         }
@@ -158,51 +188,53 @@ public class PizzaCustomController implements Initializable {
         stage.close();
     }
 
+    /**
+     * Handles selection of size combo box item and sets the price accordingly based on quantity
+     */
     @FXML
-    protected void handleComboBox()
-    {
+    protected void handleComboBox() {
         sizeSelected = sizeComboBox.getSelectionModel().getSelectedItem().toString();
         pizza.setSize((Size) sizeComboBox.getSelectionModel().getSelectedItem());
         priceText.setText(String.valueOf(pizza.price()));
         handleChoiceBox();
     }
 
+    /**
+     * Handles selection of quantity combo box item and sets price accordingly
+     */
     @FXML
-    protected void handleChoiceBox()
-    {
+    protected void handleChoiceBox() {
         quantity = Integer.parseInt(quantityBox.getSelectionModel().getSelectedItem().toString());
         priceText.setText(String.valueOf(pizza.price() * quantity));
     }
 
-    private boolean checkValidRemove()
-    {
-        if (selectedToppingsList.getSelectionModel().getSelectedItem() == null)
-        {
+    /**
+     * Helper method for handleRemoveButton(). checks invalid removal of default toppings
+     *
+     * @return true if there is no violation, false if there is a violation
+     */
+    private boolean checkValidRemove() {
+        if (selectedToppingsList.getSelectionModel().getSelectedItem() == null) {
             return false;
         }
-        if(pizza instanceof Pepperoni)
-        {
+        if (pizza instanceof Pepperoni) {
             if (selectedToppingsList.getSelectionModel().getSelectedItem().toString().equalsIgnoreCase("Pepperoni")) {
                 return false;
             }
-        }
-        else if(pizza instanceof Deluxe)
-        {
-            if(selectedToppingsList.getSelectionModel().getSelectedItem()
+        } else if (pizza instanceof Deluxe) {
+            if (selectedToppingsList.getSelectionModel().getSelectedItem()
                     .toString().equalsIgnoreCase("Pepperoni") ||
                     selectedToppingsList.getSelectionModel().getSelectedItem()
-                    .toString().equalsIgnoreCase("Sausage") ||
+                            .toString().equalsIgnoreCase("Sausage") ||
                     selectedToppingsList.getSelectionModel().getSelectedItem()
-                    .toString().equalsIgnoreCase("GreenPepper") ||
+                            .toString().equalsIgnoreCase("GreenPepper") ||
                     selectedToppingsList.getSelectionModel().getSelectedItem()
-                    .toString().equalsIgnoreCase("Onion") ||
+                            .toString().equalsIgnoreCase("Onion") ||
                     selectedToppingsList.getSelectionModel().getSelectedItem()
-                    .toString().equalsIgnoreCase("Mushroom"))
-            return false;
-        }
-        else if(pizza instanceof Hawaiian)
-        {
-            if(selectedToppingsList.getSelectionModel().getSelectedItem()
+                            .toString().equalsIgnoreCase("Mushroom"))
+                return false;
+        } else if (pizza instanceof Hawaiian) {
+            if (selectedToppingsList.getSelectionModel().getSelectedItem()
                     .toString().equalsIgnoreCase("Ham") || selectedToppingsList.getSelectionModel().getSelectedItem()
                     .toString().equalsIgnoreCase("Pineapple")) {
                 return false;
