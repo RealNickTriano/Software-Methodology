@@ -75,7 +75,7 @@ public class CurrentOrderController {
     }
 
     /**
-     * Helper method to set the phone number text field
+     * Helper method to set the phone number text field-
      *
      * @param phone customer's phone number
      */
