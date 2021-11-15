@@ -110,12 +110,24 @@ public class StoreOrdersController {
      */
     @FXML
     protected void handleExportOrders() {
-        mainController.storeOrder.export();
-        Stage stage = (Stage) exportOrdersButton.getScene().getWindow();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success!");
-        alert.setContentText("Successfully exported to store_orders.txt.");
-        alert.show();
-        stage.close();
+
+        if(mainController.storeOrder.getStoreOrdersList().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setContentText("There are currently no store orders.");
+            alert.show();
+        }
+        else
+        {
+            mainController.storeOrder.export();
+            Stage stage = (Stage) exportOrdersButton.getScene().getWindow();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success!");
+            alert.setContentText("Successfully exported to store_orders.txt.");
+            alert.show();
+            stage.close();
+        }
+
     }
 }
