@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -110,6 +107,10 @@ public class CurrentOrderController {
         mainController.storeOrder.addToStoreOrders(mainController.order);
         mainController.orderStarted = false;
         mainController.phoneEditable = true;
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success!");
+        alert.setContentText("Order placed!");
+        alert.show();
         Stage stage = (Stage) placeOrderButton.getScene().getWindow();
         stage.close();
     }
