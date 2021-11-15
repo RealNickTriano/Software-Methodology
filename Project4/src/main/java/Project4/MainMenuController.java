@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -95,7 +92,10 @@ public class MainMenuController implements Initializable {
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Pepperoni);
         if (!getPhone()) {
-            //System.out.println("Must enter a phone number.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setContentText("Must enter a phone number.");
+            alert.show();
             return;
         }
         Parent root;
@@ -147,7 +147,10 @@ public class MainMenuController implements Initializable {
         pizza.addTopping(Toppings.Onion);
         pizza.addTopping(Toppings.Pepperoni);
         if (!getPhone()) {
-            //System.out.println("Must enter a phone number.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setContentText("Must enter a phone number.");
+            alert.show();
             return;
         }
         Parent root;
@@ -194,7 +197,10 @@ public class MainMenuController implements Initializable {
         pizza.addTopping(Toppings.Ham);
         pizza.addTopping(Toppings.Pineapple);
         if (!getPhone()) {
-            //System.out.println("Must enter a phone number.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setContentText("Must enter a phone number.");
+            alert.show();
             return;
         }
         Parent root;
@@ -238,7 +244,10 @@ public class MainMenuController implements Initializable {
     public void handleStoreOrdersButton() {
 
         if (storeOrderList.isEmpty()) {
-            //System.out.println("Please add an order first.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setContentText("Please add an order first.");
+            alert.show();
         } else {
             Parent root;
             try {
@@ -271,7 +280,10 @@ public class MainMenuController implements Initializable {
     @FXML
     public void handleCurrentOrderButton() {
         if (!getPhone()) {
-            //System.out.println("Must enter a phone number.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setContentText("Must enter a phone number.");
+            alert.show();
             return;
         }
         Parent root;
