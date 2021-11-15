@@ -1,5 +1,4 @@
-*******************************
-5555555555
-Pepperoni pizza, Pepperoni, Sausage, Onion, Large, $15.97
-17.03
+Customer phone: 5555555555
+Pepperoni pizza, Pepperoni, Small, $8.99
+Order total: $9.59
 *******************************

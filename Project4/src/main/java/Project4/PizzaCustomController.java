@@ -146,7 +146,10 @@ public class PizzaCustomController implements Initializable {
     @FXML
     protected void handleAddButton() {
         if (totalToppingsList.getSelectionModel().getSelectedItem() == null) {
-            //System.out.println("Must select topping to add.");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setContentText("Must select a topping to add.");
+            alert.show();
             return;
         }
         if (selectedToppingsList.getItems().size() < 7) {
@@ -155,8 +158,12 @@ public class PizzaCustomController implements Initializable {
             totalToppingsObservable.remove(totalToppingsList.getSelectionModel().getSelectedItem());
             priceText.setText(String.valueOf(pizza.price()));
             handleChoiceBox();
-        } else {}
-            //System.out.println("Toppings cannot exceed 7.");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setContentText("Toppings cannot exceed 7.");
+            alert.show();
+        }
     }
 
     /**
@@ -170,8 +177,12 @@ public class PizzaCustomController implements Initializable {
             pizza.removeTopping((Toppings) selectedToppingsList.getSelectionModel().getSelectedItem());
             selectedToppingsObservable.remove(selectedToppingsList.getSelectionModel().getSelectedItem());
             priceText.setText(String.valueOf(pizza.price()));
-        } else {}
-            //System.out.println("Cannot remove topping.");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setContentText("Cannot remove topping.");
+            alert.show();
+        }
     }
 
     /**
@@ -183,7 +194,10 @@ public class PizzaCustomController implements Initializable {
             mainController.order.addToOrder(pizza);
             quantity--;
         }
-        //System.out.println("added to order.");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success!");
+        alert.setContentText("Successfully added to order.");
+        alert.show();
         Stage stage = (Stage) addToOrderButton.getScene().getWindow();
         stage.close();
     }
