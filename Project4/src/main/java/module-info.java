@@ -3,6 +3,7 @@ module com.example.project4 {
     requires javafx.fxml;
     requires junit;
     requires org.junit.jupiter.api;
+    requires org.testng;
 
 
     opens Project4 to javafx.fxml;
