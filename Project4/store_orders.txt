@@ -1,4 +1,5 @@
-Customer phone: 5555555555
+Customer phone: 1111111111
 Pepperoni pizza, Pepperoni, Small, $8.99
-Order total: $9.59
+Pepperoni pizza, Pepperoni, Small, $8.99
+Order total: $19.17
 *******************************
