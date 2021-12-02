@@ -28,7 +28,8 @@
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="@+id/titleTextView"
         app:layout_constraintStart_toStartOf="@+id/titleTextView"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/phoneNumberLabel"
@@ -99,5 +100,6 @@
         app:layout_constraintEnd_toEndOf="@+id/currentOrderButton"
         app:layout_constraintStart_toStartOf="@+id/currentOrderButton"
         app:layout_constraintTop_toBottomOf="@+id/hawaiianButton"
-        app:srcCompat="@drawable/pizza_knight" />
+        app:srcCompat="@drawable/pizza_knight"
+        android:contentDescription="@string/todo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
