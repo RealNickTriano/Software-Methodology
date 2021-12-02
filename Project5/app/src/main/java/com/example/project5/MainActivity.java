@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     protected Order order;
     protected StoreOrders storeOrder;
     protected ArrayList<Order> storeOrderList;
+    protected Pizza pizza;
+
+    public static Bundle mainBundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +35,20 @@ public class MainActivity extends AppCompatActivity {
     public void handlePepperoniButton(View view)
     {
 
-        Pizza pizza = PizzaMaker.createPizza("Pepperoni");
+        pizza = PizzaMaker.createPizza("Pepperoni");
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Pepperoni);
         pizza.addTopping(Toppings.Cheese);
         Intent intent = new Intent(this, PizzaCustomActivity.class);
         intent.putExtra("image", "Pepperoni");
         //intent.putExtra("pizza", pizza);
+        //mainBundle.putParcelable("pizza", (Parcelable) pizza);
         startActivity(intent);
     }
 
     public void handleDeluxeButton(View view)
     {
-        Pizza pizza = PizzaMaker.createPizza("Deluxe");
+        pizza = PizzaMaker.createPizza("Deluxe");
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Sausage);
         pizza.addTopping(Toppings.GreenPepper);
@@ -60,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void handleHawaiianButton(View view)
     {
-        Pizza pizza = PizzaMaker.createPizza("Deluxe");
+        pizza = PizzaMaker.createPizza("Deluxe");
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Ham);
         pizza.addTopping(Toppings.Pineapple);

@@ -65,6 +65,7 @@ public class PizzaCustomActivity extends AppCompatActivity {
             toppingsGroup.check(R.id.pineappleChip);
         }
 
+        //pizza = MainActivity.mainBundle.getParcelable("pizza");
         //priceText.setText(String.valueOf(pizza.price()));
     }
 
