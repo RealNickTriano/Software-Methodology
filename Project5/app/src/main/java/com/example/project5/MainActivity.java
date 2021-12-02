@@ -2,7 +2,6 @@ package com.example.project5;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button storeOrdersButton;
     private Button currentOrderButton;
     private EditText phoneNumber;
-    protected Order order;
+    public static Order order;
     protected StoreOrders storeOrder;
     protected ArrayList<Order> storeOrderList;
     public static Pizza pizza;
@@ -52,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(this, PizzaCustomActivity.class);
         intent.putExtra("image", "Pepperoni");
-        //intent.putExtra("pizza", pizza);
-        //mainBundle.putParcelable("pizza", (Parcelable) pizza);
         if (phoneEditable)
             phoneEditable = false;
         if(!orderStarted)
@@ -81,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(this, PizzaCustomActivity.class);
         intent.putExtra("image", "Deluxe");
-        intent.putExtra("pizza", (Parcelable) pizza);
         if (phoneEditable)
             phoneEditable = false;
         if(!orderStarted)
@@ -124,11 +120,6 @@ public class MainActivity extends AppCompatActivity {
     public void handleStoreOrdersButton(View view)
     {
 
-    }
-
-    public void addToOrder(Pizza pizza)
-    {
-        order.addToOrder(pizza);
     }
 
     public boolean getPhone() {

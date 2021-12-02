@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +21,6 @@ public class PizzaCustomActivity extends AppCompatActivity {
     private RadioButton mediumRadio;
     private RadioButton largeRadio;
     private TextView priceText;
-    private Pizza pizza;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,10 @@ public class PizzaCustomActivity extends AppCompatActivity {
 
     public void handleAddToOrder(View view)
     {
-        //MainActivity.class.add
+        MainActivity.order.addToOrder(MainActivity.pizza);
+        Toast.makeText(getApplicationContext(),
+                "Pizza added to order.", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
 }
