@@ -10,10 +10,13 @@
         android:id="@+id/toppingsChipGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toppingsLabel">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/beefChip"
@@ -81,4 +84,89 @@
             android:layout_height="wrap_content"
             android:text="@string/black_olives" />
     </com.google.android.material.chip.ChipGroup>
+
+    <ImageView
+        android:id="@+id/pizzaImage"
+        android:layout_width="198dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/pizza_image"
+        android:src="@drawable/pepperoni"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addToOrderButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/add_to_order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/sizeRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pizzaImage">
+
+        <RadioButton
+            android:id="@+id/smallRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/small" />
+
+        <RadioButton
+            android:id="@+id/mediumRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/medium" />
+
+        <RadioButton
+            android:id="@+id/largeRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/large" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/sizeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/size"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/sizeRadioGroup"
+        app:layout_constraintEnd_toStartOf="@+id/sizeRadioGroup"
+        app:layout_constraintTop_toTopOf="@+id/sizeRadioGroup" />
+
+    <TextView
+        android:id="@+id/toppingsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/toppings"
+        app:layout_constraintEnd_toEndOf="@+id/toppingsChipGroup"
+        app:layout_constraintStart_toStartOf="@+id/toppingsChipGroup"
+        app:layout_constraintTop_toBottomOf="@+id/sizeRadioGroup" />
+
+    <EditText
+        android:id="@+id/priceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/addToOrderButton"
+        app:layout_constraintEnd_toEndOf="@+id/addToOrderButton"
+        app:layout_constraintStart_toStartOf="@+id/addToOrderButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

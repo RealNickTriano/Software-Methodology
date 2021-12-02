@@ -17,4 +17,11 @@
     <string name="sausage">Sausage</string>
     <string name="onion">Onion</string>
     <string name="black_olives">Black Olives</string>
+    <string name="pizza_image">pizza image</string>
+    <string name="add_to_order">Add To Order</string>
+    <string name="small">Small</string>
+    <string name="medium">Medium</string>
+    <string name="large">Large</string>
+    <string name="size">Size</string>
+    <string name="toppings">Toppings</string>
 </resources>
