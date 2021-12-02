@@ -2,6 +2,7 @@ package com.example.project5;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -65,8 +66,12 @@ public class PizzaCustomActivity extends AppCompatActivity {
             toppingsGroup.check(R.id.pineappleChip);
         }
 
-        //pizza = MainActivity.mainBundle.getParcelable("pizza");
-        //priceText.setText(String.valueOf(pizza.price()));
+        priceText.setText(String.valueOf(MainActivity.pizza.price()));
+    }
+
+    public void handleAddToOrder(View view)
+    {
+        //MainActivity.class.add
     }
 
 }
