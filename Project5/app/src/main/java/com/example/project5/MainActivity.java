@@ -1,5 +1,6 @@
 package com.example.project5;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
@@ -30,17 +31,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void handlePepperoniButton(View view)
     {
+
         Toast.makeText(getApplicationContext(), "Pepperoni", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, PizzaCustomActivity.class);
+        intent.putExtra("image", "Pepperoni");
+        startActivity(intent);
     }
 
     public void handleDeluxeButton(View view)
     {
-
+        Intent intent = new Intent(this, PizzaCustomActivity.class);
+        intent.putExtra("image", "Deluxe");
+        startActivity(intent);
     }
 
     public void handleHawaiianButton(View view)
     {
-
+        Intent intent = new Intent(this, PizzaCustomActivity.class);
+        intent.putExtra("image", "Hawaiian");
+        startActivity(intent);
     }
 
     public void handleCurrentOrderButton(View view)
