@@ -57,6 +57,13 @@ public abstract class Pizza {
         return toppings.remove(topping);
     }
 
+    public boolean removeAll() {
+        if (toppings.size() == 0) {
+            return false;
+        }
+        return toppings.removeAll(toppings);
+    }
+
 }
 
 

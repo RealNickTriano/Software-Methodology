@@ -10,7 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+
+import java.util.List;
 
 public class PizzaCustomActivity extends AppCompatActivity {
 
@@ -77,4 +80,14 @@ public class PizzaCustomActivity extends AppCompatActivity {
         finish();
     }
 
+    public void handleChipClick(View view)
+    {
+        List<Integer> chips = toppingsGroup.getCheckedChipIds();
+        MainActivity.pizza.removeAll();
+        for (int i = 0; i < chips.size(); i++) {
+            Chip chip = toppingsGroup.findViewById(chips.get(i));
+            MainActivity.pizza.addTopping(Toppings.valueOf(chip.getText().toString()));
+        }
+        priceText.setText(String.valueOf(MainActivity.pizza.price()));
+    }
 }

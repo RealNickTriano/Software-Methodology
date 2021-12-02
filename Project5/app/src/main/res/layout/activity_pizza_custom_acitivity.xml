@@ -13,35 +13,39 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toppingsLabel">
+        app:layout_constraintTop_toBottomOf="@+id/toppingsLabel" >
 
         <com.google.android.material.chip.Chip
             android:id="@+id/beefChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/beef" />
+            android:text="@string/beef"
+            android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/greenPepperChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/green_pepper" />
+            android:text="@string/green_pepper"
+            android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/mushroomChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/mushroom" />
+            android:text="@string/mushroom"
+            android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/pineappleChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/pineapple" />
+            android:text="@string/pineapple"
+            android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/hamChip"
@@ -49,49 +53,55 @@
             android:layout_height="wrap_content"
             android:checkable="true"
             android:text="@string/ham"
-            tools:ignore="DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
+            android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/cheeseChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/cheese" />
+            android:text="@string/cheese"
+            android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/sausageChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/sausage" />
+            android:text="@string/sausage"
+            android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/onionChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/onion" />
+            android:text="@string/onion"
+            android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chickenChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/chicken" />
+            android:text="@string/chicken"
+            android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/pepperoniChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/pepperoni" />
+            android:text="@string/pepperoni"
+            android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/blackOlivesChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkable="true"
-            android:text="@string/black_olives" />
+            android:text="@string/black_olives"
+            android:onClick="handleChipClick" />
     </com.google.android.material.chip.ChipGroup>
 
     <ImageView
