@@ -48,7 +48,8 @@
         android:text="@string/pepperoni"
         app:layout_constraintEnd_toEndOf="@+id/editTextPhone"
         app:layout_constraintStart_toStartOf="@+id/editTextPhone"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumberLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberLabel"
+        android:onClick="handlePepperoniButton" />
 
     <Button
         android:id="@+id/deluxeButton"
@@ -58,7 +59,8 @@
         app:layout_constraintEnd_toEndOf="@+id/pepperoniButton"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/pepperoniButton"
-        app:layout_constraintTop_toBottomOf="@+id/pepperoniButton" />
+        app:layout_constraintTop_toBottomOf="@+id/pepperoniButton"
+        android:onClick="handleDeluxeButton" />
 
     <Button
         android:id="@+id/hawaiianButton"
@@ -68,7 +70,8 @@
         app:layout_constraintEnd_toEndOf="@+id/pepperoniButton"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/pepperoniButton"
-        app:layout_constraintTop_toBottomOf="@+id/deluxeButton" />
+        app:layout_constraintTop_toBottomOf="@+id/deluxeButton"
+        android:onClick="handleHawaiianButton" />
 
     <Button
         android:id="@+id/storeOrdersButton"
@@ -80,7 +83,8 @@
         android:text="@string/store_orders"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="handleStoreOrdersButton" />
 
     <Button
         android:id="@+id/currentOrderButton"
@@ -90,7 +94,8 @@
         android:text="@string/current_order"
         app:layout_constraintBottom_toTopOf="@+id/storeOrdersButton"
         app:layout_constraintEnd_toEndOf="@+id/storeOrdersButton"
-        app:layout_constraintStart_toStartOf="@+id/storeOrdersButton" />
+        app:layout_constraintStart_toStartOf="@+id/storeOrdersButton"
+        android:onClick="handleCurrentOrderButton" />
 
     <ImageView
         android:id="@+id/imageView"

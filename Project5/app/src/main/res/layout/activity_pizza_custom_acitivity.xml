@@ -46,7 +46,8 @@
             android:id="@+id/Ham"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/chicken" />
+            android:text="@string/chicken"
+            tools:ignore="DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/cheeseChip"

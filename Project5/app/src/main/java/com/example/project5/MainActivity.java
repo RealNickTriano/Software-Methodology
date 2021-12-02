@@ -2,7 +2,9 @@ package com.example.project5;
 
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +26,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void handlePepperoniButton(View view)
+    {
+        Toast.makeText(getApplicationContext(), "Pepperoni", Toast.LENGTH_SHORT).show();
+    }
+
+    public void handleDeluxeButton(View view)
+    {
+
+    }
+
+    public void handleHawaiianButton(View view)
+    {
+
+    }
+
+    public void handleCurrentOrderButton(View view)
+    {
+
+    }
+
+    public void handleStoreOrdersButton(View view)
+    {
+
     }
 
 
