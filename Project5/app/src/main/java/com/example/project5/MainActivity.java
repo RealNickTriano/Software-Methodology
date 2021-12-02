@@ -51,8 +51,9 @@ public class MainActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(this, PizzaCustomActivity.class);
         intent.putExtra("image", "Pepperoni");
-        if (phoneEditable)
+        if (phoneEditable) {
             phoneEditable = false;
+        }
         if(!orderStarted)
         {
             orderStarted = true;
@@ -78,8 +79,9 @@ public class MainActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(this, PizzaCustomActivity.class);
         intent.putExtra("image", "Deluxe");
-        if (phoneEditable)
+        if (phoneEditable) {
             phoneEditable = false;
+        }
         if(!orderStarted)
         {
             orderStarted = true;
@@ -102,8 +104,9 @@ public class MainActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(this, PizzaCustomActivity.class);
         intent.putExtra("image", "Hawaiian");
-        if (phoneEditable)
+        if (phoneEditable) {
             phoneEditable = false;
+        }
         if(!orderStarted)
         {
             orderStarted = true;
@@ -130,6 +133,18 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    public void onClickPhone(View vew)
+    {
+        if (phoneEditable)
+        {
+            phoneNumber.setInputType(InputType.TYPE_CLASS_PHONE);
+        }
+        else
+        {
+            phoneNumber.setInputType(InputType.TYPE_NULL);
+        }
     }
 
 
