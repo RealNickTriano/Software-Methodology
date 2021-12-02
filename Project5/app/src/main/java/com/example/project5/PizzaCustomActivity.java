@@ -19,6 +19,7 @@ public class PizzaCustomActivity extends AppCompatActivity {
     private RadioButton mediumRadio;
     private RadioButton largeRadio;
     private TextView priceText;
+    private Pizza pizza;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,8 @@ public class PizzaCustomActivity extends AppCompatActivity {
         smallRadio = findViewById(R.id.smallRadioButton);
         mediumRadio = findViewById(R.id.mediumRadioButton);
         largeRadio = findViewById(R.id.largeRadioButton);
+        priceText = findViewById(R.id.priceText);
+        //pizza = intent.getParcelableExtra("pizza");
         setDefaults(pizzaType);
     }
 
@@ -62,7 +65,7 @@ public class PizzaCustomActivity extends AppCompatActivity {
             toppingsGroup.check(R.id.pineappleChip);
         }
 
-        
+        //priceText.setText(String.valueOf(pizza.price()));
     }
 
 }

@@ -2,10 +2,10 @@ package com.example.project5;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,21 +32,39 @@ public class MainActivity extends AppCompatActivity {
     public void handlePepperoniButton(View view)
     {
 
-        Toast.makeText(getApplicationContext(), "Pepperoni", Toast.LENGTH_SHORT).show();
+        Pizza pizza = PizzaMaker.createPizza("Pepperoni");
+        pizza.setSize(Size.Small);
+        pizza.addTopping(Toppings.Pepperoni);
+        pizza.addTopping(Toppings.Cheese);
         Intent intent = new Intent(this, PizzaCustomActivity.class);
         intent.putExtra("image", "Pepperoni");
+        //intent.putExtra("pizza", pizza);
         startActivity(intent);
     }
 
     public void handleDeluxeButton(View view)
     {
+        Pizza pizza = PizzaMaker.createPizza("Deluxe");
+        pizza.setSize(Size.Small);
+        pizza.addTopping(Toppings.Sausage);
+        pizza.addTopping(Toppings.GreenPepper);
+        pizza.addTopping(Toppings.Mushroom);
+        pizza.addTopping(Toppings.Onion);
+        pizza.addTopping(Toppings.Pepperoni);
+        pizza.addTopping(Toppings.Cheese);
         Intent intent = new Intent(this, PizzaCustomActivity.class);
         intent.putExtra("image", "Deluxe");
+        intent.putExtra("pizza", (Parcelable) pizza);
         startActivity(intent);
     }
 
     public void handleHawaiianButton(View view)
     {
+        Pizza pizza = PizzaMaker.createPizza("Deluxe");
+        pizza.setSize(Size.Small);
+        pizza.addTopping(Toppings.Ham);
+        pizza.addTopping(Toppings.Pineapple);
+        pizza.addTopping(Toppings.Cheese);
         Intent intent = new Intent(this, PizzaCustomActivity.class);
         intent.putExtra("image", "Hawaiian");
         startActivity(intent);

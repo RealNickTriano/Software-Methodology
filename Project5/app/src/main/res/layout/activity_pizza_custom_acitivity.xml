@@ -175,7 +175,7 @@
         android:layout_marginBottom="16dp"
         android:editable="false"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number|textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/addToOrderButton"
         app:layout_constraintEnd_toEndOf="@+id/addToOrderButton"
         app:layout_constraintStart_toStartOf="@+id/addToOrderButton" />
