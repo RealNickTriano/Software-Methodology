@@ -143,19 +143,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="@string/small" />
+            android:text="@string/small"
+            android:onClick="handleSizeSelect" />
 
         <RadioButton
             android:id="@+id/mediumRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/medium" />
+            android:text="@string/medium"
+            android:onClick="handleSizeSelect" />
 
         <RadioButton
             android:id="@+id/largeRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/large" />
+            android:text="@string/large"
+            android:onClick="handleSizeSelect" />
     </RadioGroup>
 
     <TextView

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class PizzaCustomActivity extends AppCompatActivity {
     private ImageView pizzaImage;
     private String pizzaType;
     private ChipGroup toppingsGroup;
+    private RadioGroup sizeRadio;
     private RadioButton smallRadio;
     private RadioButton mediumRadio;
     private RadioButton largeRadio;
@@ -32,6 +34,7 @@ public class PizzaCustomActivity extends AppCompatActivity {
         Intent intent = getIntent();
         pizzaType = intent.getStringExtra("image");
         pizzaImage = findViewById(R.id.pizzaImage);
+        sizeRadio = findViewById(R.id.sizeRadioGroup);
         toppingsGroup = findViewById(R.id.toppingsChipGroup);
         smallRadio = findViewById(R.id.smallRadioButton);
         mediumRadio = findViewById(R.id.mediumRadioButton);
@@ -88,6 +91,13 @@ public class PizzaCustomActivity extends AppCompatActivity {
             Chip chip = toppingsGroup.findViewById(chips.get(i));
             MainActivity.pizza.addTopping(Toppings.valueOf(chip.getText().toString()));
         }
+        priceText.setText(String.valueOf(MainActivity.pizza.price()));
+    }
+
+    public void handleSizeSelect(View view)
+    {
+        RadioButton button = findViewById(sizeRadio.getCheckedRadioButtonId());
+        MainActivity.pizza.setSize(Size.valueOf(button.getText().toString()));
         priceText.setText(String.valueOf(MainActivity.pizza.price()));
     }
 }

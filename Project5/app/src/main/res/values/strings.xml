@@ -10,13 +10,13 @@
     <string name="todo">TODO</string>
     <string name="chicken">Chicken</string>
     <string name="beef">Beef</string>
-    <string name="green_pepper">Green Pepper</string>
+    <string name="green_pepper">GreenPepper</string>
     <string name="mushroom">Mushroom</string>
     <string name="pineapple">Pineapple</string>
     <string name="cheese">Cheese</string>
     <string name="sausage">Sausage</string>
     <string name="onion">Onion</string>
-    <string name="black_olives">Black Olives</string>
+    <string name="black_olives">BlackOlives</string>
     <string name="pizza_image">pizza image</string>
     <string name="add_to_order">Add To Order</string>
     <string name="small">Small</string>
