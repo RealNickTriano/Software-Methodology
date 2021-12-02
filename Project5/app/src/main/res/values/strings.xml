@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Project5</string>
+    <string name="ru_pizzaria">RU Pizzaria</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="pepperoni">Pepperoni</string>
+    <string name="deluxe">Deluxe</string>
+    <string name="hawaiian">Hawaiian</string>
+    <string name="store_orders">Store Orders</string>
+    <string name="current_order">Current Order</string>
 </resources>
