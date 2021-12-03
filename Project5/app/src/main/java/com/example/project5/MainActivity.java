@@ -117,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void handleCurrentOrderButton(View view)
     {
+        Intent intent = new Intent(this, CurrentOrderActivity.class);
+        startActivity(intent);
 
     }
 
