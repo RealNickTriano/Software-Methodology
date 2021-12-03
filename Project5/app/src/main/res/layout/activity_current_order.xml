@@ -6,4 +6,93 @@
     android:layout_height="match_parent"
     tools:context=".CurrentOrderActivity">
 
+    <Button
+        android:id="@+id/placeOrderButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/place_order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/removePizzaButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/remove_pizza"
+        app:layout_constraintBottom_toTopOf="@+id/placeOrderButton"
+        app:layout_constraintEnd_toEndOf="@+id/placeOrderButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/placeOrderButton" />
+
+    <TextView
+        android:id="@+id/subtotalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/subtotal"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/removePizzaButton"
+        app:layout_constraintStart_toStartOf="@+id/removePizzaButton" />
+
+    <TextView
+        android:id="@+id/subtotalPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_0_00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/subtotalLabel"
+        app:layout_constraintEnd_toEndOf="@+id/removePizzaButton"
+        app:layout_constraintTop_toTopOf="@+id/subtotalLabel"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/salesTaxLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/tax"
+        app:layout_constraintStart_toStartOf="@+id/subtotalLabel"
+        app:layout_constraintTop_toBottomOf="@+id/subtotalLabel" />
+
+    <TextView
+        android:id="@+id/salesTaxPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_0_00"
+        app:layout_constraintBottom_toBottomOf="@+id/salesTaxLabel"
+        app:layout_constraintEnd_toEndOf="@+id/removePizzaButton"
+        app:layout_constraintTop_toTopOf="@+id/salesTaxLabel" />
+
+    <TextView
+        android:id="@+id/totalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/total"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/salesTaxLabel"
+        app:layout_constraintTop_toBottomOf="@+id/salesTaxLabel" />
+
+    <TextView
+        android:id="@+id/totalPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_0_00"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/totalLabel"
+        app:layout_constraintEnd_toEndOf="@+id/removePizzaButton"
+        app:layout_constraintTop_toTopOf="@+id/totalLabel" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
