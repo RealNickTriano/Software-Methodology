@@ -22,11 +22,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
         private TextView orderText;
+        private TextView priceText;
 
         public MyViewHolder(final View view)
         {
             super(view);
             orderText = view.findViewById(R.id.itemTextView);
+            priceText = view.findViewById(R.id.priceTextView);
         }
     }
 
@@ -41,6 +43,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public void onBindViewHolder(@NonNull RecyclerAdapter.MyViewHolder holder, int position) {
         String pizza = order.get(position).toString();
         holder.orderText.setText(pizza);
+        String price = String.format("$%.2f", order.get(position).price());
+        holder.priceText.setText(price);
 
     }
 

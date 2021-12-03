@@ -55,8 +55,9 @@ public class Deluxe extends Pizza{
             formattedString = formattedString.concat(toppings.get(i).toString() + ", ");
         }
 
-        formattedString = formattedString.concat(String.format("%s, $" + "%.2f", size, price()));
+        formattedString = formattedString.concat(String.format("%s", size));
 
         return formattedString;
     }
+
 }
