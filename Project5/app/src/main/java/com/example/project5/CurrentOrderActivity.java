@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CurrentOrderActivity extends AppCompatActivity {
+public class CurrentOrderActivity extends AppCompatActivity implements RecyclerAdapter.OnPizzaListener {
 
     private ArrayList<Pizza> order;
     private RecyclerView recyclerView;
@@ -26,12 +26,13 @@ public class CurrentOrderActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        RecyclerAdapter adapter = new RecyclerAdapter(order);
+        RecyclerAdapter adapter = new RecyclerAdapter(order, this);
         RecyclerView.LayoutManager layoutManager =
                 new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
     }
 
     public void handlePlaceOrder(View vew)
@@ -39,5 +40,18 @@ public class CurrentOrderActivity extends AppCompatActivity {
         MainActivity.storeOrder.addToStoreOrders(MainActivity.order);
         Toast.makeText(getApplicationContext(), "Order Placed.",
                 Toast.LENGTH_SHORT).show();
+    }
+
+    public void handleRemovePizza(View view)
+    {
+        // MainActivity.order.removeFromOrder()
+        Toast.makeText(getApplicationContext(), "Removed Pizza.",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPizzaClick(int position) {
+        MainActivity.order.removeFromOrder(order.get(position));
+        setAdapter();
     }
 }

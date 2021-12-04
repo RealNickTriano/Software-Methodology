@@ -13,22 +13,38 @@ import java.util.ArrayList;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
     private ArrayList<Pizza> order;
+    private TextView removeText;
+    private OnPizzaListener mOnPizzaListener;
 
-    public RecyclerAdapter(ArrayList<Pizza> order)
+    public RecyclerAdapter(ArrayList<Pizza> order, OnPizzaListener OnPizzaListener)
     {
         this.order = order;
+        this.mOnPizzaListener = OnPizzaListener;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder
+    public interface OnPizzaListener {
+        void onPizzaClick(int position);
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         private TextView orderText;
         private TextView priceText;
+        OnPizzaListener onPizzaListener;
 
-        public MyViewHolder(final View view)
+        public MyViewHolder(final View view, OnPizzaListener onPizzaListener)
         {
             super(view);
             orderText = view.findViewById(R.id.itemTextView);
             priceText = view.findViewById(R.id.priceTextView);
+            removeText = view.findViewById(R.id.removeText);
+            this.onPizzaListener = onPizzaListener;
+            removeText.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            onPizzaListener.onPizzaClick(getAdapterPosition());
         }
     }
 
@@ -36,7 +52,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     @Override
     public RecyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_items, parent, false);
-        return new MyViewHolder(itemView);
+        return new MyViewHolder(itemView, mOnPizzaListener);
     }
 
     @Override
@@ -52,4 +68,5 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public int getItemCount() {
         return order.size();
     }
+
 }
