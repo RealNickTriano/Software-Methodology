@@ -2,7 +2,6 @@ package com.example.project5;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button currentOrderButton;
     private EditText phoneNumber;
     public static Order order;
-    protected StoreOrders storeOrder;
+    public static StoreOrders storeOrder;
     protected ArrayList<Order> storeOrderList;
     public static Pizza pizza;
     public boolean orderStarted = false;
@@ -36,6 +35,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         phoneNumber = findViewById(R.id.editTextPhone);
 
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+
+        if (phoneEditable)
+        {
+            phoneNumber.setEnabled(true);
+        }
+        else
+        {
+            phoneNumber.setEnabled(false);
+        }
     }
 
     public void handlePepperoniButton(View view)
@@ -131,23 +145,10 @@ public class MainActivity extends AppCompatActivity {
         phone = phoneNumber.getText().toString();
         if (phone.matches("^[0-9]+$") && phone.length() == Constants.PHONE_LENGTH) {
             // cannot change phone once a valid number is entered and order is started until order is placed
-            phoneNumber.setInputType(InputType.TYPE_CLASS_PHONE);
+            phoneNumber.setEnabled(false);
             return true;
         }
         return false;
     }
-
-    public void onClickPhone(View vew)
-    {
-        if (phoneEditable)
-        {
-            phoneNumber.setInputType(InputType.TYPE_CLASS_PHONE);
-        }
-        else
-        {
-            phoneNumber.setInputType(InputType.TYPE_NULL);
-        }
-    }
-
 
 }

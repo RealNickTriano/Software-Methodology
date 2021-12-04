@@ -16,7 +16,8 @@
         android:text="@string/place_order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="handlePlaceOrder"/>
 
     <Button
         android:id="@+id/removePizzaButton"

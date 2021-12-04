@@ -1,6 +1,8 @@
 package com.example.project5;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -30,5 +32,12 @@ public class CurrentOrderActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+    }
+
+    public void handlePlaceOrder(View vew)
+    {
+        MainActivity.storeOrder.addToStoreOrders(MainActivity.order);
+        Toast.makeText(getApplicationContext(), "Order Placed.",
+                Toast.LENGTH_SHORT).show();
     }
 }
