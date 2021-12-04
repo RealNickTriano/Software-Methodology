@@ -40,13 +40,7 @@ public class CurrentOrderActivity extends AppCompatActivity implements RecyclerA
         MainActivity.storeOrder.addToStoreOrders(MainActivity.order);
         Toast.makeText(getApplicationContext(), "Order Placed.",
                 Toast.LENGTH_SHORT).show();
-    }
-
-    public void handleRemovePizza(View view)
-    {
-        // MainActivity.order.removeFromOrder()
-        Toast.makeText(getApplicationContext(), "Removed Pizza.",
-                Toast.LENGTH_SHORT).show();
+        // TODO: close activity, lift phone number restriction in main
     }
 
     @Override

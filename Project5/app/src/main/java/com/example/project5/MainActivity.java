@@ -138,7 +138,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void handleStoreOrdersButton(View view)
     {
-
+        // TODO: launch new intent, with all the store orders
+        // not sure how to display different phone numbers yet
     }
 
     public boolean getPhone() {
