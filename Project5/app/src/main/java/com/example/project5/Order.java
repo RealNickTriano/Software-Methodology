@@ -81,8 +81,7 @@ public class Order {
         for (i = 0; i < pizzaList.size(); i++) {
             total += pizzaList.get(i).price();
         }
-        total += total * Constants.TAX_RATE;
-        return Math.round(total * 100.0) / 100.0;
+        return total;
     }
 
 
