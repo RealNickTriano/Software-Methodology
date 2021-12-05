@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText phoneNumber;
     public static Order order;
     public static StoreOrders storeOrder;
-    protected ArrayList<Order> storeOrderList;
+    protected ArrayList<Order> storeOrderList = new ArrayList<Order>();
     public static Pizza pizza;
     public boolean orderStarted = false;
     private String phone;
