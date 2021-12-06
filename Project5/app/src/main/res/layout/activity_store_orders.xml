@@ -99,7 +99,7 @@
         app:layout_constraintTop_toTopOf="@+id/totalText" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView2"
+        android:id="@+id/recyclerViewStore"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
