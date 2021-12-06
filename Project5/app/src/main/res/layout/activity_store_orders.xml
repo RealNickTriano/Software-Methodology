@@ -125,5 +125,6 @@
         android:text="@string/cancel_order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/totalPrice"
-        app:layout_constraintStart_toStartOf="@+id/totalText" />
+        app:layout_constraintStart_toStartOf="@+id/totalText"
+        android:onClick="handleCancelOrder"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

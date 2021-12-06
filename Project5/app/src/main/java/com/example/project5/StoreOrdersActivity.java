@@ -24,7 +24,8 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
     private Button cancelOrderButton;
     private RecyclerView recyclerView;
     private TextView removeText;
-    private ArrayList<Pizza> order = new ArrayList<Pizza>();
+    private ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
+    private Order currentOrder;
 
 
     @Override
@@ -35,8 +36,16 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
         tax = findViewById(R.id.taxPrice);
         total = findViewById(R.id.totalPrice);
         phoneList= (Spinner) findViewById(R.id.phoneSpinner);
-        storeOrders = MainActivity.storeOrder.getStoreOrdersList();
         recyclerView = findViewById(R.id.recyclerViewStore);
+
+        setSpinner();
+        setRecyclerAdapter();
+        setPrices();
+    }
+
+    private void setSpinner() {
+
+        storeOrders = MainActivity.storeOrder.getStoreOrdersList();
         int size = storeOrders.size();
 
         String[] arraySpinner = new String[size];
@@ -48,8 +57,6 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
                 android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         phoneList.setAdapter(adapter);
-        setRecyclerAdapter();
-        setPrices();
     }
 
     public void setPrices() {
@@ -64,16 +71,18 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
 
     public void setOrder()
     {
+        pizzas = new ArrayList<Pizza>();
         for(int i=0; i <storeOrders.size(); i++) {
             if (phoneList.getSelectedItem().toString() == storeOrders.get(i).getPhoneNumber()) {
-                order = storeOrders.get(i).getPizzaList();
+                pizzas = storeOrders.get(i).getPizzaList();
+                currentOrder = storeOrders.get(i);
             }
         }
     }
 
     private void setRecyclerAdapter() {
         setOrder();
-        RecyclerAdapter adapter = new RecyclerAdapter(order, this);
+        RecyclerAdapter adapter = new RecyclerAdapter(pizzas, this);
         RecyclerView.LayoutManager layoutManager =
                 new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -84,13 +93,15 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
 
     @Override
     public void onPizzaClick(int position) {
-        MainActivity.order.removeFromOrder(order.get(position));
+        MainActivity.order.removeFromOrder(pizzas.get(position));
         setPrices();
         setRecyclerAdapter();
     }
 
     public void handleCancelOrder(View view)
     {
-
+        MainActivity.storeOrder.removeFromStoreOrders(currentOrder);
+        setSpinner();
+        setRecyclerAdapter();
     }
 }
