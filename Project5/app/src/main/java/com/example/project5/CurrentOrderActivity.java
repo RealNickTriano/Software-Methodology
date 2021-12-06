@@ -16,6 +16,7 @@ import java.util.ArrayList;
  * Activity to display and handle the current order screen
  * Contains recycler view to display pizzas in the order,
  * Customer phone number, and price information of order
+ * @author Nicholas Triano, Antonio Ignarra
  */
 public class CurrentOrderActivity extends AppCompatActivity implements RecyclerAdapter.OnPizzaListener {
 

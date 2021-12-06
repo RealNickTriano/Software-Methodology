@@ -11,6 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+/**
+ * Activity to display and handle Main menu
+ * Navigates to other menus through buttons
+ * @author Nicholas Triano, Antonio Ignarra
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Button pepperoniButton;
@@ -29,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static Bundle mainBundle = new Bundle();
 
+    /**
+     * Method called on creation of the activity, sets layout of screen
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         storeOrder = new StoreOrders(storeOrderList);
     }
 
+    /**
+     * Called when activity comes back into foreground
+     */
     @Override
     public void onResume()
     {
@@ -52,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * handles click of pepperoni button, launches new activity to customize pizza
+     * @param view button pressed
+     */
     public void handlePepperoniButton(View view)
     {
         pizza = PizzaMaker.createPizza("Pepperoni");
@@ -76,6 +92,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * handles click of deluxe button, launches new activity to customize pizza
+     * @param view button pressed
+     */
     public void handleDeluxeButton(View view)
     {
         pizza = PizzaMaker.createPizza("Deluxe");
@@ -104,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * handles click of hawaiian button, launches new activity to customize pizza
+     * @param view button pressed
+     */
     public void handleHawaiianButton(View view)
     {
         pizza = PizzaMaker.createPizza("Deluxe");
@@ -129,6 +153,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * handles click of current order button, launches new activity to the current order
+     * @param view button pressed
+     */
     public void handleCurrentOrderButton(View view)
     {
         Intent intent = new Intent(this, CurrentOrderActivity.class);
@@ -138,6 +166,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * handles click of store order button, launches new activity to the store orders
+     * @param view button pressed
+     */
     public void handleStoreOrdersButton(View view)
     {
         // TODO: launch new intent, with all the store orders
@@ -146,6 +178,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * helper method to check for correct phone number input
+     * @return true on success, false on error
+     */
     public boolean getPhone() {
         phone = phoneNumber.getText().toString();
         if (phone.matches("^[0-9]+$") && phone.length() == Constants.PHONE_LENGTH) {
@@ -156,6 +192,9 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * helper method to reset the phone input
+     */
     public static void setPhoneEditable() {
         phoneEditable = true;
         phoneNumber.setText("");
