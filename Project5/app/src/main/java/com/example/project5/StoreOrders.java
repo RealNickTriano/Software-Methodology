@@ -83,4 +83,11 @@ public class StoreOrders {
     public ArrayList<Order> getStoreOrdersList() {
         return storeOrdersList;
     }
+
+    /**
+     * Allows other classes to access the size of store orders
+     *
+     * @return the size of the array list of orders
+     */
+    public int getSize() { return storeOrdersList.size();}
 }

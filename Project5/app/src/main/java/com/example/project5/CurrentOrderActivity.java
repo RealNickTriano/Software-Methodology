@@ -52,6 +52,7 @@ public class CurrentOrderActivity extends AppCompatActivity implements RecyclerA
     public void handlePlaceOrder(View vew)
     {
         MainActivity.storeOrder.addToStoreOrders(MainActivity.order);
+        // TODO: close activity, lift phone number restriction in main
         Toast.makeText(getApplicationContext(),
                 "Order added to store orders.", Toast.LENGTH_SHORT).show();
         finish();
