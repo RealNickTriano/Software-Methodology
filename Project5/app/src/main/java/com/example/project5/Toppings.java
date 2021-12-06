@@ -12,7 +12,6 @@ public enum Toppings {
     Mushroom,
     Pineapple,
     Ham,
-    Cheese,
     Sausage,
     Onion,
     BlackOlives

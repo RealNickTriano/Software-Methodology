@@ -52,12 +52,10 @@ public class PizzaCustomActivity extends AppCompatActivity {
         {
             pizzaImage.setImageResource(R.drawable.pepperoni);
             toppingsGroup.check(R.id.pepperoniChip);
-            toppingsGroup.check(R.id.cheeseChip);
         }
         else if (pizzaType.equals("Deluxe"))
         {
             pizzaImage.setImageResource(R.drawable.deluxe);
-            toppingsGroup.check(R.id.cheeseChip);
             toppingsGroup.check(R.id.sausageChip);
             toppingsGroup.check(R.id.greenPepperChip);
             toppingsGroup.check(R.id.mushroomChip);
@@ -67,7 +65,6 @@ public class PizzaCustomActivity extends AppCompatActivity {
         else if (pizzaType.equals("Hawaiian"))
         {
             pizzaImage.setImageResource(R.drawable.hawaiian);
-            toppingsGroup.check(R.id.cheeseChip);
             toppingsGroup.check(R.id.hamChip);
             toppingsGroup.check(R.id.pineappleChip);
         }

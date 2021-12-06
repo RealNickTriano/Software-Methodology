@@ -56,14 +56,6 @@
             android:onClick="handleChipClick" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/cheeseChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="@string/cheese"
-            android:onClick="handleChipClick" />
-
-        <com.google.android.material.chip.Chip
             android:id="@+id/sausageChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
