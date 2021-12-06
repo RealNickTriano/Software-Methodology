@@ -16,6 +16,12 @@ import com.google.android.material.chip.ChipGroup;
 
 import java.util.List;
 
+/**
+ * Activity to display and handle the pizza customization screen
+ * contains image of pizza to customize, chip group of toppings,
+ * size selection radio group, and price of pizza
+ * @author Nicholas Triano, Antonio Ignarra
+ */
 public class PizzaCustomActivity extends AppCompatActivity {
 
     private ImageView pizzaImage;
@@ -27,6 +33,10 @@ public class PizzaCustomActivity extends AppCompatActivity {
     private RadioButton largeRadio;
     private TextView priceText;
 
+    /**
+     * Method called on creation of the activity, sets layout of screen
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +54,10 @@ public class PizzaCustomActivity extends AppCompatActivity {
         setDefaults(pizzaType);
     }
 
+    /**
+     * set the default values of the price, toppings, and image
+     * @param pizzaType
+     */
     public void setDefaults(String pizzaType)
     {
         smallRadio.setChecked(true);
@@ -72,6 +86,10 @@ public class PizzaCustomActivity extends AppCompatActivity {
         priceText.setText(String.format("$%.2f", MainActivity.pizza.price()));
     }
 
+    /**
+     * handles add to order button, finishes this view shows toast message, adds pizza to order
+     * @param view button pressed
+     */
     public void handleAddToOrder(View view)
     {
         MainActivity.order.addToOrder(MainActivity.pizza);
@@ -80,6 +98,10 @@ public class PizzaCustomActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * handles sets toppings on a chip is clicked, calculates price
+     * @param view button pressed
+     */
     public void handleChipClick(View view)
     {
         List<Integer> chips = toppingsGroup.getCheckedChipIds();
@@ -91,6 +113,10 @@ public class PizzaCustomActivity extends AppCompatActivity {
         priceText.setText(String.format("$%.2f", MainActivity.pizza.price()));
     }
 
+    /**
+     * handles size of pizza that was selected, recalculates price
+     * @param view button pressed
+     */
     public void handleSizeSelect(View view)
     {
         RadioButton button = findViewById(sizeRadio.getCheckedRadioButtonId());
