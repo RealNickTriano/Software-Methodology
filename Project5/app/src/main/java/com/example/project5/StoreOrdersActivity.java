@@ -78,15 +78,15 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
                 new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        removeText = recyclerView.findViewById(R.id.removeText);
-        //removeText.setText(" ");
         recyclerView.setAdapter(adapter);
 
     }
 
     @Override
     public void onPizzaClick(int position) {
-
+        MainActivity.order.removeFromOrder(order.get(position));
+        setPrices();
+        setRecyclerAdapter();
     }
 
     public void handleCancelOrder(View view)
