@@ -18,14 +18,14 @@ public class MainActivity extends AppCompatActivity {
     private Button hawaiianButton;
     private Button storeOrdersButton;
     private Button currentOrderButton;
-    private EditText phoneNumber;
+    private static EditText phoneNumber;
     public static Order order;
     public static StoreOrders storeOrder;
     protected ArrayList<Order> storeOrderList = new ArrayList<Order>();
     public static Pizza pizza;
     public boolean orderStarted = false;
     private String phone;
-    protected boolean phoneEditable = true;
+    protected static boolean phoneEditable = true;
 
     public static Bundle mainBundle = new Bundle();
 
@@ -154,6 +154,11 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    public static void setPhoneEditable() {
+        phoneEditable = true;
+        phoneNumber.setText("");
     }
 
 }

@@ -60,6 +60,7 @@ public class CurrentOrderActivity extends AppCompatActivity implements RecyclerA
         // TODO: close activity, lift phone number restriction in main
         Toast.makeText(getApplicationContext(),
                 "Order added to store orders.", Toast.LENGTH_SHORT).show();
+        MainActivity.setPhoneEditable();
         finish();
     }
 
