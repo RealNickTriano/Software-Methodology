@@ -29,4 +29,63 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ordersTitleText" />
+
+    <TextView
+        android:id="@+id/subtotalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/subtotal"
+        app:layout_constraintBottom_toTopOf="@+id/taxText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/taxText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/tax"
+        app:layout_constraintBottom_toTopOf="@+id/totalText"
+        app:layout_constraintStart_toStartOf="@+id/subtotalText" />
+
+    <TextView
+        android:id="@+id/totalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/total"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/taxText" />
+
+    <TextView
+        android:id="@+id/subtotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/_0_00"
+        app:layout_constraintBottom_toBottomOf="@+id/subtotalText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/subtotalText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/taxPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_0_00"
+        app:layout_constraintBottom_toBottomOf="@+id/taxText"
+        app:layout_constraintEnd_toEndOf="@+id/subtotalPrice"
+        app:layout_constraintTop_toTopOf="@+id/taxText" />
+
+    <TextView
+        android:id="@+id/totalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_0_00"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/totalText"
+        app:layout_constraintEnd_toEndOf="@+id/taxPrice"
+        app:layout_constraintTop_toTopOf="@+id/totalText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

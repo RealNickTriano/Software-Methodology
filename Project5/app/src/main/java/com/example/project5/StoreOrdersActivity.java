@@ -3,6 +3,7 @@ package com.example.project5;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,12 +12,20 @@ import java.util.ArrayList;
 public class StoreOrdersActivity extends AppCompatActivity {
 
     private ArrayList<Order> storeOrders;
+    private Spinner phoneList;
+    private TextView subtotal;
+    private TextView tax;
+    private TextView total;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_orders);
-        Spinner s = (Spinner) findViewById(R.id.phoneSpinner);
+        subtotal = findViewById(R.id.subtotalPrice);
+        tax = findViewById(R.id.taxPrice);
+        total = findViewById(R.id.totalPrice);
+        phoneList= (Spinner) findViewById(R.id.phoneSpinner);
         storeOrders = MainActivity.storeOrder.getStoreOrdersList();
         int size = storeOrders.size();
 
@@ -28,6 +37,17 @@ public class StoreOrdersActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s.setAdapter(adapter);
+        phoneList.setAdapter(adapter);
+        setPrices();
+    }
+
+    public void setPrices() {
+        for(int i=0; i <storeOrders.size(); i++) {
+            if (phoneList.getSelectedItem().toString() == storeOrders.get(i).getPhoneNumber()) {
+                subtotal.setText(String.format("$%.2f", storeOrders.get(i).getTotal()));
+                tax.setText(String.format("$%.2f", storeOrders.get(i).getTotal() * Constants.TAX_RATE));
+                total.setText(String.format("$%.2f", storeOrders.get(i).getTotal() + (MainActivity.order.getTotal() * Constants.TAX_RATE)));
+            }
+        }
     }
 }
