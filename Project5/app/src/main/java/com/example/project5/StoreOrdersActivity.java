@@ -14,6 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * Activity to display and handle the store orders screen
+ * Contains recycler view to list pizzas in order, spinner with each order,
+ * price of current order and can cancel order
+ * @author Nicholas Triano, Antonio Ignarra
+ */
 public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAdapter.OnPizzaListener {
 
     private ArrayList<Order> storeOrders;
@@ -28,6 +34,10 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
     private Order currentOrder;
 
 
+    /**
+     * Method called on creation of the activity, sets layout of screen
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +53,9 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
         setPrices();
     }
 
+    /**
+     * sets the spinner, fills with phone numbers related to orders
+     */
     private void setSpinner() {
 
         storeOrders = MainActivity.storeOrder.getStoreOrdersList();
@@ -59,6 +72,9 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
         phoneList.setAdapter(adapter);
     }
 
+    /**
+     * sets the price of the order
+     */
     public void setPrices() {
         subtotal.setText("$0.00");
         tax.setText("$0.00");
@@ -72,6 +88,9 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
         }
     }
 
+    /**
+     * sets which order to display
+     */
     public void setOrder()
     {
         pizzas = new ArrayList<Pizza>();
@@ -83,6 +102,9 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
         }
     }
 
+    /**
+     * sets adapter for recycler view to show the order selected
+     */
     private void setRecyclerAdapter() {
         setOrder();
         RecyclerAdapter adapter = new RecyclerAdapter(pizzas, this);
@@ -94,6 +116,10 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
 
     }
 
+    /**
+     * handles remove text click, removes pizza from order
+     * @param position position in order list
+     */
     @Override
     public void onPizzaClick(int position) {
         MainActivity.order.removeFromOrder(pizzas.get(position));
@@ -101,6 +127,10 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
         setRecyclerAdapter();
     }
 
+    /**
+     * handles the cancel order button, deletes order from list of store orders
+     * @param view button pressed
+     */
     public void handleCancelOrder(View view)
     {
         MainActivity.storeOrder.removeFromStoreOrders(currentOrder);
