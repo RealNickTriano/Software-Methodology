@@ -60,6 +60,9 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
     }
 
     public void setPrices() {
+        subtotal.setText("$0.00");
+        tax.setText("$0.00");
+        total.setText("$0.00");
         for(int i=0; i <storeOrders.size(); i++) {
             if (phoneList.getSelectedItem().toString() == storeOrders.get(i).getPhoneNumber()) {
                 subtotal.setText(String.format("$%.2f", storeOrders.get(i).getTotal()));
@@ -103,5 +106,6 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
         MainActivity.storeOrder.removeFromStoreOrders(currentOrder);
         setSpinner();
         setRecyclerAdapter();
+        setPrices();
     }
 }
