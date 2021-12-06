@@ -22,9 +22,9 @@
         android:id="@+id/phoneSpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginEnd="16dp"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,29 +35,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="24dp"
         android:text="@string/subtotal"
-        app:layout_constraintBottom_toTopOf="@+id/taxText"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anchor" />
 
     <TextView
         android:id="@+id/taxText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="8dp"
         android:text="@string/tax"
-        app:layout_constraintBottom_toTopOf="@+id/totalText"
-        app:layout_constraintStart_toStartOf="@+id/subtotalText" />
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/subtotalText"
+        app:layout_constraintTop_toBottomOf="@+id/subtotalText" />
 
     <TextView
         android:id="@+id/totalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="8dp"
         android:text="@string/total"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/taxText" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/taxText"
+        app:layout_constraintTop_toBottomOf="@+id/taxText" />
 
     <TextView
         android:id="@+id/subtotalPrice"
@@ -65,6 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="@string/_0_00"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/subtotalText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/subtotalText"
@@ -75,6 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_0_00"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/taxText"
         app:layout_constraintEnd_toEndOf="@+id/subtotalPrice"
         app:layout_constraintTop_toTopOf="@+id/taxText" />
@@ -85,7 +92,38 @@
         android:layout_height="wrap_content"
         android:text="@string/_0_00"
         android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/totalText"
         app:layout_constraintEnd_toEndOf="@+id/taxPrice"
         app:layout_constraintTop_toTopOf="@+id/totalText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/anchor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneSpinner" />
+
+    <TextView
+        android:id="@+id/anchor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="167dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/cancelOrderButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/cancel_order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/totalPrice"
+        app:layout_constraintStart_toStartOf="@+id/totalText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
