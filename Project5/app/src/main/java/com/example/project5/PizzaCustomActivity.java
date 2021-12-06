@@ -69,7 +69,7 @@ public class PizzaCustomActivity extends AppCompatActivity {
             toppingsGroup.check(R.id.pineappleChip);
         }
 
-        priceText.setText(String.valueOf(MainActivity.pizza.price()));
+        priceText.setText(String.format("$%.2f", MainActivity.pizza.price()));
     }
 
     public void handleAddToOrder(View view)
@@ -88,13 +88,13 @@ public class PizzaCustomActivity extends AppCompatActivity {
             Chip chip = toppingsGroup.findViewById(chips.get(i));
             MainActivity.pizza.addTopping(Toppings.valueOf(chip.getText().toString()));
         }
-        priceText.setText(String.valueOf(MainActivity.pizza.price()));
+        priceText.setText(String.format("$%.2f", MainActivity.pizza.price()));
     }
 
     public void handleSizeSelect(View view)
     {
         RadioButton button = findViewById(sizeRadio.getCheckedRadioButtonId());
         MainActivity.pizza.setSize(Size.valueOf(button.getText().toString()));
-        priceText.setText(String.valueOf(MainActivity.pizza.price()));
+        priceText.setText(String.format("$%.2f", MainActivity.pizza.price()));
     }
 }
