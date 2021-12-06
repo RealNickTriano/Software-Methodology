@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project5">
-        <activity android:name=".StoreOrdersActivity"></activity>
-        <activity android:name=".CurrentOrderActivity" />
-        <activity android:name=".PizzaCustomActivity" />
+        <activity android:name=".StoreOrdersActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".CurrentOrderActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".PizzaCustomActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
