@@ -33,4 +33,5 @@
     <string name="_0_00">$0.00</string>
     <string name="_1111111111">1111111111</string>
     <string name="remove">Remove</string>
+    <string name="store_orders">Store Orders</string>
 </resources>

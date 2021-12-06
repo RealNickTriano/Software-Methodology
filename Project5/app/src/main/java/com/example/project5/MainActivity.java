@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         pizza = PizzaMaker.createPizza("Pepperoni");
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Pepperoni);
-        pizza.addTopping(Toppings.Cheese);
+        //pizza.addTopping(Toppings.Cheese);
         if (!getPhone())
         {
             Toast.makeText(getApplicationContext(), "Must enter a phone number.", Toast.LENGTH_SHORT).show();
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         pizza.addTopping(Toppings.Mushroom);
         pizza.addTopping(Toppings.Onion);
         pizza.addTopping(Toppings.Pepperoni);
-        pizza.addTopping(Toppings.Cheese);
+        //pizza.addTopping(Toppings.Cheese);
         if (!getPhone())
         {
             Toast.makeText(getApplicationContext(), "Must enter a phone number.", Toast.LENGTH_SHORT).show();
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Ham);
         pizza.addTopping(Toppings.Pineapple);
-        pizza.addTopping(Toppings.Cheese);
+        //pizza.addTopping(Toppings.Cheese);
         if (!getPhone())
         {
             Toast.makeText(getApplicationContext(), "Must enter a phone number.", Toast.LENGTH_SHORT).show();
@@ -140,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
     {
         // TODO: launch new intent, with all the store orders
         // not sure how to display different phone numbers yet
+        Intent intent = new Intent(this, StoreOrdersActivity.class);
+        startActivity(intent);
     }
 
     public boolean getPhone() {
