@@ -132,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
     public void handleCurrentOrderButton(View view)
     {
         Intent intent = new Intent(this, CurrentOrderActivity.class);
+        String p = phoneNumber.getText().toString();
+        intent.putExtra("phone_number", p);
         startActivity(intent);
 
     }

@@ -19,6 +19,7 @@ public class CurrentOrderActivity extends AppCompatActivity implements RecyclerA
     private TextView subtotalPrice;
     private TextView taxPrice;
     private TextView totalPrice;
+    private TextView phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,10 @@ public class CurrentOrderActivity extends AppCompatActivity implements RecyclerA
         subtotalPrice = findViewById(R.id.subtotalPriceLabel);
         taxPrice = findViewById(R.id.salesTaxPriceLabel);
         totalPrice = findViewById(R.id.totalPriceLabel);
+        phone = findViewById(R.id.phoneNumberText);
+        Bundle b = getIntent().getExtras();
+        String phoneReceiver = b.getString("phone_number");
+        phone.setText(phoneReceiver);
         setPrices();
         setAdapter();
     }
