@@ -138,4 +138,11 @@ public class StoreOrdersActivity extends AppCompatActivity implements RecyclerAd
         setRecyclerAdapter();
         setPrices();
     }
+
+    public void handleUpdate(View view)
+    {
+        setRecyclerAdapter();
+        setPrices();
+    }
+
 }
