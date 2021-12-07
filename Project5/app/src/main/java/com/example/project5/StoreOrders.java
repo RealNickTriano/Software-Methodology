@@ -1,8 +1,5 @@
 package com.example.project5;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -21,38 +18,6 @@ public class StoreOrders {
      */
     public StoreOrders(ArrayList<Order> storeOrdersList) {
         this.storeOrdersList = storeOrdersList;
-    }
-
-    /**
-     * Saves the store orders to an external text file
-     *
-     * @return true on success, false on failure
-     */
-    public boolean export() {
-        File file = new File("store_orders.txt");
-        PrintWriter pw = null;
-        try {
-            pw = new PrintWriter(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
-        int i, j;
-        // iterate over each order
-        for (i = 0; i < storeOrdersList.size(); i++) {
-            Order currentOrder = storeOrdersList.get(i);
-            String phone = currentOrder.getPhoneNumber();
-            pw.print("Customer phone: " + phone + "\n");
-            ArrayList<Pizza> pizzaList = currentOrder.getPizzaList();
-            for (j = 0; j < pizzaList.size(); j++) {
-                pw.print(pizzaList.get(j).toString() + "\n");
-            }
-            double total = currentOrder.getTotal();
-            pw.print("Order total: $" + total + "\n");
-            pw.print("*******************************\n");
-        }
-        pw.close();
-        return true;
     }
 
     /**

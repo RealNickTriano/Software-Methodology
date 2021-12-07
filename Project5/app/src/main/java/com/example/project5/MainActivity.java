@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private static EditText phoneNumber;
     public static Order order;
     public static StoreOrders storeOrder;
-    protected ArrayList<Order> storeOrderList = new ArrayList<Order>();
+    protected ArrayList<Order> storeOrderList = new ArrayList<>();
     public static Pizza pizza;
-    public boolean orderStarted = false;
+    public static boolean orderStarted = false;
     private String phone;
     protected static boolean phoneEditable = true;
 
@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         pizza = PizzaMaker.createPizza("Pepperoni");
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Pepperoni);
-        //pizza.addTopping(Toppings.Cheese);
         if (!getPhone())
         {
             Toast.makeText(getApplicationContext(), "Must enter a phone number.", Toast.LENGTH_SHORT).show();
@@ -105,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
         pizza.addTopping(Toppings.Mushroom);
         pizza.addTopping(Toppings.Onion);
         pizza.addTopping(Toppings.Pepperoni);
-        //pizza.addTopping(Toppings.Cheese);
         if (!getPhone())
         {
             Toast.makeText(getApplicationContext(), "Must enter a phone number.", Toast.LENGTH_SHORT).show();
@@ -134,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
         pizza.setSize(Size.Small);
         pizza.addTopping(Toppings.Ham);
         pizza.addTopping(Toppings.Pineapple);
-        //pizza.addTopping(Toppings.Cheese);
         if (!getPhone())
         {
             Toast.makeText(getApplicationContext(), "Must enter a phone number.", Toast.LENGTH_SHORT).show();
@@ -172,8 +169,6 @@ public class MainActivity extends AppCompatActivity {
      */
     public void handleStoreOrdersButton(View view)
     {
-        // TODO: launch new intent, with all the store orders
-        // not sure how to display different phone numbers yet
         Intent intent = new Intent(this, StoreOrdersActivity.class);
         startActivity(intent);
     }
@@ -190,14 +185,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
-    }
-
-    /**
-     * helper method to reset the phone input
-     */
-    public static void setPhoneEditable() {
-        phoneEditable = true;
-        phoneNumber.setText("");
     }
 
 }
